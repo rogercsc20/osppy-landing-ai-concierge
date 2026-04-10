@@ -1,26 +1,70 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Osppy brand colors */
+  --color-navy: #0a1628;
+  --color-navy-dark: #080e1a;
+  --color-gold: #4a90e2;
+  --color-gold-muted: rgba(74, 144, 226, 0.2);
+  --color-off-white: #f8f6f1;
+  --color-ink: #1a1a2e;
+  --color-wa-green: #25d366;
+  --color-wa-green-dark: #128c7e;
+  --color-wa-bubble: #1e2d3d;
+  --color-success: #2ecc71;
+
+  /* Typography */
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-geist);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #080e1a;
+  color: #ffffff;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Subtle grid pattern for dark hero sections */
+.bg-grid-pattern {
+  background-image:
+    linear-gradient(rgba(74, 144, 226, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74, 144, 226, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* WA dot pattern for chat background */
+.bg-wa-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Typing indicator animation */
+@keyframes typing-dot {
+  0%, 60%, 100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  30% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+
+.typing-dot:nth-child(1) { animation: typing-dot 1.2s infinite 0s; }
+.typing-dot:nth-child(2) { animation: typing-dot 1.2s infinite 0.2s; }
+.typing-dot:nth-child(3) { animation: typing-dot 1.2s infinite 0.4s; }
+
+/* Smooth anchor scroll offset for sticky navbar */
+[id] {
+  scroll-margin-top: 80px;
 }

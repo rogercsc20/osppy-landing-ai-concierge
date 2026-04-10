@@ -1,0 +1,158 @@
+{
+  "nav": {
+    "cta": "Book demo",
+    "lang": "ES"
+  },
+  "hero": {
+    "headline": "Your front desk never sleeps.",
+    "subheadline": "Osppy answers your guests on WhatsApp in seconds — pricing, check-in, availability — at 3am if needed. No extra staff required.",
+    "cta": {
+      "primary": "Book a free demo",
+      "secondary": "See how it works"
+    }
+  },
+  "proof": {
+    "bar": "Live in 15+ boutique hotels across Mexico",
+    "stat1": "< 3 sec response",
+    "stat2": "15+ active hotels",
+    "stat3": "24/7 uninterrupted"
+  },
+  "problem": {
+    "headline": "80 WhatsApp messages a day. All answered manually. By you.",
+    "body": "Boutique hotel owners spend hours answering the same 12 questions. Pricing, check-in times, pets, parking, breakfast. Over and over. At any hour. Every slow response is a booking that goes to a competitor.",
+    "card1": {
+      "title": "Midnight messages",
+      "body": "Your guests don't have office hours. Neither does your phone."
+    },
+    "card2": {
+      "title": "Brutal OTA commissions",
+      "body": "Booking.com takes 20% of every reservation. And then owns your guest relationship."
+    },
+    "card3": {
+      "title": "Slow response = lost guest",
+      "body": "70% of travelers book with the first hotel that responds. Not the best one. The first one."
+    }
+  },
+  "solution": {
+    "headline": "Osppy answers. You rest.",
+    "body": "We connect Osppy to your WhatsApp Business number. In 30 minutes it's ready to respond like your best front desk staff — with your hotel's exact information, in your chosen tone, in natural Mexican Spanish.",
+    "card1": {
+      "title": "Response in seconds",
+      "body": "Not hours. Seconds. At 2am on a Sunday."
+    },
+    "card2": {
+      "title": "Sounds like you",
+      "body": "Configured with your real hotel information. No generic responses."
+    },
+    "card3": {
+      "title": "Escalates to a human when it matters",
+      "body": "Complaints, complex requests, and confirmed bookings go straight to your WhatsApp."
+    }
+  },
+  "how": {
+    "headline": "This simple.",
+    "step1": "We connect your WhatsApp Business number",
+    "step2": "We load your hotel's information",
+    "step3": "Your guests get instant answers"
+  },
+  "features": {
+    "headline": "Everything you need. Nothing you don't.",
+    "f1": { "title": "Native WhatsApp", "body": "No new apps. Connects to your existing number." },
+    "f2": { "title": "Available 24/7", "body": "Responds at 3am without you waking up." },
+    "f3": { "title": "Real Mexican Spanish", "body": "Not translated from English. Built for LATAM." },
+    "f4": { "title": "30-min setup", "body": "We load your info. Done. No IT required." },
+    "f5": { "title": "Smart escalation", "body": "Knows when to send you the message. Won't bother you with trivial things." },
+    "f6": { "title": "No commissions", "body": "Flat monthly fee. Whatever you save on OTAs is yours." }
+  },
+  "pricing": {
+    "headline": "One flat price. No commissions. No surprises.",
+    "comparison": "Booking.com charges a mid-size hotel ~$3,000 USD/month in commissions. Osppy costs $149.",
+    "recommended": "Recommended",
+    "cta": "Book demo",
+    "starter": {
+      "name": "Starter",
+      "price": "$49",
+      "period": "USD/mo",
+      "f1": "Automatic FAQ via WhatsApp",
+      "f2": "Human escalation",
+      "f3": "WhatsApp Business integration"
+    },
+    "growth": {
+      "name": "Growth",
+      "price": "$149",
+      "period": "USD/mo",
+      "f1": "Everything in Starter",
+      "f2": "Booking assistant",
+      "f3": "Conversation history",
+      "f4": "Analytics dashboard"
+    },
+    "pro": {
+      "name": "Pro",
+      "price": "$249",
+      "period": "USD/mo",
+      "f1": "Everything in Growth",
+      "f2": "Proactive messages",
+      "f3": "Multi-staff",
+      "f4": "Advanced automations"
+    }
+  },
+  "pilot": {
+    "headline": "What our hotel owners say.",
+    "body": "Over 15 boutique hotels across Mexico use Osppy every day.",
+    "tag": "Real customers",
+    "r1": {
+      "quote": "I used to answer messages at midnight every day. Now I sleep. Osppy handles everything with my tone and my hotel's exact information.",
+      "author": "Mariana R.",
+      "hotel": "Hotel Boutique Casa Tlaquepaque, Jalisco",
+      "stars": "5"
+    },
+    "r2": {
+      "quote": "I thought a bot would feel fake. Not at all — my guests write to it the same way they'd write to me. And direct bookings went up 30% in the first month.",
+      "author": "Carlos V.",
+      "hotel": "Posada del Arte, San Cristóbal de las Casas",
+      "stars": "5"
+    },
+    "r3": {
+      "quote": "The ROI is brutal. I stopped paying Booking.com commissions on two room categories because Osppy captures those bookings directly via WhatsApp.",
+      "author": "Sofía M.",
+      "hotel": "Hotel Hacienda del Mar, Puerto Vallarta",
+      "stars": "5"
+    }
+  },
+  "faq": {
+    "headline": "Frequently asked questions",
+    "q1": "What happens if Osppy makes a mistake?",
+    "a1": "Osppy is configured to escalate to you when it doesn't have enough information or when it detects a sensitive situation. If it makes a mistake in a routine response, you can correct the information in seconds from the dashboard.",
+    "q2": "Do I need to change my WhatsApp number?",
+    "a2": "No. Osppy connects directly to your existing WhatsApp Business number. Your guests keep writing to the same number as always.",
+    "q3": "How long does setup take?",
+    "a3": "In 30 minutes we have Osppy connected and responding. We need your basic hotel information: prices, policies, schedules. We do the rest.",
+    "q4": "What languages does it respond in?",
+    "a4": "Mexican Spanish by default. It can also respond in English when it detects the guest is writing in that language. Portuguese coming soon.",
+    "q5": "Can I see all the conversations?",
+    "a5": "Yes. You have access to a dashboard where you can see all conversations in real time, intervene whenever you want, and review the full history.",
+    "q6": "Is there a long-term contract?",
+    "a6": "No. Month to month. Cancel anytime. No fine print."
+  },
+  "cta": {
+    "headline": "How many messages did you answer last night after 9pm?",
+    "body": "Book a 20-minute demo. We'll show you how Osppy works with your hotel's real information. No commitment.",
+    "button": "Book your demo",
+    "form": {
+      "name": "Your name",
+      "hotel": "Hotel name",
+      "contact": "WhatsApp or email",
+      "submit": "Book my free demo",
+      "success": {
+        "title": "Done! We'll be in touch soon.",
+        "body": "Check your WhatsApp or email. We'll write to you within 24 hours to schedule the demo."
+      }
+    }
+  },
+  "footer": {
+    "tagline": "The front desk that never sleeps.",
+    "privacy": "Privacy policy",
+    "terms": "Terms of use",
+    "rights": "© 2026 Osppy. All rights reserved."
+  }
+}
