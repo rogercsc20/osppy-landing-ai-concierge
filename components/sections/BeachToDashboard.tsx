@@ -38,27 +38,43 @@ interface Row {
 const PHONE_BARS = [3, 5, 4, 7, 9, 8, 11, 13, 10, 14, 12, 16, 13, 9];
 
 /**
- * Renders children at a fixed design width and zooms them down to fill the
- * available width, so content fits horizontally without being cut. Vertical
- * height scales too, so it scrolls naturally inside a constrained screen.
+ * Renders children at a fixed `designWidth` (so their container queries see a
+ * wide container and lay out like the desktop view) and uses transform: scale
+ * to shrink the whole thing to fit the available width. Unlike `zoom`, scale
+ * does NOT shrink the layout box, so the container queries still see the full
+ * design width. The outer height is set to the scaled content height so there
+ * is no blank space below.
  */
 function FitToWidth({ designWidth, children }: { designWidth: number; children: React.ReactNode }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [zoom, setZoom] = useState(0.4);
+  const outerRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [scale, setScale] = useState(0.45);
+  const [height, setHeight] = useState<number | undefined>(undefined);
 
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const update = () => setZoom(el.clientWidth / designWidth);
+    const outer = outerRef.current;
+    const content = contentRef.current;
+    if (!outer || !content) return;
+    const update = () => {
+      const s = outer.clientWidth / designWidth;
+      setScale(s);
+      setHeight(content.offsetHeight * s);
+    };
     update();
     const ro = new ResizeObserver(update);
-    ro.observe(el);
+    ro.observe(outer);
+    ro.observe(content);
     return () => ro.disconnect();
   }, [designWidth]);
 
   return (
-    <div ref={ref} className="w-full">
-      <div style={{ width: designWidth, zoom } as React.CSSProperties}>{children}</div>
+    <div ref={outerRef} className="w-full overflow-hidden" style={{ height }}>
+      <div
+        ref={contentRef}
+        style={{ width: designWidth, transform: `scale(${scale})`, transformOrigin: "top left" }}
+      >
+        {children}
+      </div>
     </div>
   );
 }
@@ -331,7 +347,7 @@ export function BeachToDashboard() {
         {/* dashboard in a normally-proportioned MacBook; the screen scrolls */}
         <AnimatedSection delay={0.1} className="mx-auto mt-8 max-w-md">
           <Laptop compact>
-            <FitToWidth designWidth={840}>
+            <FitToWidth designWidth={760}>
               <DashboardMockup className="rounded-none border-0 shadow-none" />
             </FitToWidth>
           </Laptop>
