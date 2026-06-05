@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion, type Transition } from "framer-motion";
 import { useTranslations } from "next-intl";
-import { WhatsAppMockup } from "@/components/ui/WhatsAppMockup";
+import { InteractiveChat } from "@/components/ui/chat/InteractiveChat";
 import { ArrowRight, ChevronDown } from "lucide-react";
 
 export function Hero() {
@@ -16,28 +16,27 @@ export function Hero() {
   });
 
   return (
-    <section className="relative min-h-screen flex items-center bg-grid-pattern bg-[#080e1a] pt-16 overflow-hidden">
-      {/* Radial glow behind content */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#4a90e2]/5 rounded-full blur-3xl pointer-events-none" />
+    <section className="relative min-h-screen flex items-center bg-grid-pattern bg-warm-white pt-16 overflow-hidden">
+      {/* Warm radial glow behind content */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-coral/10 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 w-full py-24 lg:py-32">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 w-full py-12 lg:py-16">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
           {/* Left: copy */}
           <div className="flex flex-col gap-6 lg:gap-8">
             {/* Badge */}
             <motion.div {...fadeUp(0.1)}>
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#4a90e2]/30 bg-[#4a90e2]/10 text-[#4a90e2] text-xs font-medium">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#25d366] animate-pulse" />
-                Activo en +15 hoteles en México
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-turquoise/30 bg-turquoise-soft text-turquoise text-xs font-medium">
+                <span className="w-1.5 h-1.5 rounded-full bg-wa-green animate-pulse" />
+                {t("hero.badge")}
               </span>
             </motion.div>
 
             {/* Headline */}
             <motion.h1
               {...fadeUp(0.2)}
-              className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight text-white"
-              style={{ fontFamily: "var(--font-geist), sans-serif" }}
+              className="font-display text-5xl sm:text-6xl lg:text-7xl font-semibold leading-[1.04] tracking-tight text-ink"
             >
               {t("hero.headline")}
             </motion.h1>
@@ -45,7 +44,7 @@ export function Hero() {
             {/* Subheadline */}
             <motion.p
               {...fadeUp(0.35)}
-              className="text-lg sm:text-xl text-white/60 leading-relaxed max-w-xl"
+              className="text-lg sm:text-xl text-ink/65 leading-relaxed max-w-xl"
             >
               {t("hero.subheadline")}
             </motion.p>
@@ -54,14 +53,14 @@ export function Hero() {
             <motion.div {...fadeUp(0.5)} className="flex flex-col sm:flex-row gap-3">
               <a
                 href="#demo"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#4a90e2] text-[#0a1628] font-semibold text-base hover:scale-[1.02] transition-transform"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-turquoise-deep text-white font-semibold text-base hover:bg-turquoise hover:scale-[1.02] transition-all"
               >
                 {t("hero.cta.primary")}
                 <ArrowRight className="w-4 h-4" />
               </a>
               <a
                 href="#how-it-works"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/20 text-white font-medium text-base hover:border-white/40 transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-ink/20 text-ink font-medium text-base hover:border-ink/40 hover:bg-ink/[0.03] transition-colors"
               >
                 {t("hero.cta.secondary")}
                 <ChevronDown className="w-4 h-4" />
@@ -69,20 +68,16 @@ export function Hero() {
             </motion.div>
 
             {/* Trust micro-copy */}
-            <motion.p {...fadeUp(0.65)} className="text-xs text-white/30">
-              Sin tarjeta de crédito · Demo en 20 minutos · Cancelación libre
+            <motion.p {...fadeUp(0.65)} className="text-xs text-ink/45">
+              {t("hero.trust")}
             </motion.p>
           </div>
 
-          {/* Right: WhatsApp mockup */}
-          <motion.div
-            initial={{ opacity: 0, x: shouldReduceMotion ? 0 : 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
-            className="flex justify-center lg:justify-end"
-          >
-            <WhatsAppMockup variant="animated" />
-          </motion.div>
+          {/* Right: interactive chat — CSS entrance (paints immediately, no
+              hydration gap), so the seeded conversation is always visible */}
+          <div className="flex justify-center lg:justify-end animate-phone-in">
+            <InteractiveChat />
+          </div>
         </div>
       </div>
 
@@ -97,7 +92,7 @@ export function Hero() {
           animate={{ y: [0, 6, 0] }}
           transition={{ repeat: Infinity, duration: 2 }}
         >
-          <ChevronDown className="w-5 h-5 text-white/20" />
+          <ChevronDown className="w-5 h-5 text-ink/25" />
         </motion.div>
       </motion.div>
     </section>
