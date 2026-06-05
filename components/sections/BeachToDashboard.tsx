@@ -205,13 +205,32 @@ function Phone({ children, className }: { children: React.ReactNode; className?:
  * width and the screen is slightly narrower, so it reads as a laptop while
  * never overflowing — it fits any width, scaling down cleanly on mobile.
  */
-function Laptop({ children, className }: { children: React.ReactNode; className?: string }) {
+function Laptop({
+  children,
+  className,
+  compact = false,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  /** give the screen a fixed landscape aspect ratio and scroll the content
+      inside — keeps the laptop looking normally proportioned on mobile */
+  compact?: boolean;
+}) {
   return (
     <div className={cn("mx-auto w-full", className)}>
       {/* lid / screen — rounded top, flat bottom (the hinge edge) */}
       <div className="mx-auto w-[90%] rounded-t-[18px] bg-[#1c1c1e] px-[1.7%] pb-[1.2%] pt-[1.7%] shadow-2xl shadow-black/60 ring-1 ring-white/10">
         <div className="mx-auto mb-[1.2%] h-1 w-1 rounded-full bg-white/25" />
-        <div className="overflow-hidden rounded-[7px] border border-white/5">{children}</div>
+        <div
+          className={cn(
+            "rounded-[7px] border border-white/5",
+            compact
+              ? "aspect-[16/10] overflow-y-auto overflow-x-hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              : "overflow-hidden"
+          )}
+        >
+          {children}
+        </div>
       </div>
       {/* deck — a trapezoid that starts at the lid width and flares outward,
           so the hinge is seamless and the base reads like a real MacBook */}
@@ -283,10 +302,10 @@ export function BeachToDashboard() {
           <p className="mt-3 text-white/60">{t("dashboardReveal.sub")}</p>
         </AnimatedSection>
 
-        {/* dashboard in a MacBook — fits the screen, scaled down */}
-        <AnimatedSection delay={0.1} className="mx-auto mt-8 max-w-2xl">
-          <Laptop>
-            <DashboardMockup className="rounded-none border-0 shadow-none" />
+        {/* dashboard in a normally-proportioned MacBook; the screen scrolls */}
+        <AnimatedSection delay={0.1} className="mx-auto mt-8 max-w-md">
+          <Laptop compact>
+            <DashboardMockup compact className="rounded-none border-0 shadow-none" />
           </Laptop>
         </AnimatedSection>
       </div>

@@ -40,7 +40,15 @@ const TOPICS = [
   { key: "other", pct: 8 },
 ];
 
-export function DashboardMockup({ className }: { className?: string }) {
+export function DashboardMockup({
+  className,
+  compact = false,
+}: {
+  className?: string;
+  /** when inside a scrollable laptop screen, let the parent scroll instead of
+      giving the conversation list its own inner scrollbar */
+  compact?: boolean;
+}) {
   const t = useTranslations();
   const rows = t.raw("dashboard.rows") as Row[];
   const maxBar = Math.max(...BARS);
@@ -122,7 +130,7 @@ export function DashboardMockup({ className }: { className?: string }) {
                 {youCount > 0 ? `${youCount} · ${t("dashboard.statusYou")}` : rows.length}
               </span>
             </div>
-            <div className="flex max-h-[244px] flex-col gap-1 overflow-y-auto pr-1">
+            <div className={cn("flex flex-col gap-1", !compact && "max-h-[244px] overflow-y-auto pr-1")}>
               {rows.map((row) => {
                 const you = isYou(row);
                 const active = selected === row.name;
