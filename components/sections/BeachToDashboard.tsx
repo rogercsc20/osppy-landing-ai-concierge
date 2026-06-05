@@ -14,6 +14,7 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { DashboardMockup } from "@/components/ui/DashboardMockup";
 import {
   ChevronUp,
+  ChevronDown,
   MessageCircle,
   CheckCircle2,
   AlertTriangle,
@@ -248,20 +249,33 @@ export function BeachToDashboard() {
       className={cn("relative bg-gradient-to-b from-[#0b141a] via-ink to-[#0b141a] text-white", !reduce && "lg:h-[380vh]")}
     >
       {/* ───────── Mobile + reduced-motion: static, fully interactive ───────── */}
-      <div className={cn("px-4 sm:px-6 py-20", reduce ? "block" : "lg:hidden")}>
-        <AnimatedSection className="flex flex-col items-center text-center">
+      <div className={cn("overflow-hidden px-4 sm:px-6 py-20", reduce ? "block" : "lg:hidden")}>
+        {/* phone */}
+        <AnimatedSection className="flex flex-col items-center">
           <Phone>
             <PhoneApp t={t} />
           </Phone>
-          <h2 className="font-display mt-8 text-3xl font-semibold leading-tight">
+        </AnimatedSection>
+
+        {/* connector: implies the phone "opens into" the dashboard */}
+        <div className="flex flex-col items-center gap-2 py-7 text-center">
+          <div className="h-10 w-px bg-gradient-to-b from-turquoise/0 to-turquoise/60" />
+          <span className="flex h-7 w-7 items-center justify-center rounded-full border border-turquoise/40 bg-turquoise/10 text-turquoise">
+            <ChevronDown className="h-4 w-4" />
+          </span>
+        </div>
+
+        {/* headline */}
+        <AnimatedSection className="text-center">
+          <h2 className="font-display text-3xl font-semibold leading-tight">
             {t("dashboardReveal.headline")}
           </h2>
           <p className="mt-3 text-white/60">{t("dashboardReveal.sub")}</p>
         </AnimatedSection>
-        <AnimatedSection delay={0.15} className="mx-auto mt-10 max-w-3xl">
-          <Laptop>
-            <DashboardMockup className="rounded-none border-0 shadow-none" />
-          </Laptop>
+
+        {/* dashboard panel — no laptop frame on mobile (it overflows/looks off) */}
+        <AnimatedSection delay={0.1} className="mx-auto mt-8 max-w-2xl">
+          <DashboardMockup />
         </AnimatedSection>
       </div>
 
