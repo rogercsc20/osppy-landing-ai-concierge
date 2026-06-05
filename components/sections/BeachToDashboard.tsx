@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import {
   motion,
   useScroll,
@@ -36,6 +36,32 @@ interface Row {
 }
 
 const PHONE_BARS = [3, 5, 4, 7, 9, 8, 11, 13, 10, 14, 12, 16, 13, 9];
+
+/**
+ * Renders children at a fixed design width and zooms them down to fill the
+ * available width, so content fits horizontally without being cut. Vertical
+ * height scales too, so it scrolls naturally inside a constrained screen.
+ */
+function FitToWidth({ designWidth, children }: { designWidth: number; children: React.ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [zoom, setZoom] = useState(0.78);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const update = () => setZoom(el.clientWidth / designWidth);
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [designWidth]);
+
+  return (
+    <div ref={ref} className="w-full">
+      <div style={{ width: designWidth, zoom } as React.CSSProperties}>{children}</div>
+    </div>
+  );
+}
 
 /** Native-looking mobile app screen shown inside the phone after unlock. */
 function PhoneApp({ t, contentY }: { t: T; contentY?: MotionValue<number> }) {
@@ -305,7 +331,9 @@ export function BeachToDashboard() {
         {/* dashboard in a normally-proportioned MacBook; the screen scrolls */}
         <AnimatedSection delay={0.1} className="mx-auto mt-8 max-w-md">
           <Laptop compact>
-            <DashboardMockup compact className="rounded-none border-0 shadow-none" />
+            <FitToWidth designWidth={380}>
+              <DashboardMockup compact className="rounded-none border-0 shadow-none" />
+            </FitToWidth>
           </Laptop>
         </AnimatedSection>
       </div>
