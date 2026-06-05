@@ -44,7 +44,7 @@ const PHONE_BARS = [3, 5, 4, 7, 9, 8, 11, 13, 10, 14, 12, 16, 13, 9];
  */
 function FitToWidth({ designWidth, children }: { designWidth: number; children: React.ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
-  const [zoom, setZoom] = useState(0.78);
+  const [zoom, setZoom] = useState(0.4);
 
   useEffect(() => {
     const el = ref.current;
@@ -331,8 +331,8 @@ export function BeachToDashboard() {
         {/* dashboard in a normally-proportioned MacBook; the screen scrolls */}
         <AnimatedSection delay={0.1} className="mx-auto mt-8 max-w-md">
           <Laptop compact>
-            <FitToWidth designWidth={380}>
-              <DashboardMockup compact className="rounded-none border-0 shadow-none" />
+            <FitToWidth designWidth={840}>
+              <DashboardMockup className="rounded-none border-0 shadow-none" />
             </FitToWidth>
           </Laptop>
         </AnimatedSection>

@@ -70,7 +70,7 @@ export function DashboardMockup({
   return (
     <div
       className={cn(
-        "relative w-full overflow-hidden rounded-2xl border border-white/10 bg-ink-panel text-white shadow-2xl shadow-black/40",
+        "@container relative w-full overflow-hidden rounded-2xl border border-white/10 bg-ink-panel text-white shadow-2xl shadow-black/40",
         className
       )}
     >
@@ -81,7 +81,7 @@ export function DashboardMockup({
             O
           </div>
           <span className="text-sm font-semibold">{t("dashboard.title")}</span>
-          <span className="hidden sm:inline rounded-md bg-white/5 px-2 py-0.5 text-xs text-white/50">
+          <span className="hidden @lg:inline rounded-md bg-white/5 px-2 py-0.5 text-xs text-white/50">
             {t("dashboard.hotel")}
           </span>
         </div>
@@ -94,9 +94,9 @@ export function DashboardMockup({
         </div>
       </div>
 
-      <div className="p-4 sm:p-5">
+      <div className="p-4 @2xl:p-5">
         {/* KPI tiles */}
-        <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-3 @2xl:grid-cols-4">
           {kpis.map(({ icon: Icon, label, value, delta, live }) => (
             <div key={label} className="rounded-xl border border-white/5 bg-white/[0.03] p-4">
               <div className="mb-3 flex items-center justify-between">
@@ -121,9 +121,9 @@ export function DashboardMockup({
         </div>
 
         {/* Main: conversations + chart */}
-        <div className="mt-4 grid gap-4 lg:grid-cols-5">
+        <div className="mt-4 grid gap-4 @2xl:grid-cols-5">
           {/* Conversations list — scrollable, all 7 */}
-          <div className="rounded-xl border border-white/5 bg-white/[0.03] p-4 lg:col-span-3">
+          <div className="rounded-xl border border-white/5 bg-white/[0.03] p-4 @2xl:col-span-3">
             <div className="mb-3 flex items-center justify-between">
               <p className="text-sm font-medium">{t("dashboard.conversations")}</p>
               <span className="text-xs text-white/40">
@@ -152,13 +152,13 @@ export function DashboardMockup({
                     </div>
                     <span
                       className={cn(
-                        "hidden flex-shrink-0 rounded-full px-2 py-0.5 text-[10px] font-medium sm:inline",
+                        "hidden flex-shrink-0 rounded-full px-2 py-0.5 text-[10px] font-medium @lg:inline",
                         you ? "bg-coral/15 text-coral" : "bg-turquoise/15 text-turquoise"
                       )}
                     >
                       {you ? t("dashboard.statusYou") : t("dashboard.statusAI")}
                     </span>
-                    <span className="hidden flex-shrink-0 text-[10px] text-white/30 md:inline">{row.time}</span>
+                    <span className="hidden flex-shrink-0 text-[10px] text-white/30 @xl:inline">{row.time}</span>
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
@@ -183,7 +183,7 @@ export function DashboardMockup({
           {/* Chart panel — clickable, opens insights */}
           <button
             onClick={() => setInsightsOpen(true)}
-            className="group flex flex-col rounded-xl border border-white/5 bg-white/[0.03] p-4 text-left transition-colors hover:border-turquoise/40 lg:col-span-2"
+            className="group flex flex-col rounded-xl border border-white/5 bg-white/[0.03] p-4 text-left transition-colors hover:border-turquoise/40 @2xl:col-span-2"
           >
             <div className="flex items-center justify-between">
               <p className="text-sm font-medium">{t("dashboard.chartTitle")}</p>
@@ -243,7 +243,7 @@ function InsightsOverlay({ t, open, onClose }: { t: T; open: boolean; onClose: (
                 O
               </div>
               <span className="text-sm font-semibold">{t("dashboard.insights.title")}</span>
-              <span className="hidden rounded-md bg-white/5 px-2 py-0.5 text-xs text-white/50 sm:inline">
+              <span className="hidden rounded-md bg-white/5 px-2 py-0.5 text-xs text-white/50 @lg:inline">
                 {t("dashboard.hotel")}
               </span>
             </div>
@@ -257,9 +257,9 @@ function InsightsOverlay({ t, open, onClose }: { t: T; open: boolean; onClose: (
           </div>
 
           {/* content */}
-          <div className="grid flex-1 gap-5 overflow-y-auto p-5 lg:grid-cols-5">
+          <div className="grid flex-1 gap-5 overflow-y-auto p-5 @2xl:grid-cols-5">
             {/* big chart + metrics */}
-            <div className="lg:col-span-3">
+            <div className="@2xl:col-span-3">
               <p className="mb-4 text-sm font-medium text-white/70">{t("dashboard.chartTitle")}</p>
               <div className="flex h-40 items-end gap-1">
                 {BARS.map((b, i) => (
@@ -281,7 +281,7 @@ function InsightsOverlay({ t, open, onClose }: { t: T; open: boolean; onClose: (
                 <span>23h</span>
               </div>
 
-              <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
+              <div className="mt-5 grid grid-cols-2 gap-3 @lg:grid-cols-4">
                 {metrics.map(({ icon: Icon, label, value }) => (
                   <div key={label} className="rounded-xl border border-white/5 bg-white/[0.03] p-3">
                     <Icon className="mb-2 h-4 w-4 text-turquoise" />
@@ -293,7 +293,7 @@ function InsightsOverlay({ t, open, onClose }: { t: T; open: boolean; onClose: (
             </div>
 
             {/* topics */}
-            <div className="lg:col-span-2">
+            <div className="@2xl:col-span-2">
               <p className="mb-4 text-sm font-medium text-white/70">{t("dashboard.insights.topics")}</p>
               <div className="flex flex-col gap-3">
                 {TOPICS.map((topic) => (
