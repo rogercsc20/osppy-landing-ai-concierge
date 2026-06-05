@@ -200,18 +200,28 @@ function Phone({ children, className }: { children: React.ReactNode; className?:
   );
 }
 
-/** MacBook frame wrapping the desktop dashboard. */
-function Laptop({ children }: { children: React.ReactNode }) {
+/**
+ * MacBook frame wrapping the dashboard. The base spans the full container
+ * width and the screen is slightly narrower, so it reads as a laptop while
+ * never overflowing — it fits any width, scaling down cleanly on mobile.
+ */
+function Laptop({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
-    <div className="mx-auto w-full max-w-5xl">
-      {/* lid / screen */}
-      <div className="rounded-[16px] bg-[#1c1c1e] p-[10px] shadow-2xl shadow-black/60 ring-1 ring-white/10">
-        <div className="mx-auto mb-1.5 h-1.5 w-1.5 rounded-full bg-white/15" />
-        <div className="overflow-hidden rounded-[8px] border border-white/5">{children}</div>
+    <div className={cn("mx-auto w-full", className)}>
+      {/* lid / screen — rounded top, flat bottom (the hinge edge) */}
+      <div className="mx-auto w-[90%] rounded-t-[18px] bg-[#1c1c1e] px-[1.7%] pb-[1.2%] pt-[1.7%] shadow-2xl shadow-black/60 ring-1 ring-white/10">
+        <div className="mx-auto mb-[1.2%] h-1 w-1 rounded-full bg-white/25" />
+        <div className="overflow-hidden rounded-[7px] border border-white/5">{children}</div>
       </div>
-      {/* base / hinge */}
-      <div className="relative mx-auto h-3 w-[112%] -translate-x-[5.36%] rounded-b-[12px] rounded-t-[3px] bg-gradient-to-b from-[#3a3a3d] to-[#191919] shadow-xl">
-        <div className="absolute left-1/2 top-0 h-[7px] w-[92px] -translate-x-1/2 rounded-b-[8px] bg-[#0c0c0e]" />
+      {/* deck — a trapezoid that starts at the lid width and flares outward,
+          so the hinge is seamless and the base reads like a real MacBook */}
+      <div className="relative mx-auto h-4 w-full">
+        <div
+          className="h-full w-full bg-gradient-to-b from-[#2c2d31] via-[#202024] to-[#0e0e10] shadow-2xl shadow-black/50"
+          style={{ clipPath: "polygon(5% 0%, 95% 0%, 99% 100%, 1% 100%)" }}
+        />
+        {/* opening notch */}
+        <div className="absolute left-1/2 top-0 h-[5px] w-[11%] max-w-[96px] -translate-x-1/2 rounded-b-[7px] bg-[#0a0a0c]" />
       </div>
     </div>
   );
@@ -249,7 +259,7 @@ export function BeachToDashboard() {
       className={cn("relative bg-gradient-to-b from-[#0b141a] via-ink to-[#0b141a] text-white", !reduce && "lg:h-[380vh]")}
     >
       {/* ───────── Mobile + reduced-motion: static, fully interactive ───────── */}
-      <div className={cn("overflow-hidden px-4 sm:px-6 py-20", reduce ? "block" : "lg:hidden")}>
+      <div className={cn("px-4 sm:px-6 py-20", reduce ? "block" : "lg:hidden")}>
         {/* phone */}
         <AnimatedSection className="flex flex-col items-center">
           <Phone>
@@ -273,9 +283,11 @@ export function BeachToDashboard() {
           <p className="mt-3 text-white/60">{t("dashboardReveal.sub")}</p>
         </AnimatedSection>
 
-        {/* dashboard panel — no laptop frame on mobile (it overflows/looks off) */}
+        {/* dashboard in a MacBook — fits the screen, scaled down */}
         <AnimatedSection delay={0.1} className="mx-auto mt-8 max-w-2xl">
-          <DashboardMockup />
+          <Laptop>
+            <DashboardMockup className="rounded-none border-0 shadow-none" />
+          </Laptop>
         </AnimatedSection>
       </div>
 
@@ -303,7 +315,7 @@ export function BeachToDashboard() {
             <motion.h2 style={{ opacity: dashHeadline }} className="font-display mb-6 text-center text-2xl font-semibold xl:text-3xl">
               {t("dashboardReveal.headline")}
             </motion.h2>
-            <Laptop>
+            <Laptop className="max-w-5xl">
               <DashboardMockup className="rounded-none border-0 shadow-none" />
             </Laptop>
           </motion.div>
