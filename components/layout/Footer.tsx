@@ -15,7 +15,7 @@ export function Footer() {
               <div className="w-7 h-7 rounded-md bg-turquoise-deep flex items-center justify-center">
                 <span className="text-white font-bold text-xs">O</span>
               </div>
-              <span className="font-semibold text-ink">osppy</span>
+              <span className="font-semibold text-ink">Osppy</span>
             </div>
             <p className="text-sm text-ink/50">{t("footer.tagline")}</p>
           </div>

@@ -37,7 +37,7 @@ export function Navbar() {
             <span className="text-white font-bold text-sm">O</span>
           </div>
           <span className="font-semibold text-ink text-lg tracking-tight">
-            osppy
+            Osppy
           </span>
         </Link>
 
