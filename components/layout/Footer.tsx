@@ -5,30 +5,30 @@ export function Footer() {
   const t = useTranslations();
 
   return (
-    <footer className="bg-[#080e1a] border-t border-white/5 py-12 px-4 sm:px-6">
+    <footer className="bg-sand border-t border-ink/10 py-12 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8 mb-8">
           {/* Logo + tagline */}
           <div className="flex flex-col gap-2">
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-md bg-[#4a90e2] flex items-center justify-center">
-                <span className="text-[#0a1628] font-bold text-xs">O</span>
+              <div className="w-7 h-7 rounded-md bg-turquoise-deep flex items-center justify-center">
+                <span className="text-white font-bold text-xs">O</span>
               </div>
-              <span className="font-semibold text-white">osppy</span>
+              <span className="font-semibold text-ink">osppy</span>
             </div>
-            <p className="text-sm text-white/40">{t("footer.tagline")}</p>
+            <p className="text-sm text-ink/50">{t("footer.tagline")}</p>
           </div>
 
           {/* Links */}
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 text-sm text-white/50">
-            <a href="mailto:hello@osppy.com" className="flex items-center gap-1.5 hover:text-white transition-colors">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 text-sm text-ink/60">
+            <a href="mailto:hello@osppy.com" className="flex items-center gap-1.5 hover:text-ink transition-colors">
               <Mail className="w-3.5 h-3.5" />
               hello@osppy.com
             </a>
-            <a href="#" className="hover:text-white transition-colors">
+            <a href="#" className="hover:text-ink transition-colors">
               {t("footer.privacy")}
             </a>
-            <a href="#" className="hover:text-white transition-colors">
+            <a href="#" className="hover:text-ink transition-colors">
               {t("footer.terms")}
             </a>
           </div>
@@ -39,7 +39,7 @@ export function Footer() {
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white/30 transition-colors"
+              className="w-8 h-8 rounded-full border border-ink/15 flex items-center justify-center text-ink/50 hover:text-ink hover:border-ink/40 transition-colors"
               aria-label="Instagram"
             >
               <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -49,7 +49,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/5 pt-6 text-center text-xs text-white/30">
+        <div className="border-t border-ink/10 pt-6 text-center text-xs text-ink/40">
           {t("footer.rights")} · osppy.com
         </div>
       </div>

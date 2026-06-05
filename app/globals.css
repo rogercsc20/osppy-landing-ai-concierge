@@ -1,21 +1,25 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Osppy brand colors */
-  --color-navy: #0a1628;
-  --color-navy-dark: #080e1a;
-  --color-gold: #4a90e2;
-  --color-gold-muted: rgba(74, 144, 226, 0.2);
-  --color-off-white: #f8f6f1;
-  --color-ink: #1a1a2e;
+  /* ── Osppy warm-hospitality palette ─────────────────────── */
+  --color-sand: #ede4d3;          /* warm section background */
+  --color-warm-white: #faf7f0;    /* base canvas */
+  --color-turquoise: #1ba3b8;     /* primary accent — bluer teal (CTAs, links, highlights) */
+  --color-turquoise-deep: #15788a; /* button base — keeps white text legible */
+  --color-turquoise-soft: rgba(27, 163, 184, 0.12);
+  --color-ink: #14201c;           /* primary text + dark dashboard base */
+  --color-ink-panel: #1b2a25;     /* dashboard panel surface */
+  --color-coral: #ff6b4a;         /* PRIMARY accent (CTAs) */
+  --color-coral-soft: rgba(255, 107, 74, 0.12);
+
+  /* WhatsApp brand colors — used only inside the chat mockup, do not rebrand */
   --color-wa-green: #25d366;
   --color-wa-green-dark: #128c7e;
   --color-wa-bubble: #1e2d3d;
-  --color-success: #2ecc71;
 
   /* Typography */
   --font-sans: var(--font-inter);
-  --font-display: var(--font-geist);
+  --font-display: var(--font-fraunces);
 }
 
 * {
@@ -27,18 +31,31 @@ html {
 }
 
 body {
-  background-color: #080e1a;
-  color: #ffffff;
+  background-color: #faf7f0;
+  color: #14201c;
   font-family: var(--font-inter), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Subtle grid pattern for dark hero sections */
+/* Serif display face for headlines */
+.font-display {
+  font-family: var(--font-fraunces), Georgia, "Times New Roman", serif;
+}
+
+/* Subtle warm grid pattern for light sections */
 .bg-grid-pattern {
   background-image:
-    linear-gradient(rgba(74, 144, 226, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(74, 144, 226, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(20, 32, 28, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 32, 28, 0.035) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Grid pattern for the dark dashboard section */
+.bg-grid-pattern-dark {
+  background-image:
+    linear-gradient(rgba(43, 179, 163, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(43, 179, 163, 0.06) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
@@ -63,6 +80,18 @@ body {
 .typing-dot:nth-child(1) { animation: typing-dot 1.2s infinite 0s; }
 .typing-dot:nth-child(2) { animation: typing-dot 1.2s infinite 0.2s; }
 .typing-dot:nth-child(3) { animation: typing-dot 1.2s infinite 0.4s; }
+
+/* Hero phone entrance — CSS so it animates on first paint (no JS/hydration gap) */
+@keyframes phone-materialize {
+  from { opacity: 0; transform: translateY(44px); filter: blur(14px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+.animate-phone-in {
+  animation: phone-materialize 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-phone-in { animation: none; }
+}
 
 /* Smooth anchor scroll offset for sticky navbar */
 [id] {
