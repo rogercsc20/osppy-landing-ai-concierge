@@ -22,10 +22,10 @@ export function Features() {
   ];
 
   return (
-    <section className="bg-[#f8f6f1] py-24 lg:py-32 px-4 sm:px-6">
+    <section className="bg-warm-white py-24 lg:py-32 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
         <AnimatedSection className="text-center mb-14">
-          <h2 className="text-4xl sm:text-5xl font-bold text-[#1a1a2e] mb-4">
+          <h2 className="font-display text-4xl sm:text-5xl font-semibold text-ink mb-4">
             {t("features.headline")}
           </h2>
         </AnimatedSection>
@@ -37,13 +37,13 @@ export function Features() {
           {features.map(({ icon: Icon, title, body }) => (
             <div
               key={title}
-              className="bg-white rounded-2xl p-5 lg:p-6 border border-[#1a1a2e]/5 group hover:border-[#4a90e2]/30 hover:shadow-md transition-all duration-300"
+              className="bg-white rounded-2xl p-5 lg:p-6 border border-ink/8 group hover:border-turquoise/40 hover:shadow-md hover:shadow-ink/5 transition-all duration-300"
             >
-              <div className="w-9 h-9 rounded-xl bg-[#0a1628]/5 flex items-center justify-center mb-4 group-hover:bg-[#4a90e2]/10 transition-colors">
-                <Icon className="w-4 h-4 text-[#0a1628] group-hover:text-[#4a90e2] transition-colors" />
+              <div className="w-9 h-9 rounded-xl bg-turquoise-soft flex items-center justify-center mb-4 group-hover:bg-turquoise/20 transition-colors">
+                <Icon className="w-4 h-4 text-turquoise-deep transition-colors" />
               </div>
-              <h3 className="font-semibold text-[#1a1a2e] mb-1.5 text-sm lg:text-base">{title}</h3>
-              <p className="text-[#1a1a2e]/50 text-xs lg:text-sm leading-relaxed">{body}</p>
+              <h3 className="font-semibold text-ink mb-1.5 text-sm lg:text-base">{title}</h3>
+              <p className="text-ink/60 text-xs lg:text-sm leading-relaxed">{body}</p>
             </div>
           ))}
         </AnimatedGroup>

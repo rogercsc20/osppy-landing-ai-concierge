@@ -6,6 +6,7 @@ import { Problem } from "@/components/sections/Problem";
 import { Solution } from "@/components/sections/Solution";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { Features } from "@/components/sections/Features";
+import { BeachToDashboard } from "@/components/sections/BeachToDashboard";
 import { Pricing } from "@/components/sections/Pricing";
 import { PilotProof } from "@/components/sections/PilotProof";
 import { FAQ } from "@/components/sections/FAQ";
@@ -22,6 +23,7 @@ export default function LandingPage() {
         <Solution />
         <HowItWorks />
         <Features />
+        <BeachToDashboard />
         <Pricing />
         <PilotProof />
         <FAQ />

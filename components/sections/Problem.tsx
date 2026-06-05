@@ -24,13 +24,13 @@ export function Problem() {
   ];
 
   return (
-    <section className="bg-[#f8f6f1] py-24 lg:py-32 px-4 sm:px-6">
+    <section className="bg-sand py-24 lg:py-32 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
         <AnimatedSection className="mb-14 max-w-2xl">
-          <h2 className="text-4xl sm:text-5xl font-bold text-[#1a1a2e] leading-tight mb-6">
+          <h2 className="font-display text-4xl sm:text-5xl font-semibold text-ink leading-[1.1] mb-6">
             {t("problem.headline")}
           </h2>
-          <p className="text-lg text-[#1a1a2e]/60 leading-relaxed">
+          <p className="text-lg text-ink/70 leading-relaxed">
             {t("problem.body")}
           </p>
         </AnimatedSection>
@@ -39,13 +39,13 @@ export function Problem() {
           {cards.map(({ icon: Icon, title, body }) => (
             <div
               key={title}
-              className="bg-white rounded-2xl p-6 border border-[#1a1a2e]/5 shadow-sm"
+              className="bg-warm-white rounded-2xl p-6 border border-ink/8 shadow-sm shadow-ink/5"
             >
-              <div className="w-10 h-10 rounded-xl bg-[#1a1a2e]/5 flex items-center justify-center mb-4">
-                <Icon className="w-5 h-5 text-[#1a1a2e]" />
+              <div className="w-10 h-10 rounded-xl bg-coral-soft flex items-center justify-center mb-4">
+                <Icon className="w-5 h-5 text-coral" />
               </div>
-              <h3 className="font-semibold text-[#1a1a2e] text-lg mb-2">{title}</h3>
-              <p className="text-[#1a1a2e]/60 text-sm leading-relaxed">{body}</p>
+              <h3 className="font-semibold text-ink text-lg mb-2">{title}</h3>
+              <p className="text-ink/65 text-sm leading-relaxed">{body}</p>
             </div>
           ))}
         </AnimatedGroup>

@@ -4,11 +4,103 @@
     "lang": "ES"
   },
   "hero": {
+    "badge": "Live in +15 hotels across Mexico",
     "headline": "Your front desk never sleeps.",
     "subheadline": "Osppy answers your guests on WhatsApp in seconds — pricing, check-in, availability — at 3am if needed. No extra staff required.",
+    "trust": "No credit card · 20-minute demo · Cancel anytime",
     "cta": {
       "primary": "Book a free demo",
       "secondary": "See how it works"
+    }
+  },
+  "heroChat": {
+    "status": "online",
+    "now": "now",
+    "inputPlaceholder": "Type a message…",
+    "autoQuestion": "What is Osppy?",
+    "labels": {
+      "different": "What makes you different?",
+      "pricing": "How much is it?",
+      "night": "Do you work at night?",
+      "setup": "How do you connect?",
+      "human": "Can I step in?",
+      "demo": "I want a demo",
+      "demoCta": "Book my demo"
+    },
+    "root": {
+      "answer": "Hi! 👋 I'm Osppy, the front desk that never sleeps. I answer your guests on WhatsApp in seconds — pricing, availability, check-in — at any hour. You rest, I handle it. 🌙"
+    },
+    "different": {
+      "answer": "Good question. 😏 I'm not a generic button-and-menu chatbot. I speak natural Mexican Spanish, know your hotel's exact info, and know when to hand a conversation to you. Your guests feel like they're talking to your front desk, not a robot."
+    },
+    "human": {
+      "answer": "Anytime! 🙋 You see every conversation in real time and can take over whenever you want. And if I detect a complaint or anything sensitive, I pass it straight to your WhatsApp."
+    },
+    "pricing": {
+      "answer": "From $49 USD a month, no commissions, no contracts. 💸 For context: Booking.com charges a mid-size hotel ~$3,000 USD a month in commissions. I basically pay for myself."
+    },
+    "night": {
+      "answer": "Always. ☀️🌙 At 3am on a Sunday I reply just as fast as at noon. And that matters: 7 of 10 travelers book with the first hotel that answers — that'll be you."
+    },
+    "setup": {
+      "answer": "In 30 minutes. I connect to your existing WhatsApp Business number and load your hotel's info: pricing, hours, policies. No new apps, no technical team. ✅"
+    },
+    "demo": {
+      "answer": "Perfect! 🎉 Book a 20-minute demo and I'll show you how I answer with your hotel's real information. No commitment, no card."
+    }
+  },
+  "auth": {
+    "signIn": "Sign in",
+    "modalTitle": "The Osppy dashboard is coming soon",
+    "modalBody": "We're polishing your control panel: live conversations, metrics, and direct replies straight from WhatsApp. Leave your email and you'll be among the first in.",
+    "emailPlaceholder": "you@email.com",
+    "submit": "Notify me",
+    "success": "Done! We'll let you know the moment it's ready.",
+    "close": "Close"
+  },
+  "dashboardReveal": {
+    "lockDate": "Sunday, June 14",
+    "now": "now",
+    "notif": "New booking confirmed · Double room, 2 nights 🎉",
+    "swipe": "Swipe to open",
+    "headline": "Your whole hotel, on one screen.",
+    "sub": "Conversations, sales and alerts — in real time."
+  },
+  "dashboard": {
+    "title": "Osppy Dashboard",
+    "hotel": "Casa Tlaquepaque",
+    "live": "Live",
+    "kpi": {
+      "open": "Open conversations",
+      "closed": "Closed / won",
+      "complaints": "Complaints",
+      "response": "Avg. response"
+    },
+    "conversations": "Active conversations",
+    "takeOver": "Take over",
+    "return": "Return",
+    "statusAI": "Osppy",
+    "statusYou": "You",
+    "chartTitle": "Conversations per hour",
+    "resolved": "Resolved by Osppy",
+    "rows": [
+      { "name": "María González", "preview": "Do you have availability for the 14th?", "status": "ai", "time": "now", "initial": "MG" },
+      { "name": "Luis Ramírez", "preview": "Great, can I pay by bank transfer?", "status": "ai", "time": "2m", "initial": "LR" },
+      { "name": "Ana Torres", "preview": "The AC isn't cooling well in 204 😕", "status": "you", "time": "5m", "initial": "AT" },
+      { "name": "Diego Herrera", "preview": "Thanks, see you Friday 🎉", "status": "ai", "time": "12m", "initial": "DH" },
+      { "name": "Paola Méndez", "preview": "Is breakfast included?", "status": "ai", "time": "18m", "initial": "PM" },
+      { "name": "Roberto Cruz", "preview": "I need an invoice, can you help?", "status": "you", "time": "25m", "initial": "RC" },
+      { "name": "Valeria Ríos", "preview": "Done! Booked for Saturday 🙌", "status": "ai", "time": "32m", "initial": "VR" }
+    ],
+    "insights": {
+      "title": "Osppy Insights",
+      "hint": "Tap the chart for more",
+      "peakHour": "Peak hour",
+      "firstResponse": "First response",
+      "resolution": "Resolved by Osppy",
+      "bookings": "Bookings captured",
+      "topics": "Top topics",
+      "topicNames": { "pricing": "Pricing", "availability": "Availability", "checkin": "Check-in", "pets": "Pets", "other": "Other" }
     }
   },
   "proof": {
@@ -19,7 +111,7 @@
   },
   "problem": {
     "headline": "80 WhatsApp messages a day. All answered manually. By you.",
-    "body": "Boutique hotel owners spend hours answering the same 12 questions. Pricing, check-in times, pets, parking, breakfast. Over and over. At any hour. Every slow response is a booking that goes to a competitor.",
+    "body": "Hotel owners spend hours answering the same 12 questions. Pricing, check-in times, pets, parking, breakfast. Over and over. At any hour. Every slow response is a booking that goes to a competitor.",
     "card1": {
       "title": "Midnight messages",
       "body": "Your guests don't have office hours. Neither does your phone."
@@ -53,7 +145,8 @@
     "headline": "This simple.",
     "step1": "We connect your WhatsApp Business number",
     "step2": "We load your hotel's information",
-    "step3": "Your guests get instant answers"
+    "step3": "Your guests get instant answers",
+    "callout": "Fully set up in 30 minutes"
   },
   "features": {
     "headline": "Everything you need. Nothing you don't.",
@@ -138,6 +231,7 @@
     "headline": "How many messages did you answer last night after 9pm?",
     "body": "Book a 20-minute demo. We'll show you how Osppy works with your hotel's real information. No commitment.",
     "button": "Book your demo",
+    "microcopy": "No spam · No commitment · We reply within 24 hours",
     "form": {
       "name": "Your name",
       "hotel": "Hotel name",

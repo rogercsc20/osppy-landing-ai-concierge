@@ -26,7 +26,7 @@ export function LanguageToggle() {
       disabled={isPending}
       className={cn(
         "text-sm font-medium px-3 py-1.5 rounded-full border transition-colors",
-        "border-white/20 text-white/70 hover:text-white hover:border-white/40",
+        "border-ink/20 text-ink/70 hover:text-ink hover:border-ink/40",
         isPending && "opacity-50 cursor-not-allowed"
       )}
       aria-label={`Switch to ${otherLocale === "es" ? "Spanish" : "English"}`}
