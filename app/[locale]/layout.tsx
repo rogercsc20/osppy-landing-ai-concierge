@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import { Inter } from "next/font/google";
+import { Fraunces } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { Analytics } from "@vercel/analytics/next";
@@ -16,6 +17,12 @@ const geist = Geist({
 
 const inter = Inter({
   variable: "--font-inter",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
   display: "swap",
 });
@@ -74,7 +81,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${geist.variable} ${inter.variable}`}
+      className={`${geist.variable} ${inter.variable} ${fraunces.variable}`}
     >
       <body className="antialiased min-h-screen">
         <NextIntlClientProvider messages={messages}>
