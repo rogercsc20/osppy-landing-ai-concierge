@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { LanguageToggle } from "@/components/ui/LanguageToggle";
 import { WaitlistModal } from "@/components/ui/WaitlistModal";
+import { Link } from "@/i18n/navigation";
 
 export function Navbar() {
   const t = useTranslations();
@@ -31,14 +32,14 @@ export function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2 group">
+        <Link href="/" className="flex items-center gap-2 group">
           <div className="w-8 h-8 rounded-lg bg-turquoise-deep flex items-center justify-center">
             <span className="text-white font-bold text-sm">O</span>
           </div>
           <span className="font-semibold text-ink text-lg tracking-tight">
             osppy
           </span>
-        </a>
+        </Link>
 
         {/* Right side */}
         <div className="flex items-center gap-2 sm:gap-3">
@@ -49,12 +50,12 @@ export function Navbar() {
           >
             {t("auth.signIn")}
           </button>
-          <a
-            href="#demo"
+          <Link
+            href="/#demo"
             className="px-4 py-2 rounded-full bg-turquoise-deep text-white text-sm font-semibold hover:bg-turquoise hover:scale-[1.02] transition-all"
           >
             {t("nav.cta")}
-          </a>
+          </Link>
         </div>
       </div>
 

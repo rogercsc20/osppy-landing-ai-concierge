@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import { Mail } from "lucide-react";
+import { Link } from "@/i18n/navigation";
 
 export function Footer() {
   const t = useTranslations();
@@ -25,12 +26,12 @@ export function Footer() {
               <Mail className="w-3.5 h-3.5" />
               hello@osppy.com
             </a>
-            <a href="#" className="hover:text-ink transition-colors">
+            <Link href="/privacidad" className="hover:text-ink transition-colors">
               {t("footer.privacy")}
-            </a>
-            <a href="#" className="hover:text-ink transition-colors">
+            </Link>
+            <Link href="/terminos" className="hover:text-ink transition-colors">
               {t("footer.terms")}
-            </a>
+            </Link>
           </div>
 
           {/* Social icons */}
