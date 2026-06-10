@@ -159,6 +159,7 @@
     "stat3": "24/7 uninterrupted"
   },
   "problem": {
+    "eyebrow": "The problem",
     "headline": "80 WhatsApp messages a day. All answered manually. By you.",
     "body": "Hotel owners spend hours answering the same 12 questions. Pricing, check-in times, pets, parking, breakfast. Over and over. At any hour. Every slow response is a booking that goes to a competitor.",
     "card1": {
@@ -175,6 +176,7 @@
     }
   },
   "solution": {
+    "eyebrow": "The solution",
     "headline": "Osppy answers. You rest.",
     "body": "We connect Osppy to your WhatsApp Business number. In 30 minutes it's ready to respond like your best front desk staff — with your hotel's exact information, in your chosen tone, in natural Mexican Spanish.",
     "card1": {
@@ -191,6 +193,7 @@
     }
   },
   "how": {
+    "eyebrow": "How it works",
     "headline": "This simple.",
     "step1": "We connect your WhatsApp Business number",
     "step2": "We load your hotel's information",
@@ -198,6 +201,7 @@
     "callout": "Fully set up in 30 minutes"
   },
   "features": {
+    "eyebrow": "Features",
     "headline": "Everything you need. Nothing you don't.",
     "f1": {
       "title": "Native WhatsApp",

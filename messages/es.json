@@ -85,13 +85,55 @@
     "chartTitle": "Conversaciones por hora",
     "resolved": "Resueltas por Osppy",
     "rows": [
-      { "name": "María González", "preview": "¿Tienen disponibilidad para el 14?", "status": "ai", "time": "ahora", "initial": "MG" },
-      { "name": "Luis Ramírez", "preview": "Perfecto, ¿puedo pagar con transferencia?", "status": "ai", "time": "2m", "initial": "LR" },
-      { "name": "Ana Torres", "preview": "El aire no enfría bien en la 204 😕", "status": "you", "time": "5m", "initial": "AT" },
-      { "name": "Diego Herrera", "preview": "Gracias, nos vemos el viernes 🎉", "status": "ai", "time": "12m", "initial": "DH" },
-      { "name": "Paola Méndez", "preview": "¿El desayuno está incluido?", "status": "ai", "time": "18m", "initial": "PM" },
-      { "name": "Roberto Cruz", "preview": "Necesito factura, ¿me ayudan?", "status": "you", "time": "25m", "initial": "RC" },
-      { "name": "Valeria Ríos", "preview": "¡Listo! Reservado para el sábado 🙌", "status": "ai", "time": "32m", "initial": "VR" }
+      {
+        "name": "María González",
+        "preview": "¿Tienen disponibilidad para el 14?",
+        "status": "ai",
+        "time": "ahora",
+        "initial": "MG"
+      },
+      {
+        "name": "Luis Ramírez",
+        "preview": "Perfecto, ¿puedo pagar con transferencia?",
+        "status": "ai",
+        "time": "2m",
+        "initial": "LR"
+      },
+      {
+        "name": "Ana Torres",
+        "preview": "El aire no enfría bien en la 204 😕",
+        "status": "you",
+        "time": "5m",
+        "initial": "AT"
+      },
+      {
+        "name": "Diego Herrera",
+        "preview": "Gracias, nos vemos el viernes 🎉",
+        "status": "ai",
+        "time": "12m",
+        "initial": "DH"
+      },
+      {
+        "name": "Paola Méndez",
+        "preview": "¿El desayuno está incluido?",
+        "status": "ai",
+        "time": "18m",
+        "initial": "PM"
+      },
+      {
+        "name": "Roberto Cruz",
+        "preview": "Necesito factura, ¿me ayudan?",
+        "status": "you",
+        "time": "25m",
+        "initial": "RC"
+      },
+      {
+        "name": "Valeria Ríos",
+        "preview": "¡Listo! Reservado para el sábado 🙌",
+        "status": "ai",
+        "time": "32m",
+        "initial": "VR"
+      }
     ],
     "insights": {
       "title": "Insights de Osppy",
@@ -101,7 +143,13 @@
       "resolution": "Resueltas por Osppy",
       "bookings": "Reservas captadas",
       "topics": "Temas más consultados",
-      "topicNames": { "pricing": "Precios", "availability": "Disponibilidad", "checkin": "Check-in", "pets": "Mascotas", "other": "Otros" }
+      "topicNames": {
+        "pricing": "Precios",
+        "availability": "Disponibilidad",
+        "checkin": "Check-in",
+        "pets": "Mascotas",
+        "other": "Otros"
+      }
     }
   },
   "proof": {
@@ -111,6 +159,7 @@
     "stat3": "24 / 7 sin interrupciones"
   },
   "problem": {
+    "eyebrow": "El problema",
     "headline": "80 mensajes de WhatsApp al día. Todos respondidos a mano. Por ti.",
     "body": "Los dueños de hoteles pasan horas respondiendo las mismas 12 preguntas. Precios, horario de check-in, mascotas, estacionamiento, desayuno. Una y otra vez. A cualquier hora. Mientras que cada mensaje sin respuesta rápida es una reservación que se va con la competencia.",
     "card1": {
@@ -127,6 +176,7 @@
     }
   },
   "solution": {
+    "eyebrow": "La solución",
     "headline": "Osppy responde. Tú descansas.",
     "body": "Conectamos Osppy a tu número de WhatsApp Business. En 30 minutos está listo para responder como si fuera tu mejor recepcionista — con la información exacta de tu hotel, en el tono que tú eliges, en español mexicano natural.",
     "card1": {
@@ -143,6 +193,7 @@
     }
   },
   "how": {
+    "eyebrow": "Cómo funciona",
     "headline": "Así de simple.",
     "step1": "Conectamos tu número de WhatsApp Business",
     "step2": "Cargamos la información de tu hotel",
@@ -150,13 +201,32 @@
     "callout": "Configuración completa en 30 minutos"
   },
   "features": {
+    "eyebrow": "Funciones",
     "headline": "Todo lo que necesitas. Nada de lo que no.",
-    "f1": { "title": "WhatsApp nativo", "body": "Sin apps nuevas. Se conecta a tu número actual." },
-    "f2": { "title": "Disponible 24/7", "body": "Responde a las 3am sin que tú tengas que despertar." },
-    "f3": { "title": "Español mexicano real", "body": "No traducción de inglés. Construido para LATAM." },
-    "f4": { "title": "Configuración en 30 min", "body": "Cargamos tu información. Listo. Sin IT." },
-    "f5": { "title": "Escalación inteligente", "body": "Sabe cuándo enviarte el mensaje. No te molesta por tonterías." },
-    "f6": { "title": "Sin comisiones", "body": "Precio fijo mensual. Lo que ahorras de OTAs es tuyo." }
+    "f1": {
+      "title": "WhatsApp nativo",
+      "body": "Sin apps nuevas. Se conecta a tu número actual."
+    },
+    "f2": {
+      "title": "Disponible 24/7",
+      "body": "Responde a las 3am sin que tú tengas que despertar."
+    },
+    "f3": {
+      "title": "Español mexicano real",
+      "body": "No traducción de inglés. Construido para LATAM."
+    },
+    "f4": {
+      "title": "Configuración en 30 min",
+      "body": "Cargamos tu información. Listo. Sin IT."
+    },
+    "f5": {
+      "title": "Escalación inteligente",
+      "body": "Sabe cuándo enviarte el mensaje. No te molesta por tonterías."
+    },
+    "f6": {
+      "title": "Sin comisiones",
+      "body": "Precio fijo mensual. Lo que ahorras de OTAs es tuyo."
+    }
   },
   "pricing": {
     "headline": "Un precio fijo. Sin comisiones. Sin sorpresas.",
