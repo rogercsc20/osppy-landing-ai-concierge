@@ -55,9 +55,11 @@ export function MessageBubble({
         style={{ whiteSpace: "pre-line" }}
       >
         {text}
+        {/* decorative mockup chrome — WhatsApp-real low contrast, hidden from AT */}
         <span
+          aria-hidden="true"
           className={`float-right ml-2 mt-1 inline-flex translate-y-0.5 items-center gap-0.5 text-[10px] ${
-            outgoing ? "text-[#072018]/55" : "text-white/40"
+            outgoing ? "text-[#072018]/80" : "text-white/60"
           }`}
         >
           {time}
@@ -158,8 +160,8 @@ export function PhoneFrame({
           {/* Dynamic Island */}
           <div className="absolute left-1/2 top-[11px] z-30 h-[28px] w-[98px] -translate-x-1/2 rounded-full bg-black" />
 
-          {/* status bar + WhatsApp header */}
-          <div className="flex-shrink-0 bg-[#1f2c33] px-5 pt-3.5 pb-0">
+          {/* status bar + WhatsApp header — decorative mockup chrome */}
+          <div aria-hidden="true" className="flex-shrink-0 bg-[#1f2c33] px-5 pt-3.5 pb-0">
             <div className="mb-1.5 flex items-center justify-between px-1 text-[13px] text-white">
               <span className="font-semibold tracking-tight">9:41</span>
               <div className="flex items-center gap-1.5">

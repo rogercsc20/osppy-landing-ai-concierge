@@ -10,7 +10,7 @@ export function SocialProofBar() {
     <section className="bg-canvas border-y border-line py-9 px-4 sm:px-6">
       <AnimatedSection>
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12 text-center">
-          <p className="text-sm text-ink/60">{t("proof.bar")}</p>
+          <p className="text-sm text-ink/70">{t("proof.bar")}</p>
 
           <div className="hidden sm:block w-px h-5 bg-line" />
 

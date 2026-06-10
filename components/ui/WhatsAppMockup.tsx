@@ -124,7 +124,7 @@ export function WhatsAppMockup({ variant = "animated" }: WhatsAppMockupProps) {
         }
         footer={
           <div className="flex items-center gap-2">
-            <div className="flex-1 rounded-full bg-white/5 px-4 py-2 text-sm text-white/30">
+            <div className="flex-1 rounded-full bg-white/5 px-4 py-2 text-sm text-white/55">
               Mensaje
             </div>
             <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#25d366]">

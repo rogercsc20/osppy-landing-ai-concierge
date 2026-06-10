@@ -211,8 +211,8 @@ function Footer({
 
   // idle / typing — show a dead input pill so the frame never looks empty.
   return (
-    <div className="flex items-center gap-2">
-      <div className="flex-1 rounded-full bg-white/5 px-4 py-2 text-sm text-white/30">
+    <div className="flex items-center gap-2" aria-hidden="true">
+      <div className="flex-1 rounded-full bg-white/5 px-4 py-2 text-sm text-white/55">
         {placeholder}
       </div>
       <div className="flex h-9 w-9 items-center justify-center rounded-full bg-turquoise">
