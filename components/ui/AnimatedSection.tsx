@@ -3,6 +3,7 @@
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import { DUR_REVEAL, EASE_LUXE } from "@/lib/motion";
 
 export function AnimatedSection({
   children,
@@ -26,7 +27,7 @@ export function AnimatedSection({
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.5, delay, ease: "easeOut" }}
+      transition={{ duration: DUR_REVEAL, delay, ease: EASE_LUXE }}
       variants={variants}
     >
       {children}
@@ -59,7 +60,7 @@ export function AnimatedGroup({
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5, ease: "easeOut" } as object,
+      transition: { duration: DUR_REVEAL, ease: EASE_LUXE } as object,
     },
   };
 

@@ -18,6 +18,9 @@ const fraunces = Fraunces({
   variable: "--font-fraunces",
   subsets: ["latin"],
   display: "swap",
+  // Variable optical-size axis: browsers auto-tune letterforms to font-size,
+  // so display-size headlines get the high-contrast cut.
+  axes: ["opsz"],
 });
 
 export async function generateMetadata({
