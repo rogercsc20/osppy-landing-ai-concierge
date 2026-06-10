@@ -1,7 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { Fraunces } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
+import { SmoothScroll } from "@/components/providers/SmoothScroll";
 import { getMessages } from "next-intl/server";
 import { Analytics } from "@vercel/analytics/next";
 import { notFound } from "next/navigation";
@@ -63,6 +64,10 @@ export async function generateMetadata({
   };
 }
 
+export const viewport: Viewport = {
+  themeColor: "#0a0f0e",
+};
+
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
@@ -89,7 +94,7 @@ export default async function LocaleLayout({
     >
       <body className="antialiased min-h-screen">
         <NextIntlClientProvider messages={messages}>
-          {children}
+          <SmoothScroll>{children}</SmoothScroll>
         </NextIntlClientProvider>
         <Analytics />
       </body>

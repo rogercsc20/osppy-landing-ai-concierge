@@ -70,7 +70,7 @@ export function Pricing() {
                 className={cn(
                   "relative flex flex-col",
                   highlighted
-                    ? "order-first lg:order-none rounded-3xl bg-ink text-canvas p-8 lg:p-10 shadow-[0_32px_90px_-24px_rgba(11,90,107,0.55)]"
+                    ? "order-first lg:order-none rounded-3xl bg-ink text-canvas p-8 lg:p-10 shadow-[0_0_90px_-18px_rgba(34,196,217,0.45)]"
                     : "rounded-2xl border border-line bg-canvas p-8 lg:my-7 transition-colors hover:border-ink/20"
                 )}
               >
@@ -87,7 +87,7 @@ export function Pricing() {
                     {t(tier.nameKey)}
                   </p>
                   {highlighted && (
-                    <span className="rounded-full border border-turquoise-glow/40 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.14em] text-turquoise-glow">
+                    <span className="rounded-full border border-turquoise-deep/40 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.14em] text-turquoise-deep">
                       {t("pricing.recommended")}
                     </span>
                   )}
@@ -110,7 +110,7 @@ export function Pricing() {
                 <ul
                   className={cn(
                     "flex flex-col gap-3.5 flex-1 border-t pt-7 mb-9",
-                    highlighted ? "border-white/10" : "border-line"
+                    highlighted ? "border-canvas/10" : "border-line"
                   )}
                 >
                   {tier.features.map((feature) => (
@@ -118,7 +118,7 @@ export function Pricing() {
                       <Check
                         className={cn(
                           "w-4 h-4 flex-shrink-0 mt-0.5",
-                          highlighted ? "text-turquoise-glow" : "text-ink/40"
+                          highlighted ? "text-turquoise-deep" : "text-ink/40"
                         )}
                         strokeWidth={2}
                       />
@@ -139,7 +139,7 @@ export function Pricing() {
                   className={cn(
                     "flex items-center justify-center gap-2 w-full py-3.5 rounded-full font-semibold text-sm transition-colors",
                     highlighted
-                      ? "bg-turquoise text-white hover:bg-turquoise-deep"
+                      ? "bg-turquoise-deep text-white hover:bg-turquoise"
                       : "border border-ink/20 text-ink hover:border-ink/50"
                   )}
                 >

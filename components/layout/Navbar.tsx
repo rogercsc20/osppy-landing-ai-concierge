@@ -23,9 +23,10 @@ export function Navbar() {
     <motion.header
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
-        backgroundColor: scrolled ? "rgba(251, 249, 244, 0.94)" : "transparent",
+        backgroundColor: scrolled ? "rgba(10, 15, 14, 0.72)" : "transparent",
+        backdropFilter: scrolled ? "blur(14px)" : "none",
         borderBottom: scrolled
-          ? "1px solid rgba(16, 25, 21, 0.08)"
+          ? "1px solid rgba(255, 255, 255, 0.08)"
           : "1px solid transparent",
       }}
       initial={{ y: -10, opacity: 0 }}

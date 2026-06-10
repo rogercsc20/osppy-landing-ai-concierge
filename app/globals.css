@@ -1,26 +1,29 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* ── Osppy "Sand & Ink" palette (warm editorial luxury) ──── */
-  --color-canvas: #fbf9f4;        /* base canvas */
-  --color-warm-white: var(--color-canvas); /* legacy alias — migrate to canvas */
-  --color-sand: #efe7d8;          /* section punctuation, used sparingly */
-  --color-ink: #101915;           /* primary text + dark dashboard base */
-  --color-ink-panel: #16211c;     /* dashboard panel surface */
-  --color-line: rgba(16, 25, 21, 0.08); /* hairline rules */
+  /* ── Osppy "Obsidian" palette (dark engineered tech) ───────
+     The semantic roles survive the world-flip: canvas = page base,
+     ink = primary text, sand = elevated section punctuation,
+     line = hairline rules. Light-world values live in git history. */
+  --color-canvas: #0a0f0e;        /* near-black, green-tinted base */
+  --color-warm-white: var(--color-canvas); /* legacy alias */
+  --color-sand: #0f1514;          /* elevated section surface */
+  --color-ink: #eef2f0;           /* primary text (near-white) */
+  --color-ink-panel: #111817;     /* dashboard / glass panel base */
+  --color-line: rgba(255, 255, 255, 0.08); /* hairline rules */
 
-  /* Action color — turquoise, AA-safe and CTA-exclusive.
-     On light surfaces use turquoise/turquoise-deep; on dark surfaces
-     (chat, dashboard) use turquoise-glow, which keeps the luminous accent. */
-  --color-turquoise: #0e7186;     /* button base + hover target, ≥4.5:1 with white */
-  --color-turquoise-deep: #0b5a6b; /* darker button base + text/links on canvas & sand */
-  --color-turquoise-ink: var(--color-turquoise-deep);
-  --color-turquoise-glow: #1ba3b8; /* dark-surface accent only */
-  --color-turquoise-soft: rgba(14, 113, 134, 0.1);
+  /* Action color — luminous teal. Deep base keeps white button text
+     AA-legible; -ink is the bright accent for text/links on canvas;
+     -glow is the mockup/dark-surface accent. */
+  --color-turquoise: #129db5;     /* button hover */
+  --color-turquoise-deep: #0d7f95; /* button base, ≥4.5:1 with white */
+  --color-turquoise-ink: #2fc4d9; /* accent text/links on canvas */
+  --color-turquoise-glow: #1ba3b8; /* mockup accents (unchanged) */
+  --color-turquoise-soft: rgba(34, 196, 217, 0.1);
 
-  /* Coral is demoted to ember glows — never text, never buttons */
+  /* Warm ember — hospitality heat in an engineered world */
   --color-ember: rgba(255, 107, 74, 0.1);
-  --color-coral: #ff6b4a;         /* legacy accent — retiring during re-skin */
+  --color-coral: #ff6b4a;
   --color-coral-soft: rgba(255, 107, 74, 0.12);
 
   /* WhatsApp brand colors — used only inside the chat mockup, do not rebrand */
@@ -42,6 +45,7 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 body {
@@ -53,6 +57,15 @@ body {
   /* clip (not hidden) kills stray horizontal overflow without creating a
      scroll container, so position: sticky keeps working */
   overflow-x: clip;
+}
+
+/* Lenis smooth scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
 }
 
 /* Serif display face for headlines */
@@ -69,12 +82,17 @@ body {
   color: color-mix(in srgb, var(--color-ink) 65%, transparent);
 }
 
-/* Subtle warm grid pattern for light sections */
+/* Fine engineering grid for dark sections */
 .bg-grid-pattern {
   background-image:
-    linear-gradient(rgba(16, 25, 21, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(16, 25, 21, 0.035) 1px, transparent 1px);
-  background-size: 60px 60px;
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* Soft radial mask so grids/glows fall off toward the edges */
+.mask-radial-fade {
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 30%, transparent 100%);
 }
 
 /* WA dot pattern for chat background */
