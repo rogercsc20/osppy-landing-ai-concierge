@@ -55,6 +55,7 @@
     "modalBody": "Estamos puliendo tu panel de control: conversaciones en vivo, métricas y respuestas directas desde WhatsApp. Déjanos tu correo y serás de los primeros en entrar.",
     "emailPlaceholder": "tu@correo.com",
     "submit": "Avísame",
+    "error": "No se pudo enviar. Inténtalo de nuevo.",
     "success": "¡Listo! Te avisaremos en cuanto esté disponible.",
     "close": "Cerrar"
   },
@@ -237,6 +238,7 @@
       "hotel": "Nombre del hotel",
       "contact": "WhatsApp o correo",
       "submit": "Agenda tu demo gratuita",
+      "error": "No se pudo enviar. Inténtalo de nuevo o escríbenos a hello@osppy.com.",
       "success": {
         "title": "¡Listo! Te contactamos pronto.",
         "body": "Revisa tu WhatsApp o correo. Te escribiremos en menos de 24 horas para coordinar la demo."

@@ -93,10 +93,24 @@ warm/light; the one dark, data-dense moment is the dashboard act
 - **`WaitlistModal`** — the "Sign in" button opens this coming-soon stub (the
   real product dashboard is a separate future project).
 
+## Lead capture
+
+The demo form and the waitlist both POST to a form service (Formspree / Getform
+or similar) via `lib/lead.ts`. Configure the endpoint with one env var:
+
+```bash
+# .env.local  (and in your host's env settings)
+NEXT_PUBLIC_LEAD_ENDPOINT=https://formspree.io/f/your-id
+```
+
+See `.env.example`. Submissions include a `type` field (`demo` | `waitlist`) so
+you can filter them. If the var is unset, the demo form falls back to opening a
+prefilled `mailto:` so nothing breaks before setup.
+
 ## Deployment
 
-Deployed from `main`. The form CTA currently opens a `mailto:` — swap for a
-real endpoint/Tally form in `components/sections/FinalCTA.tsx` when ready.
+Deployed from `main`. Remember to set `NEXT_PUBLIC_LEAD_ENDPOINT` in the host's
+environment so leads are delivered in production.
 
 ## Not production-ready yet
 

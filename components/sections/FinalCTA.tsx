@@ -8,6 +8,8 @@ import { z } from "zod";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { submitLead } from "@/lib/lead";
+import { CONTACT_EMAIL } from "@/lib/site";
 
 const schema = z.object({
   name: z.string().min(2),
@@ -20,6 +22,7 @@ type FormData = z.infer<typeof schema>;
 export function FinalCTA() {
   const t = useTranslations();
   const [submitted, setSubmitted] = useState(false);
+  const [failed, setFailed] = useState(false);
 
   const {
     register,
@@ -28,13 +31,27 @@ export function FinalCTA() {
   } = useForm<FormData>({ resolver: zodResolver(schema) });
 
   const onSubmit = async (data: FormData) => {
-    // In production, replace with your Tally form ID or API call.
-    // For now, opens a mailto with the lead data pre-filled.
-    const body = encodeURIComponent(
-      `Nombre: ${data.name}\nHotel: ${data.hotel}\nContacto: ${data.contact}`
-    );
-    window.open(`mailto:hello@osppy.com?subject=Demo request - ${data.hotel}&body=${body}`);
-    setSubmitted(true);
+    setFailed(false);
+    const result = await submitLead({
+      type: "demo",
+      name: data.name,
+      hotel: data.hotel,
+      contact: data.contact,
+      _subject: `Osppy demo request — ${data.hotel}`,
+    });
+
+    if (result.unconfigured) {
+      // No endpoint set yet (e.g. local dev): fall back to a prefilled email.
+      const body = encodeURIComponent(
+        `Nombre: ${data.name}\nHotel: ${data.hotel}\nContacto: ${data.contact}`
+      );
+      window.open(`mailto:${CONTACT_EMAIL}?subject=Demo request - ${data.hotel}&body=${body}`);
+      setSubmitted(true);
+    } else if (result.ok) {
+      setSubmitted(true);
+    } else {
+      setFailed(true);
+    }
   };
 
   const inputClass = (hasError: boolean) =>
@@ -87,6 +104,9 @@ export function FinalCTA() {
                 {t("cta.form.submit")}
                 <ArrowRight className="w-4 h-4" />
               </button>
+              {failed && (
+                <p className="text-sm text-red-500/90 mt-1">{t("cta.form.error")}</p>
+              )}
             </form>
           )}
 
