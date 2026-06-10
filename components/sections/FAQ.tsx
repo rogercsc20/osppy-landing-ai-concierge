@@ -13,16 +13,16 @@ interface FAQItem {
 
 function FAQRow({ item, isOpen, onToggle }: { item: FAQItem; isOpen: boolean; onToggle: () => void }) {
   return (
-    <div className="border-b border-ink/8 last:border-0">
+    <div className="border-b border-line">
       <button
         onClick={onToggle}
-        className="w-full flex items-center justify-between gap-4 py-5 text-left group min-h-[48px]"
+        className="w-full flex items-center justify-between gap-4 py-6 text-left group min-h-[48px]"
         aria-expanded={isOpen}
       >
         <span className="text-ink font-medium leading-snug group-hover:text-ink/70 transition-colors">
           {item.q}
         </span>
-        <div className="flex-shrink-0 w-6 h-6 rounded-full border border-ink/20 flex items-center justify-center text-ink/50 group-hover:border-turquoise group-hover:text-turquoise transition-colors">
+        <div className="flex-shrink-0 w-6 h-6 rounded-full border border-ink/20 flex items-center justify-center text-ink/50 group-hover:border-ink/50 group-hover:text-ink transition-colors">
           {isOpen ? <Minus className="w-3 h-3" /> : <Plus className="w-3 h-3" />}
         </div>
       </button>
@@ -36,7 +36,7 @@ function FAQRow({ item, isOpen, onToggle }: { item: FAQItem; isOpen: boolean; on
             transition={{ duration: 0.3, ease: "easeInOut" }}
             style={{ overflow: "hidden" }}
           >
-            <p className="text-ink/65 leading-relaxed text-sm pb-5 pr-10">{item.a}</p>
+            <p className="text-ink/70 leading-relaxed text-sm pb-6 pr-10">{item.a}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -58,16 +58,17 @@ export function FAQ() {
   ];
 
   return (
-    <section className="bg-sand py-24 lg:py-32 px-4 sm:px-6">
+    <section className="bg-sand py-32 lg:py-40 px-4 sm:px-6">
       <div className="max-w-3xl mx-auto">
-        <AnimatedSection className="text-center mb-12">
-          <h2 className="font-display text-4xl sm:text-5xl font-semibold text-ink">
+        <AnimatedSection className="text-center mb-14 lg:mb-16">
+          <p className="eyebrow mb-4">{t("faq.eyebrow")}</p>
+          <h2 className="font-display text-[clamp(2.25rem,4vw,3.5rem)] font-semibold text-ink leading-[1.08] tracking-[-0.01em]">
             {t("faq.headline")}
           </h2>
         </AnimatedSection>
 
         <AnimatedSection delay={0.2}>
-          <div className="rounded-2xl border border-ink/8 bg-warm-white shadow-sm shadow-ink/5 px-6 lg:px-8">
+          <div className="border-t border-line">
             {items.map((item, i) => (
               <FAQRow
                 key={i}

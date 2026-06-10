@@ -56,17 +56,16 @@ export function FinalCTA() {
 
   const inputClass = (hasError: boolean) =>
     cn(
-      "w-full px-5 py-3.5 rounded-xl bg-white border text-ink placeholder:text-ink/35 text-sm outline-none focus:ring-1 transition-all",
-      hasError
-        ? "border-red-500/60 focus:ring-red-500/40"
-        : "border-ink/15 focus:border-turquoise focus:ring-turquoise/30"
+      "w-full bg-transparent px-1 py-3.5 border-0 border-b rounded-none text-ink placeholder:text-ink/40 text-base outline-none transition-colors",
+      hasError ? "border-red-500/70" : "border-ink/20 focus:border-ink"
     );
 
   return (
-    <section id="demo" className="bg-warm-white py-24 lg:py-32 px-4 sm:px-6 bg-grid-pattern">
+    <section id="demo" className="bg-canvas py-32 lg:py-40 px-4 sm:px-6 bg-grid-pattern">
       <div className="max-w-2xl mx-auto text-center">
-        <AnimatedSection className="mb-10">
-          <h2 className="font-display text-4xl sm:text-5xl font-semibold text-ink leading-[1.1] mb-5">
+        <AnimatedSection className="mb-12">
+          <p className="eyebrow mb-4">{t("cta.eyebrow")}</p>
+          <h2 className="font-display text-[clamp(2.25rem,4vw,3.5rem)] font-semibold text-ink leading-[1.08] tracking-[-0.01em] mb-5">
             {t("cta.headline")}
           </h2>
           <p className="text-lg text-ink/70 leading-relaxed">{t("cta.body")}</p>
@@ -80,7 +79,7 @@ export function FinalCTA() {
               <p className="text-ink/65 text-sm max-w-sm">{t("cta.form.success.body")}</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-3">
+            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
               <input
                 {...register("name")}
                 placeholder={t("cta.form.name")}
@@ -99,7 +98,7 @@ export function FinalCTA() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="flex items-center justify-center gap-2 w-full py-4 rounded-full bg-turquoise-deep text-white font-semibold text-base hover:bg-turquoise hover:scale-[1.01] transition-all disabled:opacity-60 disabled:cursor-not-allowed mt-1"
+                className="flex items-center justify-center gap-2 w-full py-4 rounded-full bg-turquoise-deep text-white font-semibold text-base hover:bg-turquoise transition-colors disabled:opacity-60 disabled:cursor-not-allowed mt-4"
               >
                 {t("cta.form.submit")}
                 <ArrowRight className="w-4 h-4" />
@@ -110,7 +109,7 @@ export function FinalCTA() {
             </form>
           )}
 
-          <p className="text-xs text-ink/45 mt-4">{t("cta.microcopy")}</p>
+          <p className="text-xs text-ink/50 mt-5">{t("cta.microcopy")}</p>
         </AnimatedSection>
       </div>
     </section>

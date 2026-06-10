@@ -229,6 +229,7 @@
     }
   },
   "pricing": {
+    "eyebrow": "Precios",
     "headline": "Un precio fijo. Sin comisiones. Sin sorpresas.",
     "comparison": "Booking.com te cobra ~$3,000 USD/mes en comisiones en un hotel mediano. Osppy cuesta $149.",
     "recommended": "Recomendado",
@@ -284,6 +285,7 @@
     }
   },
   "faq": {
+    "eyebrow": "FAQ",
     "headline": "Preguntas frecuentes",
     "q1": "¿Qué pasa si Osppy comete un error?",
     "a1": "Osppy está configurado para escalar a ti cuando no tiene suficiente información o cuando detecta una situación delicada. Si comete un error en una respuesta rutinaria, puedes corregir la información en segundos desde el panel.",
@@ -299,6 +301,7 @@
     "a6": "No. Mes a mes. Puedes cancelar en cualquier momento. Sin letras chicas."
   },
   "cta": {
+    "eyebrow": "Empieza hoy",
     "headline": "¿Cuántos mensajes respondiste anoche después de las 9pm?",
     "body": "Agenda una demo de 20 minutos. Te mostramos cómo funciona Osppy con la información real de tu hotel. Sin compromiso.",
     "button": "Agenda tu demo",
