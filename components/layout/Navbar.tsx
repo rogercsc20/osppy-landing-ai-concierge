@@ -23,9 +23,10 @@ export function Navbar() {
     <motion.header
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
-        backgroundColor: scrolled ? "rgba(251, 249, 244, 0.85)" : "transparent",
-        backdropFilter: scrolled ? "blur(12px)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(16, 25, 21, 0.08)" : "1px solid transparent",
+        backgroundColor: scrolled ? "rgba(251, 249, 244, 0.94)" : "transparent",
+        borderBottom: scrolled
+          ? "1px solid rgba(16, 25, 21, 0.08)"
+          : "1px solid transparent",
       }}
       initial={{ y: -10, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
@@ -51,7 +52,7 @@ export function Navbar() {
           </button>
           <Link
             href="/#demo"
-            className="px-4 py-2 rounded-full bg-turquoise-deep text-white text-sm font-semibold hover:bg-turquoise hover:scale-[1.02] transition-all"
+            className="px-4 py-2 rounded-full bg-turquoise-deep text-white text-sm font-semibold hover:bg-turquoise transition-colors"
           >
             {t("nav.cta")}
           </Link>

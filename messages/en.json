@@ -5,7 +5,7 @@
   },
   "hero": {
     "badge": "Live in +15 hotels across Mexico",
-    "headline": "Your front desk never sleeps.",
+    "headline": "Your front desk never sleeps.",
     "subheadline": "Osppy answers your guests on WhatsApp in seconds — pricing, check-in, availability — at 3am if needed. No extra staff required.",
     "trust": "No credit card · 20-minute demo · Cancel anytime",
     "cta": {
@@ -85,13 +85,55 @@
     "chartTitle": "Conversations per hour",
     "resolved": "Resolved by Osppy",
     "rows": [
-      { "name": "María González", "preview": "Do you have availability for the 14th?", "status": "ai", "time": "now", "initial": "MG" },
-      { "name": "Luis Ramírez", "preview": "Great, can I pay by bank transfer?", "status": "ai", "time": "2m", "initial": "LR" },
-      { "name": "Ana Torres", "preview": "The AC isn't cooling well in 204 😕", "status": "you", "time": "5m", "initial": "AT" },
-      { "name": "Diego Herrera", "preview": "Thanks, see you Friday 🎉", "status": "ai", "time": "12m", "initial": "DH" },
-      { "name": "Paola Méndez", "preview": "Is breakfast included?", "status": "ai", "time": "18m", "initial": "PM" },
-      { "name": "Roberto Cruz", "preview": "I need an invoice, can you help?", "status": "you", "time": "25m", "initial": "RC" },
-      { "name": "Valeria Ríos", "preview": "Done! Booked for Saturday 🙌", "status": "ai", "time": "32m", "initial": "VR" }
+      {
+        "name": "María González",
+        "preview": "Do you have availability for the 14th?",
+        "status": "ai",
+        "time": "now",
+        "initial": "MG"
+      },
+      {
+        "name": "Luis Ramírez",
+        "preview": "Great, can I pay by bank transfer?",
+        "status": "ai",
+        "time": "2m",
+        "initial": "LR"
+      },
+      {
+        "name": "Ana Torres",
+        "preview": "The AC isn't cooling well in 204 😕",
+        "status": "you",
+        "time": "5m",
+        "initial": "AT"
+      },
+      {
+        "name": "Diego Herrera",
+        "preview": "Thanks, see you Friday 🎉",
+        "status": "ai",
+        "time": "12m",
+        "initial": "DH"
+      },
+      {
+        "name": "Paola Méndez",
+        "preview": "Is breakfast included?",
+        "status": "ai",
+        "time": "18m",
+        "initial": "PM"
+      },
+      {
+        "name": "Roberto Cruz",
+        "preview": "I need an invoice, can you help?",
+        "status": "you",
+        "time": "25m",
+        "initial": "RC"
+      },
+      {
+        "name": "Valeria Ríos",
+        "preview": "Done! Booked for Saturday 🙌",
+        "status": "ai",
+        "time": "32m",
+        "initial": "VR"
+      }
     ],
     "insights": {
       "title": "Osppy Insights",
@@ -101,7 +143,13 @@
       "resolution": "Resolved by Osppy",
       "bookings": "Bookings captured",
       "topics": "Top topics",
-      "topicNames": { "pricing": "Pricing", "availability": "Availability", "checkin": "Check-in", "pets": "Pets", "other": "Other" }
+      "topicNames": {
+        "pricing": "Pricing",
+        "availability": "Availability",
+        "checkin": "Check-in",
+        "pets": "Pets",
+        "other": "Other"
+      }
     }
   },
   "proof": {
@@ -151,12 +199,30 @@
   },
   "features": {
     "headline": "Everything you need. Nothing you don't.",
-    "f1": { "title": "Native WhatsApp", "body": "No new apps. Connects to your existing number." },
-    "f2": { "title": "Available 24/7", "body": "Responds at 3am without you waking up." },
-    "f3": { "title": "Real Mexican Spanish", "body": "Not translated from English. Built for LATAM." },
-    "f4": { "title": "30-min setup", "body": "We load your info. Done. No IT required." },
-    "f5": { "title": "Smart escalation", "body": "Knows when to send you the message. Won't bother you with trivial things." },
-    "f6": { "title": "No commissions", "body": "Flat monthly fee. Whatever you save on OTAs is yours." }
+    "f1": {
+      "title": "Native WhatsApp",
+      "body": "No new apps. Connects to your existing number."
+    },
+    "f2": {
+      "title": "Available 24/7",
+      "body": "Responds at 3am without you waking up."
+    },
+    "f3": {
+      "title": "Real Mexican Spanish",
+      "body": "Not translated from English. Built for LATAM."
+    },
+    "f4": {
+      "title": "30-min setup",
+      "body": "We load your info. Done. No IT required."
+    },
+    "f5": {
+      "title": "Smart escalation",
+      "body": "Knows when to send you the message. Won't bother you with trivial things."
+    },
+    "f6": {
+      "title": "No commissions",
+      "body": "Flat monthly fee. Whatever you save on OTAs is yours."
+    }
   },
   "pricing": {
     "headline": "One flat price. No commissions. No surprises.",

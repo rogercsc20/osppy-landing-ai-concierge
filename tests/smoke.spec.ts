@@ -42,7 +42,11 @@ test("English landing renders", async ({ page }) => {
   await page.goto("/en");
   await expect(page.locator("html")).toHaveAttribute("lang", "en");
   await expect(
-    page.getByRole("heading", { level: 1, name: en.hero.headline }),
+    page.getByRole("heading", {
+      level: 1,
+      // Accessible names collapse non-breaking spaces used for line control.
+      name: en.hero.headline.replace(/\u00A0/g, " "),
+    }),
   ).toBeVisible();
 });
 
