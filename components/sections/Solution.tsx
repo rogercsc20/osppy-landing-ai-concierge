@@ -1,10 +1,24 @@
+"use client";
+
+import { useRef, useState } from "react";
+import { useScroll, useMotionValueEvent } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { AnimatedSection, AnimatedGroup } from "@/components/ui/AnimatedSection";
 import { WhatsAppMockup } from "@/components/ui/WhatsAppMockup";
+import { SplitWords } from "@/components/fx/SplitWords";
 import { Zap, Mic, ArrowUpRight } from "lucide-react";
 
 export function Solution() {
   const t = useTranslations();
+  const ref = useRef<HTMLDivElement>(null);
+
+  // The conversation plays itself as the section travels the viewport.
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 0.9", "end 0.75"],
+  });
+  const [progress, setProgress] = useState(0);
+  useMotionValueEvent(scrollYProgress, "change", (v) => setProgress(v));
 
   const items = [
     { icon: Zap, title: t("solution.card1.title"), body: t("solution.card1.body") },
@@ -13,36 +27,39 @@ export function Solution() {
   ];
 
   return (
-    <section className="bg-canvas py-32 lg:py-40 px-4 sm:px-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
-          {/* Left: WhatsApp mockup */}
-          <div className="order-2 lg:order-1 flex justify-center">
-            <WhatsAppMockup variant="static" />
+    <section className="relative overflow-hidden bg-canvas px-4 py-32 sm:px-6 lg:py-44">
+      <div className="mx-auto max-w-6xl">
+        <div ref={ref} className="grid items-center gap-16 lg:grid-cols-2 lg:gap-20">
+          {/* Left: the conversation, typed by your scroll */}
+          <div className="relative order-2 flex justify-center lg:order-1">
+            <div
+              aria-hidden="true"
+              className="absolute left-1/2 top-1/2 -z-10 h-[480px] w-[480px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(37,211,102,0.13),transparent)] blur-2xl"
+            />
+            <WhatsAppMockup variant="static" progress={progress} />
           </div>
 
           {/* Right: copy + hairline list */}
           <div className="order-1 lg:order-2">
             <AnimatedSection className="mb-12">
-              <p className="eyebrow mb-4">{t("solution.eyebrow")}</p>
-              <h2 className="font-display text-[clamp(2.25rem,4vw,3.5rem)] font-semibold text-ink leading-[1.08] tracking-[-0.01em] mb-5">
-                {t("solution.headline")}
+              <p className="eyebrow mb-5">{t("solution.eyebrow")}</p>
+              <h2 className="font-display text-[clamp(2.5rem,4.5vw,4rem)] font-semibold leading-[1.05] tracking-[-0.015em] text-ink">
+                <SplitWords text={t("solution.headline")} />
               </h2>
-              <p className="text-lg text-ink/70 leading-relaxed">
+              <p className="mt-6 text-lg leading-relaxed text-ink/70">
                 {t("solution.body")}
               </p>
             </AnimatedSection>
 
             <AnimatedGroup className="border-y border-line divide-y divide-line">
               {items.map(({ icon: Icon, title, body }) => (
-                <div key={title} className="flex gap-5 py-6">
-                  <Icon
-                    className="w-5 h-5 text-ink flex-shrink-0 mt-1"
-                    strokeWidth={1.5}
-                  />
+                <div key={title} className="group flex gap-5 py-6">
+                  <span className="mt-0.5 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl border border-line bg-white/[0.03] transition-colors group-hover:border-turquoise-ink/40">
+                    <Icon className="h-4 w-4 text-turquoise-ink" strokeWidth={1.5} />
+                  </span>
                   <div>
-                    <h3 className="font-semibold text-ink mb-1">{title}</h3>
-                    <p className="text-ink/70 text-[15px] leading-relaxed">
+                    <h3 className="mb-1 font-semibold text-ink">{title}</h3>
+                    <p className="text-[15px] leading-relaxed text-ink/70">
                       {body}
                     </p>
                   </div>

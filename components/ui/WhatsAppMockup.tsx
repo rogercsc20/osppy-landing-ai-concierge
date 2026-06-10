@@ -56,19 +56,44 @@ const STATIC_MESSAGES: ChatMessage[] = [
 
 interface WhatsAppMockupProps {
   variant?: "animated" | "static";
+  /**
+   * Scroll-driven playback: 0..1 progress reveals the conversation step by
+   * step (typing indicator included) instead of the timer loop. Reduced
+   * motion always shows the full conversation.
+   */
+  progress?: number;
 }
 
-export function WhatsAppMockup({ variant = "animated" }: WhatsAppMockupProps) {
+/** message i becomes visible once progress crosses REVEAL_AT[i] */
+const REVEAL_AT = [0.08, 0.34, 0.55, 0.82];
+/** how far ahead of an osppy message the typing indicator appears */
+const TYPING_LEAD = 0.16;
+
+export function WhatsAppMockup({ variant = "animated", progress }: WhatsAppMockupProps) {
   const shouldReduceMotion = useReducedMotion();
   const [visibleCount, setVisibleCount] = useState(0);
   const [showTyping, setShowTyping] = useState(false);
 
   const messages = variant === "animated" ? DEMO_MESSAGES : STATIC_MESSAGES;
-  // Static variant and reduced motion show the full conversation immediately.
-  const isStatic = variant === "static" || !!shouldReduceMotion;
+  const scrollDriven = progress !== undefined && !shouldReduceMotion;
+  // Reduced motion shows the full conversation immediately; the plain
+  // static variant does too unless scroll is driving it.
+  const isStatic =
+    !!shouldReduceMotion || (variant === "static" && !scrollDriven);
+
+  let scrollCount = 0;
+  let scrollTyping = false;
+  if (scrollDriven) {
+    scrollCount = REVEAL_AT.filter((at) => (progress as number) >= at).length;
+    const next = scrollCount;
+    scrollTyping =
+      next < messages.length &&
+      messages[next].sender === "osppy" &&
+      (progress as number) >= REVEAL_AT[next] - TYPING_LEAD;
+  }
 
   useEffect(() => {
-    if (isStatic) return;
+    if (isStatic || progress !== undefined) return;
 
     const delays = [800, 2200, 1500, 2000];
     const timeouts: ReturnType<typeof setTimeout>[] = [];
@@ -108,9 +133,11 @@ export function WhatsAppMockup({ variant = "animated" }: WhatsAppMockupProps) {
     timeouts.push(startTimeout);
 
     return () => timeouts.forEach(clearTimeout);
-  }, [isStatic, messages]);
+  }, [isStatic, progress, messages]);
 
-  const shown = isStatic ? messages : messages.slice(0, visibleCount);
+  const count = scrollDriven ? scrollCount : visibleCount;
+  const typing = scrollDriven ? scrollTyping : showTyping;
+  const shown = isStatic ? messages : messages.slice(0, count);
 
   return (
     <div className="mx-auto w-full max-w-sm">
@@ -136,7 +163,7 @@ export function WhatsAppMockup({ variant = "animated" }: WhatsAppMockupProps) {
         }
       >
         <ChatViewport
-          scrollKey={`${visibleCount}-${showTyping}`}
+          scrollKey={`${count}-${typing}`}
           className="h-full"
         >
           {shown.map((msg, i) => (
@@ -145,12 +172,12 @@ export function WhatsAppMockup({ variant = "animated" }: WhatsAppMockupProps) {
               text={msg.text}
               time={msg.time}
               outgoing={msg.sender === "osppy"}
-              showTicks={i === visibleCount - 1 && msg.sender === "osppy"}
+              showTicks={i === count - 1 && msg.sender === "osppy"}
               reduce={shouldReduceMotion ?? false}
             />
           ))}
           <AnimatePresence>
-            {showTyping && <TypingIndicator key="typing" reduce={shouldReduceMotion ?? false} />}
+            {typing && <TypingIndicator key="typing" reduce={shouldReduceMotion ?? false} />}
           </AnimatePresence>
         </ChatViewport>
       </PhoneFrame>

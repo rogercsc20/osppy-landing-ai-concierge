@@ -1,5 +1,55 @@
+"use client";
+
+import { useRef } from "react";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { useTranslations } from "next-intl";
-import { AnimatedSection, AnimatedGroup } from "@/components/ui/AnimatedSection";
+import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import { SplitWords } from "@/components/fx/SplitWords";
+
+function ProblemRow({
+  index,
+  title,
+  body,
+}: {
+  index: number;
+  title: string;
+  body: string;
+}) {
+  const reduce = useReducedMotion() ?? false;
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  // function-form mapping: numeric ranges get compiled to native
+  // ScrollTimeline animations, which misbehave around sticky ancestors
+  const y = useTransform(scrollYProgress, (v) => (reduce ? 0 : (0.5 - v) * 90));
+
+  return (
+    <div ref={ref} className="relative border-b border-line">
+      {/* ghost numeral, parallax-drifting behind the row */}
+      <motion.span
+        aria-hidden="true"
+        style={{ y }}
+        className="pointer-events-none absolute -top-10 right-0 select-none font-display text-[clamp(9rem,22vw,18rem)] font-semibold leading-none text-white/[0.045] lg:-top-16 lg:right-8"
+      >
+        0{index + 1}
+      </motion.span>
+
+      <AnimatedSection className="relative z-10 grid gap-3 py-16 sm:grid-cols-12 sm:gap-8 lg:py-24">
+        <span className="font-display text-xl font-semibold text-turquoise-ink/70 sm:col-span-1">
+          0{index + 1}
+        </span>
+        <h3 className="font-display text-2xl font-semibold leading-snug text-ink sm:col-span-5 lg:text-3xl">
+          {title}
+        </h3>
+        <p className="max-w-md text-base leading-relaxed text-ink/70 sm:col-span-6 lg:text-lg">
+          {body}
+        </p>
+      </AnimatedSection>
+    </div>
+  );
+}
 
 export function Problem() {
   const t = useTranslations();
@@ -11,36 +61,29 @@ export function Problem() {
   ];
 
   return (
-    <section className="bg-sand py-32 lg:py-40 px-4 sm:px-6">
-      <div className="max-w-6xl mx-auto">
-        <AnimatedSection className="mb-16 lg:mb-20 max-w-2xl">
-          <p className="eyebrow mb-4">{t("problem.eyebrow")}</p>
-          <h2 className="font-display text-[clamp(2.25rem,4vw,3.5rem)] font-semibold text-ink leading-[1.08] tracking-[-0.01em] mb-6">
-            {t("problem.headline")}
+    <section className="relative overflow-hidden bg-sand px-4 py-32 sm:px-6 lg:py-44">
+      {/* faint ember heat low in the scene */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-40 left-1/4 h-96 w-96 rounded-full bg-ember blur-3xl"
+      />
+
+      <div className="relative mx-auto max-w-6xl">
+        <AnimatedSection className="mb-20 max-w-3xl lg:mb-28">
+          <p className="eyebrow mb-5">{t("problem.eyebrow")}</p>
+          <h2 className="font-display text-[clamp(2.5rem,4.5vw,4rem)] font-semibold leading-[1.05] tracking-[-0.015em] text-ink">
+            <SplitWords text={t("problem.headline")} />
           </h2>
-          <p className="text-lg text-ink/70 leading-relaxed">
+          <p className="mt-7 max-w-2xl text-lg leading-relaxed text-ink/70">
             {t("problem.body")}
           </p>
         </AnimatedSection>
 
-        <AnimatedGroup className="border-y border-line divide-y divide-line">
-          {items.map(({ title, body }, i) => (
-            <div
-              key={title}
-              className="grid sm:grid-cols-12 gap-2 sm:gap-6 py-8 lg:py-10"
-            >
-              <span className="sm:col-span-1 font-display text-xl font-semibold text-ink/50">
-                0{i + 1}
-              </span>
-              <h3 className="sm:col-span-4 font-semibold text-ink text-lg leading-snug">
-                {title}
-              </h3>
-              <p className="sm:col-span-7 text-ink/70 leading-relaxed">
-                {body}
-              </p>
-            </div>
+        <div className="border-t border-line">
+          {items.map((item, i) => (
+            <ProblemRow key={item.title} index={i} {...item} />
           ))}
-        </AnimatedGroup>
+        </div>
       </div>
     </section>
   );
