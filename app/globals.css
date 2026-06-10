@@ -156,6 +156,17 @@ html.lenis body {
   100% { left: 104%; opacity: 0; }
 }
 
+/* Infinite testimonial marquee — track holds two copies of the list */
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee 38s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
 /* Rotating conic border beam (Pricing highlighted tier) */
 @property --beam-angle {
   syntax: "<angle>";

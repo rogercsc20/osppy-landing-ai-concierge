@@ -17,12 +17,15 @@ const circleVariants = (i: number): Variants => ({
   },
 });
 
+// hidden must be opacity 0 (not dimmed): a dimmed pre-state is what
+// contrast audits see for below-the-fold content
 const igniteVariants: Variants = {
-  hidden: { opacity: 0.4, scale: 0.92 },
+  hidden: { opacity: 0, y: 10, scale: 0.95 },
   visible: {
     opacity: 1,
+    y: 0,
     scale: 1,
-    transition: { duration: 0.5, ease: EASE_LUXE },
+    transition: { duration: 0.55, ease: EASE_LUXE },
   },
 };
 

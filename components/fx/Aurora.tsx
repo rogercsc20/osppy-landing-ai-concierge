@@ -37,7 +37,7 @@ float noise(vec2 p) {
 float fbm(vec2 p) {
   float v = 0.0;
   float a = 0.5;
-  for (int i = 0; i < 5; i++) {
+  for (int i = 0; i < 4; i++) {
     v += a * noise(p);
     p = p * 2.0 + vec2(13.7, 7.3);
     a *= 0.5;
@@ -134,18 +134,33 @@ export function Aurora({ className }: { className?: string }) {
     ro.observe(canvas);
 
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // Software rasterizers (SwiftShader/llvmpipe — headless, VMs, very old
+    // machines) run the shader on the CPU and peg the main thread. Freeze
+    // to the static frame there.
+    const dbg = gl.getExtension("WEBGL_debug_renderer_info");
+    const renderer = dbg
+      ? String(gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL))
+      : "";
+    const software = /swiftshader|llvmpipe|software/i.test(renderer);
+
     let rafId = 0;
     let running = false;
+    let last = 0;
+    const FRAME_MS = 1000 / 30; // 30fps is plenty for slow-drifting fog
     const start = performance.now();
 
-    const frame = () => {
-      gl.uniform1f(uTime, (performance.now() - start) / 1000);
+    const frame = (now: number) => {
+      if (!running) return;
+      rafId = requestAnimationFrame(frame);
+      if (now - last < FRAME_MS) return;
+      last = now;
+      gl.uniform1f(uTime, (now - start) / 1000);
       gl.drawArrays(gl.TRIANGLES, 0, 3);
-      if (running) rafId = requestAnimationFrame(frame);
     };
 
     const play = () => {
-      if (running || reduce) return;
+      if (running || reduce || software) return;
       running = true;
       rafId = requestAnimationFrame(frame);
     };
