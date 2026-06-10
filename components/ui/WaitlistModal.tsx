@@ -94,7 +94,7 @@ export function WaitlistModal({
         >
           {/* backdrop */}
           <div
-            className="absolute inset-0 bg-ink/40 backdrop-blur-sm"
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
             onClick={onClose}
           />
 
@@ -103,7 +103,7 @@ export function WaitlistModal({
             role="dialog"
             aria-modal="true"
             aria-labelledby="waitlist-modal-title"
-            className="relative w-full max-w-md overflow-hidden rounded-3xl border border-ink/10 bg-warm-white p-7 shadow-2xl shadow-ink/20"
+            className="relative w-full max-w-md overflow-hidden rounded-3xl border border-ink/10 bg-warm-white p-7 shadow-2xl shadow-black/50"
             initial={{ opacity: 0, scale: 0.94, y: 16 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: 8 }}
@@ -138,7 +138,7 @@ export function WaitlistModal({
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder={t("auth.emailPlaceholder")}
-                    className="flex-1 rounded-full border border-ink/15 bg-white px-4 py-2.5 text-sm text-ink outline-none transition-colors placeholder:text-ink/35 focus:border-turquoise"
+                    className="flex-1 rounded-full border border-ink/15 bg-white/5 px-4 py-2.5 text-sm text-ink outline-none transition-colors placeholder:text-ink/35 focus:border-turquoise"
                   />
                   <button
                     type="submit"

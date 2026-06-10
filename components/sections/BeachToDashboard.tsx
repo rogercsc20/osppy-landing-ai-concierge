@@ -332,7 +332,7 @@ export function BeachToDashboard() {
   return (
     <section
       ref={ref}
-      className={cn("relative bg-gradient-to-b from-[#0b141a] via-ink to-[#0b141a] text-white", !reduce && "lg:h-[380vh]")}
+      className={cn("relative bg-gradient-to-b from-canvas via-ink-panel to-canvas text-white", !reduce && "lg:h-[380vh]")}
     >
       {/* ───────── Mobile + reduced-motion: static, fully interactive ───────── */}
       <div className={cn("px-4 sm:px-6 py-20", reduce ? "block" : "lg:hidden")}>
