@@ -112,8 +112,16 @@ prefilled `mailto:` so nothing breaks before setup.
 Deployed from `main`. Remember to set `NEXT_PUBLIC_LEAD_ENDPOINT` in the host's
 environment so leads are delivered in production.
 
-## Not production-ready yet
+## Not production-ready yet — launch checklist
 
-- Legal pages contain placeholders (`[RAZÓN SOCIAL]`, `[DOMICILIO]`, `[RFC]`,
-  `[CIUDAD/ENTIDAD]`) and should be reviewed by a lawyer.
-- The dashboard is a visual mockup — no auth or live data.
+- [ ] **Legal entity data (BLOCKING).** `app/[locale]/terminos/page.tsx` and
+  `app/[locale]/privacidad/page.tsx` ship with placeholders that MUST be
+  replaced before the site is publicly promoted: `[RAZÓN SOCIAL]`,
+  `[DOMICILIO FISCAL]`, `[RFC]`, `[CIUDAD/ENTIDAD]`. LFPDPPP requires the
+  Aviso de Privacidad to identify the responsable. Have a lawyer review the
+  final text.
+- [ ] **`NEXT_PUBLIC_LEAD_ENDPOINT` in the host env** (see Lead capture
+  above) — without it, production forms fall back to `mailto:` and most
+  leads will be lost.
+- [ ] The dashboard is a visual mockup — no auth or live data. "Iniciar
+  sesión" opens a waitlist modal until the real dashboard ships.
