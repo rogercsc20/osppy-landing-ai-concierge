@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { LanguageToggle } from "@/components/ui/LanguageToggle";
 import { WaitlistModal } from "@/components/ui/WaitlistModal";
+import { Logomark } from "@/components/ui/Logo";
 import { Link } from "@/i18n/navigation";
 
 export function Navbar() {
@@ -22,9 +23,9 @@ export function Navbar() {
     <motion.header
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
-        backgroundColor: scrolled ? "rgba(250, 247, 240, 0.85)" : "transparent",
+        backgroundColor: scrolled ? "rgba(251, 249, 244, 0.85)" : "transparent",
         backdropFilter: scrolled ? "blur(12px)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(20, 32, 28, 0.08)" : "1px solid transparent",
+        borderBottom: scrolled ? "1px solid rgba(16, 25, 21, 0.08)" : "1px solid transparent",
       }}
       initial={{ y: -10, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
@@ -33,9 +34,7 @@ export function Navbar() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded-lg bg-turquoise-deep flex items-center justify-center">
-            <span className="text-white font-bold text-sm">O</span>
-          </div>
+          <Logomark className="w-8 h-8" />
           <span className="font-semibold text-ink text-lg tracking-tight">
             Osppy
           </span>

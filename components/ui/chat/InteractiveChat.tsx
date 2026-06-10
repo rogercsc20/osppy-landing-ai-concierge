@@ -199,7 +199,7 @@ function Footer({
               initial={reduce ? false : { opacity: 0, y: 8, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={reduce ? { duration: 0 } : { delay: i * 0.05 }}
-              className="rounded-full border border-turquoise/40 bg-turquoise/10 px-3.5 py-1.5 text-xs font-medium text-turquoise transition-colors hover:bg-turquoise hover:text-white"
+              className="rounded-full border border-turquoise-glow/40 bg-turquoise-glow/10 px-3.5 py-1.5 text-xs font-medium text-turquoise-glow transition-colors hover:bg-turquoise hover:text-white"
             >
               {label(id)}
             </motion.button>
