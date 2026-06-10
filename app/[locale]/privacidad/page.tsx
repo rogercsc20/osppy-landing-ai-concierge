@@ -13,6 +13,14 @@ export async function generateMetadata({
     description: isES
       ? "Aviso de Privacidad de Osppy conforme a la LFPDPPP."
       : "Osppy's Privacy Policy.",
+    alternates: {
+      canonical: `/${locale}/privacidad`,
+      languages: {
+        es: "/es/privacidad",
+        en: "/en/privacidad",
+        "x-default": "/es/privacidad",
+      },
+    },
   };
 }
 

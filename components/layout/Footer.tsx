@@ -1,6 +1,8 @@
 import { useTranslations } from "next-intl";
 import { Mail } from "lucide-react";
 import { Link } from "@/i18n/navigation";
+import { Logomark } from "@/components/ui/Logo";
+import { CONTACT_EMAIL } from "@/lib/site";
 
 export function Footer() {
   const t = useTranslations();
@@ -12,9 +14,7 @@ export function Footer() {
           {/* Logo + tagline */}
           <div className="flex flex-col gap-2">
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-md bg-turquoise-deep flex items-center justify-center">
-                <span className="text-white font-bold text-xs">O</span>
-              </div>
+              <Logomark className="w-7 h-7 rounded-md" />
               <span className="font-semibold text-ink">Osppy</span>
             </div>
             <p className="text-sm text-ink/50">{t("footer.tagline")}</p>
@@ -22,9 +22,9 @@ export function Footer() {
 
           {/* Links */}
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 text-sm text-ink/60">
-            <a href="mailto:hello@osppy.com" className="flex items-center gap-1.5 hover:text-ink transition-colors">
+            <a href={`mailto:${CONTACT_EMAIL}`} className="flex items-center gap-1.5 hover:text-ink transition-colors">
               <Mail className="w-3.5 h-3.5" />
-              hello@osppy.com
+              {CONTACT_EMAIL}
             </a>
             <Link href="/privacidad" className="hover:text-ink transition-colors">
               {t("footer.privacy")}

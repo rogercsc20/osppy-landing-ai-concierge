@@ -3,6 +3,7 @@
 import { useEffect, useRef, type ReactNode } from "react";
 import { motion, type Transition } from "framer-motion";
 import { Check } from "lucide-react";
+import { LogoGlyph } from "@/components/ui/Logo";
 
 export interface ChatMessage {
   id: number | string;
@@ -218,12 +219,12 @@ export function PhoneFrame({
 }
 
 export function OsppyAvatar({ size = "md" }: { size?: "sm" | "md" }) {
-  const dim = size === "sm" ? "h-8 w-8 text-xs" : "h-9 w-9 text-sm";
+  const dim = size === "sm" ? "h-8 w-8" : "h-9 w-9";
   return (
     <div
-      className={`flex ${dim} flex-shrink-0 items-center justify-center rounded-full bg-turquoise font-bold text-white`}
+      className={`flex ${dim} flex-shrink-0 items-center justify-center rounded-full bg-turquoise text-white`}
     >
-      O
+      <LogoGlyph className="h-[58%] w-[58%]" />
     </div>
   );
 }

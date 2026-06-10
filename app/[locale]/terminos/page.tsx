@@ -13,6 +13,14 @@ export async function generateMetadata({
     description: isES
       ? "Términos y Condiciones de Uso del servicio Osppy."
       : "Osppy's Terms of Use.",
+    alternates: {
+      canonical: `/${locale}/terminos`,
+      languages: {
+        es: "/es/terminos",
+        en: "/en/terminos",
+        "x-default": "/es/terminos",
+      },
+    },
   };
 }
 

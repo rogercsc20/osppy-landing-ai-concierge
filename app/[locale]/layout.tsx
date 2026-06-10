@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
 import { Inter } from "next/font/google";
 import { Fraunces } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
@@ -8,12 +7,6 @@ import { Analytics } from "@vercel/analytics/next";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import "../globals.css";
-
-const geist = Geist({
-  variable: "--font-geist",
-  subsets: ["latin"],
-  display: "swap",
-});
 
 const inter = Inter({
   variable: "--font-inter",
@@ -43,6 +36,14 @@ export async function generateMetadata({
       ? "Osppy responde a tus huéspedes por WhatsApp en segundos — precios, check-in, disponibilidad — 24/7. Sin contratar a nadie."
       : "Osppy answers your guests on WhatsApp in seconds — pricing, check-in, availability — 24/7. No extra staff required.",
     metadataBase: new URL("https://osppy.com"),
+    alternates: {
+      canonical: `/${locale}`,
+      languages: {
+        es: "/es",
+        en: "/en",
+        "x-default": "/es",
+      },
+    },
     openGraph: {
       type: "website",
       locale: isES ? "es_MX" : "en_US",
@@ -81,7 +82,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${geist.variable} ${inter.variable} ${fraunces.variable}`}
+      className={`${inter.variable} ${fraunces.variable}`}
     >
       <body className="antialiased min-h-screen">
         <NextIntlClientProvider messages={messages}>

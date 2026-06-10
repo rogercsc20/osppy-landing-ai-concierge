@@ -6,9 +6,9 @@ export default createMiddleware(routing);
 export const config = {
   matcher: [
     // Match all pathnames except for
-    // - files with extensions (e.g. favicon.ico)
+    // - files with extensions (e.g. favicon.ico, sitemap.xml, robots.txt)
     // - Next.js internals (_next)
-    "/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)",
+    "/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest|xml|txt)).*)",
     "/(api|trpc)(.*)",
   ],
 };

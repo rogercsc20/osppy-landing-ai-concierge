@@ -1,15 +1,26 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* ── Osppy warm-hospitality palette ─────────────────────── */
-  --color-sand: #ede4d3;          /* warm section background */
-  --color-warm-white: #faf7f0;    /* base canvas */
-  --color-turquoise: #1ba3b8;     /* primary accent — bluer teal (CTAs, links, highlights) */
-  --color-turquoise-deep: #15788a; /* button base — keeps white text legible */
-  --color-turquoise-soft: rgba(27, 163, 184, 0.12);
-  --color-ink: #14201c;           /* primary text + dark dashboard base */
-  --color-ink-panel: #1b2a25;     /* dashboard panel surface */
-  --color-coral: #ff6b4a;         /* PRIMARY accent (CTAs) */
+  /* ── Osppy "Sand & Ink" palette (warm editorial luxury) ──── */
+  --color-canvas: #fbf9f4;        /* base canvas */
+  --color-warm-white: var(--color-canvas); /* legacy alias — migrate to canvas */
+  --color-sand: #efe7d8;          /* section punctuation, used sparingly */
+  --color-ink: #101915;           /* primary text + dark dashboard base */
+  --color-ink-panel: #16211c;     /* dashboard panel surface */
+  --color-line: rgba(16, 25, 21, 0.08); /* hairline rules */
+
+  /* Action color — turquoise, AA-safe and CTA-exclusive.
+     On light surfaces use turquoise/turquoise-deep; on dark surfaces
+     (chat, dashboard) use turquoise-glow, which keeps the luminous accent. */
+  --color-turquoise: #0e7186;     /* button base + hover target, ≥4.5:1 with white */
+  --color-turquoise-deep: #0b5a6b; /* darker button base + text/links on canvas & sand */
+  --color-turquoise-ink: var(--color-turquoise-deep);
+  --color-turquoise-glow: #1ba3b8; /* dark-surface accent only */
+  --color-turquoise-soft: rgba(14, 113, 134, 0.1);
+
+  /* Coral is demoted to ember glows — never text, never buttons */
+  --color-ember: rgba(255, 107, 74, 0.1);
+  --color-coral: #ff6b4a;         /* legacy accent — retiring during re-skin */
   --color-coral-soft: rgba(255, 107, 74, 0.12);
 
   /* WhatsApp brand colors — used only inside the chat mockup, do not rebrand */
@@ -20,6 +31,9 @@
   /* Typography */
   --font-sans: var(--font-inter);
   --font-display: var(--font-fraunces);
+
+  /* Motion */
+  --ease-luxe: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 * {
@@ -31,8 +45,8 @@ html {
 }
 
 body {
-  background-color: #faf7f0;
-  color: #14201c;
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
   font-family: var(--font-inter), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -46,19 +60,20 @@ body {
   font-family: var(--font-fraunces), Georgia, "Times New Roman", serif;
 }
 
+/* Eyebrow label above section headlines */
+.eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-ink) 50%, transparent);
+}
+
 /* Subtle warm grid pattern for light sections */
 .bg-grid-pattern {
   background-image:
-    linear-gradient(rgba(20, 32, 28, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(20, 32, 28, 0.035) 1px, transparent 1px);
-  background-size: 60px 60px;
-}
-
-/* Grid pattern for the dark dashboard section */
-.bg-grid-pattern-dark {
-  background-image:
-    linear-gradient(rgba(43, 179, 163, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(43, 179, 163, 0.06) 1px, transparent 1px);
+    linear-gradient(rgba(16, 25, 21, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 25, 21, 0.035) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 

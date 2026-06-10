@@ -19,6 +19,7 @@ import {
   CalendarCheck,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Logomark } from "@/components/ui/Logo";
 
 interface Row {
   name: string;
@@ -77,20 +78,18 @@ export function DashboardMockup({
       {/* Top bar */}
       <div className="flex items-center justify-between border-b border-white/10 px-5 py-3.5">
         <div className="flex items-center gap-2.5">
-          <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-turquoise text-sm font-bold text-white">
-            O
-          </div>
+          <Logomark className="h-7 w-7 bg-turquoise-glow" />
           <span className="text-sm font-semibold">{t("dashboard.title")}</span>
           <span className="hidden @lg:inline rounded-md bg-white/5 px-2 py-0.5 text-xs text-white/50">
             {t("dashboard.hotel")}
           </span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="flex items-center gap-1.5 rounded-full bg-turquoise/15 px-2.5 py-1 text-[11px] font-medium text-turquoise">
-            <span className="h-1.5 w-1.5 rounded-full bg-turquoise animate-pulse" />
+          <span className="flex items-center gap-1.5 rounded-full bg-turquoise-glow/15 px-2.5 py-1 text-[11px] font-medium text-turquoise-glow">
+            <span className="h-1.5 w-1.5 rounded-full bg-turquoise-glow animate-pulse" />
             {t("dashboard.live")}
           </span>
-          <div className="h-7 w-7 rounded-full bg-gradient-to-br from-coral to-turquoise" />
+          <div className="h-7 w-7 rounded-full bg-gradient-to-br from-coral to-turquoise-glow" />
         </div>
       </div>
 
@@ -101,12 +100,12 @@ export function DashboardMockup({
             <div key={label} className="rounded-xl border border-white/5 bg-white/[0.03] p-4">
               <div className="mb-3 flex items-center justify-between">
                 <Icon className="h-4 w-4 text-white/45" />
-                {live && <span className="h-2 w-2 rounded-full bg-turquoise animate-pulse" />}
+                {live && <span className="h-2 w-2 rounded-full bg-turquoise-glow animate-pulse" />}
                 {delta && (
                   <span
                     className={cn(
                       "flex items-center gap-0.5 text-[11px] font-medium",
-                      delta.up ? "text-turquoise" : "text-coral"
+                      delta.up ? "text-turquoise-glow" : "text-coral"
                     )}
                   >
                     {delta.up ? <ArrowUpRight className="h-3 w-3" /> : <ArrowDownRight className="h-3 w-3" />}
@@ -153,7 +152,7 @@ export function DashboardMockup({
                     <span
                       className={cn(
                         "hidden flex-shrink-0 rounded-full px-2 py-0.5 text-[10px] font-medium @lg:inline",
-                        you ? "bg-coral/15 text-coral" : "bg-turquoise/15 text-turquoise"
+                        you ? "bg-coral/15 text-coral" : "bg-turquoise-glow/15 text-turquoise-glow"
                       )}
                     >
                       {you ? t("dashboard.statusYou") : t("dashboard.statusAI")}
@@ -168,7 +167,7 @@ export function DashboardMockup({
                         "flex flex-shrink-0 items-center gap-1 rounded-full border px-2.5 py-1 text-[10px] font-medium transition-colors",
                         you
                           ? "border-white/15 text-white/60 hover:bg-white/5"
-                          : "border-turquoise/40 text-turquoise hover:bg-turquoise hover:text-white"
+                          : "border-turquoise-glow/40 text-turquoise-glow hover:bg-turquoise-glow hover:text-white"
                       )}
                     >
                       {you ? <Undo2 className="h-3 w-3" /> : <Hand className="h-3 w-3" />}
@@ -183,27 +182,27 @@ export function DashboardMockup({
           {/* Chart panel — clickable, opens insights */}
           <button
             onClick={() => setInsightsOpen(true)}
-            className="group flex flex-col rounded-xl border border-white/5 bg-white/[0.03] p-4 text-left transition-colors hover:border-turquoise/40 @2xl:col-span-2"
+            className="group flex flex-col rounded-xl border border-white/5 bg-white/[0.03] p-4 text-left transition-colors hover:border-turquoise-glow/40 @2xl:col-span-2"
           >
             <div className="flex items-center justify-between">
               <p className="text-sm font-medium">{t("dashboard.chartTitle")}</p>
-              <Maximize2 className="h-3.5 w-3.5 text-white/30 transition-colors group-hover:text-turquoise" />
+              <Maximize2 className="h-3.5 w-3.5 text-white/30 transition-colors group-hover:text-turquoise-glow" />
             </div>
             <div className="mt-4 flex h-28 items-end gap-[3px]">
               {BARS.map((b, i) => (
                 <div
                   key={i}
-                  className="flex-1 rounded-t-sm bg-gradient-to-t from-turquoise/30 to-turquoise"
+                  className="flex-1 rounded-t-sm bg-gradient-to-t from-turquoise-glow/30 to-turquoise-glow"
                   style={{ height: `${(b / maxBar) * 100}%` }}
                 />
               ))}
             </div>
             <div className="mt-4 flex items-end justify-between border-t border-white/5 pt-3">
               <div>
-                <p className="text-2xl font-semibold tracking-tight text-turquoise">94%</p>
+                <p className="text-2xl font-semibold tracking-tight text-turquoise-glow">94%</p>
                 <p className="text-[11px] text-white/45">{t("dashboard.resolved")}</p>
               </div>
-              <span className="text-[10px] text-white/30 transition-colors group-hover:text-turquoise">
+              <span className="text-[10px] text-white/30 transition-colors group-hover:text-turquoise-glow">
                 {t("dashboard.insights.hint")}
               </span>
             </div>
@@ -239,9 +238,7 @@ function InsightsOverlay({ t, open, onClose }: { t: T; open: boolean; onClose: (
           {/* header */}
           <div className="flex flex-shrink-0 items-center justify-between border-b border-white/10 px-5 py-3.5">
             <div className="flex items-center gap-2.5">
-              <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-turquoise text-sm font-bold text-white">
-                O
-              </div>
+              <Logomark className="h-7 w-7 bg-turquoise-glow" />
               <span className="text-sm font-semibold">{t("dashboard.insights.title")}</span>
               <span className="hidden rounded-md bg-white/5 px-2 py-0.5 text-xs text-white/50 @lg:inline">
                 {t("dashboard.hotel")}
@@ -266,7 +263,7 @@ function InsightsOverlay({ t, open, onClose }: { t: T; open: boolean; onClose: (
                   <div
                     key={i}
                     className={cn(
-                      "flex-1 rounded-t-sm bg-gradient-to-t from-turquoise/20 to-turquoise",
+                      "flex-1 rounded-t-sm bg-gradient-to-t from-turquoise-glow/20 to-turquoise-glow",
                       i === 18 && "from-coral/30 to-coral"
                     )}
                     style={{ height: `${(b / maxBar) * 100}%` }}
@@ -284,7 +281,7 @@ function InsightsOverlay({ t, open, onClose }: { t: T; open: boolean; onClose: (
               <div className="mt-5 grid grid-cols-2 gap-3 @lg:grid-cols-4">
                 {metrics.map(({ icon: Icon, label, value }) => (
                   <div key={label} className="rounded-xl border border-white/5 bg-white/[0.03] p-3">
-                    <Icon className="mb-2 h-4 w-4 text-turquoise" />
+                    <Icon className="mb-2 h-4 w-4 text-turquoise-glow" />
                     <p className="text-lg font-semibold leading-none">{value}</p>
                     <p className="mt-1 text-[10px] leading-tight text-white/45">{label}</p>
                   </div>
@@ -304,7 +301,7 @@ function InsightsOverlay({ t, open, onClose }: { t: T; open: boolean; onClose: (
                     </div>
                     <div className="h-2 overflow-hidden rounded-full bg-white/5">
                       <div
-                        className="h-full rounded-full bg-gradient-to-r from-turquoise to-turquoise/60"
+                        className="h-full rounded-full bg-gradient-to-r from-turquoise-glow to-turquoise-glow/60"
                         style={{ width: `${topic.pct}%` }}
                       />
                     </div>

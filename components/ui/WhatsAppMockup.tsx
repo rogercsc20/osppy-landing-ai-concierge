@@ -64,12 +64,11 @@ export function WhatsAppMockup({ variant = "animated" }: WhatsAppMockupProps) {
   const [showTyping, setShowTyping] = useState(false);
 
   const messages = variant === "animated" ? DEMO_MESSAGES : STATIC_MESSAGES;
+  // Static variant and reduced motion show the full conversation immediately.
+  const isStatic = variant === "static" || !!shouldReduceMotion;
 
   useEffect(() => {
-    if (variant === "static" || shouldReduceMotion) {
-      setVisibleCount(messages.length);
-      return;
-    }
+    if (isStatic) return;
 
     const delays = [800, 2200, 1500, 2000];
     const timeouts: ReturnType<typeof setTimeout>[] = [];
@@ -109,9 +108,9 @@ export function WhatsAppMockup({ variant = "animated" }: WhatsAppMockupProps) {
     timeouts.push(startTimeout);
 
     return () => timeouts.forEach(clearTimeout);
-  }, [variant, shouldReduceMotion, messages.length]);
+  }, [isStatic, messages]);
 
-  const shown = messages.slice(0, visibleCount);
+  const shown = isStatic ? messages : messages.slice(0, visibleCount);
 
   return (
     <div className="mx-auto w-full max-w-sm">

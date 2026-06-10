@@ -24,6 +24,7 @@ import {
   Settings,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Logomark } from "@/components/ui/Logo";
 
 type T = ReturnType<typeof useTranslations>;
 
@@ -97,16 +98,14 @@ function PhoneApp({ t, contentY }: { t: T; contentY?: MotionValue<number> }) {
       {/* app header */}
       <div className="flex flex-shrink-0 items-center justify-between px-4 pb-3">
         <div className="flex items-center gap-2">
-          <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-turquoise text-sm font-bold text-white">
-            O
-          </div>
+          <Logomark className="h-7 w-7 bg-turquoise-glow" />
           <div>
             <p className="text-[13px] font-semibold leading-tight text-white">{t("dashboard.title")}</p>
             <p className="text-[10px] text-white/40">{t("dashboard.hotel")}</p>
           </div>
         </div>
-        <span className="flex items-center gap-1 text-[10px] font-medium text-turquoise">
-          <span className="h-1.5 w-1.5 rounded-full bg-turquoise" />
+        <span className="flex items-center gap-1 text-[10px] font-medium text-turquoise-glow">
+          <span className="h-1.5 w-1.5 rounded-full bg-turquoise-glow" />
           {t("dashboard.live")}
         </span>
       </div>
@@ -122,10 +121,10 @@ function PhoneApp({ t, contentY }: { t: T; contentY?: MotionValue<number> }) {
                   <Icon
                     className={cn(
                       "h-3.5 w-3.5",
-                      accent === "coral" ? "text-coral" : accent === "turquoise" ? "text-turquoise" : "text-white/40"
+                      accent === "coral" ? "text-coral" : accent === "turquoise" ? "text-turquoise-glow" : "text-white/40"
                     )}
                   />
-                  {live && <span className="h-1.5 w-1.5 rounded-full bg-turquoise" />}
+                  {live && <span className="h-1.5 w-1.5 rounded-full bg-turquoise-glow" />}
                 </div>
                 <p className="text-xl font-semibold leading-none text-white">{value}</p>
                 <p className="mt-1 text-[10px] leading-tight text-white/45">{label}</p>
@@ -149,7 +148,7 @@ function PhoneApp({ t, contentY }: { t: T; contentY?: MotionValue<number> }) {
                   <span
                     className={cn(
                       "flex-shrink-0 rounded-full px-2 py-0.5 text-[9px] font-medium",
-                      row.status === "ai" ? "bg-turquoise/15 text-turquoise" : "bg-coral/15 text-coral"
+                      row.status === "ai" ? "bg-turquoise-glow/15 text-turquoise-glow" : "bg-coral/15 text-coral"
                     )}
                   >
                     {row.status === "ai" ? t("dashboard.statusAI") : t("dashboard.statusYou")}
@@ -166,17 +165,17 @@ function PhoneApp({ t, contentY }: { t: T; contentY?: MotionValue<number> }) {
               {PHONE_BARS.map((b, i) => (
                 <div
                   key={i}
-                  className="flex-1 rounded-t-sm bg-gradient-to-t from-turquoise/30 to-turquoise"
+                  className="flex-1 rounded-t-sm bg-gradient-to-t from-turquoise-glow/30 to-turquoise-glow"
                   style={{ height: `${(b / maxBar) * 100}%` }}
                 />
               ))}
             </div>
             <div className="mt-3 flex items-center justify-between border-t border-white/5 pt-2.5">
               <div>
-                <p className="text-lg font-semibold leading-none text-turquoise">94%</p>
+                <p className="text-lg font-semibold leading-none text-turquoise-glow">94%</p>
                 <p className="mt-1 text-[10px] text-white/45">{t("dashboard.resolved")}</p>
               </div>
-              <BarChart3 className="h-5 w-5 text-turquoise/50" />
+              <BarChart3 className="h-5 w-5 text-turquoise-glow/50" />
             </div>
           </div>
         </motion.div>
@@ -186,7 +185,7 @@ function PhoneApp({ t, contentY }: { t: T; contentY?: MotionValue<number> }) {
       <div className="flex flex-shrink-0 items-center justify-around border-t border-white/8 px-6 pb-7 pt-3">
         {[Home, MessageCircle, BarChart3, Settings].map((Icon, i) => (
           <button key={i} onClick={() => setActiveTab(i)} className="p-1" aria-label={`tab ${i + 1}`}>
-            <Icon className={cn("h-5 w-5 transition-colors", i === activeTab ? "text-turquoise" : "text-white/35")} />
+            <Icon className={cn("h-5 w-5 transition-colors", i === activeTab ? "text-turquoise-glow" : "text-white/35")} />
           </button>
         ))}
       </div>
@@ -198,7 +197,7 @@ function PhoneApp({ t, contentY }: { t: T; contentY?: MotionValue<number> }) {
 function LockScreen({ t }: { t: T }) {
   return (
     <div className="absolute inset-0 flex flex-col bg-gradient-to-b from-[#15788a] via-[#0f3b46] to-[#0b141a]">
-      <div className="absolute left-[-20%] top-[10%] h-40 w-40 rounded-full bg-turquoise/40 blur-3xl" />
+      <div className="absolute left-[-20%] top-[10%] h-40 w-40 rounded-full bg-turquoise-glow/40 blur-3xl" />
       <div className="absolute right-[-15%] top-[35%] h-44 w-44 rounded-full bg-coral/20 blur-3xl" />
 
       <div className="relative z-10 mt-3 pt-14 text-center text-white">
@@ -208,9 +207,7 @@ function LockScreen({ t }: { t: T }) {
 
       <div className="relative z-10 mt-auto px-4 pb-4">
         <div className="flex items-start gap-3 rounded-2xl bg-white/15 p-3.5 backdrop-blur-md">
-          <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl bg-turquoise text-sm font-bold text-white">
-            O
-          </div>
+          <Logomark className="h-9 w-9 flex-shrink-0 rounded-xl bg-turquoise-glow" />
           <div className="min-w-0 flex-1">
             <div className="flex items-center justify-between gap-3">
               <p className="text-[13px] font-semibold text-white">Osppy</p>
@@ -330,8 +327,8 @@ export function BeachToDashboard() {
 
         {/* connector: implies the phone "opens into" the dashboard */}
         <div className="flex flex-col items-center gap-2 py-7 text-center">
-          <div className="h-10 w-px bg-gradient-to-b from-turquoise/0 to-turquoise/60" />
-          <span className="flex h-7 w-7 items-center justify-center rounded-full border border-turquoise/40 bg-turquoise/10 text-turquoise">
+          <div className="h-10 w-px bg-gradient-to-b from-turquoise-glow/0 to-turquoise-glow/60" />
+          <span className="flex h-7 w-7 items-center justify-center rounded-full border border-turquoise-glow/40 bg-turquoise-glow/10 text-turquoise-glow">
             <ChevronDown className="h-4 w-4" />
           </span>
         </div>
@@ -357,7 +354,7 @@ export function BeachToDashboard() {
       {/* ───────── Desktop: scroll-scrubbed unlock → graph → MacBook ───────── */}
       {!reduce && (
         <div className="sticky top-0 hidden h-screen items-center justify-center overflow-hidden lg:flex">
-          <div className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-turquoise/10 blur-3xl" />
+          <div className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-turquoise-glow/10 blur-3xl" />
 
           {/* Phone (unlock + internal graph scroll) */}
           <motion.div style={{ scale: phoneScale, opacity: phoneOpacity }} className="pointer-events-none relative z-10">
