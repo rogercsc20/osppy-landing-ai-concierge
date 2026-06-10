@@ -156,6 +156,26 @@ html.lenis body {
   100% { left: 104%; opacity: 0; }
 }
 
+/* Rotating conic border beam (Pricing highlighted tier) */
+@property --beam-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes beam-spin {
+  to { --beam-angle: 360deg; }
+}
+.beam-ring {
+  background: conic-gradient(
+    from var(--beam-angle),
+    rgba(47, 196, 217, 0) 0%,
+    rgba(47, 196, 217, 0.9) 10%,
+    rgba(255, 107, 74, 0.45) 16%,
+    rgba(47, 196, 217, 0) 26%
+  );
+  animation: beam-spin 5.5s linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-phone-in,
   .animate-fade-rise,
@@ -163,6 +183,7 @@ html.lenis body {
   .typing-dot,
   .animate-ping,
   .animate-pulse,
+  .beam-ring,
   [class*="animate-["] {
     animation: none !important;
   }

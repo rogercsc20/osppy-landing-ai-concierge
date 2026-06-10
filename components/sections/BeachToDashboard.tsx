@@ -372,10 +372,17 @@ export function BeachToDashboard() {
       {/* ───────── Desktop: scroll-scrubbed unlock → graph → MacBook ───────── */}
       {!reduce && (
         <div className="sticky top-0 hidden h-screen items-center justify-center overflow-hidden lg:flex">
-          <div className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-turquoise-glow/10 blur-3xl" />
+          {/* stage dressing: engineering grid + teal core + ember floor */}
+          <div className="pointer-events-none absolute inset-0 bg-grid-pattern mask-radial-fade opacity-60" />
+          <div className="pointer-events-none absolute left-1/2 top-1/2 h-[640px] w-[640px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-turquoise-glow/10 blur-3xl" />
+          <div className="pointer-events-none absolute bottom-[-20%] left-1/2 h-80 w-[60%] -translate-x-1/2 rounded-full bg-ember blur-3xl" />
 
           {/* Phone (unlock + internal graph scroll) */}
           <motion.div style={{ scale: phoneScale, opacity: phoneOpacity }} className="pointer-events-none relative z-10">
+            <div
+              aria-hidden="true"
+              className="absolute -inset-14 -z-10 rounded-[6rem] bg-[radial-gradient(closest-side,rgba(34,196,217,0.22),transparent)] blur-2xl"
+            />
             <Phone>
               <PhoneApp t={t} contentY={appScrollY} />
 
@@ -390,10 +397,15 @@ export function BeachToDashboard() {
             style={{ opacity: dashOpacity, scale: dashScale, pointerEvents: dashInteractive ? "auto" : "none" }}
             className="absolute inset-0 z-20 flex flex-col items-center justify-center px-6"
           >
-            <motion.h2 style={{ opacity: dashHeadline }} className="font-display mb-6 text-center text-2xl font-semibold xl:text-3xl">
-              {t("dashboardReveal.headline")}
-            </motion.h2>
-            <Laptop className="max-w-5xl">
+            <motion.div style={{ opacity: dashHeadline }} className="mb-8 text-center">
+              <h2 className="font-display text-3xl font-semibold tracking-[-0.01em] xl:text-4xl">
+                {t("dashboardReveal.headline")}
+              </h2>
+              <p className="mt-2 text-sm text-white/60 xl:text-base">
+                {t("dashboardReveal.sub")}
+              </p>
+            </motion.div>
+            <Laptop className="w-full max-w-6xl">
               <DashboardMockup className="rounded-none border-0 shadow-none" />
             </Laptop>
           </motion.div>

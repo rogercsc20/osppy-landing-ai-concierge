@@ -63,17 +63,8 @@ export function Pricing() {
         <div className="grid lg:grid-cols-3 gap-5 lg:gap-6 items-stretch max-w-5xl mx-auto">
           {tiers.map((tier, i) => {
             const highlighted = tier.highlighted;
-            return (
-              <AnimatedSection
-                key={tier.nameKey}
-                delay={i * 0.1}
-                className={cn(
-                  "relative flex flex-col",
-                  highlighted
-                    ? "order-first lg:order-none rounded-3xl bg-ink text-canvas p-8 lg:p-10 shadow-[0_0_90px_-18px_rgba(34,196,217,0.45)]"
-                    : "rounded-2xl border border-line bg-canvas p-8 lg:my-7 transition-colors hover:border-ink/20"
-                )}
-              >
+            const inner = (
+              <>
                 <div className="mb-7 flex items-start justify-between gap-3">
                   {/* .eyebrow is un-layered CSS and would beat a text-* override,
                       so the dark card spells the style out */}
@@ -146,6 +137,31 @@ export function Pricing() {
                   {t("pricing.cta")}
                   <ArrowRight className="w-4 h-4" />
                 </a>
+              </>
+            );
+
+            return (
+              <AnimatedSection
+                key={tier.nameKey}
+                delay={i * 0.1}
+                className={cn(
+                  "relative flex flex-col",
+                  highlighted
+                    ? "order-first lg:order-none"
+                    : "rounded-2xl border border-line bg-canvas p-8 lg:my-7 transition-colors hover:border-ink/20"
+                )}
+              >
+                {highlighted ? (
+                  /* the light monolith, ringed by a rotating teal beam */
+                  <div className="relative h-full overflow-hidden rounded-3xl p-px shadow-[0_0_90px_-18px_rgba(34,196,217,0.45)]">
+                    <div aria-hidden="true" className="beam-ring absolute inset-0" />
+                    <div className="relative flex h-full flex-col rounded-[calc(1.5rem-1px)] bg-ink p-8 text-canvas lg:p-10">
+                      {inner}
+                    </div>
+                  </div>
+                ) : (
+                  inner
+                )}
               </AnimatedSection>
             );
           })}
