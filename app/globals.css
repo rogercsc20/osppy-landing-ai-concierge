@@ -148,11 +148,23 @@ html.lenis body {
   animation-delay: var(--rise-delay, 0s);
 }
 
+/* Traveling pulse along a hairline rail (Features escalation widget) */
+@keyframes beam-travel {
+  0% { left: -12%; opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { left: 104%; opacity: 0; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-phone-in,
   .animate-fade-rise,
-  .animate-rise-only {
-    animation: none;
+  .animate-rise-only,
+  .typing-dot,
+  .animate-ping,
+  .animate-pulse,
+  [class*="animate-["] {
+    animation: none !important;
   }
 }
 

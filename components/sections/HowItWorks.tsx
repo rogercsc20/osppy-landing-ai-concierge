@@ -1,9 +1,34 @@
+"use client";
+
+import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { useTranslations } from "next-intl";
-import { AnimatedSection, AnimatedGroup } from "@/components/ui/AnimatedSection";
+import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import { SplitWords } from "@/components/fx/SplitWords";
 import { MessageSquare, Database, Sparkles } from "lucide-react";
+import { EASE_LUXE } from "@/lib/motion";
+
+const IGNITE_BASE = 0.35; // beam reaches step i at roughly BASE + i * GAP
+const IGNITE_GAP = 0.55;
+
+const circleVariants = (i: number): Variants => ({
+  hidden: {},
+  visible: {
+    transition: { delayChildren: IGNITE_BASE + i * IGNITE_GAP },
+  },
+});
+
+const igniteVariants: Variants = {
+  hidden: { opacity: 0.4, scale: 0.92 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.5, ease: EASE_LUXE },
+  },
+};
 
 export function HowItWorks() {
   const t = useTranslations();
+  const reduce = useReducedMotion() ?? false;
 
   const steps = [
     { number: "01", icon: MessageSquare, label: t("how.step1") },
@@ -12,49 +37,72 @@ export function HowItWorks() {
   ];
 
   return (
-    <section id="how-it-works" className="bg-sand py-32 lg:py-40 px-4 sm:px-6">
-      <div className="max-w-6xl mx-auto">
-        <AnimatedSection className="text-center mb-16 lg:mb-20">
-          <p className="eyebrow mb-4">{t("how.eyebrow")}</p>
-          <h2 className="font-display text-[clamp(2.25rem,4vw,3.5rem)] font-semibold text-ink leading-[1.08] tracking-[-0.01em]">
-            {t("how.headline")}
+    <section id="how-it-works" className="relative overflow-hidden bg-sand px-4 py-32 sm:px-6 lg:py-44">
+      <div className="mx-auto max-w-6xl">
+        <AnimatedSection className="mb-20 text-center lg:mb-28">
+          <p className="eyebrow mb-5">{t("how.eyebrow")}</p>
+          <h2 className="font-display text-[clamp(2.5rem,4.5vw,4rem)] font-semibold leading-[1.05] tracking-[-0.015em] text-ink">
+            <SplitWords text={t("how.headline")} />
           </h2>
         </AnimatedSection>
 
-        {/* Steps: horizontal on desktop, vertical timeline on mobile */}
-        <AnimatedGroup className="relative">
-          {/* Connector hairline — desktop only */}
-          <div className="hidden lg:block absolute top-[2.25rem] left-[16.5%] right-[16.5%] h-px bg-ink/15" />
+        <motion.div
+          className="relative"
+          initial={reduce ? "visible" : "hidden"}
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+        >
+          {/* The beam: draws across the rail, igniting each step it reaches */}
+          <div className="absolute left-[16.5%] right-[16.5%] top-[2.25rem] hidden h-px overflow-hidden lg:block">
+            <div className="absolute inset-0 bg-line" />
+            <motion.div
+              className="absolute inset-0 origin-left bg-gradient-to-r from-turquoise-ink/0 via-turquoise-ink to-turquoise-ink/40"
+              variants={{
+                hidden: { scaleX: 0 },
+                visible: {
+                  scaleX: 1,
+                  transition: { duration: reduce ? 0 : 1.7, ease: "easeInOut", delay: 0.2 },
+                },
+              }}
+            />
+          </div>
 
-          <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 relative">
+          <div className="relative grid gap-10 lg:grid-cols-3 lg:gap-8">
             {steps.map(({ number, icon: Icon, label }, i) => (
-              <div key={number} className="flex lg:flex-col items-start lg:items-center gap-5 lg:gap-4 lg:text-center relative">
-                {/* Mobile: vertical connector */}
+              <motion.div
+                key={number}
+                variants={circleVariants(i)}
+                className="relative flex items-start gap-5 lg:flex-col lg:items-center lg:gap-5 lg:text-center"
+              >
+                {/* mobile rail */}
                 {i < steps.length - 1 && (
-                  <div className="lg:hidden absolute left-[1.1rem] top-[4.5rem] bottom-[-1.5rem] w-px bg-ink/15" />
+                  <div className="absolute left-[1.35rem] top-[4.75rem] bottom-[-2rem] w-px bg-line lg:hidden" />
                 )}
 
-                <div className="relative flex-shrink-0">
-                  <div className="w-9 h-9 lg:w-12 lg:h-12 rounded-full border border-ink/15 bg-canvas flex items-center justify-center">
-                    <Icon className="w-4 h-4 lg:w-5 lg:h-5 text-ink" strokeWidth={1.5} />
+                <motion.div variants={igniteVariants} className="relative flex-shrink-0">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-full border border-turquoise-ink/40 bg-canvas shadow-[0_0_28px_-4px_rgba(47,196,217,0.45)] lg:h-[4.5rem] lg:w-[4.5rem]">
+                    <Icon className="h-4 w-4 text-turquoise-ink lg:h-6 lg:w-6" strokeWidth={1.5} />
                   </div>
-                  <span className="absolute -top-2 -right-2 text-[10px] font-bold text-ink/60 bg-sand px-1">
+                  <span className="absolute -right-1 -top-2 bg-sand px-1 font-display text-xs font-semibold text-turquoise-ink lg:-right-2">
                     {number}
                   </span>
-                </div>
+                </motion.div>
 
-                <p className="text-ink/80 font-medium leading-snug lg:max-w-[180px]">
+                <motion.p
+                  variants={igniteVariants}
+                  className="max-w-[260px] pt-2 font-medium leading-snug text-ink/85 lg:pt-0 lg:text-lg"
+                >
                   {label}
-                </p>
-              </div>
+                </motion.p>
+              </motion.div>
             ))}
           </div>
-        </AnimatedGroup>
+        </motion.div>
 
-        {/* Time callout — quiet, the pulse dot is the only signal */}
-        <AnimatedSection delay={0.3} className="text-center mt-14">
-          <span className="inline-flex items-center gap-2.5 text-sm font-medium text-ink/70">
-            <span className="w-2 h-2 rounded-full bg-wa-green animate-pulse" />
+        {/* Time callout */}
+        <AnimatedSection delay={0.3} className="mt-20 text-center">
+          <span className="inline-flex items-center gap-2.5 rounded-full border border-line bg-white/[0.03] px-5 py-2.5 text-sm font-medium text-ink/80">
+            <span className="h-2 w-2 animate-pulse rounded-full bg-wa-green" />
             {t("how.callout")}
           </span>
         </AnimatedSection>
