@@ -55,6 +55,7 @@
     "modalBody": "We're polishing your control panel: live conversations, metrics, and direct replies straight from WhatsApp. Leave your email and you'll be among the first in.",
     "emailPlaceholder": "you@email.com",
     "submit": "Notify me",
+    "error": "Couldn't send. Please try again.",
     "success": "Done! We'll let you know the moment it's ready.",
     "close": "Close"
   },
@@ -237,6 +238,7 @@
       "hotel": "Hotel name",
       "contact": "WhatsApp or email",
       "submit": "Book my free demo",
+      "error": "Couldn't send. Please try again or email hello@osppy.com.",
       "success": {
         "title": "Done! We'll be in touch soon.",
         "body": "Check your WhatsApp or email. We'll write to you within 24 hours to schedule the demo."
