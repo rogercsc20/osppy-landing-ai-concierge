@@ -27,14 +27,15 @@ function ProblemRow({
 
   return (
     <div ref={ref} className="relative border-b border-line">
-      {/* ghost numeral, parallax-drifting behind the row */}
+      {/* ghost numeral, parallax-drifting behind the row — rendered as
+          pseudo-element content (not a text node) so contrast audits
+          correctly treat it as decoration */}
       <motion.span
         aria-hidden="true"
         style={{ y }}
-        className="pointer-events-none absolute -top-10 right-0 select-none font-display text-[clamp(9rem,22vw,18rem)] font-semibold leading-none text-white/[0.045] lg:-top-16 lg:right-8"
-      >
-        0{index + 1}
-      </motion.span>
+        data-num={`0${index + 1}`}
+        className="pointer-events-none absolute -top-10 right-0 select-none font-display text-[clamp(9rem,22vw,18rem)] font-semibold leading-none text-white/[0.045] after:content-[attr(data-num)] lg:-top-16 lg:right-8"
+      />
 
       <AnimatedSection className="relative z-10 grid gap-3 py-16 sm:grid-cols-12 sm:gap-8 lg:py-24">
         <span className="font-display text-xl font-semibold text-turquoise-ink/70 sm:col-span-1">

@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import { SplitWords } from "@/components/fx/SplitWords";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { submitLead } from "@/lib/lead";
@@ -61,17 +62,28 @@ export function FinalCTA() {
     );
 
   return (
-    <section id="demo" className="bg-canvas py-32 lg:py-40 px-4 sm:px-6 bg-grid-pattern">
-      <div className="max-w-2xl mx-auto text-center">
+    <section id="demo" className="relative overflow-hidden bg-canvas py-32 lg:py-44 px-4 sm:px-6">
+      {/* spotlight falling from above */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(55% 60% at 50% -10%, rgba(18,157,181,0.28), transparent 65%)",
+        }}
+      />
+      <div aria-hidden="true" className="absolute inset-0 bg-grid-pattern mask-radial-fade" />
+
+      <div className="relative max-w-2xl mx-auto text-center">
         <AnimatedSection className="mb-12">
           <p className="eyebrow mb-4">{t("cta.eyebrow")}</p>
-          <h2 className="font-display text-[clamp(2.25rem,4vw,3.5rem)] font-semibold text-ink leading-[1.08] tracking-[-0.01em] mb-5">
-            {t("cta.headline")}
+          <h2 className="font-display text-[clamp(2.5rem,4.5vw,4rem)] font-semibold text-ink leading-[1.05] tracking-[-0.015em] mb-5">
+            <SplitWords text={t("cta.headline")} />
           </h2>
           <p className="text-lg text-ink/70 leading-relaxed">{t("cta.body")}</p>
         </AnimatedSection>
 
-        <AnimatedSection delay={0.2}>
+        <AnimatedSection delay={0.2} className="rounded-3xl border border-line bg-white/[0.02] p-7 backdrop-blur-sm sm:p-10">
           {submitted ? (
             <div className="flex flex-col items-center gap-4 py-12">
               <CheckCircle className="w-12 h-12 text-wa-green" />

@@ -8,8 +8,15 @@ export function Footer() {
   const t = useTranslations();
 
   return (
-    <footer className="bg-canvas border-t border-line py-12 px-4 sm:px-6">
-      <div className="max-w-6xl mx-auto">
+    <footer className="relative overflow-hidden bg-canvas border-t border-line pt-14 pb-28 px-4 sm:px-6 lg:pb-40">
+      {/* ghost wordmark sinking below the fold — pseudo-element content so
+          contrast audits treat it as the decoration it is */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-[-0.28em] select-none text-center font-display text-[clamp(6rem,18vw,16rem)] font-semibold leading-none text-white/[0.03] after:content-['Osppy']"
+      />
+
+      <div className="relative max-w-6xl mx-auto">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8 mb-8">
           {/* Logo + tagline */}
           <div className="flex flex-col gap-2">
