@@ -29,7 +29,7 @@ export function Problem() {
               key={title}
               className="grid sm:grid-cols-12 gap-2 sm:gap-6 py-8 lg:py-10"
             >
-              <span className="sm:col-span-1 font-display text-lg text-ink/35">
+              <span className="sm:col-span-1 font-display text-xl font-semibold text-ink/50">
                 0{i + 1}
               </span>
               <h3 className="sm:col-span-4 font-semibold text-ink text-lg leading-snug">

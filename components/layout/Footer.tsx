@@ -17,11 +17,11 @@ export function Footer() {
               <Logomark className="w-7 h-7 rounded-md" />
               <span className="font-semibold text-ink">Osppy</span>
             </div>
-            <p className="text-sm text-ink/50">{t("footer.tagline")}</p>
+            <p className="text-sm text-ink/70">{t("footer.tagline")}</p>
           </div>
 
           {/* Links */}
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 text-sm text-ink/60">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 text-sm text-ink/70">
             <a href={`mailto:${CONTACT_EMAIL}`} className="flex items-center gap-1.5 hover:text-ink transition-colors">
               <Mail className="w-3.5 h-3.5" />
               {CONTACT_EMAIL}
@@ -50,7 +50,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-line pt-6 text-center text-xs text-ink/45">
+        <div className="border-t border-line pt-6 text-center text-xs text-ink/70">
           {t("footer.rights")} · osppy.com
         </div>
       </div>

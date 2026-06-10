@@ -1,20 +1,18 @@
 "use client";
 
-import { motion, useReducedMotion, type Transition } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { InteractiveChat } from "@/components/ui/chat/InteractiveChat";
 import { ArrowRight, ChevronDown } from "lucide-react";
-import { DUR_REVEAL, EASE_LUXE } from "@/lib/motion";
 
 export function Hero() {
   const t = useTranslations();
   const shouldReduceMotion = useReducedMotion();
 
-  const fadeUp = (delay: number) => ({
-    initial: { opacity: 0, y: shouldReduceMotion ? 0 : 24 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: DUR_REVEAL, delay, ease: EASE_LUXE } as Transition,
-  });
+  // CSS-driven entrance (not framer initial/animate): the headline is the
+  // LCP element, so it must paint before hydration, like the chat phone.
+  const rise = (delay: number) =>
+    ({ "--rise-delay": `${delay}s` }) as React.CSSProperties;
 
   return (
     <section className="relative min-h-screen flex items-center bg-grid-pattern bg-canvas pt-16 overflow-hidden">
@@ -27,33 +25,33 @@ export function Hero() {
           {/* Left: copy */}
           <div className="flex flex-col gap-6 lg:gap-8">
             {/* Eyebrow */}
-            <motion.div {...fadeUp(0.1)}>
+            <div className="animate-fade-rise" style={rise(0.1)}>
               <span className="eyebrow inline-flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-wa-green animate-pulse" />
                 {t("hero.badge")}
               </span>
-            </motion.div>
+            </div>
 
-            {/* Headline */}
-            <motion.h1
-              {...fadeUp(0.2)}
-              className="font-display text-[clamp(3.25rem,6.75vw,5.25rem)] font-semibold leading-[1.02] tracking-[-0.02em] text-ink"
+            {/* Headline — rise without fade: it's the LCP element */}
+            <h1
+              className="animate-rise-only font-display text-[clamp(3.25rem,6.75vw,5.25rem)] font-semibold leading-[1.02] tracking-[-0.02em] text-ink"
+              style={rise(0.1)}
             >
               {t("hero.headline")}
-            </motion.h1>
+            </h1>
 
             {/* Subheadline */}
-            <motion.p
-              {...fadeUp(0.35)}
-              className="text-lg sm:text-xl text-ink/70 leading-relaxed max-w-xl"
+            <p
+              className="animate-fade-rise text-lg sm:text-xl text-ink/70 leading-relaxed max-w-xl"
+              style={rise(0.35)}
             >
               {t("hero.subheadline")}
-            </motion.p>
+            </p>
 
             {/* CTAs: one turquoise button, one quiet text link */}
-            <motion.div
-              {...fadeUp(0.5)}
-              className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-7"
+            <div
+              className="animate-fade-rise flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-7"
+              style={rise(0.5)}
             >
               <a
                 href="#demo"
@@ -69,12 +67,12 @@ export function Hero() {
                 {t("hero.cta.secondary")}
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
               </a>
-            </motion.div>
+            </div>
 
             {/* Trust micro-copy */}
-            <motion.p {...fadeUp(0.65)} className="text-xs text-ink/50">
+            <p className="animate-fade-rise text-xs text-ink/70" style={rise(0.65)}>
               {t("hero.trust")}
-            </motion.p>
+            </p>
           </div>
 
           {/* Right: interactive chat — CSS entrance (paints immediately, no

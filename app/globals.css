@@ -60,13 +60,13 @@ body {
   font-family: var(--font-fraunces), Georgia, "Times New Roman", serif;
 }
 
-/* Eyebrow label above section headlines */
+/* Eyebrow label above section headlines — 65% keeps WCAG AA at 11px */
 .eyebrow {
   font-size: 0.6875rem;
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: color-mix(in srgb, var(--color-ink) 50%, transparent);
+  color: color-mix(in srgb, var(--color-ink) 65%, transparent);
 }
 
 /* Subtle warm grid pattern for light sections */
@@ -107,8 +107,35 @@ body {
 .animate-phone-in {
   animation: phone-materialize 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
 }
+
+/* Hero copy entrance — CSS for the same reason: the h1 is the LCP element,
+   so it must not wait for hydration. Stagger via --rise-delay. */
+@keyframes fade-rise {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-rise {
+  animation: fade-rise 0.8s var(--ease-luxe) both;
+  animation-delay: var(--rise-delay, 0s);
+}
+
+/* LCP-critical elements rise without fading: an element that starts at
+   opacity 0 doesn't count as painted, which pushes LCP out by seconds. */
+@keyframes rise-only {
+  from { transform: translateY(24px); }
+  to { transform: translateY(0); }
+}
+.animate-rise-only {
+  animation: rise-only 0.8s var(--ease-luxe) both;
+  animation-delay: var(--rise-delay, 0s);
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .animate-phone-in { animation: none; }
+  .animate-phone-in,
+  .animate-fade-rise,
+  .animate-rise-only {
+    animation: none;
+  }
 }
 
 /* Smooth anchor scroll offset for sticky navbar */

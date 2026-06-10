@@ -196,9 +196,13 @@ function PhoneApp({ t, contentY }: { t: T; contentY?: MotionValue<number> }) {
 /** The phone's lock screen: wallpaper, clock, Osppy notification, lock pill. */
 function LockScreen({ t }: { t: T }) {
   return (
-    <div className="absolute inset-0 flex flex-col bg-gradient-to-b from-[#15788a] via-[#0f3b46] to-[#0b141a]">
+    // decorative mockup — hidden from assistive tech
+    <div
+      aria-hidden="true"
+      className="absolute inset-0 flex flex-col bg-gradient-to-b from-[#0b5a6b] via-[#0d3540] to-[#0b141a]"
+    >
       <div className="absolute left-[-20%] top-[10%] h-40 w-40 rounded-full bg-turquoise-glow/40 blur-3xl" />
-      <div className="absolute right-[-15%] top-[35%] h-44 w-44 rounded-full bg-coral/20 blur-3xl" />
+      <div className="absolute right-[-15%] top-[35%] h-48 w-48 rounded-full bg-ember blur-3xl" />
 
       <div className="relative z-10 mt-3 pt-14 text-center text-white">
         <p className="text-sm font-medium text-white/80">{t("dashboardReveal.lockDate")}</p>
@@ -295,17 +299,31 @@ export function BeachToDashboard() {
     offset: ["start start", "end end"],
   });
 
-  // 1) unlock: lock screen slides up
-  const lockY = useTransform(scrollYProgress, [0.2, 0.4], ["0%", "-100%"]);
-  const lockOpacity = useTransform(scrollYProgress, [0.32, 0.42], [1, 0]);
-  // 2) phone app scrolls down to reveal the graph
-  const appScrollY = useTransform(scrollYProgress, [0.44, 0.7], [0, -210]);
-  // 3) phone → desktop (in a MacBook)
-  const phoneScale = useTransform(scrollYProgress, [0.72, 0.88], [1, 1.25]);
-  const phoneOpacity = useTransform(scrollYProgress, [0.76, 0.88], [1, 0]);
-  const dashOpacity = useTransform(scrollYProgress, [0.76, 0.9], [0, 1]);
-  const dashScale = useTransform(scrollYProgress, [0.72, 0.94], [0.5, 1]);
-  const dashHeadline = useTransform(scrollYProgress, [0.9, 0.97], [0, 1]);
+  // Each beat gets a dwell before the next begins; ranges deliberately
+  // overlap only where two elements crossfade.
+  //
+  // Function-form mappings (not range arrays) are REQUIRED here: framer
+  // compiles numeric range mappings into native ScrollTimeline animations,
+  // which track the wrong progress inside this position:sticky container
+  // (Chrome). Functions can't be compiled, so they stay on the correct
+  // JS-driven path.
+  const ramp = (v: number, from: number, to: number, a: number, b: number) => {
+    const p = Math.min(1, Math.max(0, (v - from) / (to - from)));
+    return a + p * (b - a);
+  };
+  // 1) lock dwell (0–.16), then the lock screen slides up
+  const lockY = useTransform(scrollYProgress, [0.16, 0.34], ["0%", "-100%"]);
+  const lockOpacity = useTransform(scrollYProgress, (v) => ramp(v, 0.26, 0.36, 1, 0));
+  // 2) app dwell, then it scrolls down to reveal the graph (.4–.62)
+  const appScrollY = useTransform(scrollYProgress, (v) => ramp(v, 0.4, 0.62, 0, -210));
+  // 3) graph dwell, then phone → desktop: the dashboard gains substance
+  //    (scale .6→1) while the phone is still visible, so the handoff
+  //    crossfades instead of cutting; settled dwell from .92 to the end
+  const phoneScale = useTransform(scrollYProgress, (v) => ramp(v, 0.68, 0.84, 1, 1.18));
+  const phoneOpacity = useTransform(scrollYProgress, (v) => ramp(v, 0.74, 0.84, 1, 0));
+  const dashOpacity = useTransform(scrollYProgress, (v) => ramp(v, 0.72, 0.86, 0, 1));
+  const dashScale = useTransform(scrollYProgress, (v) => ramp(v, 0.68, 0.92, 0.6, 1));
+  const dashHeadline = useTransform(scrollYProgress, (v) => ramp(v, 0.88, 0.96, 0, 1));
 
   // enable clicks on the dashboard only once it has settled
   const [dashInteractive, setDashInteractive] = useState(false);

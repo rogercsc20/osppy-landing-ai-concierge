@@ -109,7 +109,7 @@ export function FinalCTA() {
             </form>
           )}
 
-          <p className="text-xs text-ink/50 mt-5">{t("cta.microcopy")}</p>
+          <p className="text-xs text-ink/70 mt-5">{t("cta.microcopy")}</p>
         </AnimatedSection>
       </div>
     </section>
