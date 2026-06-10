@@ -229,6 +229,7 @@
     }
   },
   "pricing": {
+    "eyebrow": "Pricing",
     "headline": "One flat price. No commissions. No surprises.",
     "comparison": "Booking.com charges a mid-size hotel ~$3,000 USD/month in commissions. Osppy costs $149.",
     "recommended": "Recommended",
@@ -284,6 +285,7 @@
     }
   },
   "faq": {
+    "eyebrow": "FAQ",
     "headline": "Frequently asked questions",
     "q1": "What happens if Osppy makes a mistake?",
     "a1": "Osppy is configured to escalate to you when it doesn't have enough information or when it detects a sensitive situation. If it makes a mistake in a routine response, you can correct the information in seconds from the dashboard.",
@@ -299,6 +301,7 @@
     "a6": "No. Month to month. Cancel anytime. No fine print."
   },
   "cta": {
+    "eyebrow": "Start today",
     "headline": "How many messages did you answer last night after 9pm?",
     "body": "Book a 20-minute demo. We'll show you how Osppy works with your hotel's real information. No commitment.",
     "button": "Book your demo",

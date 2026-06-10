@@ -1,9 +1,6 @@
-"use client";
-
 import { useTranslations } from "next-intl";
-import { AnimatedSection, AnimatedGroup } from "@/components/ui/AnimatedSection";
+import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { Check, ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface PricingTier {
@@ -50,55 +47,87 @@ export function Pricing() {
   ];
 
   return (
-    <section id="pricing" className="bg-sand py-24 lg:py-32 px-4 sm:px-6">
+    <section id="pricing" className="bg-sand py-32 lg:py-40 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
-        <AnimatedSection className="text-center mb-14">
-          <h2 className="font-display text-4xl sm:text-5xl font-semibold text-ink mb-4">
+        <AnimatedSection className="text-center mb-16 lg:mb-20">
+          <p className="eyebrow mb-4">{t("pricing.eyebrow")}</p>
+          <h2 className="font-display text-[clamp(2.25rem,4vw,3.5rem)] font-semibold text-ink leading-[1.08] tracking-[-0.01em]">
             {t("pricing.headline")}
           </h2>
         </AnimatedSection>
 
-        {/* Pricing cards — stack on mobile, Growth on top */}
-        <AnimatedGroup className="grid lg:grid-cols-3 gap-4 lg:gap-6 items-start lg:items-stretch">
-          {tiers.map((tier) => {
+        {/* The Growth tier is the page's one dark, elevated object — taller
+            than its hairline neighbors, lit by a soft turquoise halo.
+            AnimatedSection is the grid child so order-* works (a wrapper div
+            between the grid and the card would swallow it). */}
+        <div className="grid lg:grid-cols-3 gap-5 lg:gap-6 items-stretch max-w-5xl mx-auto">
+          {tiers.map((tier, i) => {
             const highlighted = tier.highlighted;
             return (
-              <motion.div
+              <AnimatedSection
                 key={tier.nameKey}
-                whileHover={{ scale: highlighted ? 1.02 : 1.01 }}
-                transition={{ duration: 0.2 }}
+                delay={i * 0.1}
                 className={cn(
-                  "relative rounded-2xl p-6 lg:p-8 flex flex-col",
+                  "relative flex flex-col",
                   highlighted
-                    ? "bg-turquoise-deep text-white shadow-xl shadow-turquoise/25 order-first lg:order-none"
-                    : "border border-ink/10 bg-white text-ink shadow-sm shadow-ink/5"
+                    ? "order-first lg:order-none rounded-3xl bg-ink text-canvas p-8 lg:p-10 shadow-[0_32px_90px_-24px_rgba(11,90,107,0.55)]"
+                    : "rounded-2xl border border-line bg-canvas p-8 lg:my-7 transition-colors hover:border-ink/20"
                 )}
               >
-                {highlighted && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="px-3 py-1 rounded-full bg-coral text-white text-xs font-bold">
-                      {t("pricing.recommended")}
-                    </span>
-                  </div>
-                )}
-
-                <div className="mb-6">
-                  <p className={cn("text-sm font-medium mb-2", highlighted ? "text-white/70" : "text-ink/55")}>
+                <div className="mb-7 flex items-start justify-between gap-3">
+                  {/* .eyebrow is un-layered CSS and would beat a text-* override,
+                      so the dark card spells the style out */}
+                  <p
+                    className={cn(
+                      highlighted
+                        ? "text-[0.6875rem] font-medium uppercase tracking-[0.18em] text-canvas/60"
+                        : "eyebrow"
+                    )}
+                  >
                     {t(tier.nameKey)}
                   </p>
-                  <div className="flex items-end gap-1">
-                    <span className="text-4xl font-bold">{t(tier.priceKey)}</span>
-                    <span className={cn("text-sm mb-1", highlighted ? "text-white/70" : "text-ink/45")}>
-                      {t(tier.periodKey)}
+                  {highlighted && (
+                    <span className="rounded-full border border-turquoise-glow/40 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.14em] text-turquoise-glow">
+                      {t("pricing.recommended")}
                     </span>
-                  </div>
+                  )}
                 </div>
 
-                <ul className="flex flex-col gap-3 flex-1 mb-8">
+                <div className="mb-8 flex items-baseline gap-2">
+                  <span
+                    className={cn(
+                      "font-display font-semibold tracking-tight",
+                      highlighted ? "text-6xl" : "text-5xl"
+                    )}
+                  >
+                    {t(tier.priceKey)}
+                  </span>
+                  <span className={cn("text-sm", highlighted ? "text-canvas/60" : "text-ink/50")}>
+                    {t(tier.periodKey)}
+                  </span>
+                </div>
+
+                <ul
+                  className={cn(
+                    "flex flex-col gap-3.5 flex-1 border-t pt-7 mb-9",
+                    highlighted ? "border-white/10" : "border-line"
+                  )}
+                >
                   {tier.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-2.5">
-                      <Check className={cn("w-4 h-4 flex-shrink-0 mt-0.5", highlighted ? "text-white" : "text-turquoise-deep")} />
-                      <span className={cn("text-sm leading-snug", highlighted ? "text-white/85" : "text-ink/70")}>
+                    <li key={feature} className="flex items-start gap-3">
+                      <Check
+                        className={cn(
+                          "w-4 h-4 flex-shrink-0 mt-0.5",
+                          highlighted ? "text-turquoise-glow" : "text-ink/40"
+                        )}
+                        strokeWidth={2}
+                      />
+                      <span
+                        className={cn(
+                          "text-sm leading-snug",
+                          highlighted ? "text-canvas/85" : "text-ink/70"
+                        )}
+                      >
                         {feature}
                       </span>
                     </li>
@@ -108,23 +137,23 @@ export function Pricing() {
                 <a
                   href="#demo"
                   className={cn(
-                    "flex items-center justify-center gap-2 w-full py-3 rounded-full font-semibold text-sm transition-all",
+                    "flex items-center justify-center gap-2 w-full py-3.5 rounded-full font-semibold text-sm transition-colors",
                     highlighted
-                      ? "bg-white text-turquoise-deep hover:bg-white/90"
-                      : "border border-ink/20 text-ink hover:border-turquoise hover:text-turquoise-deep"
+                      ? "bg-turquoise text-white hover:bg-turquoise-deep"
+                      : "border border-ink/20 text-ink hover:border-ink/50"
                   )}
                 >
                   {t("pricing.cta")}
                   <ArrowRight className="w-4 h-4" />
                 </a>
-              </motion.div>
+              </AnimatedSection>
             );
           })}
-        </AnimatedGroup>
+        </div>
 
         {/* ROI comparison */}
-        <AnimatedSection delay={0.3} className="mt-10 text-center">
-          <p className="text-ink/55 text-sm max-w-xl mx-auto">
+        <AnimatedSection delay={0.25} className="mt-14 text-center">
+          <p className="mx-auto max-w-xl border-t border-line pt-8 text-sm leading-relaxed text-ink/60">
             {t("pricing.comparison")}
           </p>
         </AnimatedSection>

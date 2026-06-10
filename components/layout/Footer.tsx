@@ -8,7 +8,7 @@ export function Footer() {
   const t = useTranslations();
 
   return (
-    <footer className="bg-sand border-t border-ink/10 py-12 px-4 sm:px-6">
+    <footer className="bg-canvas border-t border-line py-12 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8 mb-8">
           {/* Logo + tagline */}
@@ -50,7 +50,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-ink/10 pt-6 text-center text-xs text-ink/40">
+        <div className="border-t border-line pt-6 text-center text-xs text-ink/45">
           {t("footer.rights")} · osppy.com
         </div>
       </div>
