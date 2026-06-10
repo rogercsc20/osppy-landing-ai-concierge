@@ -22,28 +22,32 @@ export function Features() {
   ];
 
   return (
-    <section className="bg-warm-white py-24 lg:py-32 px-4 sm:px-6">
+    <section className="bg-canvas py-32 lg:py-40 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
-        <AnimatedSection className="text-center mb-14">
-          <h2 className="font-display text-4xl sm:text-5xl font-semibold text-ink mb-4">
+        <AnimatedSection className="text-center mb-16 lg:mb-20">
+          <p className="eyebrow mb-4">{t("features.eyebrow")}</p>
+          <h2 className="font-display text-[clamp(2.25rem,4vw,3.5rem)] font-semibold text-ink leading-[1.08] tracking-[-0.01em]">
             {t("features.headline")}
           </h2>
         </AnimatedSection>
 
+        {/* Hairline lattice: container draws top/left, cells draw bottom/right */}
         <AnimatedGroup
-          stagger={0.08}
-          className="grid grid-cols-2 lg:grid-cols-3 gap-4"
+          stagger={0.06}
+          className="grid grid-cols-2 lg:grid-cols-3 border-t border-l border-line"
         >
           {features.map(({ icon: Icon, title, body }) => (
             <div
               key={title}
-              className="bg-white rounded-2xl p-5 lg:p-6 border border-ink/8 group hover:border-turquoise/40 hover:shadow-md hover:shadow-ink/5 transition-all duration-300"
+              className="h-full p-6 lg:p-9 border-b border-r border-line hover:bg-ink/[0.02] transition-colors"
             >
-              <div className="w-9 h-9 rounded-xl bg-turquoise-soft flex items-center justify-center mb-4 group-hover:bg-turquoise/20 transition-colors">
-                <Icon className="w-4 h-4 text-turquoise-deep transition-colors" />
-              </div>
-              <h3 className="font-semibold text-ink mb-1.5 text-sm lg:text-base">{title}</h3>
-              <p className="text-ink/60 text-xs lg:text-sm leading-relaxed">{body}</p>
+              <Icon className="w-5 h-5 text-ink mb-5" strokeWidth={1.5} />
+              <h3 className="font-semibold text-ink mb-1.5 text-sm lg:text-base">
+                {title}
+              </h3>
+              <p className="text-ink/70 text-xs lg:text-sm leading-relaxed">
+                {body}
+              </p>
             </div>
           ))}
         </AnimatedGroup>

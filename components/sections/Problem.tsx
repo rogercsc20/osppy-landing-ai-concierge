@@ -1,33 +1,21 @@
 import { useTranslations } from "next-intl";
 import { AnimatedSection, AnimatedGroup } from "@/components/ui/AnimatedSection";
-import { Moon, TrendingDown, Clock } from "lucide-react";
 
 export function Problem() {
   const t = useTranslations();
 
-  const cards = [
-    {
-      icon: Moon,
-      title: t("problem.card1.title"),
-      body: t("problem.card1.body"),
-    },
-    {
-      icon: TrendingDown,
-      title: t("problem.card2.title"),
-      body: t("problem.card2.body"),
-    },
-    {
-      icon: Clock,
-      title: t("problem.card3.title"),
-      body: t("problem.card3.body"),
-    },
+  const items = [
+    { title: t("problem.card1.title"), body: t("problem.card1.body") },
+    { title: t("problem.card2.title"), body: t("problem.card2.body") },
+    { title: t("problem.card3.title"), body: t("problem.card3.body") },
   ];
 
   return (
-    <section className="bg-sand py-24 lg:py-32 px-4 sm:px-6">
+    <section className="bg-sand py-32 lg:py-40 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
-        <AnimatedSection className="mb-14 max-w-2xl">
-          <h2 className="font-display text-4xl sm:text-5xl font-semibold text-ink leading-[1.1] mb-6">
+        <AnimatedSection className="mb-16 lg:mb-20 max-w-2xl">
+          <p className="eyebrow mb-4">{t("problem.eyebrow")}</p>
+          <h2 className="font-display text-[clamp(2.25rem,4vw,3.5rem)] font-semibold text-ink leading-[1.08] tracking-[-0.01em] mb-6">
             {t("problem.headline")}
           </h2>
           <p className="text-lg text-ink/70 leading-relaxed">
@@ -35,17 +23,21 @@ export function Problem() {
           </p>
         </AnimatedSection>
 
-        <AnimatedGroup className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {cards.map(({ icon: Icon, title, body }) => (
+        <AnimatedGroup className="border-y border-line divide-y divide-line">
+          {items.map(({ title, body }, i) => (
             <div
               key={title}
-              className="bg-warm-white rounded-2xl p-6 border border-ink/8 shadow-sm shadow-ink/5"
+              className="grid sm:grid-cols-12 gap-2 sm:gap-6 py-8 lg:py-10"
             >
-              <div className="w-10 h-10 rounded-xl bg-coral-soft flex items-center justify-center mb-4">
-                <Icon className="w-5 h-5 text-coral" />
-              </div>
-              <h3 className="font-semibold text-ink text-lg mb-2">{title}</h3>
-              <p className="text-ink/65 text-sm leading-relaxed">{body}</p>
+              <span className="sm:col-span-1 font-display text-lg text-ink/35">
+                0{i + 1}
+              </span>
+              <h3 className="sm:col-span-4 font-semibold text-ink text-lg leading-snug">
+                {title}
+              </h3>
+              <p className="sm:col-span-7 text-ink/70 leading-relaxed">
+                {body}
+              </p>
             </div>
           ))}
         </AnimatedGroup>
