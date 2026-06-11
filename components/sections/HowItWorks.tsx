@@ -86,7 +86,7 @@ export function HowItWorks() {
                   <div className="flex h-11 w-11 items-center justify-center rounded-full border border-turquoise-ink/40 bg-canvas shadow-[0_0_28px_-4px_rgba(47,196,217,0.45)] lg:h-[4.5rem] lg:w-[4.5rem]">
                     <Icon className="h-4 w-4 text-turquoise-ink lg:h-6 lg:w-6" strokeWidth={1.5} />
                   </div>
-                  <span className="absolute -right-1 -top-2 bg-sand px-1 font-display text-xs font-semibold text-turquoise-ink lg:-right-2">
+                  <span className="absolute -right-1 -top-2 font-display text-xs font-semibold text-turquoise-ink lg:-right-2">
                     {number}
                   </span>
                 </motion.div>
