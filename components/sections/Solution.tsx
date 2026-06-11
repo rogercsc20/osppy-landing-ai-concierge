@@ -27,14 +27,14 @@ export function Solution() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-canvas px-4 py-32 sm:px-6 lg:py-44">
+    <section className="relative overflow-hidden bg-canvas px-4 py-32 sm:px-6 lg:py-36">
       <div className="mx-auto max-w-6xl">
         <div ref={ref} className="grid items-center gap-16 lg:grid-cols-2 lg:gap-20">
           {/* Left: the conversation, typed by your scroll */}
           <div className="relative order-2 flex justify-center lg:order-1">
             <div
               aria-hidden="true"
-              className="absolute left-1/2 top-1/2 -z-10 h-[480px] w-[480px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(37,211,102,0.13),transparent)] blur-2xl"
+              className="absolute left-1/2 top-1/2 -z-10 h-[640px] w-[640px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(37,211,102,0.13),transparent)] blur-2xl"
             />
             <WhatsAppMockup variant="static" progress={progress} />
           </div>

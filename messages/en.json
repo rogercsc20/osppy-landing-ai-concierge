@@ -4,7 +4,7 @@
     "lang": "ES"
   },
   "hero": {
-    "badge": "Live in +15 hotels across Mexico",
+    "badge": "The AI front desk for boutique hotels",
     "headline": "Your front desk never sleeps.",
     "subheadline": "Osppy answers your guests on WhatsApp in seconds — pricing, check-in, availability — at 3am if needed. No extra staff required.",
     "trust": "No credit card · 20-minute demo · Cancel anytime",
@@ -31,22 +31,22 @@
       "answer": "Hi! 👋 I'm Osppy, the front desk that never sleeps. I answer your guests on WhatsApp in seconds — pricing, availability, check-in — at any hour. You rest, I handle it. 🌙"
     },
     "different": {
-      "answer": "Good question. 😏 I'm not a generic button-and-menu chatbot. I speak natural Mexican Spanish, know your hotel's exact info, and know when to hand a conversation to you. Your guests feel like they're talking to your front desk, not a robot."
+      "answer": "Good question. I'm not a generic button-and-menu chatbot. I speak natural Mexican Spanish, know your hotel's exact info, and know when to hand a conversation to you. Your guests feel like they're talking to your front desk, not a robot."
     },
     "human": {
-      "answer": "Anytime! 🙋 You see every conversation in real time and can take over whenever you want. And if I detect a complaint or anything sensitive, I pass it straight to your WhatsApp."
+      "answer": "Anytime! You see every conversation in real time and can take over whenever you want. And if I detect a complaint or anything sensitive, I pass it straight to your WhatsApp."
     },
     "pricing": {
-      "answer": "From $49 USD a month, no commissions, no contracts. 💸 For context: Booking.com charges a mid-size hotel ~$3,000 USD a month in commissions. I basically pay for myself."
+      "answer": "From $49 USD a month, no commissions, no contracts. For context: Booking.com charges a mid-size hotel ~$3,000 USD a month in commissions. I basically pay for myself."
     },
     "night": {
-      "answer": "Always. ☀️🌙 At 3am on a Sunday I reply just as fast as at noon. And that matters: 7 of 10 travelers book with the first hotel that answers — that'll be you."
+      "answer": "Always. 🌙 At 3am on a Sunday I reply just as fast as at noon. And that matters: 7 of 10 travelers book with the first hotel that answers — that'll be you."
     },
     "setup": {
       "answer": "In 30 minutes. I connect to your existing WhatsApp Business number and load your hotel's info: pricing, hours, policies. No new apps, no technical team. ✅"
     },
     "demo": {
-      "answer": "Perfect! 🎉 Book a 20-minute demo and I'll show you how I answer with your hotel's real information. No commitment, no card."
+      "answer": "Perfect! Book a 20-minute demo and I'll show you how I answer with your hotel's real information. No commitment, no card."
     }
   },
   "auth": {
@@ -62,7 +62,7 @@
   "dashboardReveal": {
     "lockDate": "Sunday, June 14",
     "now": "now",
-    "notif": "New booking confirmed · Double room, 2 nights 🎉",
+    "notif": "New booking confirmed · Double room, 2 nights",
     "swipe": "Swipe to open",
     "headline": "Your whole hotel, on one screen.",
     "sub": "Conversations, sales and alerts — in real time."
@@ -151,12 +151,6 @@
         "other": "Other"
       }
     }
-  },
-  "proof": {
-    "bar": "Live in 15+ boutique hotels across Mexico",
-    "stat1": "< 3 sec response",
-    "stat2": "15+ active hotels",
-    "stat3": "24/7 uninterrupted"
   },
   "problem": {
     "eyebrow": "The problem",
@@ -263,7 +257,7 @@
   },
   "pilot": {
     "headline": "What our hotel owners say.",
-    "body": "Over 15 boutique hotels across Mexico use Osppy every day.",
+    "body": "Real stories from owners who got their nights back.",
     "tag": "Real customers",
     "r1": {
       "quote": "I used to answer messages at midnight every day. Now I sleep. Osppy handles everything with my tone and my hotel's exact information.",

@@ -7,8 +7,8 @@ import { SplitWords } from "@/components/fx/SplitWords";
 import { MessageSquare, Database, Sparkles } from "lucide-react";
 import { EASE_LUXE } from "@/lib/motion";
 
-const IGNITE_BASE = 0.35; // beam reaches step i at roughly BASE + i * GAP
-const IGNITE_GAP = 0.55;
+const IGNITE_BASE = 0.2; // beam reaches step i at roughly BASE + i * GAP
+const IGNITE_GAP = 0.32;
 
 const circleVariants = (i: number): Variants => ({
   hidden: {},
@@ -40,7 +40,7 @@ export function HowItWorks() {
   ];
 
   return (
-    <section id="how-it-works" className="relative overflow-hidden bg-sand px-4 py-32 sm:px-6 lg:py-44">
+    <section id="how-it-works" className="relative overflow-hidden bg-sand px-4 py-32 sm:px-6 lg:py-36">
       <div className="mx-auto max-w-6xl">
         <AnimatedSection className="mb-20 text-center lg:mb-28">
           <p className="eyebrow mb-5">{t("how.eyebrow")}</p>
@@ -64,7 +64,7 @@ export function HowItWorks() {
                 hidden: { scaleX: 0 },
                 visible: {
                   scaleX: 1,
-                  transition: { duration: reduce ? 0 : 1.7, ease: "easeInOut", delay: 0.2 },
+                  transition: { duration: reduce ? 0 : 1.2, ease: "easeInOut", delay: 0.2 },
                 },
               }}
             />

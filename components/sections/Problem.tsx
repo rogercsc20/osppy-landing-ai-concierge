@@ -62,11 +62,11 @@ export function Problem() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-sand px-4 py-32 sm:px-6 lg:py-44">
+    <section className="relative overflow-hidden bg-sand px-4 py-32 sm:px-6 lg:py-36">
       {/* faint ember heat low in the scene */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -bottom-40 left-1/4 h-96 w-96 rounded-full bg-ember blur-3xl"
+        className="pointer-events-none absolute -bottom-56 left-1/4 h-[28rem] w-[28rem] rounded-full bg-ember blur-3xl"
       />
 
       <div className="relative mx-auto max-w-6xl">

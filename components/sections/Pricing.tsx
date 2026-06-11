@@ -49,7 +49,7 @@ export function Pricing() {
   return (
     <section id="pricing" className="bg-sand py-32 lg:py-40 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
-        <AnimatedSection className="text-center mb-16 lg:mb-20">
+        <AnimatedSection className="mb-16 max-w-3xl lg:mb-20">
           <p className="eyebrow mb-4">{t("pricing.eyebrow")}</p>
           <h2 className="font-display text-[clamp(2.25rem,4vw,3.5rem)] font-semibold text-ink leading-[1.08] tracking-[-0.01em]">
             {t("pricing.headline")}

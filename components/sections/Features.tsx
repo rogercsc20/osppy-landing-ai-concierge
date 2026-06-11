@@ -64,7 +64,13 @@ function ChatStripWidget() {
   return (
     <div className="flex flex-col gap-2">
       <div className="w-fit max-w-[75%] rounded-2xl rounded-bl-md bg-wa-bubble px-3.5 py-2 text-[12px] text-white/90">
-        ¿Tienen alberca? 🏊
+        ¿Tienen alberca?
+      </div>
+      <div className="w-fit max-w-[80%] self-end rounded-2xl rounded-br-md bg-wa-green px-3.5 py-2 text-[12px] text-[#072018]">
+        Sí, de 9 a 20 h. ¿Le mando fotos?
+      </div>
+      <div className="w-fit max-w-[75%] rounded-2xl rounded-bl-md bg-wa-bubble px-3.5 py-2 text-[12px] text-white/90">
+        Sí porfa
       </div>
       <div className="flex w-fit items-center gap-1.5 self-end rounded-2xl rounded-br-md bg-wa-green px-3.5 py-2.5">
         <span className="typing-dot h-1.5 w-1.5 rounded-full bg-[#072018]/70" />
@@ -167,7 +173,7 @@ export function Features() {
   const t = useTranslations();
 
   return (
-    <section className="relative bg-canvas px-4 py-32 sm:px-6 lg:py-44">
+    <section className="relative bg-canvas px-4 py-32 sm:px-6 lg:py-36">
       <div className="mx-auto max-w-6xl">
         <AnimatedSection className="mb-16 text-center lg:mb-20">
           <p className="eyebrow mb-5">{t("features.eyebrow")}</p>

@@ -4,7 +4,7 @@
     "lang": "EN"
   },
   "hero": {
-    "badge": "Activo en +15 hoteles en México",
+    "badge": "El recepcionista IA para hoteles boutique",
     "headline": "Tu recepción nunca duerme.",
     "subheadline": "Osppy responde a tus huéspedes por WhatsApp en segundos — precios, check-in, disponibilidad — a las 3am si hace falta. Sin contratar a nadie.",
     "trust": "Sin tarjeta de crédito · Demo en 20 minutos · Cancelación libre",
@@ -31,22 +31,22 @@
       "answer": "¡Hola! 👋 Soy Osppy, la recepción que nunca duerme. Respondo a tus huéspedes por WhatsApp en segundos — precios, disponibilidad, check-in — a cualquier hora. Tú descansas, yo atiendo. 🌙"
     },
     "different": {
-      "answer": "Buena pregunta. 😏 No soy un chatbot genérico de botones y menús. Hablo español mexicano natural, conozco la información exacta de tu hotel y sé cuándo pasarte una conversación. Tus huéspedes sienten que hablan con tu recepción, no con un robot."
+      "answer": "Buena pregunta. No soy un chatbot genérico de botones y menús. Hablo español mexicano natural, conozco la información exacta de tu hotel y sé cuándo pasarte una conversación. Tus huéspedes sienten que hablan con tu recepción, no con un robot."
     },
     "human": {
-      "answer": "¡Cuando quieras! 🙋 Ves todas las conversaciones en tiempo real y puedes tomar el control en cualquier momento. Y si detecto una queja o algo delicado, te lo paso de inmediato a tu WhatsApp."
+      "answer": "¡Cuando quieras! Ves todas las conversaciones en tiempo real y puedes tomar el control en cualquier momento. Y si detecto una queja o algo delicado, te lo paso de inmediato a tu WhatsApp."
     },
     "pricing": {
-      "answer": "Desde $49 USD al mes, sin comisiones ni contratos. 💸 Para que te des una idea: Booking.com le cobra a un hotel mediano ~$3,000 USD al mes en comisiones. Prácticamente me pago solo."
+      "answer": "Desde $49 USD al mes, sin comisiones ni contratos. Para que te des una idea: Booking.com le cobra a un hotel mediano ~$3,000 USD al mes en comisiones. Prácticamente me pago solo."
     },
     "night": {
-      "answer": "Siempre. ☀️🌙 A las 3am de un domingo respondo igual de rápido que al mediodía. Y eso importa: 7 de cada 10 viajeros reservan con el primer hotel que les contesta — ese serás tú."
+      "answer": "Siempre. 🌙 A las 3am de un domingo respondo igual de rápido que al mediodía. Y eso importa: 7 de cada 10 viajeros reservan con el primer hotel que les contesta — ese serás tú."
     },
     "setup": {
       "answer": "En 30 minutos. Conecto tu número de WhatsApp Business actual y cargo la info de tu hotel: precios, horarios, políticas. Sin apps nuevas, sin equipo técnico. ✅"
     },
     "demo": {
-      "answer": "¡Perfecto! 🎉 Agenda una demo de 20 minutos y te muestro cómo respondo con la información real de tu hotel. Sin compromiso, sin tarjeta."
+      "answer": "¡Perfecto! Agenda una demo de 20 minutos y te muestro cómo respondo con la información real de tu hotel. Sin compromiso, sin tarjeta."
     }
   },
   "auth": {
@@ -62,7 +62,7 @@
   "dashboardReveal": {
     "lockDate": "Domingo 14 de junio",
     "now": "ahora",
-    "notif": "Nueva reservación confirmada · Habitación doble, 2 noches 🎉",
+    "notif": "Nueva reservación confirmada · Habitación doble, 2 noches",
     "swipe": "Desliza para abrir",
     "headline": "Todo tu hotel, en una sola pantalla.",
     "sub": "Conversaciones, ventas y alertas — en tiempo real."
@@ -151,12 +151,6 @@
         "other": "Otros"
       }
     }
-  },
-  "proof": {
-    "bar": "Activo en más de 15 hoteles boutique en México",
-    "stat1": "< 3 seg de respuesta",
-    "stat2": "+15 hoteles activos",
-    "stat3": "24 / 7 sin interrupciones"
   },
   "problem": {
     "eyebrow": "El problema",
@@ -263,7 +257,7 @@
   },
   "pilot": {
     "headline": "Lo que dicen nuestros hoteleros.",
-    "body": "Más de 15 hoteles boutique en México ya usan Osppy todos los días.",
+    "body": "Historias reales de dueños que recuperaron sus noches.",
     "tag": "Clientes reales",
     "r1": {
       "quote": "Antes respondía mensajes a medianoche todos los días. Ahora duermo. Osppy maneja todo con mi tono y la información exacta de mi hotel.",

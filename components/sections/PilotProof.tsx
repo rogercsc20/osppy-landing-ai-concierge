@@ -25,7 +25,7 @@ interface Review {
 
 function QuoteCard({ quote, author, hotel }: Review) {
   return (
-    <figure className="flex h-full w-[420px] flex-shrink-0 flex-col gap-5 rounded-2xl border border-line bg-white/[0.02] p-7">
+    <figure className="flex h-full w-[480px] flex-shrink-0 flex-col gap-5 rounded-2xl border border-line bg-white/[0.02] p-7">
       <Stars />
       <blockquote className="flex-1 font-display text-lg leading-normal text-ink/90">
         &ldquo;{quote}&rdquo;
@@ -49,7 +49,7 @@ export function PilotProof() {
   ];
 
   return (
-    <section className="relative overflow-hidden border-y border-line bg-canvas py-32 lg:py-44">
+    <section className="relative overflow-hidden border-y border-line bg-canvas py-32 lg:py-36">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <AnimatedSection className="mb-16 text-center lg:mb-20">
           <p className="eyebrow mb-5 flex items-center justify-center gap-2">
