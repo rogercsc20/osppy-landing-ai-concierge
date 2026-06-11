@@ -4,6 +4,7 @@ import { useEffect, useRef, type ReactNode } from "react";
 import { motion, type Transition } from "framer-motion";
 import { Check } from "lucide-react";
 import { LogoGlyph } from "@/components/ui/Logo";
+import { IPhone } from "@/components/device/IPhone";
 
 export interface ChatMessage {
   id: number | string;
@@ -141,25 +142,12 @@ export function PhoneFrame({
   float?: boolean;
 }) {
   return (
-    <motion.div
-      className="relative mx-auto w-[min(380px,90vw)]"
-      animate={float ? { y: [0, -8, 0] } : undefined}
-      transition={
-        float
-          ? { duration: 6, repeat: Infinity, ease: "easeInOut" }
-          : undefined
-      }
-    >
+    <div className="relative mx-auto w-fit">
       {/* soft ambient glow */}
       <div className="absolute -inset-8 -z-10 rounded-[4rem] bg-turquoise/10 blur-3xl" />
 
-      {/* iPhone titanium frame */}
-      <div className="rounded-[3.2rem] bg-gradient-to-b from-[#2a2a2e] to-[#141416] p-[10px] shadow-2xl shadow-black/50 ring-1 ring-white/10">
-        {/* screen — fixed iPhone aspect ratio, independent of content */}
-        <div className="relative flex aspect-[9/19.5] flex-col overflow-hidden rounded-[2.6rem] bg-[#0b141a]">
-          {/* Dynamic Island */}
-          <div className="absolute left-1/2 top-[11px] z-30 h-[28px] w-[98px] -translate-x-1/2 rounded-full bg-black" />
-
+      <IPhone width={380} float={float}>
+        <div className="flex h-full flex-col">
           {/* status bar + WhatsApp header — decorative mockup chrome */}
           <div aria-hidden="true" className="flex-shrink-0 bg-[#1f2c33] px-5 pt-3.5 pb-0">
             <div className="mb-1.5 flex items-center justify-between px-1 text-[13px] text-white">
@@ -210,13 +198,11 @@ export function PhoneFrame({
             {footer}
           </div>
 
-          {/* iOS home indicator */}
-          <div className="flex flex-shrink-0 justify-center bg-[#1f2c33] pb-2 pt-1">
-            <div className="h-[5px] w-[120px] rounded-full bg-white/35" />
-          </div>
+          {/* base strip — the chassis home indicator floats over it */}
+          <div className="flex-shrink-0 bg-[#1f2c33] pb-5 pt-1" />
         </div>
-      </div>
-    </motion.div>
+      </IPhone>
+    </div>
   );
 }
 

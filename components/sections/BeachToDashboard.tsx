@@ -25,6 +25,8 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Logomark } from "@/components/ui/Logo";
+import { IPhone } from "@/components/device/IPhone";
+import { AppWindow } from "@/components/device/AppWindow";
 
 type T = ReturnType<typeof useTranslations>;
 
@@ -230,64 +232,7 @@ function LockScreen({ t }: { t: T }) {
   );
 }
 
-/** Titanium iPhone frame wrapping arbitrary screen content. */
-function Phone({ children, className }: { children: React.ReactNode; className?: string }) {
-  return (
-    <div className={cn("rounded-[3rem] bg-gradient-to-b from-[#2a2a2e] to-[#141416] p-[10px] shadow-2xl shadow-black/60 ring-1 ring-white/10", className)}>
-      <div className="relative h-[600px] w-[300px] overflow-hidden rounded-[2.4rem] bg-[#0b141a]">
-        <div className="absolute left-1/2 top-3 z-40 h-[26px] w-[90px] -translate-x-1/2 rounded-full bg-black" />
-        {children}
-        <div className="absolute bottom-2 left-1/2 z-40 h-[5px] w-[110px] -translate-x-1/2 rounded-full bg-white/50" />
-      </div>
-    </div>
-  );
-}
 
-/**
- * MacBook frame wrapping the dashboard. The base spans the full container
- * width and the screen is slightly narrower, so it reads as a laptop while
- * never overflowing — it fits any width, scaling down cleanly on mobile.
- */
-function Laptop({
-  children,
-  className,
-  compact = false,
-}: {
-  children: React.ReactNode;
-  className?: string;
-  /** give the screen a fixed landscape aspect ratio and scroll the content
-      inside — keeps the laptop looking normally proportioned on mobile */
-  compact?: boolean;
-}) {
-  return (
-    <div className={cn("mx-auto w-full", className)}>
-      {/* lid / screen — rounded top, flat bottom (the hinge edge) */}
-      <div className="mx-auto w-[90%] rounded-t-[18px] bg-[#1c1c1e] px-[1.7%] pb-[1.2%] pt-[1.7%] shadow-2xl shadow-black/60 ring-1 ring-white/10">
-        <div className="mx-auto mb-[1.2%] h-1 w-1 rounded-full bg-white/25" />
-        <div
-          className={cn(
-            "rounded-[7px] border border-white/5",
-            compact
-              ? "aspect-[16/10] overflow-y-auto overflow-x-hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-              : "overflow-hidden"
-          )}
-        >
-          {children}
-        </div>
-      </div>
-      {/* deck — a trapezoid that starts at the lid width and flares outward,
-          so the hinge is seamless and the base reads like a real MacBook */}
-      <div className="relative mx-auto h-4 w-full">
-        <div
-          className="h-full w-full bg-gradient-to-b from-[#2c2d31] via-[#202024] to-[#0e0e10] shadow-2xl shadow-black/50"
-          style={{ clipPath: "polygon(5% 0%, 95% 0%, 99% 100%, 1% 100%)" }}
-        />
-        {/* opening notch */}
-        <div className="absolute left-1/2 top-0 h-[5px] w-[11%] max-w-[96px] -translate-x-1/2 rounded-b-[7px] bg-[#0a0a0c]" />
-      </div>
-    </div>
-  );
-}
 
 export function BeachToDashboard() {
   const t = useTranslations();
@@ -338,9 +283,9 @@ export function BeachToDashboard() {
       <div className={cn("px-4 sm:px-6 py-20", reduce ? "block" : "lg:hidden")}>
         {/* phone */}
         <AnimatedSection className="flex flex-col items-center">
-          <Phone>
+          <IPhone width={300} className="mx-auto">
             <PhoneApp t={t} />
-          </Phone>
+          </IPhone>
         </AnimatedSection>
 
         {/* connector: implies the phone "opens into" the dashboard */}
@@ -361,11 +306,11 @@ export function BeachToDashboard() {
 
         {/* dashboard in a normally-proportioned MacBook; the screen scrolls */}
         <AnimatedSection delay={0.1} className="mx-auto mt-8 max-w-md">
-          <Laptop compact>
+          <AppWindow compact>
             <FitToWidth designWidth={760}>
               <DashboardMockup className="rounded-none border-0 shadow-none" />
             </FitToWidth>
-          </Laptop>
+          </AppWindow>
         </AnimatedSection>
       </div>
 
@@ -383,13 +328,13 @@ export function BeachToDashboard() {
               aria-hidden="true"
               className="absolute -inset-14 -z-10 rounded-[6rem] bg-[radial-gradient(closest-side,rgba(34,196,217,0.22),transparent)] blur-2xl"
             />
-            <Phone>
+            <IPhone width={300} className="mx-auto">
               <PhoneApp t={t} contentY={appScrollY} />
 
               <motion.div style={{ y: lockY, opacity: lockOpacity }} className="absolute inset-0 z-30">
                 <LockScreen t={t} />
               </motion.div>
-            </Phone>
+            </IPhone>
           </motion.div>
 
           {/* Desktop dashboard in a MacBook */}
@@ -405,9 +350,9 @@ export function BeachToDashboard() {
                 {t("dashboardReveal.sub")}
               </p>
             </motion.div>
-            <Laptop className="w-full max-w-6xl">
+            <AppWindow className="w-full max-w-6xl">
               <DashboardMockup className="rounded-none border-0 shadow-none" />
-            </Laptop>
+            </AppWindow>
           </motion.div>
         </div>
       )}
