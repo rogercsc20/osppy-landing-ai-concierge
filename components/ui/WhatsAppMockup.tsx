@@ -20,7 +20,7 @@ const DEMO_MESSAGES: ChatMessage[] = [
   {
     id: 2,
     sender: "osppy",
-    text: "¡Buenas noches! 😊 La habitación doble está disponible este fin de semana desde $1,450 MXN por noche, incluye desayuno para dos personas.\n\n¿Le gustaría que le enviara disponibilidad exacta para viernes y sábado?",
+    text: "¡Buenas noches! La habitación doble está disponible este fin de semana desde $1,450 MXN por noche, incluye desayuno para dos personas.\n\n¿Le gustaría que le enviara disponibilidad exacta para viernes y sábado?",
     time: "3:14",
   },
   {
@@ -32,7 +32,7 @@ const DEMO_MESSAGES: ChatMessage[] = [
   {
     id: 4,
     sender: "osppy",
-    text: "¡Claro! Tenemos disponibilidad viernes y sábado. 🐾 Sí aceptamos mascotas pequeñas (hasta 10 kg) con un cargo adicional de $200 MXN por estancia.\n\n¿Le hago la reservación?",
+    text: "¡Claro! Tenemos disponibilidad viernes y sábado. Sí aceptamos mascotas pequeñas (hasta 10 kg) con un cargo adicional de $200 MXN por estancia.\n\n¿Le hago la reservación?",
     time: "3:15",
   },
 ];
@@ -42,7 +42,7 @@ const STATIC_MESSAGES: ChatMessage[] = [
   {
     id: 2,
     sender: "osppy",
-    text: "¡Hola! Sí, contamos con estacionamiento privado sin costo adicional para nuestros huéspedes. 🚗",
+    text: "¡Hola! Sí, contamos con estacionamiento privado sin costo adicional para nuestros huéspedes.",
     time: "11:42",
   },
   { id: 3, sender: "guest", text: "Perfecto. ¿A qué hora es el check-in?", time: "11:43" },
@@ -65,7 +65,7 @@ interface WhatsAppMockupProps {
 }
 
 /** message i becomes visible once progress crosses REVEAL_AT[i] */
-const REVEAL_AT = [0.08, 0.34, 0.55, 0.82];
+const REVEAL_AT = [0, 0.34, 0.55, 0.82];
 /** how far ahead of an osppy message the typing indicator appears */
 const TYPING_LEAD = 0.16;
 

@@ -3,7 +3,6 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SITE_URL, CONTACT_EMAIL } from "@/lib/site";
 import { Hero } from "@/components/sections/Hero";
-import { SocialProofBar } from "@/components/sections/SocialProofBar";
 import { Problem } from "@/components/sections/Problem";
 import { Solution } from "@/components/sections/Solution";
 import { HowItWorks } from "@/components/sections/HowItWorks";
@@ -56,7 +55,6 @@ export default async function LandingPage({
       <Navbar />
       <main>
         <Hero />
-        <SocialProofBar />
         <Problem />
         <Solution />
         <HowItWorks />
