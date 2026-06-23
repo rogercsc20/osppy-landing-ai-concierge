@@ -5,10 +5,11 @@ import { PropertySwitcher, type PropertyOption } from "./PropertySwitcher";
 
 const NAV_ITEMS = ["today", "reservations", "conversations", "stats", "settings"] as const;
 // Screens shipped so far (the rest render as muted "soon" labels). today = B3,
-// reservations = B2.
+// reservations = B2, conversations = B4.
 const LIVE_NAV: Partial<Record<(typeof NAV_ITEMS)[number], string>> = {
   today: "dashboard/today",
   reservations: "dashboard/reservations",
+  conversations: "dashboard/conversations",
 };
 
 /**

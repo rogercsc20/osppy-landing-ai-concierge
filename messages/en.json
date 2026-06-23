@@ -476,6 +476,83 @@
         "cancelled": "Cancelled",
         "no_show": "No-show"
       }
+    },
+    "conversations": {
+      "title": "Conversations",
+      "subtitle": "Review guest conversations in real time (read-only).",
+      "noProperty": "Select a property to see its conversations.",
+      "empty": "No conversations match these filters.",
+      "unknownGuest": "Unnamed guest",
+      "noPhone": "No phone",
+      "staffBadge": "Staff handled",
+      "filters": {
+        "label": "Filters",
+        "state": "State",
+        "allStates": "All states",
+        "from": "From",
+        "to": "To",
+        "escalated": "Escalated only",
+        "apply": "Apply",
+        "clear": "Clear"
+      },
+      "states": {
+        "new": "New",
+        "inquiry": "Inquiry",
+        "booking_flow": "Booking",
+        "pending_staff_approval": "Pending approval",
+        "confirmed": "Confirmed",
+        "pre_arrival": "Pre-arrival",
+        "checked_in": "In house",
+        "post_stay": "Post-stay",
+        "closed": "Closed"
+      },
+      "pagination": {
+        "label": "Pagination",
+        "showing": "{from}–{to} of {total}",
+        "prev": "Previous",
+        "next": "Next"
+      },
+      "detail": {
+        "back": "Conversations",
+        "notFound": "Conversation not found, or you don't have access.",
+        "started": "Started",
+        "guest": "Guest",
+        "tasks": "Tasks",
+        "noTasks": "No tasks for this conversation.",
+        "emptyThread": "No messages in this conversation yet.",
+        "call": "Call",
+        "whatsapp": "WhatsApp",
+        "language": "Language",
+        "stays": "Stays",
+        "messages": "Messages",
+        "firstContact": "First contact",
+        "lastContact": "Last contact",
+        "due": "Due",
+        "sender": {
+          "guest": "Guest",
+          "ai": "Osppy",
+          "staff": "Staff"
+        },
+        "taskType": {
+          "escalation": "Escalation",
+          "booking_approval": "Booking approval",
+          "service_request": "Service request",
+          "maintenance": "Maintenance",
+          "review_request": "Review request"
+        },
+        "taskStatus": {
+          "pending": "Pending",
+          "in_progress": "In progress",
+          "completed": "Completed",
+          "cancelled": "Cancelled"
+        },
+        "priority": {
+          "low": "Low",
+          "normal": "Normal",
+          "high": "High",
+          "urgent": "Urgent"
+        }
+      }
     }
   }
 }
