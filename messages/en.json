@@ -1,6 +1,7 @@
 {
   "nav": {
     "cta": "Book demo",
+    "login": "Log in",
     "lang": "ES"
   },
   "hero": {
@@ -50,13 +51,6 @@
     }
   },
   "auth": {
-    "signIn": "Sign in",
-    "modalTitle": "The Osppy dashboard is coming soon",
-    "modalBody": "We're polishing your control panel: live conversations, metrics, and direct replies straight from WhatsApp. Leave your email and you'll be among the first in.",
-    "emailPlaceholder": "you@email.com",
-    "submit": "Notify me",
-    "error": "Couldn't send. Please try again.",
-    "success": "Done! We'll let you know the moment it's ready.",
     "close": "Close"
   },
   "dashboardReveal": {
