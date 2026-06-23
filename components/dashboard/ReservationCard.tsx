@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { createClient } from "@/lib/supabase/client";
+import { isPermissionError } from "@/lib/dashboard/errors";
 import {
   availableActions,
   updateReservationStatus,
@@ -14,6 +15,7 @@ import {
 } from "@/lib/dashboard/board";
 import { isIncomplete } from "@/lib/dashboard/complete-record";
 import { StatusChip } from "./StatusChip";
+import { StatusBadge } from "./StatusBadge";
 
 /** Digits-only phone for a wa.me link (drops the leading "+" and any spacing). */
 function waNumber(phone: string): string {
@@ -63,11 +65,7 @@ export function ReservationCard({
       router.refresh(); // re-read the board (Realtime also nudges other clients)
     } catch (caught) {
       const message = caught instanceof Error ? caught.message : String(caught);
-      setError(
-        /42501|permission|owner\/staff|row-level/i.test(message)
-          ? t("permissionError")
-          : t("actionError"),
-      );
+      setError(isPermissionError(message) ? t("permissionError") : t("actionError"));
     } finally {
       setPending(null);
     }
@@ -157,20 +155,3 @@ export function ReservationCard({
   );
 }
 
-const STATUS_TONE: Record<string, string> = {
-  tentative: "bg-canvas/60 text-ink/70",
-  confirmed: "bg-turquoise-deep/20 text-turquoise-ink",
-  checked_in: "bg-turquoise-deep/30 text-turquoise-ink",
-  checked_out: "bg-canvas/60 text-ink/50",
-  cancelled: "bg-coral/15 text-coral",
-  no_show: "bg-coral/15 text-coral",
-};
-
-function StatusBadge({ status, label }: { status: string; label: string }) {
-  const tone = STATUS_TONE[status] ?? "bg-canvas/60 text-ink/60";
-  return (
-    <span className={`inline-block shrink-0 rounded-full px-2.5 py-0.5 text-xs ${tone}`}>
-      {label}
-    </span>
-  );
-}

@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 import { createClient } from "@/lib/supabase/client";
+import { isPermissionError } from "@/lib/dashboard/errors";
 import {
   completeRecord,
   completeRecordFormSchema,
@@ -13,7 +14,7 @@ import {
   type CompleteRecordFormValues,
 } from "@/lib/dashboard/complete-record";
 
-type Status = "idle" | "saving" | "error";
+type Status = "idle" | "saving" | "saved" | "error";
 
 /**
  * Targeted complete-the-record form (client). Only the missing guest identity —
@@ -57,15 +58,15 @@ export function CompleteRecordForm({
     try {
       const supabase = createClient();
       await completeRecord(supabase, propertyId, reservationId, values);
-      router.refresh(); // re-read → the completed row leaves the list
+      // The completed row drops off the needs-info list on refresh (it unmounts
+      // this form). Still set "saved" so the button re-enables + a confirmation
+      // shows in the rare case the row stays mounted.
+      setStatus("saved");
+      router.refresh();
     } catch (caught) {
       const message = caught instanceof Error ? caught.message : String(caught);
       setStatus("error");
-      setFormError(
-        /42501|permission|owner\/staff|row-level/i.test(message)
-          ? t("permissionError")
-          : t("genericError"),
-      );
+      setFormError(isPermissionError(message) ? t("permissionError") : t("genericError"));
     }
   }
 
@@ -120,6 +121,11 @@ export function CompleteRecordForm({
         >
           {status === "saving" ? t("saving") : t("save")}
         </button>
+        {status === "saved" && (
+          <span role="status" className="text-turquoise-ink text-sm">
+            {t("savedToast")}
+          </span>
+        )}
         {status === "error" && formError && (
           <span role="alert" className="text-coral text-sm">
             {formError}

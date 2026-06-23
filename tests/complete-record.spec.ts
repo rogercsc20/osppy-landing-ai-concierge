@@ -123,6 +123,20 @@ test.describe("completeRecordFormSchema", () => {
   test("the empty form is invalid (both fields required)", () => {
     expect(completeRecordFormSchema.safeParse(emptyCompleteRecordForm).success).toBe(false);
   });
+
+  test("rejects a still-placeholder OTA name (would leave the row stuck incomplete)", () => {
+    // A completion that keeps the "Reserva <OTA>" prefix would pass the write but
+    // keep isIncomplete() true, so the row never leaves the list — reject it here.
+    for (const name of ["Reserva Airbnb", "Reserva Booking.com García", "Reserva OTA ••1234"]) {
+      expect(completeRecordFormSchema.safeParse({ ...validForm, guestName: name }).success).toBe(
+        false,
+      );
+    }
+    // A real name that merely contains the word is fine.
+    expect(
+      completeRecordFormSchema.safeParse({ ...validForm, guestName: "Reserva" }).success,
+    ).toBe(true);
+  });
 });
 
 // ── toCompleteUpdate (form → reservations.guest_* payload) ────────────

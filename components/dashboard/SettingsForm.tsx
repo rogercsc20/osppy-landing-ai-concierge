@@ -6,6 +6,7 @@ import { useForm, type UseFormRegister } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 import { createClient } from "@/lib/supabase/client";
+import { isPermissionError } from "@/lib/dashboard/errors";
 import {
   AUTONOMY_LEVELS,
   settingsFormSchema,
@@ -128,11 +129,7 @@ export function SettingsForm({
     } catch (caught) {
       const message = caught instanceof Error ? caught.message : String(caught);
       setStatus("error");
-      setFormError(
-        /42501|permission|denied|owner/i.test(message)
-          ? t("permissionError")
-          : t("genericError"),
-      );
+      setFormError(isPermissionError(message) ? t("permissionError") : t("genericError"));
     }
   }
 

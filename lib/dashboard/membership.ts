@@ -20,29 +20,36 @@ export type Membership = PropertyOption & { role: string };
 export async function loadMemberships(
   supabase: SupabaseClient,
 ): Promise<Membership[]> {
-  try {
-    const [{ data: rows }, { data: props }] = await Promise.all([
+  // PostgREST returns failures IN-BAND as `error` (no throw), so a swallowed
+  // `{ data }` would turn an RLS/network failure into [] — which the layout
+  // renders as the permanent "no access" screen, indistinguishable from a
+  // genuine zero-membership account. Surface real failures (they propagate to
+  // the dashboard error.tsx boundary); reserve [] strictly for a true zero-row
+  // read. Mirrors the `if (error) throw error` house pattern every other
+  // lib/dashboard read follows.
+  const [{ data: rows, error: rowsError }, { data: props, error: propsError }] =
+    await Promise.all([
       supabase
         .from("dashboard_users")
         .select("property_id, role")
         .eq("is_active", true),
       supabase.from("properties").select("property_id, name"),
     ]);
-    const members = (rows ?? []) as Array<{ property_id: string; role: string }>;
-    const names = new Map(
-      ((props ?? []) as Array<{ property_id: string; name: string }>).map((p) => [
-        p.property_id,
-        p.name,
-      ]),
-    );
-    return members.map((m) => ({
-      property_id: m.property_id,
-      role: m.role,
-      name: names.get(m.property_id) ?? m.property_id,
-    }));
-  } catch {
-    return [];
-  }
+  if (rowsError) throw rowsError;
+  if (propsError) throw propsError;
+
+  const members = (rows ?? []) as Array<{ property_id: string; role: string }>;
+  const names = new Map(
+    ((props ?? []) as Array<{ property_id: string; name: string }>).map((p) => [
+      p.property_id,
+      p.name,
+    ]),
+  );
+  return members.map((m) => ({
+    property_id: m.property_id,
+    role: m.role,
+    name: names.get(m.property_id) ?? m.property_id,
+  }));
 }
 
 export type ActiveContext = {

@@ -88,10 +88,18 @@ export function isIncomplete(row: IncompleteCandidate): boolean {
  * placeholder) and a valid E.164 phone. Dates/room/price are NOT re-collected
  * (they came from the feed and are correct).
  */
-export const completeRecordFormSchema = z.object({
-  guestName: z.string().trim().min(1, "required").max(255, "tooLong"),
-  guestPhone: z.string().trim().regex(E164, "phone"),
-});
+export const completeRecordFormSchema = z
+  .object({
+    guestName: z.string().trim().min(1, "required").max(255, "tooLong"),
+    guestPhone: z.string().trim().regex(E164, "phone"),
+  })
+  // Reject a name that is still the OTA placeholder shape — otherwise the write
+  // "succeeds" but `isIncomplete` stays true, the row never leaves the list, and
+  // the form is stuck. The whole point is a real, contactable identity.
+  .refine((v) => !PLACEHOLDER_NAME.test(v.guestName.trim()), {
+    path: ["guestName"],
+    message: "placeholderName",
+  });
 
 export type CompleteRecordFormValues = z.infer<typeof completeRecordFormSchema>;
 

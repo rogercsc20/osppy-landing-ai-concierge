@@ -1,10 +1,16 @@
 import { test, expect } from "@playwright/test";
+import type { SupabaseClient } from "@supabase/supabase-js";
 import {
+  createManualReservation,
   emptyReservationForm,
+  listReservations,
+  RESERVATION_LIST_SELECT,
   reservationFormSchema,
+  reservationRowSchema,
   toRpcArgs,
   type ReservationFormValues,
 } from "../lib/dashboard/reservations";
+import { isPermissionError } from "../lib/dashboard/errors";
 
 // A valid manual booking (future dates so it never collides with `today`).
 const valid: ReservationFormValues = {
@@ -79,6 +85,133 @@ test.describe("toRpcArgs → mig-082 contract", () => {
     expect(args.p_outbound_consent_source).toBe("manual_booking");
     expect(args.p_status).toBe("confirmed");
     expect(args.p_currency).toBe("MXN");
+  });
+});
+
+test.describe("RESERVATION_LIST_SELECT — RC-1 projection contract", () => {
+  test("every reservationRowSchema field is present in the SELECT string", () => {
+    const selected = RESERVATION_LIST_SELECT.split(",").map((s) => s.trim());
+    for (const key of Object.keys(reservationRowSchema.shape)) {
+      expect(selected).toContain(key);
+    }
+  });
+});
+
+// ── A minimal chainable fake Supabase client (no network) ────────────
+type FakeOpts = {
+  rows?: unknown[];
+  rpcResult?: unknown;
+  rpcError?: Error | null;
+  selectError?: Error | null;
+};
+
+function fakeSupabase(opts: FakeOpts = {}) {
+  const calls: Array<{ rpc: string; args: unknown }> = [];
+  class Builder {
+    select() {
+      return this;
+    }
+    eq() {
+      return this;
+    }
+    order() {
+      return this;
+    }
+    limit() {
+      return this;
+    }
+    then<R>(onFulfilled: (v: { data: unknown; error: Error | null }) => R) {
+      return Promise.resolve({
+        data: opts.rows ?? [],
+        error: opts.selectError ?? null,
+      }).then(onFulfilled);
+    }
+  }
+  const client = {
+    from() {
+      return new Builder();
+    },
+    rpc(fn: string, args: unknown) {
+      calls.push({ rpc: fn, args });
+      return Promise.resolve({ data: opts.rpcResult ?? null, error: opts.rpcError ?? null });
+    },
+  };
+  return { client: client as unknown as SupabaseClient, calls };
+}
+
+const validRow = {
+  reservation_id: "res-1",
+  guest_name: "Ana López",
+  guest_phone: "+523312345678",
+  room_code: "R1",
+  check_in: "2099-01-10",
+  check_out: "2099-01-12",
+  num_guests: 2,
+  num_nights: 2,
+  total_price_mxn: "2400",
+  status: "confirmed",
+  payment_status: "pending",
+  booking_source: "manual",
+};
+
+test.describe("createManualReservation (the write seam)", () => {
+  test("calls the create_manual_reservation RPC and returns the parsed row", async () => {
+    const { client, calls } = fakeSupabase({ rpcResult: validRow });
+    const row = await createManualReservation(client, "prop-1", valid);
+    expect(calls).toHaveLength(1);
+    expect(calls[0].rpc).toBe("create_manual_reservation");
+    expect(row.reservation_id).toBe("res-1");
+  });
+
+  test("unwraps a 1-element array result (PostgREST SETOF shape)", async () => {
+    const { client } = fakeSupabase({ rpcResult: [validRow] });
+    const row = await createManualReservation(client, "prop-1", valid);
+    expect(row.reservation_id).toBe("res-1");
+  });
+
+  test("re-throws a 42501 RLS denial instead of swallowing it", async () => {
+    const { client } = fakeSupabase({ rpcError: new Error("permission denied (42501)") });
+    await expect(createManualReservation(client, "prop-1", valid)).rejects.toThrow(/42501/);
+  });
+
+  test("rejects an invalid form BEFORE calling the RPC", async () => {
+    const { client, calls } = fakeSupabase({ rpcResult: validRow });
+    await expect(
+      createManualReservation(client, "prop-1", { ...valid, guestPhone: "3312345678" }),
+    ).rejects.toThrow();
+    expect(calls).toHaveLength(0); // zod gate fires before the network write
+  });
+});
+
+test.describe("listReservations (read seam)", () => {
+  test("parses RLS-scoped rows through the zod boundary", async () => {
+    const { client } = fakeSupabase({ rows: [validRow] });
+    const rows = await listReservations(client, "prop-1");
+    expect(rows).toHaveLength(1);
+    expect(rows[0].reservation_id).toBe("res-1");
+  });
+
+  test("throws on a PostgREST error rather than returning []", async () => {
+    const { client } = fakeSupabase({ selectError: new Error("permission denied") });
+    await expect(listReservations(client, "prop-1")).rejects.toThrow();
+  });
+});
+
+test.describe("isPermissionError", () => {
+  test("classifies RLS / permission denials as permission errors", () => {
+    for (const m of [
+      "permission denied (42501)",
+      "new row violates row-level security policy",
+      "owner only",
+      "permission denied for table reservations",
+    ]) {
+      expect(isPermissionError(m)).toBe(true);
+    }
+  });
+
+  test("does not classify a generic failure as a permission error", () => {
+    expect(isPermissionError("network timeout")).toBe(false);
+    expect(isPermissionError("could not parse response")).toBe(false);
   });
 });
 

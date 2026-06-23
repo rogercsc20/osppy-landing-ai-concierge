@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 import { createClient } from "@/lib/supabase/client";
+import { isPermissionError } from "@/lib/dashboard/errors";
 import {
   BOOKING_SOURCES,
   CONSENT_SOURCES,
@@ -41,6 +42,11 @@ export function ReservationForm({
   const [status, setStatus] = useState<Status>("idle");
   const [formError, setFormError] = useState<string | null>(null);
   const [customRoom, setCustomRoom] = useState(rooms.length === 0);
+  // The room <select> is controlled so reset() after a create clears the visible
+  // selection in lockstep with the RHF roomCode (an uncontrolled select would
+  // keep showing the prior room while roomCode is empty → a confusing "required"
+  // on the next booking).
+  const [roomSelectValue, setRoomSelectValue] = useState("");
 
   const {
     register,
@@ -60,6 +66,7 @@ export function ReservationForm({
 
   function onRoomChange(event: React.ChangeEvent<HTMLSelectElement>) {
     const value = event.target.value;
+    setRoomSelectValue(value);
     if (value === OTHER_ROOM || value === "") {
       setCustomRoom(true);
       setValue("roomId", "");
@@ -80,16 +87,13 @@ export function ReservationForm({
       setStatus("saved");
       reset(emptyReservationForm);
       setCustomRoom(rooms.length === 0);
+      setRoomSelectValue(""); // clear the visible room selection with the RHF reset
       router.refresh(); // re-render the server list with the new row
     } catch (caught) {
       const message = caught instanceof Error ? caught.message : String(caught);
       // The RPC RAISEs 42501 for a viewer / wrong-tenant caller.
       setStatus("error");
-      setFormError(
-        /42501|permission|owner\/staff/i.test(message)
-          ? t("permissionError")
-          : t("genericError"),
-      );
+      setFormError(isPermissionError(message) ? t("permissionError") : t("genericError"));
     }
   }
 
@@ -140,7 +144,7 @@ export function ReservationForm({
         {rooms.length > 0 ? (
           <select
             id="roomSelect"
-            defaultValue=""
+            value={roomSelectValue}
             onChange={onRoomChange}
             aria-label={t("fields.room")}
             className={fieldClass}

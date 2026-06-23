@@ -1,14 +1,6 @@
 import { useTranslations } from "next-intl";
 import type { ReservationRow } from "@/lib/dashboard/reservations";
-
-const STATUS_TONE: Record<string, string> = {
-  tentative: "bg-canvas/60 text-ink/70",
-  confirmed: "bg-turquoise-deep/20 text-turquoise-ink",
-  checked_in: "bg-turquoise-deep/30 text-turquoise-ink",
-  checked_out: "bg-canvas/60 text-ink/50",
-  cancelled: "bg-coral/15 text-coral",
-  no_show: "bg-coral/15 text-coral",
-};
+import { StatusBadge } from "./StatusBadge";
 
 function formatMoney(value: ReservationRow["total_price_mxn"]): string {
   if (value === null || value === undefined) return "—";
@@ -100,12 +92,5 @@ export function ReservationsList({ rows }: { rows: ReservationRow[] }) {
         ))}
       </ul>
     </div>
-  );
-}
-
-function StatusBadge({ status, label }: { status: string; label: string }) {
-  const tone = STATUS_TONE[status] ?? "bg-canvas/60 text-ink/60";
-  return (
-    <span className={`inline-block rounded-full px-2.5 py-0.5 text-xs ${tone}`}>{label}</span>
   );
 }
