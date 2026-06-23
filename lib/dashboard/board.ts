@@ -200,13 +200,17 @@ export const boardReservationRowSchema = z.object({
   num_guests: z.number(),
   status: z.string(),
   arrival_eta: z.string().nullable().optional(),
+  // SL-7 iCal marker — set ONLY by feed ingestion (manual rows leave it NULL).
+  // The board uses it (with guest_phone/guest_name) to flag a "needs info"
+  // card via `isIncomplete` (B6); a completed/manual row never matches.
+  source_feed_id: z.string().nullable().optional(),
 });
 
 export type BoardReservationRow = z.infer<typeof boardReservationRowSchema>;
 
 export const BOARD_RESERVATION_SELECT =
   "reservation_id, guest_name, guest_phone, room_code, check_in, check_out, " +
-  "num_guests, status, arrival_eta";
+  "num_guests, status, arrival_eta, source_feed_id";
 
 export const lifecycleSendRowSchema = z.object({
   reservation_id: z.string(),

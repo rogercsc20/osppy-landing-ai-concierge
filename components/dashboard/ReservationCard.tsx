@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { createClient } from "@/lib/supabase/client";
 import {
   availableActions,
@@ -11,6 +12,7 @@ import {
   type BoardCard,
   type LifecycleTrigger,
 } from "@/lib/dashboard/board";
+import { isIncomplete } from "@/lib/dashboard/complete-record";
 import { StatusChip } from "./StatusChip";
 
 /** Digits-only phone for a wa.me link (drops the leading "+" and any spacing). */
@@ -48,6 +50,9 @@ export function ReservationCard({
   const [error, setError] = useState<string | null>(null);
 
   const actions = canWrite ? availableActions(card.status) : [];
+  // An iCal-ingested arrival/departure still missing a contactable guest — link
+  // staff to the dedicated needs-info screen to complete it (B6).
+  const needsInfo = isIncomplete(card);
 
   async function act(next: BoardAction) {
     setPending(next);
@@ -82,7 +87,17 @@ export function ReservationCard({
             {card.check_in} → {card.check_out}
           </p>
         </div>
-        <StatusBadge status={card.status} label={t(`statusBadge.${card.status}`)} />
+        <div className="flex shrink-0 flex-col items-end gap-1">
+          <StatusBadge status={card.status} label={t(`statusBadge.${card.status}`)} />
+          {needsInfo && (
+            <Link
+              href="/dashboard/needs-info"
+              className="bg-coral/15 text-coral hover:bg-coral/25 rounded-full px-2.5 py-0.5 text-xs transition-colors"
+            >
+              {t("needsInfoBadge")}
+            </Link>
+          )}
+        </div>
       </div>
 
       {/* lifecycle chips */}
