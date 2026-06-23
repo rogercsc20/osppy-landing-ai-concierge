@@ -317,5 +317,40 @@
     "privacy": "Privacy policy",
     "terms": "Terms of use",
     "rights": "© 2026 Osppy. All rights reserved."
+  },
+  "dashboardApp": {
+    "login": {
+      "title": "Osppy Dashboard",
+      "subtitle": "We will email you a sign-in link.",
+      "emailLabel": "Email",
+      "emailPlaceholder": "you@email.com",
+      "submit": "Send sign-in link",
+      "sending": "Sending…",
+      "sentTitle": "Check your email",
+      "sentBody": "We sent you a sign-in link. Open it on this device to continue.",
+      "error": "Could not send the link. Please try again.",
+      "authError": "The link expired or is invalid. Request a new one."
+    },
+    "shell": {
+      "brand": "Osppy",
+      "signOut": "Sign out",
+      "soon": "Coming soon",
+      "nav": {
+        "today": "Today",
+        "reservations": "Reservations",
+        "conversations": "Conversations",
+        "stats": "Stats",
+        "settings": "Settings"
+      }
+    },
+    "property": {
+      "label": "Property",
+      "noAccessTitle": "No access",
+      "noAccessBody": "Your account does not have access to any property yet. Contact your administrator."
+    },
+    "home": {
+      "title": "Home",
+      "body": "Your dashboard is ready. Operations screens arrive in the next slices."
+    }
   }
 }

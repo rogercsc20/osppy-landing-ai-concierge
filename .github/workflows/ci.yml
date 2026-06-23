@@ -8,6 +8,13 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+    # Public, browser-safe placeholders so the dashboard build + prod server
+    # boot without real Supabase credentials. Real values live in Vercel env.
+    # A fake URL is fine: the auth guard fails closed (getUser errors → no user
+    # → redirect to /login), which is exactly what the guard e2e asserts.
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: https://placeholder.supabase.co
+      NEXT_PUBLIC_SUPABASE_ANON_KEY: placeholder-anon-key
     steps:
       - uses: actions/checkout@v4
 
@@ -17,6 +24,20 @@ jobs:
           cache: npm
 
       - run: npm ci
+
+      # Service-role-leak guard (D-A2 P0): the service-role / secret key must
+      # never reach the client bundle. v1 needs zero service-role usage here, so
+      # the strict rule is that the pattern appears NOWHERE in source.
+      - name: Service-role-leak guard
+        run: |
+          if git grep -nE 'SUPABASE_SERVICE_ROLE_KEY|service_role|sb_secret_' -- \
+                ':(glob)**/*.{ts,tsx,js,jsx,mjs,cjs,json}' \
+                ':!**/*.test.*' ':!**/*.spec.*' \
+             | grep -v -E '\.env'; then
+            echo "::error::service-role / secret-key pattern found in source (D-A2: service-role must never reach the bundle)"
+            exit 1
+          fi
+          echo "service-role-leak guard: clean"
 
       - run: npm run lint
 
