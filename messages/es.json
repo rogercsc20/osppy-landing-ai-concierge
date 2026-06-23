@@ -317,5 +317,40 @@
     "privacy": "Política de privacidad",
     "terms": "Términos de uso",
     "rights": "© 2026 Osppy. Todos los derechos reservados."
+  },
+  "dashboardApp": {
+    "login": {
+      "title": "Panel de Osppy",
+      "subtitle": "Te enviaremos un enlace de acceso a tu correo.",
+      "emailLabel": "Correo",
+      "emailPlaceholder": "tu@correo.com",
+      "submit": "Enviar enlace de acceso",
+      "sending": "Enviando…",
+      "sentTitle": "Revisa tu correo",
+      "sentBody": "Te enviamos un enlace de acceso. Ábrelo en este dispositivo para entrar.",
+      "error": "No se pudo enviar el enlace. Inténtalo de nuevo.",
+      "authError": "El enlace expiró o no es válido. Solicita uno nuevo."
+    },
+    "shell": {
+      "brand": "Osppy",
+      "signOut": "Cerrar sesión",
+      "soon": "Próximamente",
+      "nav": {
+        "today": "Hoy",
+        "reservations": "Reservas",
+        "conversations": "Conversaciones",
+        "stats": "Estadísticas",
+        "settings": "Ajustes"
+      }
+    },
+    "property": {
+      "label": "Propiedad",
+      "noAccessTitle": "Sin acceso",
+      "noAccessBody": "Tu cuenta aún no tiene acceso a ninguna propiedad. Contacta al administrador."
+    },
+    "home": {
+      "title": "Inicio",
+      "body": "Tu panel está listo. Las pantallas de operación llegan en las siguientes entregas."
+    }
   }
 }
