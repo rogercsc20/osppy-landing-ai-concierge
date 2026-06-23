@@ -1,8 +1,13 @@
+import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { SignOutButton } from "./SignOutButton";
 import { PropertySwitcher, type PropertyOption } from "./PropertySwitcher";
 
 const NAV_ITEMS = ["today", "reservations", "conversations", "stats", "settings"] as const;
+// Screens shipped so far (the rest render as muted "soon" labels). reservations = B2.
+const LIVE_NAV: Partial<Record<(typeof NAV_ITEMS)[number], string>> = {
+  reservations: "dashboard/reservations",
+};
 
 /**
  * Obsidian-panel dashboard shell: sidebar nav + top bar (property switcher /
@@ -32,16 +37,26 @@ export function AppShell({
           <span className="font-display text-lg">{t("shell.brand")}</span>
         </div>
         <nav className="flex gap-1 overflow-x-auto px-3 pb-3 md:flex-col md:gap-0.5 md:overflow-visible md:pb-0">
-          {NAV_ITEMS.map((item) => (
-            <span
-              key={item}
-              aria-disabled="true"
-              title={t("shell.soon")}
-              className="rounded-lg px-3 py-2 text-sm whitespace-nowrap text-ink/40"
-            >
-              {t(`shell.nav.${item}`)}
-            </span>
-          ))}
+          {NAV_ITEMS.map((item) =>
+            LIVE_NAV[item] ? (
+              <Link
+                key={item}
+                href={`/${locale}/${LIVE_NAV[item]}`}
+                className="hover:bg-canvas/60 rounded-lg px-3 py-2 text-sm whitespace-nowrap text-ink/80 transition-colors"
+              >
+                {t(`shell.nav.${item}`)}
+              </Link>
+            ) : (
+              <span
+                key={item}
+                aria-disabled="true"
+                title={t("shell.soon")}
+                className="rounded-lg px-3 py-2 text-sm whitespace-nowrap text-ink/40"
+              >
+                {t(`shell.nav.${item}`)}
+              </span>
+            ),
+          )}
         </nav>
       </aside>
 
