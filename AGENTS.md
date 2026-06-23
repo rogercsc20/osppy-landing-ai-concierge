@@ -40,9 +40,12 @@ Tailwind v4, Framer Motion 12, next-intl 4. See `README.md` for the full map.
   and breaks the container queries).
 - **Animations respect `prefers-reduced-motion`** (via `useReducedMotion`) and
   mobile gets static fallbacks for the scroll cinematic. Keep both paths working.
-- **Stubs:** the dashboard is a non-functional mockup; "Sign in" opens
-  `WaitlistModal` (coming-soon). The demo form opens a `mailto:`. Real
-  product/dashboard is a separate future project.
+- **Stubs:** the marketing dashboard hero is a non-functional mockup, and the
+  demo form opens a `mailto:`. The nav "Log in" link (`nav.login`) points at the
+  real, deployed magic-link login at `/[locale]/login` — the dashboard now ships
+  live from this same repo, so a broken marketing build also blocks the dashboard
+  deploy. (Historical: the nav used to open a coming-soon `WaitlistModal`; that
+  component was retired once login went live.)
 
 ## Gotchas
 

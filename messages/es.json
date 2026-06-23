@@ -1,6 +1,7 @@
 {
   "nav": {
     "cta": "Agenda demo",
+    "login": "Iniciar sesión",
     "lang": "EN"
   },
   "hero": {
@@ -50,13 +51,6 @@
     }
   },
   "auth": {
-    "signIn": "Iniciar sesión",
-    "modalTitle": "El panel de Osppy llega pronto",
-    "modalBody": "Estamos puliendo tu panel de control: conversaciones en vivo, métricas y respuestas directas desde WhatsApp. Déjanos tu correo y serás de los primeros en entrar.",
-    "emailPlaceholder": "tu@correo.com",
-    "submit": "Avísame",
-    "error": "No se pudo enviar. Inténtalo de nuevo.",
-    "success": "¡Listo! Te avisaremos en cuanto esté disponible.",
     "close": "Cerrar"
   },
   "dashboardReveal": {

@@ -50,32 +50,20 @@ test("English landing renders", async ({ page }) => {
   ).toBeVisible();
 });
 
-test("waitlist modal opens, traps focus, and closes on Escape", async ({
-  page,
-}) => {
+test("nav Log in link navigates to the live login page", async ({ page }) => {
   await page.goto("/es");
-  await page.getByRole("button", { name: es.auth.signIn }).click();
-
-  const dialog = page.getByRole("dialog");
-  await expect(dialog).toBeVisible();
-  await expect(dialog.getByText(es.auth.modalTitle)).toBeVisible();
-  await expect(dialog.getByPlaceholder(es.auth.emailPlaceholder)).toBeFocused();
-
-  await page.keyboard.press("Escape");
-  await expect(dialog).not.toBeVisible();
-});
-
-test("waitlist form submits (unconfigured endpoint falls back gracefully)", async ({
-  page,
-}) => {
-  await page.goto("/es");
-  await page.getByRole("button", { name: es.auth.signIn }).click();
-  const dialog = page.getByRole("dialog");
-  await dialog
-    .getByPlaceholder(es.auth.emailPlaceholder)
-    .fill("test@example.com");
-  await dialog.getByRole("button", { name: es.auth.submit }).click();
-  await expect(dialog.getByText(es.auth.success)).toBeVisible();
+  await page
+    .getByRole("banner")
+    .getByRole("link", { name: es.nav.login })
+    .click();
+  await expect(page).toHaveURL(/\/es\/login$/);
+  // The deployed magic-link login renders (not a coming-soon stub).
+  await expect(
+    page.getByRole("heading", {
+      level: 1,
+      name: es.dashboardApp.login.title,
+    }),
+  ).toBeVisible();
 });
 
 test("demo form validates and submits", async ({ page }) => {

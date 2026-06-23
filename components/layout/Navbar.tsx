@@ -4,14 +4,12 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { LanguageToggle } from "@/components/ui/LanguageToggle";
-import { WaitlistModal } from "@/components/ui/WaitlistModal";
 import { Logomark } from "@/components/ui/Logo";
 import { Link } from "@/i18n/navigation";
 
 export function Navbar() {
   const t = useTranslations();
   const [scrolled, setScrolled] = useState(false);
-  const [waitlistOpen, setWaitlistOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -37,30 +35,30 @@ export function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
           <Logomark className="w-8 h-8" />
-          <span className="font-semibold text-ink text-lg tracking-tight">
+          {/* Wordmark hidden on phones so the EN toggle + Log in + Book demo
+              actions fit on one row (no hamburger). Logomark stays. */}
+          <span className="hidden sm:inline font-semibold text-ink text-lg tracking-tight">
             Osppy
           </span>
         </Link>
 
         {/* Right side */}
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex items-center gap-1.5 sm:gap-3">
           <LanguageToggle />
-          <button
-            onClick={() => setWaitlistOpen(true)}
-            className="hidden sm:inline-flex text-sm font-medium text-ink/70 hover:text-ink px-3 py-2 transition-colors"
+          <Link
+            href="/login"
+            className="inline-flex whitespace-nowrap text-sm font-medium text-ink/70 hover:text-ink px-2 py-2 sm:px-3 transition-colors"
           >
-            {t("auth.signIn")}
-          </button>
+            {t("nav.login")}
+          </Link>
           <Link
             href="/#demo"
-            className="px-4 py-2 rounded-full bg-turquoise-deep text-white text-sm font-semibold hover:bg-turquoise transition-colors"
+            className="whitespace-nowrap px-3 sm:px-4 py-2 rounded-full bg-turquoise-deep text-white text-sm font-semibold hover:bg-turquoise transition-colors"
           >
             {t("nav.cta")}
           </Link>
         </div>
       </div>
-
-      <WaitlistModal open={waitlistOpen} onClose={() => setWaitlistOpen(false)} />
     </motion.header>
   );
 }
