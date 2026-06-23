@@ -338,6 +338,7 @@
       "nav": {
         "today": "Today",
         "reservations": "Reservations",
+        "needsInfo": "Needs info",
         "conversations": "Conversations",
         "stats": "Stats",
         "settings": "Settings"
@@ -475,6 +476,39 @@
         "checked_out": "Checked out",
         "cancelled": "Cancelled",
         "no_show": "No-show"
+      },
+      "needsInfoBadge": "Needs info"
+    },
+    "needsInfo": {
+      "title": "Needs info",
+      "subtitle": "OTA (iCal) bookings without a guest contact. Add a name and phone so you can reach them.",
+      "noProperty": "Select a property to see bookings that need info.",
+      "empty": "All caught up — no OTA bookings are missing guest details.",
+      "viewerNotice": "You don't have permission to complete bookings on this property.",
+      "source": {
+        "booking_com": "Booking.com",
+        "airbnb": "Airbnb",
+        "other": "OTA"
+      },
+      "row": {
+        "currentName": "Booking:",
+        "room": "Room",
+        "guests": "{count, plural, one {# guest} other {# guests}}"
+      },
+      "form": {
+        "legend": "Complete guest details",
+        "guestName": "Guest name",
+        "guestPhone": "Phone (WhatsApp)",
+        "guestPhoneHint": "International format, e.g. +5213312345678.",
+        "save": "Save",
+        "saving": "Saving…",
+        "permissionError": "You don't have permission to complete bookings on this property.",
+        "genericError": "Couldn't save. Please try again.",
+        "errors": {
+          "required": "This field is required.",
+          "tooLong": "That name is too long.",
+          "phone": "Enter a valid phone in international format (+52…)."
+        }
       }
     },
     "conversations": {
