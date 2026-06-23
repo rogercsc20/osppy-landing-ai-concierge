@@ -502,14 +502,21 @@
         "guestPhoneHint": "Formato internacional, p. ej. +5213312345678.",
         "save": "Guardar",
         "saving": "Guardando…",
+        "savedToast": "Datos guardados",
         "permissionError": "No tienes permiso para completar reservas en esta propiedad.",
         "genericError": "No se pudo guardar. Inténtalo de nuevo.",
         "errors": {
           "required": "Este campo es obligatorio.",
           "tooLong": "El nombre es demasiado largo.",
-          "phone": "Ingresa un teléfono válido en formato internacional (+52…)."
+          "phone": "Ingresa un teléfono válido en formato internacional (+52…).",
+          "placeholderName": "Escribe el nombre real del huésped (no el de la reserva de OTA)."
         }
       }
+    },
+    "errorBoundary": {
+      "title": "Algo salió mal",
+      "body": "No pudimos cargar esta sección. Inténtalo de nuevo.",
+      "retry": "Reintentar"
     },
     "conversations": {
       "title": "Conversaciones",
