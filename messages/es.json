@@ -553,6 +553,88 @@
           "urgent": "Urgente"
         }
       }
+    },
+    "stats": {
+      "title": "Estadísticas",
+      "subtitle": "Resumen de actividad del concierge por periodo (hora local de la propiedad).",
+      "noProperty": "Selecciona una propiedad para ver sus estadísticas.",
+      "capped": "Mostrando datos parciales (se alcanzó el límite de filas del periodo).",
+      "windows": {
+        "today": "Hoy",
+        "week": "7 días",
+        "month": "30 días"
+      },
+      "cards": {
+        "conversations": "Conversaciones nuevas",
+        "messages": "Mensajes",
+        "escalations": "Escalaciones",
+        "autonomy": "Tasa de autonomía",
+        "responseTime": "Tiempo de respuesta"
+      },
+      "escalationBreakdown": "{open} abiertas · {resolved} resueltas",
+      "autonomyBreakdown": "{ai} IA · {staff} staff",
+      "responseTimeSub": "p50 {p50} · {n} muestras"
+    },
+    "settings": {
+      "title": "Ajustes",
+      "subtitle": "Configura la información de tu propiedad que usa el concierge.",
+      "noProperty": "Selecciona una propiedad para ver sus ajustes.",
+      "noConfig": "Esta propiedad aún no tiene configuración.",
+      "save": "Guardar cambios",
+      "saving": "Guardando…",
+      "savedToast": "Ajustes guardados.",
+      "permissionError": "Solo el propietario puede editar los ajustes.",
+      "genericError": "No se pudieron guardar los ajustes. Inténtalo de nuevo.",
+      "viewerNotice": "Solo el propietario puede editar estos ajustes. Esta es una vista de solo lectura.",
+      "yes": "Sí",
+      "no": "No",
+      "sections": {
+        "general": "General",
+        "breakfast": "Desayuno",
+        "payment": "Pagos",
+        "policies": "Políticas"
+      },
+      "fields": {
+        "staffPhone": "WhatsApp del staff",
+        "autonomyLevel": "Nivel de autonomía",
+        "checkInTime": "Hora de check-in",
+        "checkOutTime": "Hora de check-out",
+        "breakfastIncluded": "Desayuno incluido",
+        "breakfastCost": "Costo por persona (MXN)",
+        "breakfastBaseOccupancy": "Personas cubiertas",
+        "breakfastStart": "Inicio del desayuno",
+        "breakfastEnd": "Fin del desayuno",
+        "breakfastHoursText": "Horario (texto libre)",
+        "bankName": "Banco",
+        "accountHolder": "Titular de la cuenta",
+        "accountNumber": "Número de cuenta",
+        "clabe": "CLABE",
+        "instructionsImageUrl": "URL de imagen de instrucciones",
+        "extraInstructions": "Instrucciones adicionales de pago",
+        "cancellationPolicy": "Política de cancelación",
+        "petPolicy": "Política de mascotas",
+        "smokingPolicy": "Política de tabaco"
+      },
+      "hints": {
+        "staffPhone": "Formato internacional, p. ej. +52...",
+        "breakfastHoursText": "Texto mostrado al huésped, p. ej. \"8:00 AM – 12:00 PM\".",
+        "clabe": "18 dígitos."
+      },
+      "autonomy": {
+        "faq_only": "Solo preguntas frecuentes",
+        "assisted": "Asistido",
+        "semi_auto": "Semiautomático",
+        "full_auto": "Automático"
+      },
+      "errors": {
+        "required": "Campo obligatorio",
+        "phone": "Teléfono inválido (formato +52...)",
+        "time": "Hora inválida (HH:MM)",
+        "money": "Monto inválido",
+        "occupancy": "Número inválido (mínimo 1)",
+        "clabe": "CLABE inválida (18 dígitos)",
+        "url": "URL inválida"
+      }
     }
   }
 }

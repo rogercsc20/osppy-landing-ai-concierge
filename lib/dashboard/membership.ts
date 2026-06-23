@@ -75,3 +75,13 @@ export async function resolveActiveProperty(
 export function canWriteReservations(role: string): boolean {
   return role === "owner" || role === "staff";
 }
+
+/**
+ * Settings-write gate — **owner only**, mirroring the mig-080
+ * `property_configs_dashboard_update` policy (`USING (… ['owner'])`). NOT the
+ * same as {@link canWriteReservations}: staff can write reservations but NOT
+ * settings. The DB is the real fence; this just hides the form from non-owners.
+ */
+export function canWriteSettings(role: string): boolean {
+  return role === "owner";
+}
