@@ -428,6 +428,54 @@
         "cancelled": "Cancelada",
         "no_show": "No-show"
       }
+    },
+    "today": {
+      "title": "Hoy",
+      "subtitle": "Llegadas y salidas de hoy ({date}).",
+      "noProperty": "Selecciona una propiedad para ver el panel de hoy.",
+      "permissionError": "No tienes permiso para actualizar reservas en esta propiedad.",
+      "actionError": "No se pudo actualizar el estado. Inténtalo de nuevo.",
+      "arrivalsTitle": "Llegadas",
+      "departuresTitle": "Salidas",
+      "emptyArrivals": "No hay llegadas para hoy.",
+      "emptyDepartures": "No hay salidas para hoy.",
+      "summary": {
+        "inHouse": "En casa",
+        "arrivals": "Llegadas",
+        "departures": "Salidas"
+      },
+      "card": {
+        "room": "Hab.",
+        "guests": "{count, plural, one {# huésped} other {# huéspedes}}",
+        "eta": "Llega",
+        "call": "Llamar",
+        "whatsapp": "WhatsApp"
+      },
+      "actions": {
+        "checked_in": "Registrar entrada",
+        "checked_out": "Registrar salida",
+        "no_show": "No-show",
+        "saving": "Guardando…"
+      },
+      "chips": {
+        "arrival_ask": "Llegada",
+        "access_info": "Acceso",
+        "checkout_reminder": "Salida",
+        "review_ask": "Reseña"
+      },
+      "chipState": {
+        "sent": "enviado",
+        "replied": "respondió",
+        "absent": "sin enviar"
+      },
+      "statusBadge": {
+        "tentative": "Tentativa",
+        "confirmed": "Confirmada",
+        "checked_in": "Registrado",
+        "checked_out": "Finalizada",
+        "cancelled": "Cancelada",
+        "no_show": "No-show"
+      }
     }
   }
 }
