@@ -428,6 +428,54 @@
         "cancelled": "Cancelled",
         "no_show": "No-show"
       }
+    },
+    "today": {
+      "title": "Today",
+      "subtitle": "Today's arrivals and departures ({date}).",
+      "noProperty": "Select a property to see today's board.",
+      "permissionError": "You don't have permission to update reservations for this property.",
+      "actionError": "Couldn't update the status. Please try again.",
+      "arrivalsTitle": "Arrivals",
+      "departuresTitle": "Departures",
+      "emptyArrivals": "No arrivals today.",
+      "emptyDepartures": "No departures today.",
+      "summary": {
+        "inHouse": "In-house",
+        "arrivals": "Arrivals",
+        "departures": "Departures"
+      },
+      "card": {
+        "room": "Room",
+        "guests": "{count, plural, one {# guest} other {# guests}}",
+        "eta": "ETA",
+        "call": "Call",
+        "whatsapp": "WhatsApp"
+      },
+      "actions": {
+        "checked_in": "Check in",
+        "checked_out": "Check out",
+        "no_show": "No-show",
+        "saving": "Saving…"
+      },
+      "chips": {
+        "arrival_ask": "Arrival",
+        "access_info": "Access",
+        "checkout_reminder": "Checkout",
+        "review_ask": "Review"
+      },
+      "chipState": {
+        "sent": "sent",
+        "replied": "replied",
+        "absent": "not sent"
+      },
+      "statusBadge": {
+        "tentative": "Tentative",
+        "confirmed": "Confirmed",
+        "checked_in": "Checked in",
+        "checked_out": "Checked out",
+        "cancelled": "Cancelled",
+        "no_show": "No-show"
+      }
     }
   }
 }
