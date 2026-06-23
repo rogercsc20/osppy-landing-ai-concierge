@@ -40,3 +40,66 @@ export function subscribeToBoard(
     void supabase.removeChannel(channel);
   };
 }
+
+/**
+ * Realtime for the conversations LIST (B4). One channel on `messages` + `tasks`
+ * inserts/updates, filtered to the active property, so a new inbound message or
+ * a fresh task nudges the list to re-read (newest activity floats up, a new
+ * escalation appears). Same fence as `subscribeToBoard`: the `property_id`
+ * filter is efficiency, table RLS (`has_dashboard_access` SELECT) is the
+ * boundary — a missing filter is a perf bug, never a cross-tenant leak.
+ */
+export function subscribeToConversationsList(
+  supabase: SupabaseClient,
+  propertyId: string,
+  onChange: () => void,
+): () => void {
+  const filter = `property_id=eq.${propertyId}`;
+  const channel = supabase
+    .channel(`conversations:${propertyId}`)
+    .on(
+      "postgres_changes",
+      { event: "*", schema: "public", table: "messages", filter },
+      () => onChange(),
+    )
+    .on(
+      "postgres_changes",
+      { event: "*", schema: "public", table: "tasks", filter },
+      () => onChange(),
+    )
+    .subscribe();
+
+  return () => {
+    void supabase.removeChannel(channel);
+  };
+}
+
+/**
+ * Realtime for a single conversation THREAD (B4 detail). Subscribes to
+ * `messages` + `tasks` scoped to one `conversation_id`, so a new inbound/outbound
+ * message or task appears live. RLS still fences every streamed row.
+ */
+export function subscribeToConversationThread(
+  supabase: SupabaseClient,
+  conversationId: string,
+  onChange: () => void,
+): () => void {
+  const filter = `conversation_id=eq.${conversationId}`;
+  const channel = supabase
+    .channel(`conversation:${conversationId}`)
+    .on(
+      "postgres_changes",
+      { event: "*", schema: "public", table: "messages", filter },
+      () => onChange(),
+    )
+    .on(
+      "postgres_changes",
+      { event: "*", schema: "public", table: "tasks", filter },
+      () => onChange(),
+    )
+    .subscribe();
+
+  return () => {
+    void supabase.removeChannel(channel);
+  };
+}

@@ -476,6 +476,83 @@
         "cancelled": "Cancelada",
         "no_show": "No-show"
       }
+    },
+    "conversations": {
+      "title": "Conversaciones",
+      "subtitle": "Revisa las conversaciones de huéspedes en tiempo real (solo lectura).",
+      "noProperty": "Selecciona una propiedad para ver sus conversaciones.",
+      "empty": "No hay conversaciones que coincidan con los filtros.",
+      "unknownGuest": "Huésped sin nombre",
+      "noPhone": "Sin teléfono",
+      "staffBadge": "Atendida por staff",
+      "filters": {
+        "label": "Filtros",
+        "state": "Estado",
+        "allStates": "Todos los estados",
+        "from": "Desde",
+        "to": "Hasta",
+        "escalated": "Solo escaladas",
+        "apply": "Aplicar",
+        "clear": "Limpiar"
+      },
+      "states": {
+        "new": "Nueva",
+        "inquiry": "Consulta",
+        "booking_flow": "Reservando",
+        "pending_staff_approval": "Pendiente de aprobación",
+        "confirmed": "Confirmada",
+        "pre_arrival": "Pre-llegada",
+        "checked_in": "En casa",
+        "post_stay": "Post-estancia",
+        "closed": "Cerrada"
+      },
+      "pagination": {
+        "label": "Paginación",
+        "showing": "{from}–{to} de {total}",
+        "prev": "Anteriores",
+        "next": "Siguientes"
+      },
+      "detail": {
+        "back": "Conversaciones",
+        "notFound": "No se encontró la conversación o no tienes acceso.",
+        "started": "Iniciada",
+        "guest": "Huésped",
+        "tasks": "Tareas",
+        "noTasks": "Sin tareas para esta conversación.",
+        "emptyThread": "Aún no hay mensajes en esta conversación.",
+        "call": "Llamar",
+        "whatsapp": "WhatsApp",
+        "language": "Idioma",
+        "stays": "Estancias",
+        "messages": "Mensajes",
+        "firstContact": "Primer contacto",
+        "lastContact": "Último contacto",
+        "due": "Vence",
+        "sender": {
+          "guest": "Huésped",
+          "ai": "Osppy",
+          "staff": "Staff"
+        },
+        "taskType": {
+          "escalation": "Escalación",
+          "booking_approval": "Aprobación de reserva",
+          "service_request": "Solicitud de servicio",
+          "maintenance": "Mantenimiento",
+          "review_request": "Solicitud de reseña"
+        },
+        "taskStatus": {
+          "pending": "Pendiente",
+          "in_progress": "En progreso",
+          "completed": "Completada",
+          "cancelled": "Cancelada"
+        },
+        "priority": {
+          "low": "Baja",
+          "normal": "Normal",
+          "high": "Alta",
+          "urgent": "Urgente"
+        }
+      }
     }
   }
 }
