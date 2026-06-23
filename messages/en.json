@@ -351,6 +351,83 @@
     "home": {
       "title": "Home",
       "body": "Your dashboard is ready. Operations screens arrive in the next slices."
+    },
+    "reservations": {
+      "title": "Reservations",
+      "subtitle": "Log manual, phone, or walk-in bookings. These trigger the stay-lifecycle messages.",
+      "noProperty": "Select a property to see its reservations.",
+      "empty": "No reservations yet for this property.",
+      "newBooking": "New booking",
+      "create": "Create booking",
+      "creating": "Creating…",
+      "createdToast": "Booking created",
+      "permissionError": "You don't have permission to create bookings for this property.",
+      "genericError": "Couldn't create the booking. Check the fields and try again.",
+      "viewerNotice": "Your role is read-only; you can't create bookings.",
+      "fields": {
+        "guestName": "Guest name",
+        "guestPhone": "Phone (WhatsApp)",
+        "guestPhoneHint": "International format, e.g. +52…",
+        "guestEmail": "Email (optional)",
+        "room": "Room",
+        "roomCode": "Room code",
+        "roomCustom": "Other (type a code)",
+        "checkIn": "Check-in",
+        "checkOut": "Check-out",
+        "numGuests": "Guests",
+        "totalPrice": "Total price (MXN)",
+        "amountPaid": "Paid / deposit (MXN)",
+        "deposit": "Deposit (MXN)",
+        "arrivalEta": "Estimated arrival time",
+        "bookingSource": "Source",
+        "consent": "Contact consent",
+        "status": "Status",
+        "specialRequests": "Notes or requests"
+      },
+      "errors": {
+        "required": "Required field",
+        "phone": "Invalid phone (use +52… format)",
+        "email": "Invalid email",
+        "date": "Invalid date",
+        "number": "Invalid number",
+        "min1": "Must be at least 1",
+        "money": "Invalid amount",
+        "time": "Invalid time (HH:MM)",
+        "checkoutAfter": "Check-out must be after check-in",
+        "paidOverTotal": "Paid can't exceed the total"
+      },
+      "sources": {
+        "manual": "Front desk / direct",
+        "booking_com": "Booking.com",
+        "expedia": "Expedia",
+        "airbnb": "Airbnb",
+        "other": "Other"
+      },
+      "consents": {
+        "manual_booking": "Manual booking",
+        "guest_initiated": "Guest-initiated",
+        "ota_booking": "OTA booking"
+      },
+      "statuses": {
+        "confirmed": "Confirmed",
+        "tentative": "Tentative"
+      },
+      "list": {
+        "guest": "Guest",
+        "dates": "Dates",
+        "room": "Room",
+        "guests": "Guests",
+        "total": "Total",
+        "statusLabel": "Status"
+      },
+      "statusBadge": {
+        "tentative": "Tentative",
+        "confirmed": "Confirmed",
+        "checked_in": "Checked in",
+        "checked_out": "Checked out",
+        "cancelled": "Cancelled",
+        "no_show": "No-show"
+      }
     }
   }
 }

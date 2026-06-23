@@ -3,44 +3,11 @@ import { redirect } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { createClient } from "@/lib/supabase/server";
 import { AppShell } from "@/components/dashboard/AppShell";
-import {
-  ACTIVE_PROPERTY_COOKIE,
-  type PropertyOption,
-} from "@/components/dashboard/PropertySwitcher";
+import { ACTIVE_PROPERTY_COOKIE } from "@/components/dashboard/PropertySwitcher";
+import { loadMemberships } from "@/lib/dashboard/membership";
 
 // getUser() + cookies() make this request-dynamic; never statically generated.
 export const dynamic = "force-dynamic";
-
-type Membership = PropertyOption & { role: string };
-
-type SupabaseServerClient = Awaited<ReturnType<typeof createClient>>;
-
-async function loadMemberships(
-  supabase: SupabaseServerClient,
-): Promise<Membership[]> {
-  try {
-    const [{ data: rows }, { data: props }] = await Promise.all([
-      // self_read RLS → only this user's own membership rows
-      supabase.from("dashboard_users").select("property_id, role").eq("is_active", true),
-      // has_dashboard_access RLS → only the properties this user may read
-      supabase.from("properties").select("property_id, name"),
-    ]);
-    const members = (rows ?? []) as Array<{ property_id: string; role: string }>;
-    const names = new Map(
-      ((props ?? []) as Array<{ property_id: string; name: string }>).map((p) => [
-        p.property_id,
-        p.name,
-      ]),
-    );
-    return members.map((m) => ({
-      property_id: m.property_id,
-      role: m.role,
-      name: names.get(m.property_id) ?? m.property_id,
-    }));
-  } catch {
-    return [];
-  }
-}
 
 export default async function DashboardLayout({
   children,

@@ -351,6 +351,83 @@
     "home": {
       "title": "Inicio",
       "body": "Tu panel está listo. Las pantallas de operación llegan en las siguientes entregas."
+    },
+    "reservations": {
+      "title": "Reservas",
+      "subtitle": "Registra reservas manuales, de teléfono o walk-in. Disparan los mensajes del ciclo de estancia.",
+      "noProperty": "Selecciona una propiedad para ver sus reservas.",
+      "empty": "Aún no hay reservas para esta propiedad.",
+      "newBooking": "Nueva reserva",
+      "create": "Crear reserva",
+      "creating": "Creando…",
+      "createdToast": "Reserva creada",
+      "permissionError": "No tienes permiso para crear reservas en esta propiedad.",
+      "genericError": "No se pudo crear la reserva. Revisa los datos e inténtalo de nuevo.",
+      "viewerNotice": "Tu rol es de solo lectura; no puedes crear reservas.",
+      "fields": {
+        "guestName": "Nombre del huésped",
+        "guestPhone": "Teléfono (WhatsApp)",
+        "guestPhoneHint": "Formato internacional, p. ej. +52…",
+        "guestEmail": "Correo (opcional)",
+        "room": "Habitación",
+        "roomCode": "Código de habitación",
+        "roomCustom": "Otra (escribir código)",
+        "checkIn": "Entrada",
+        "checkOut": "Salida",
+        "numGuests": "Huéspedes",
+        "totalPrice": "Precio total (MXN)",
+        "amountPaid": "Pagado / anticipo (MXN)",
+        "deposit": "Depósito (MXN)",
+        "arrivalEta": "Hora estimada de llegada",
+        "bookingSource": "Origen",
+        "consent": "Consentimiento de contacto",
+        "status": "Estado",
+        "specialRequests": "Notas o peticiones"
+      },
+      "errors": {
+        "required": "Campo obligatorio",
+        "phone": "Teléfono inválido (usa formato +52…)",
+        "email": "Correo inválido",
+        "date": "Fecha inválida",
+        "number": "Número inválido",
+        "min1": "Debe ser al menos 1",
+        "money": "Importe inválido",
+        "time": "Hora inválida (HH:MM)",
+        "checkoutAfter": "La salida debe ser posterior a la entrada",
+        "paidOverTotal": "El pagado no puede superar el total"
+      },
+      "sources": {
+        "manual": "Recepción / directo",
+        "booking_com": "Booking.com",
+        "expedia": "Expedia",
+        "airbnb": "Airbnb",
+        "other": "Otro"
+      },
+      "consents": {
+        "manual_booking": "Reserva manual",
+        "guest_initiated": "Iniciado por el huésped",
+        "ota_booking": "Reserva de OTA"
+      },
+      "statuses": {
+        "confirmed": "Confirmada",
+        "tentative": "Tentativa"
+      },
+      "list": {
+        "guest": "Huésped",
+        "dates": "Fechas",
+        "room": "Hab.",
+        "guests": "Huéspedes",
+        "total": "Total",
+        "statusLabel": "Estado"
+      },
+      "statusBadge": {
+        "tentative": "Tentativa",
+        "confirmed": "Confirmada",
+        "checked_in": "Registrado",
+        "checked_out": "Finalizada",
+        "cancelled": "Cancelada",
+        "no_show": "No-show"
+      }
     }
   }
 }
