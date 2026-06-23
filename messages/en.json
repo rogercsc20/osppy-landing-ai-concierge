@@ -553,6 +553,88 @@
           "urgent": "Urgent"
         }
       }
+    },
+    "stats": {
+      "title": "Statistics",
+      "subtitle": "Concierge activity summary by period (property local time).",
+      "noProperty": "Select a property to see its statistics.",
+      "capped": "Showing partial data (the period's row limit was reached).",
+      "windows": {
+        "today": "Today",
+        "week": "7 days",
+        "month": "30 days"
+      },
+      "cards": {
+        "conversations": "New conversations",
+        "messages": "Messages",
+        "escalations": "Escalations",
+        "autonomy": "Autonomy rate",
+        "responseTime": "Response time"
+      },
+      "escalationBreakdown": "{open} open · {resolved} resolved",
+      "autonomyBreakdown": "{ai} AI · {staff} staff",
+      "responseTimeSub": "p50 {p50} · {n} samples"
+    },
+    "settings": {
+      "title": "Settings",
+      "subtitle": "Configure the property information your concierge uses.",
+      "noProperty": "Select a property to see its settings.",
+      "noConfig": "This property has no configuration yet.",
+      "save": "Save changes",
+      "saving": "Saving…",
+      "savedToast": "Settings saved.",
+      "permissionError": "Only the owner can edit settings.",
+      "genericError": "Couldn't save settings. Please try again.",
+      "viewerNotice": "Only the owner can edit these settings. This is a read-only view.",
+      "yes": "Yes",
+      "no": "No",
+      "sections": {
+        "general": "General",
+        "breakfast": "Breakfast",
+        "payment": "Payment",
+        "policies": "Policies"
+      },
+      "fields": {
+        "staffPhone": "Staff WhatsApp",
+        "autonomyLevel": "Autonomy level",
+        "checkInTime": "Check-in time",
+        "checkOutTime": "Check-out time",
+        "breakfastIncluded": "Breakfast included",
+        "breakfastCost": "Cost per person (MXN)",
+        "breakfastBaseOccupancy": "People covered",
+        "breakfastStart": "Breakfast start",
+        "breakfastEnd": "Breakfast end",
+        "breakfastHoursText": "Hours (free text)",
+        "bankName": "Bank",
+        "accountHolder": "Account holder",
+        "accountNumber": "Account number",
+        "clabe": "CLABE",
+        "instructionsImageUrl": "Instructions image URL",
+        "extraInstructions": "Extra payment instructions",
+        "cancellationPolicy": "Cancellation policy",
+        "petPolicy": "Pet policy",
+        "smokingPolicy": "Smoking policy"
+      },
+      "hints": {
+        "staffPhone": "International format, e.g. +52...",
+        "breakfastHoursText": "Shown to the guest, e.g. \"8:00 AM – 12:00 PM\".",
+        "clabe": "18 digits."
+      },
+      "autonomy": {
+        "faq_only": "FAQ only",
+        "assisted": "Assisted",
+        "semi_auto": "Semi-automatic",
+        "full_auto": "Full automatic"
+      },
+      "errors": {
+        "required": "Required field",
+        "phone": "Invalid phone (format +52...)",
+        "time": "Invalid time (HH:MM)",
+        "money": "Invalid amount",
+        "occupancy": "Invalid number (minimum 1)",
+        "clabe": "Invalid CLABE (18 digits)",
+        "url": "Invalid URL"
+      }
     }
   }
 }
