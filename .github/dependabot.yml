@@ -1,0 +1,47 @@
+# Dependabot — automated dependency-update PRs for the Osppy landing + dashboard.
+# https://docs.github.com/code-security/dependabot/dependabot-version-updates
+#
+# Two ecosystems live in this repo:
+#   * npm deps at the root (package.json + package-lock.json — the Next.js app
+#     and the dashboard share one node_modules).
+#   * GitHub Actions pinned in .github/workflows/*.yml.
+#
+# Weekly cadence (Monday, MX morning) keeps the noise low for a solo
+# maintainer; updates are grouped so one PR covers a batch instead of one PR
+# per package. Security updates from Dependabot's alert path are NOT throttled
+# by open-pull-requests-limit and land regardless.
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "08:00"
+      timezone: "America/Mexico_City"
+    open-pull-requests-limit: 5
+    groups:
+      npm-minor-and-patch:
+        update-types:
+          - "minor"
+          - "patch"
+    labels:
+      - "dependencies"
+      - "npm"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "08:00"
+      timezone: "America/Mexico_City"
+    open-pull-requests-limit: 5
+    groups:
+      actions:
+        update-types:
+          - "minor"
+          - "patch"
+    labels:
+      - "dependencies"
+      - "github-actions"
