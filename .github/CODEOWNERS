@@ -1,0 +1,11 @@
+# Code owners for the Osppy landing + dashboard (osppy-landing-ai-concierge).
+#
+# GitHub requests a review from the listed owner on every PR that touches a
+# matching path. Combined with branch protection on `main` (require PR +
+# require review), this makes the owner the gate on everything that ships.
+#
+# GitHub applies the LAST matching pattern, so this global rule must stay at
+# the BOTTOM. As the team grows, add narrower path rules BELOW this line; each
+# one then overrides the catch-all for its subtree.
+
+* @rogercsc20
