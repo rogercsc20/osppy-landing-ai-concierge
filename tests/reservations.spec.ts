@@ -35,6 +35,15 @@ test.describe("reservation form schema (zod)", () => {
     ).toBe(false);
   });
 
+  test("rejects a format-valid but unparseable number", () => {
+    // Passes the +E.164 regex but libphonenumber says it is not a real
+    // number → the canonicalizability refine rejects it (so toRpcArgs can
+    // never silently null the phone).
+    expect(
+      reservationFormSchema.safeParse({ ...valid, guestPhone: "+10000000000" }).success,
+    ).toBe(false);
+  });
+
   test("rejects check_out on or before check_in", () => {
     expect(
       reservationFormSchema.safeParse({ ...valid, checkOut: "2099-01-10" }).success,
@@ -85,6 +94,15 @@ test.describe("toRpcArgs → mig-082 contract", () => {
     expect(args.p_outbound_consent_source).toBe("manual_booking");
     expect(args.p_status).toBe("confirmed");
     expect(args.p_currency).toBe("MXN");
+  });
+
+  test("canonicalizes a legacy MX-1 phone so it matches the pipeline guest", () => {
+    // The 2026-06-23 duplicate-guest bug: a hotelier enters the legacy MX
+    // mobile form (`+521…`) that Meta delivers; the RPC stored it raw, so the
+    // WhatsApp pipeline (canonical `+52…` via to_e164) never resolved the same
+    // guest. Now toRpcArgs strips the "1" → the stored phone IS the canonical.
+    const args = toRpcArgs({ ...valid, guestPhone: "+5213312345678" }, "prop-123");
+    expect(args.p_guest_phone).toBe("+523312345678");
   });
 });
 

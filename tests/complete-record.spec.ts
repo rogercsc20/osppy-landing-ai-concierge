@@ -142,9 +142,12 @@ test.describe("completeRecordFormSchema", () => {
 // ── toCompleteUpdate (form → reservations.guest_* payload) ────────────
 
 test.describe("toCompleteUpdate", () => {
-  test("maps + trims to exactly the two denormalized columns", () => {
+  test("maps + trims + canonicalizes to exactly the two denormalized columns", () => {
+    // The legacy MX-1 input (`+521…`, what Meta delivers and a hotelier may
+    // paste) is canonicalized to `+52…` so the completed phone matches the
+    // pipeline's to_e164 — no duplicate guest. The "1" is stripped here.
     const u = toCompleteUpdate({ guestName: "  Ana López ", guestPhone: " +5213312345678 " });
-    expect(u).toEqual({ guest_name: "Ana López", guest_phone: "+5213312345678" });
+    expect(u).toEqual({ guest_name: "Ana López", guest_phone: "+523312345678" });
     // No stray columns escape to PostgREST.
     expect(Object.keys(u).sort()).toEqual(["guest_name", "guest_phone"]);
   });
@@ -261,7 +264,7 @@ test.describe("completeRecord", () => {
     const u = captured!;
     expect(new Set(Object.keys(u.payload))).toEqual(new Set(["guest_name", "guest_phone"]));
     expect(u.payload.guest_name).toBe("Ana López");
-    expect(u.payload.guest_phone).toBe("+5213312345678");
+    expect(u.payload.guest_phone).toBe("+523312345678"); // canonicalized (legacy "1" stripped)
     expect(u.filters.reservation_id).toBe("r1");
     expect(u.filters.property_id).toBe("p1");
   });

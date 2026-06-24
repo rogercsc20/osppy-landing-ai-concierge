@@ -1,5 +1,6 @@
 import { z } from "zod";
 import type { SupabaseClient } from "@supabase/supabase-js";
+import { isCanonicalizablePhone, toE164 } from "./phone";
 
 /**
  * Reservations data layer for the dashboard B2 slice.
@@ -53,7 +54,12 @@ export const CREATE_STATUSES = ["confirmed", "tentative"] as const;
 export const reservationFormSchema = z
   .object({
     guestName: z.string().trim().min(1, "required"),
-    guestPhone: z.string().trim().regex(E164, "phone"),
+    // Require `+E.164` shape (fast format gate) AND that libphonenumber can
+    // canonicalize it — so a format-valid-but-invalid number (e.g.
+    // "+10000000000") is rejected here, and `toRpcArgs` can canonicalize
+    // without ever producing null. The stored phone then matches what the
+    // WhatsApp pipeline's `to_e164` writes → no duplicate guest.
+    guestPhone: z.string().trim().regex(E164, "phone").refine(isCanonicalizablePhone, "phone"),
     guestEmail: z
       .string()
       .trim()
@@ -147,7 +153,10 @@ export function toRpcArgs(
     p_check_out: values.checkOut,
     p_num_guests: Number(values.numGuests),
     p_total_price_mxn: Number(values.totalPriceMxn),
-    p_guest_phone: nullIfBlank(values.guestPhone),
+    // Canonical +E.164 (legacy MX "1" stripped) — matches the pipeline's
+    // to_e164, so a manually-booked guest resolves to the SAME guest the bot
+    // messages. Validation above guarantees this is non-null.
+    p_guest_phone: toE164(values.guestPhone),
     p_guest_email: nullIfBlank(values.guestEmail),
     p_room_id: nullIfBlank(values.roomId),
     p_amount_paid_mxn: values.amountPaidMxn === "" ? 0 : Number(values.amountPaidMxn),

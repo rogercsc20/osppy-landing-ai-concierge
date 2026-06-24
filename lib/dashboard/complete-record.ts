@@ -1,5 +1,6 @@
 import { z } from "zod";
 import type { SupabaseClient } from "@supabase/supabase-js";
+import { isCanonicalizablePhone, toE164 } from "./phone";
 
 /**
  * Complete-the-record data layer for the dashboard B6 slice.
@@ -91,7 +92,10 @@ export function isIncomplete(row: IncompleteCandidate): boolean {
 export const completeRecordFormSchema = z
   .object({
     guestName: z.string().trim().min(1, "required").max(255, "tooLong"),
-    guestPhone: z.string().trim().regex(E164, "phone"),
+    // `+E.164` format gate + libphonenumber canonicalizability — so the
+    // completed phone matches the pipeline's to_e164 (no duplicate guest) and
+    // `toCompleteUpdate` can canonicalize without producing null.
+    guestPhone: z.string().trim().regex(E164, "phone").refine(isCanonicalizablePhone, "phone"),
   })
   // Reject a name that is still the OTA placeholder shape — otherwise the write
   // "succeeds" but `isIncomplete` stays true, the row never leaves the list, and
@@ -116,9 +120,11 @@ export type CompleteRecordUpdate = {
 
 /** Pure form-values → reservations UPDATE payload. */
 export function toCompleteUpdate(values: CompleteRecordFormValues): CompleteRecordUpdate {
+  // Canonical +E.164 — validation guarantees non-null; `?? ""` only narrows
+  // the type (the CompleteRecordUpdate.guest_phone is a required string).
   return {
     guest_name: values.guestName.trim(),
-    guest_phone: values.guestPhone.trim(),
+    guest_phone: toE164(values.guestPhone) ?? "",
   };
 }
 
