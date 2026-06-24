@@ -1,0 +1,14 @@
+# Local pre-commit hooks (S4 — secrets & supply-chain).
+#
+# WHY. The CI service-role-leak grep (.github/workflows/ci.yml) catches the
+# one pattern it knows post-push; this scans for ANY secret BEFORE the commit
+# lands, so a key pasted into a component/config never enters history. Mirrors
+# the backend repo's .pre-commit-config.yaml.
+#
+# ONE-TIME ACTIVATION (operator, per clone): `pipx install pre-commit` then
+# `pre-commit install` from the repo root. Bump revs with `pre-commit autoupdate`.
+repos:
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.21.2
+    hooks:
+      - id: gitleaks
