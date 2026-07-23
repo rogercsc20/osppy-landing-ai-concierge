@@ -57,7 +57,7 @@ test("nav Log in link navigates to the live login page", async ({ page }) => {
     .getByRole("link", { name: es.nav.login })
     .click();
   await expect(page).toHaveURL(/\/es\/login$/);
-  // The deployed magic-link login renders (not a coming-soon stub).
+  // The deployed password login renders (not a coming-soon stub).
   await expect(
     page.getByRole("heading", {
       level: 1,
