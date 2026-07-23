@@ -315,15 +315,16 @@
   "dashboardApp": {
     "login": {
       "title": "Panel de Osppy",
-      "subtitle": "Te enviaremos un enlace de acceso a tu correo.",
+      "subtitle": "Ingresa con tu correo y contraseña.",
       "emailLabel": "Correo",
       "emailPlaceholder": "tu@correo.com",
-      "submit": "Enviar enlace de acceso",
-      "sending": "Enviando…",
-      "sentTitle": "Revisa tu correo",
-      "sentBody": "Te enviamos un enlace de acceso. Ábrelo en este dispositivo para entrar.",
-      "error": "No se pudo enviar el enlace. Inténtalo de nuevo.",
-      "authError": "El enlace expiró o no es válido. Solicita uno nuevo."
+      "passwordLabel": "Contraseña",
+      "passwordPlaceholder": "••••••••",
+      "submit": "Entrar",
+      "signing": "Entrando…",
+      "error": "Correo o contraseña incorrectos. Inténtalo de nuevo.",
+      "forgot": "¿Olvidaste tu contraseña? Escríbele al administrador.",
+      "authError": "Tu sesión expiró. Inicia sesión de nuevo."
     },
     "shell": {
       "brand": "Osppy",

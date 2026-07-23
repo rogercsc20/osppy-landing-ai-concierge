@@ -315,15 +315,16 @@
   "dashboardApp": {
     "login": {
       "title": "Osppy Dashboard",
-      "subtitle": "We will email you a sign-in link.",
+      "subtitle": "Sign in with your email and password.",
       "emailLabel": "Email",
       "emailPlaceholder": "you@email.com",
-      "submit": "Send sign-in link",
-      "sending": "Sending…",
-      "sentTitle": "Check your email",
-      "sentBody": "We sent you a sign-in link. Open it on this device to continue.",
-      "error": "Could not send the link. Please try again.",
-      "authError": "The link expired or is invalid. Request a new one."
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "••••••••",
+      "submit": "Sign in",
+      "signing": "Signing in…",
+      "error": "Incorrect email or password. Please try again.",
+      "forgot": "Forgot your password? Contact your administrator.",
+      "authError": "Your session expired. Please sign in again."
     },
     "shell": {
       "brand": "Osppy",
