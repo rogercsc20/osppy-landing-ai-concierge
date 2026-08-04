@@ -4,6 +4,10 @@
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
 <!-- END:nextjs-agent-rules -->
 
+## Osppy context (company layer — sibling repo `../osppy-hq`)
+
+Company-level truth lives in **`../osppy-hq`** (2026-08-04 hybrid context architecture): `PROGRAM.md` = THE program board and session handoff surface · `decisions.md` = company/commercial ledger · `business/pricing.md` (fair-use structure is the only structure prospects see) · `customers/` (lucero, casa-tlaquepaque, aura, prospects). The three-repo topology map is in `osppy-hq/README.md`. This repo owns www.osppy.com: marketing site, legacy dashboard, /aviso redirect to the Railway-served guest aviso; the bot/api + engineering docs live in `../ai-concierge-p2`.
+
 # Osppy landing page — working notes
 
 Bilingual (es default, en) marketing site for Osppy, a WhatsApp AI concierge
