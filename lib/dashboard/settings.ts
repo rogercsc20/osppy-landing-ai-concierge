@@ -1,5 +1,6 @@
 import { z } from "zod";
 import type { SupabaseClient } from "@supabase/supabase-js";
+import { DashboardPermissionError } from "./errors";
 
 /**
  * Settings data layer for the dashboard B5 slice.
@@ -245,8 +246,12 @@ export async function loadSettings(
 /**
  * Persist the editable settings subset for a property. Validates (fast,
  * friendly), then the UPDATE goes through PostgREST under RLS — owner-only by
- * the mig-080 policy + the 19-column grant. A non-owner / cross-tenant / out-of-
- * whitelist write fails there; the error propagates for the form to translate.
+ * the mig-080 policy + the 19-column grant. TD-2 (inventory P0-3): an RLS
+ * USING-filtered refusal is SILENT (204, zero rows, no error) — pre-fix a
+ * non-owner was told "Guardado" and the form rebaselined clean while the bot
+ * kept quoting the old CLABE. The `.select()` is load-bearing: zero rows back
+ * = refusal → `DashboardPermissionError`; loud errors still propagate for the
+ * form to translate.
  */
 export async function updateSettings(
   supabase: SupabaseClient,
@@ -255,9 +260,11 @@ export async function updateSettings(
 ): Promise<void> {
   const parsed = settingsFormSchema.parse(values);
   const payload = toSettingsUpdate(parsed);
-  const { error } = await supabase
+  const { data, error } = await supabase
     .from("property_configs")
     .update(payload)
-    .eq("property_id", propertyId);
+    .eq("property_id", propertyId)
+    .select("property_id");
   if (error) throw error;
+  if (!data || data.length === 0) throw new DashboardPermissionError();
 }

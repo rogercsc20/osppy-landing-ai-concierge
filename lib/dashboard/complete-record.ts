@@ -1,5 +1,6 @@
 import { z } from "zod";
 import type { SupabaseClient } from "@supabase/supabase-js";
+import { DashboardPermissionError } from "./errors";
 import { isCanonicalizablePhone, toE164 } from "./phone";
 
 /**
@@ -193,10 +194,14 @@ export async function completeRecord(
   values: CompleteRecordFormValues,
 ): Promise<void> {
   const parsed = completeRecordFormSchema.parse(values);
-  const { error } = await supabase
+  // TD-2 (inventory P0-3): `.select()` is load-bearing — an RLS
+  // USING-filtered refusal is a silent 204/zero-rows, not an error.
+  const { data, error } = await supabase
     .from("reservations")
     .update(toCompleteUpdate(parsed))
     .eq("reservation_id", reservationId)
-    .eq("property_id", propertyId);
+    .eq("property_id", propertyId)
+    .select("reservation_id");
   if (error) throw error;
+  if (!data || data.length === 0) throw new DashboardPermissionError();
 }

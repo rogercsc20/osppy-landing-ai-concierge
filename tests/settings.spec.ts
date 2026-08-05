@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import type { SupabaseClient } from "@supabase/supabase-js";
+import { DashboardPermissionError } from "@/lib/dashboard/errors";
 import {
   AUTONOMY_LEVELS,
   SETTINGS_COLUMNS,
@@ -196,6 +197,10 @@ function fakeSupabase(opts: {
   updateError?: Error;
   selectError?: Error;
   onUpdate?: (payload: Record<string, unknown>) => void;
+  /** Rows PostgREST echoes for the write's select-back; [] = the RLS
+   *  silent refusal (TD-2). Defaults to one row = success. */
+  updatedRows?: unknown[];
+  onWriteSelect?: () => void;
 }) {
   class Builder {
     select() {
@@ -209,13 +214,25 @@ function fakeSupabase(opts: {
     }
     update(payload: Record<string, unknown>) {
       opts.onUpdate?.(payload);
-      // .update(...).eq(...).eq(...) resolves to { error }
+      // .update(...).eq(...).select(...) — the chain terminates at the TD-2
+      // select-back (mirrors cockpit's writingClient): rows echoed on
+      // success, [] when RLS filtered every row, null alongside a loud error.
       return {
         eq() {
           return this;
         },
-        then<R>(onFulfilled: (v: { error: Error | null }) => R) {
-          return Promise.resolve({ error: opts.updateError ?? null }).then(onFulfilled);
+        select() {
+          opts.onWriteSelect?.();
+          return this;
+        },
+        then<R>(
+          onFulfilled: (v: { data: unknown; error: Error | null }) => R,
+        ) {
+          const rows = opts.updatedRows ?? [{ property_id: "p1" }];
+          return Promise.resolve({
+            data: opts.updateError ? null : rows,
+            error: opts.updateError ?? null,
+          }).then(onFulfilled);
         },
       };
     }
@@ -261,6 +278,22 @@ test.describe("updateSettings", () => {
   test("surfaces an RLS / grant error (e.g. 42501) for the form to translate", async () => {
     const client = fakeSupabase({ updateError: new Error("permission denied (42501)") });
     await expect(updateSettings(client, "p1", validForm())).rejects.toThrow(/42501/);
+  });
+
+  // TD-2 (inventory P0-3): the silent-refusal guard. Pre-fix a non-owner
+  // was told "Guardado" while the bot kept quoting the old CLABE.
+  test("selects back after the write (silent-refusal guard present)", async () => {
+    let selected = false;
+    const client = fakeSupabase({ onWriteSelect: () => (selected = true) });
+    await updateSettings(client, "p1", validForm());
+    expect(selected).toBe(true);
+  });
+
+  test("zero rows back (RLS-filtered UPDATE) → DashboardPermissionError", async () => {
+    const client = fakeSupabase({ updatedRows: [] });
+    await expect(updateSettings(client, "p1", validForm())).rejects.toBeInstanceOf(
+      DashboardPermissionError,
+    );
   });
 
   test("rejects an invalid form before touching the network", async () => {
