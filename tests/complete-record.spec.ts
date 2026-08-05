@@ -22,7 +22,7 @@ import {
 } from "../lib/dashboard/board";
 
 // A row as PostgREST returns it (DATE/optional cols as strings/null).
-const row = (over: Partial<IncompleteReservationRow>): IncompleteReservationRow => ({
+const row = (over: Partial<IncompleteReservationRow> = {}): IncompleteReservationRow => ({
   reservation_id: "r1",
   guest_name: "Reserva Airbnb ••1234",
   guest_phone: null,
