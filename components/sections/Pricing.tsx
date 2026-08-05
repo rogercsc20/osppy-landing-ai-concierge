@@ -1,50 +1,20 @@
 import { useTranslations } from "next-intl";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { Check, ArrowRight } from "lucide-react";
-import { cn } from "@/lib/utils";
 
-interface PricingTier {
-  nameKey: string;
-  priceKey: string;
-  periodKey: string;
-  features: string[];
-  highlighted?: boolean;
-}
-
+/**
+ * Custom-pricing section (2026-08-04, operator decision): the dead
+ * $49/$149/$249 tier cards are retired — pricing is bespoke per hotel and the
+ * page never quotes a number (hq pricing rule: the fair-use structure is
+ * discussed in the demo, "no flat quotes ever"). One elevated panel — the
+ * page's signature dark monolith with the rotating beam ring — states the
+ * shape of the deal (flat monthly fee, no per-booking commissions, clear
+ * proposal after the demo) and routes to #demo.
+ */
 export function Pricing() {
   const t = useTranslations();
 
-  const tiers: PricingTier[] = [
-    {
-      nameKey: "pricing.starter.name",
-      priceKey: "pricing.starter.price",
-      periodKey: "pricing.starter.period",
-      features: [t("pricing.starter.f1"), t("pricing.starter.f2"), t("pricing.starter.f3")],
-    },
-    {
-      nameKey: "pricing.growth.name",
-      priceKey: "pricing.growth.price",
-      periodKey: "pricing.growth.period",
-      features: [
-        t("pricing.growth.f1"),
-        t("pricing.growth.f2"),
-        t("pricing.growth.f3"),
-        t("pricing.growth.f4"),
-      ],
-      highlighted: true,
-    },
-    {
-      nameKey: "pricing.pro.name",
-      priceKey: "pricing.pro.price",
-      periodKey: "pricing.pro.period",
-      features: [
-        t("pricing.pro.f1"),
-        t("pricing.pro.f2"),
-        t("pricing.pro.f3"),
-        t("pricing.pro.f4"),
-      ],
-    },
-  ];
+  const points = [t("pricing.f1"), t("pricing.f2"), t("pricing.f3")];
 
   return (
     <section id="pricing" className="bg-sand py-32 lg:py-40 px-4 sm:px-6">
@@ -56,118 +26,42 @@ export function Pricing() {
           </h2>
         </AnimatedSection>
 
-        {/* The Growth tier is the page's one dark, elevated object — taller
-            than its hairline neighbors, lit by a soft turquoise halo.
-            AnimatedSection is the grid child so order-* works (a wrapper div
-            between the grid and the card would swallow it). */}
-        <div className="grid lg:grid-cols-3 gap-5 lg:gap-6 items-stretch max-w-5xl mx-auto">
-          {tiers.map((tier, i) => {
-            const highlighted = tier.highlighted;
-            const inner = (
-              <>
-                <div className="mb-7 flex items-start justify-between gap-3">
-                  {/* .eyebrow is un-layered CSS and would beat a text-* override,
-                      so the dark card spells the style out */}
-                  <p
-                    className={cn(
-                      highlighted
-                        ? "text-[0.6875rem] font-medium uppercase tracking-[0.18em] text-canvas/60"
-                        : "eyebrow"
-                    )}
-                  >
-                    {t(tier.nameKey)}
-                  </p>
-                  {highlighted && (
-                    <span className="rounded-full border border-turquoise-deep/40 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.14em] text-[#0a6173]">
-                      {t("pricing.recommended")}
+        {/* The one dark, elevated object on the page — ringed by the
+            rotating teal beam (same treatment the Growth card carried). */}
+        <AnimatedSection className="mx-auto max-w-2xl">
+          <div className="relative overflow-hidden rounded-3xl p-px shadow-[0_0_90px_-18px_rgba(34,196,217,0.45)]">
+            <div aria-hidden="true" className="beam-ring absolute inset-0" />
+            <div className="relative flex flex-col rounded-[calc(1.5rem-1px)] bg-ink p-8 text-canvas lg:p-12">
+              <p className="mb-8 text-base leading-relaxed text-canvas/75 lg:text-lg">
+                {t("pricing.body")}
+              </p>
+
+              <ul className="mb-10 flex flex-col gap-4 border-t border-canvas/10 pt-8">
+                {points.map((point) => (
+                  <li key={point} className="flex items-start gap-3">
+                    <Check
+                      className="mt-0.5 h-4 w-4 flex-shrink-0 text-turquoise-deep"
+                      strokeWidth={2}
+                    />
+                    <span className="text-sm leading-snug text-canvas/85 lg:text-base">
+                      {point}
                     </span>
-                  )}
-                </div>
+                  </li>
+                ))}
+              </ul>
 
-                <div className="mb-8 flex items-baseline gap-2">
-                  <span
-                    className={cn(
-                      "font-display font-semibold tracking-tight",
-                      highlighted ? "text-6xl" : "text-5xl"
-                    )}
-                  >
-                    {t(tier.priceKey)}
-                  </span>
-                  <span className={cn("text-sm", highlighted ? "text-canvas/60" : "text-ink/50")}>
-                    {t(tier.periodKey)}
-                  </span>
-                </div>
-
-                <ul
-                  className={cn(
-                    "flex flex-col gap-3.5 flex-1 border-t pt-7 mb-9",
-                    highlighted ? "border-canvas/10" : "border-line"
-                  )}
-                >
-                  {tier.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-3">
-                      <Check
-                        className={cn(
-                          "w-4 h-4 flex-shrink-0 mt-0.5",
-                          highlighted ? "text-turquoise-deep" : "text-ink/40"
-                        )}
-                        strokeWidth={2}
-                      />
-                      <span
-                        className={cn(
-                          "text-sm leading-snug",
-                          highlighted ? "text-canvas/85" : "text-ink/70"
-                        )}
-                      >
-                        {feature}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-
-                <a
-                  href="#demo"
-                  className={cn(
-                    "flex items-center justify-center gap-2 w-full py-3.5 rounded-full font-semibold text-sm transition-colors",
-                    highlighted
-                      ? "bg-turquoise-deep text-white hover:bg-turquoise"
-                      : "border border-ink/20 text-ink hover:border-ink/50"
-                  )}
-                >
-                  {t("pricing.cta")}
-                  <ArrowRight className="w-4 h-4" />
-                </a>
-              </>
-            );
-
-            return (
-              <AnimatedSection
-                key={tier.nameKey}
-                delay={i * 0.1}
-                className={cn(
-                  "relative flex flex-col",
-                  highlighted
-                    ? "order-first lg:order-none"
-                    : "rounded-2xl border border-line bg-canvas p-8 lg:my-7 transition-colors hover:border-ink/20"
-                )}
+              <a
+                href="#demo"
+                className="flex w-full items-center justify-center gap-2 rounded-full bg-turquoise-deep py-3.5 text-sm font-semibold text-white transition-colors hover:bg-turquoise sm:mx-auto sm:w-auto sm:px-10"
               >
-                {highlighted ? (
-                  /* the light monolith, ringed by a rotating teal beam */
-                  <div className="relative h-full overflow-hidden rounded-3xl p-px shadow-[0_0_90px_-18px_rgba(34,196,217,0.45)]">
-                    <div aria-hidden="true" className="beam-ring absolute inset-0" />
-                    <div className="relative flex h-full flex-col rounded-[calc(1.5rem-1px)] bg-ink p-8 text-canvas lg:p-10">
-                      {inner}
-                    </div>
-                  </div>
-                ) : (
-                  inner
-                )}
-              </AnimatedSection>
-            );
-          })}
-        </div>
+                {t("pricing.cta")}
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
+          </div>
+        </AnimatedSection>
 
-        {/* ROI comparison */}
+        {/* ROI comparison — the OTA-commission contrast, no price quoted */}
         <AnimatedSection delay={0.25} className="mt-14 text-center">
           <p className="mx-auto max-w-xl border-t border-line pt-8 text-sm leading-relaxed text-ink/60">
             {t("pricing.comparison")}

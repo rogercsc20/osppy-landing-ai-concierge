@@ -38,7 +38,7 @@
       "answer": "¡Cuando quieras! Ves todas las conversaciones en tiempo real y puedes tomar el control en cualquier momento. Y si detecto una queja o algo delicado, te lo paso de inmediato a tu WhatsApp."
     },
     "pricing": {
-      "answer": "Desde $49 USD al mes, sin comisiones ni contratos. Para que te des una idea: Booking.com le cobra a un hotel mediano ~$3,000 USD al mes en comisiones. Prácticamente me pago solo."
+      "answer": "Cada hotel es distinto, así que armamos un plan a tu medida: tarifa fija mensual, sin comisiones por reserva. Para que te des una idea: Booking.com le cobra a un hotel mediano ~$3,000 USD al mes en comisiones. En la demo te damos una propuesta clara. 😉"
     },
     "night": {
       "answer": "Siempre. 🌙 A las 3am de un domingo respondo igual de rápido que al mediodía. Y eso importa: 7 de cada 10 viajeros reservan con el primer hotel que les contesta — ese serás tú."
@@ -218,36 +218,13 @@
   },
   "pricing": {
     "eyebrow": "Precios",
-    "headline": "Un precio fijo. Sin comisiones. Sin sorpresas.",
-    "comparison": "Booking.com te cobra ~$3,000 USD/mes en comisiones en un hotel mediano. Osppy cuesta $149.",
-    "recommended": "Recomendado",
-    "cta": "Agenda demo",
-    "starter": {
-      "name": "Starter",
-      "price": "$49",
-      "period": "USD/mes",
-      "f1": "FAQ automáticas por WhatsApp",
-      "f2": "Escalación a humano",
-      "f3": "Integración WhatsApp Business"
-    },
-    "growth": {
-      "name": "Growth",
-      "price": "$149",
-      "period": "USD/mes",
-      "f1": "Todo lo de Starter",
-      "f2": "Asistente de reservaciones",
-      "f3": "Historial de conversaciones",
-      "f4": "Panel de análisis"
-    },
-    "pro": {
-      "name": "Pro",
-      "price": "$249",
-      "period": "USD/mes",
-      "f1": "Todo lo de Growth",
-      "f2": "Mensajes proactivos",
-      "f3": "Multi-staff",
-      "f4": "Automatizaciones avanzadas"
-    }
+    "headline": "Un plan a la medida de tu hotel.",
+    "body": "Cada hotel es distinto — tamaño, volumen de conversaciones, servicios. Por eso no vendemos paquetes genéricos: armamos tu plan sobre lo que tu operación realmente necesita.",
+    "f1": "Tarifa fija mensual — sin comisiones por reserva",
+    "f2": "Funciona sobre tu WhatsApp Business actual, sin apps nuevas",
+    "f3": "Propuesta clara y sin compromiso después de la demo",
+    "cta": "Agenda una demo",
+    "comparison": "Booking.com te cobra ~$3,000 USD/mes en comisiones en un hotel mediano. Con Osppy pagas una tarifa fija — lo que ahorras de OTAs es tuyo."
   },
   "pilot": {
     "headline": "Lo que dicen nuestros hoteleros.",
