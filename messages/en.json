@@ -38,7 +38,7 @@
       "answer": "Anytime! You see every conversation in real time and can take over whenever you want. And if I detect a complaint or anything sensitive, I pass it straight to your WhatsApp."
     },
     "pricing": {
-      "answer": "From $49 USD a month, no commissions, no contracts. For context: Booking.com charges a mid-size hotel ~$3,000 USD a month in commissions. I basically pay for myself."
+      "answer": "Every hotel is different, so we build a plan around yours: one flat monthly fee, no commissions per booking. For context: Booking.com charges a mid-size hotel ~$3,000 USD a month in commissions. You'll get a clear proposal at the demo. 😉"
     },
     "night": {
       "answer": "Always. 🌙 At 3am on a Sunday I reply just as fast as at noon. And that matters: 7 of 10 travelers book with the first hotel that answers — that'll be you."
@@ -218,36 +218,13 @@
   },
   "pricing": {
     "eyebrow": "Pricing",
-    "headline": "One flat price. No commissions. No surprises.",
-    "comparison": "Booking.com charges a mid-size hotel ~$3,000 USD/month in commissions. Osppy costs $149.",
-    "recommended": "Recommended",
-    "cta": "Book demo",
-    "starter": {
-      "name": "Starter",
-      "price": "$49",
-      "period": "USD/mo",
-      "f1": "Automatic FAQ via WhatsApp",
-      "f2": "Human escalation",
-      "f3": "WhatsApp Business integration"
-    },
-    "growth": {
-      "name": "Growth",
-      "price": "$149",
-      "period": "USD/mo",
-      "f1": "Everything in Starter",
-      "f2": "Booking assistant",
-      "f3": "Conversation history",
-      "f4": "Analytics dashboard"
-    },
-    "pro": {
-      "name": "Pro",
-      "price": "$249",
-      "period": "USD/mo",
-      "f1": "Everything in Growth",
-      "f2": "Proactive messages",
-      "f3": "Multi-staff",
-      "f4": "Advanced automations"
-    }
+    "headline": "A plan built around your hotel.",
+    "body": "Every hotel is different — size, conversation volume, services. So we don't sell one-size-fits-all packages: your plan is built around what your operation actually needs.",
+    "f1": "One flat monthly fee — no commissions per booking",
+    "f2": "Runs on your existing WhatsApp Business number, no new apps",
+    "f3": "A clear, no-obligation proposal after the demo",
+    "cta": "Book a demo",
+    "comparison": "Booking.com charges a mid-size hotel ~$3,000 USD/month in commissions. With Osppy you pay one flat fee — what you save from OTAs is yours."
   },
   "pilot": {
     "headline": "What our hotel owners say.",
