@@ -13,32 +13,39 @@ import type { User } from "@supabase/supabase-js";
  *
  * Fails closed: if Supabase is unreachable / misconfigured, returns null so the
  * route guard redirects to login rather than the proxy throwing.
+ *
+ * TD-2 (inventory P1-6 companion): `createServerClient` itself is INSIDE the
+ * try — a missing/invalid env var makes construction throw, and pre-fix that
+ * throw escaped into `proxy.ts` (no try there) so every guarded route 500'd
+ * at the edge instead of redirecting to login. This was the actual cause of
+ * the 7 "environmental" route-guard spec failures under CI's placeholder
+ * Supabase envs (the CI comment banks on exactly this fail-closed contract).
  */
 export async function updateSession(
   request: NextRequest,
   response: NextResponse,
 ): Promise<User | null> {
-  const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    {
-      cookies: {
-        getAll() {
-          return request.cookies.getAll();
-        },
-        setAll(cookiesToSet) {
-          cookiesToSet.forEach(({ name, value }) =>
-            request.cookies.set(name, value),
-          );
-          cookiesToSet.forEach(({ name, value, options }) =>
-            response.cookies.set(name, value, options),
-          );
+  try {
+    const supabase = createServerClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+      {
+        cookies: {
+          getAll() {
+            return request.cookies.getAll();
+          },
+          setAll(cookiesToSet) {
+            cookiesToSet.forEach(({ name, value }) =>
+              request.cookies.set(name, value),
+            );
+            cookiesToSet.forEach(({ name, value, options }) =>
+              response.cookies.set(name, value, options),
+            );
+          },
         },
       },
-    },
-  );
+    );
 
-  try {
     const {
       data: { user },
     } = await supabase.auth.getUser();
