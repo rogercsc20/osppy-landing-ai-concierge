@@ -90,10 +90,10 @@ export function ReservationForm({
       setRoomSelectValue(""); // clear the visible room selection with the RHF reset
       router.refresh(); // re-render the server list with the new row
     } catch (caught) {
-      const message = caught instanceof Error ? caught.message : String(caught);
-      // The RPC RAISEs 42501 for a viewer / wrong-tenant caller.
+      // The RPC RAISEs 42501 for a viewer / wrong-tenant caller. TD-2:
+      // classify the RAW cause (PostgREST errors are plain objects).
       setStatus("error");
-      setFormError(isPermissionError(message) ? t("permissionError") : t("genericError"));
+      setFormError(isPermissionError(caught) ? t("permissionError") : t("genericError"));
     }
   }
 

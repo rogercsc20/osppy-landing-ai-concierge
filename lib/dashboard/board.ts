@@ -1,5 +1,6 @@
 import { z } from "zod";
 import type { SupabaseClient } from "@supabase/supabase-js";
+import { DashboardPermissionError } from "./errors";
 
 /**
  * Today-board data layer for the dashboard B3 slice.
@@ -166,8 +167,11 @@ export function availableActions(status: string): BoardAction[] {
 /**
  * Transition a reservation's status, stamping the matching lifecycle timestamp.
  * Scoped by `property_id` (RLS also fences it) and gated to owner|staff by the
- * `reservations_dashboard_update` WITH CHECK — a viewer / cross-tenant caller
- * gets a PostgREST RLS error, surfaced as a friendly notice by the card.
+ * `reservations_dashboard_update` policy. TD-2 (inventory P0-3): a
+ * USING-filtered refusal is SILENT — PostgREST answers 204/no-error on zero
+ * matched rows — so `.select()` is load-bearing, not cosmetic: zero rows back
+ * = refusal, thrown as `DashboardPermissionError` (pre-fix a refused check-in
+ * reported success AND suppressed the access_info lifecycle send).
  */
 export async function updateReservationStatus(
   supabase: SupabaseClient,
@@ -179,12 +183,14 @@ export async function updateReservationStatus(
   const tsColumn = STATUS_TIMESTAMP_COLUMNS[status];
   if (tsColumn) updates[tsColumn] = new Date().toISOString();
 
-  const { error } = await supabase
+  const { data, error } = await supabase
     .from("reservations")
     .update(updates)
     .eq("reservation_id", reservationId)
-    .eq("property_id", propertyId);
+    .eq("property_id", propertyId)
+    .select("reservation_id, status");
   if (error) throw error;
+  if (!data || data.length === 0) throw new DashboardPermissionError();
 }
 
 // ── Read boundary ────────────────────────────────────────────────────

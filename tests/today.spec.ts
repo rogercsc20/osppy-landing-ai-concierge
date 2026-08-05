@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import type { SupabaseClient } from "@supabase/supabase-js";
+import { DashboardPermissionError } from "@/lib/dashboard/errors";
 import {
   availableActions,
   buildChipMap,
@@ -162,16 +163,23 @@ test.describe("buildTodayBoard", () => {
 // ── A minimal chainable fake Supabase client (no network) ────────────
 
 type FakeData = Record<string, unknown[]>;
-type RecordedUpdate = { table: string; payload: Record<string, unknown> };
+type RecordedUpdate = { table: string; payload: Record<string, unknown>; selected: boolean };
 
-function fakeSupabase(data: FakeData, updateError: Error | null = null) {
+function fakeSupabase(
+  data: FakeData,
+  updateError: Error | null = null,
+  updatedRows = 1,
+) {
   const updates: RecordedUpdate[] = [];
 
   class Builder {
     private payload: Record<string, unknown> = {};
     private op: "select" | "update" = "select";
+    private selectedAfterWrite = false;
     constructor(private table: string) {}
     select() {
+      // On a write chain this is the TD-2 select-back (silent-refusal guard).
+      if (this.op === "update") this.selectedAfterWrite = true;
       return this;
     }
     update(payload: Record<string, unknown>) {
@@ -200,8 +208,15 @@ function fakeSupabase(data: FakeData, updateError: Error | null = null) {
     }
     private result() {
       if (this.op === "update") {
-        updates.push({ table: this.table, payload: this.payload });
-        return { data: null, error: updateError };
+        updates.push({
+          table: this.table,
+          payload: this.payload,
+          selected: this.selectedAfterWrite,
+        });
+        // Mirrors PostgREST: rows echoed on success, [] when RLS filtered
+        // every row (the silent refusal), null alongside a loud error.
+        const rows = updatedRows > 0 ? [this.payload] : [];
+        return { data: updateError ? null : rows, error: updateError };
       }
       return { data: data[this.table] ?? [], error: null };
     }
@@ -238,6 +253,20 @@ test.describe("updateReservationStatus (write contract)", () => {
     await expect(updateReservationStatus(client, "r1", "p1", "checked_in")).rejects.toThrow(
       /42501/,
     );
+  });
+
+  // TD-2 (inventory P0-3): the silent-refusal guard, backported from cockpit.
+  test("selects back after the write (the silent-refusal guard is present)", async () => {
+    const { client, updates } = fakeSupabase({});
+    await updateReservationStatus(client, "r1", "p1", "checked_in");
+    expect(updates[0].selected).toBe(true);
+  });
+
+  test("zero rows back (RLS-filtered UPDATE) → DashboardPermissionError", async () => {
+    const { client } = fakeSupabase({}, null, 0);
+    await expect(
+      updateReservationStatus(client, "r1", "p1", "checked_in"),
+    ).rejects.toBeInstanceOf(DashboardPermissionError);
   });
 });
 

@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import type { SupabaseClient } from "@supabase/supabase-js";
+import { DashboardPermissionError } from "@/lib/dashboard/errors";
 import {
   NEEDS_INFO_SELECT,
   completeRecord,
@@ -181,12 +182,17 @@ function fakeSupabase(opts: {
   selectError?: Error;
   updateError?: Error;
   onUpdate?: (u: RecordedUpdate) => void;
+  /** Rows echoed by the write's select-back; [] = RLS silent refusal (TD-2). */
+  updatedRows?: unknown[];
+  onWriteSelect?: () => void;
 }) {
   class Builder {
     private op: "select" | "update" = "select";
     private payload: Record<string, unknown> = {};
     private filters: Record<string, unknown> = {};
     select() {
+      // On a write chain this is the TD-2 select-back (silent-refusal guard).
+      if (this.op === "update") opts.onWriteSelect?.();
       return this;
     }
     update(payload: Record<string, unknown>) {
@@ -213,7 +219,13 @@ function fakeSupabase(opts: {
     private result() {
       if (this.op === "update") {
         opts.onUpdate?.({ payload: this.payload, filters: this.filters });
-        return { data: null, error: opts.updateError ?? null };
+        // Mirrors PostgREST: rows echoed on success, [] when RLS filtered
+        // every row (silent refusal), null alongside a loud error.
+        const rows = opts.updatedRows ?? [this.payload];
+        return {
+          data: opts.updateError ? null : rows,
+          error: opts.updateError ?? null,
+        };
       }
       return { data: opts.rows ?? [], error: opts.selectError ?? null };
     }
@@ -272,6 +284,21 @@ test.describe("completeRecord", () => {
   test("surfaces an RLS / grant error (e.g. 42501) for the form to translate", async () => {
     const client = fakeSupabase({ updateError: new Error("permission denied (42501)") });
     await expect(completeRecord(client, "p1", "r1", validForm)).rejects.toThrow(/42501/);
+  });
+
+  // TD-2 (inventory P0-3): the silent-refusal guard.
+  test("selects back after the write (silent-refusal guard present)", async () => {
+    let selected = false;
+    const client = fakeSupabase({ onWriteSelect: () => (selected = true) });
+    await completeRecord(client, "p1", "r1", validForm);
+    expect(selected).toBe(true);
+  });
+
+  test("zero rows back (RLS-filtered UPDATE) → DashboardPermissionError", async () => {
+    const client = fakeSupabase({ updatedRows: [] });
+    await expect(completeRecord(client, "p1", "r1", validForm)).rejects.toBeInstanceOf(
+      DashboardPermissionError,
+    );
   });
 
   test("rejects an invalid form before touching the network", async () => {

@@ -64,8 +64,9 @@ export function ReservationCard({
       await updateReservationStatus(supabase, card.reservation_id, propertyId, next);
       router.refresh(); // re-read the board (Realtime also nudges other clients)
     } catch (caught) {
-      const message = caught instanceof Error ? caught.message : String(caught);
-      setError(isPermissionError(message) ? t("permissionError") : t("actionError"));
+      // TD-2: classify the RAW cause — a PostgREST error is a plain object,
+      // so the old String(caught) path never matched the friendly copy.
+      setError(isPermissionError(caught) ? t("permissionError") : t("actionError"));
     } finally {
       setPending(null);
     }

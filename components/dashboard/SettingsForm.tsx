@@ -127,9 +127,9 @@ export function SettingsForm({
       reset(values); // new baseline → the form is "clean" again
       router.refresh();
     } catch (caught) {
-      const message = caught instanceof Error ? caught.message : String(caught);
+      // TD-2: classify the RAW cause (PostgREST errors are plain objects).
       setStatus("error");
-      setFormError(isPermissionError(message) ? t("permissionError") : t("genericError"));
+      setFormError(isPermissionError(caught) ? t("permissionError") : t("genericError"));
     }
   }
 
