@@ -10,16 +10,36 @@ import {
  * property switcher) and every data page (which needs the active property +
  * the caller's role on it). One copy so the two can never drift.
  *
- * Both queries run as role `authenticated` under RLS: `dashboard_users` is
- * filtered to the caller's own rows by `dashboard_users_self_read`, and
- * `properties` to readable ones by `has_dashboard_access` — so this can only
- * ever surface the caller's own memberships.
+ * Both queries run as role `authenticated` under RLS — but RLS alone does NOT
+ * scope `dashboard_users` to the caller's own rows (the owner-read policy ORs
+ * in every member's rows; see the comment inside `loadMemberships`), so the
+ * explicit `user_id` fence there is load-bearing (TD-2 / inventory P1-7).
  */
 export type Membership = PropertyOption & { role: string };
 
 export async function loadMemberships(
   supabase: SupabaseClient,
+  userId?: string,
 ): Promise<Membership[]> {
+  // TD-2 (inventory P1-7, cockpit's fix backported): the user fence is
+  // LOAD-BEARING, and RLS does not supply it. Two SELECT policies OR together
+  // on dashboard_users: `dashboard_users_self_read` (mig 079 — your own rows)
+  // and `dashboard_users_owner_read` (mig 080 — an owner reads EVERY row for
+  // their property, which is what a future team screen needs). So for an
+  // owner this query without a user filter returns one row per MEMBER: the
+  // same property repeats, and `resolveActiveProperty` below would read its
+  // role off a row belonging to someone else. The only visible symptom today
+  // is a duplicate React key — but with one `staff` member on the property,
+  // an owner's capabilities become a function of row order.
+  //
+  // Caller-supplied `userId` when the caller already has the user; otherwise
+  // resolved here. Never omitted — an unfenced read is not a fallback, so a
+  // failure to resolve throws.
+  const uid = userId ?? (await supabase.auth.getUser()).data.user?.id;
+  if (!uid) {
+    throw new Error("loadMemberships: no authenticated user to scope the read");
+  }
+
   // PostgREST returns failures IN-BAND as `error` (no throw), so a swallowed
   // `{ data }` would turn an RLS/network failure into [] — which the layout
   // renders as the permanent "no access" screen, indistinguishable from a
@@ -32,6 +52,7 @@ export async function loadMemberships(
       supabase
         .from("dashboard_users")
         .select("property_id, role")
+        .eq("user_id", uid)
         .eq("is_active", true),
       supabase.from("properties").select("property_id, name"),
     ]);
@@ -66,8 +87,9 @@ export type ActiveContext = {
  */
 export async function resolveActiveProperty(
   supabase: SupabaseClient,
+  userId?: string,
 ): Promise<ActiveContext | null> {
-  const memberships = await loadMemberships(supabase);
+  const memberships = await loadMemberships(supabase, userId);
   if (memberships.length === 0) return null;
 
   const cookieStore = await cookies();
