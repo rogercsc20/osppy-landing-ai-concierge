@@ -50,20 +50,25 @@ test("English landing renders", async ({ page }) => {
   ).toBeVisible();
 });
 
-test("nav Log in link navigates to the live login page", async ({ page }) => {
+test("nav Log in points at the cockpit login (cross-origin — assert, don't navigate)", async ({
+  page,
+}) => {
   await page.goto("/es");
-  await page
-    .getByRole("banner")
-    .getByRole("link", { name: es.nav.login })
-    .click();
-  await expect(page).toHaveURL(/\/es\/login$/);
-  // The deployed password login renders (not a coming-soon stub).
   await expect(
-    page.getByRole("heading", {
-      level: 1,
-      name: es.dashboardApp.login.title,
-    }),
-  ).toBeVisible();
+    page.getByRole("banner").getByRole("link", { name: es.nav.login }),
+  ).toHaveAttribute("href", "https://app.osppy.com/es/login");
+});
+
+test("legacy login/dashboard bookmarks redirect to the cockpit", async ({
+  request,
+}) => {
+  for (const path of ["/es/login", "/login", "/es/dashboard", "/dashboard/stats"]) {
+    const response = await request.get(path, { maxRedirects: 0 });
+    expect(response.status(), path).toBe(307);
+    expect(response.headers()["location"], path).toBe(
+      "https://app.osppy.com/es/login",
+    );
+  }
 });
 
 test("demo form validates and submits", async ({ page }) => {
