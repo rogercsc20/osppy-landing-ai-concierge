@@ -21,6 +21,30 @@ const nextConfig: NextConfig = {
           "https://osppy-ai-concierge-production.up.railway.app/privacy",
         permanent: false,
       },
+      // Slice 8: the operator console moved to the cockpit. Old bookmarks
+      // (login + any dashboard screen, with or without a locale prefix) land
+      // on the cockpit login instead of a 404. 307 on purpose — these URLs
+      // may be re-used by marketing someday.
+      {
+        source: "/:locale(es|en)/login",
+        destination: "https://app.osppy.com/es/login",
+        permanent: false,
+      },
+      {
+        source: "/login",
+        destination: "https://app.osppy.com/es/login",
+        permanent: false,
+      },
+      {
+        source: "/:locale(es|en)/dashboard/:path*",
+        destination: "https://app.osppy.com/es/login",
+        permanent: false,
+      },
+      {
+        source: "/dashboard/:path*",
+        destination: "https://app.osppy.com/es/login",
+        permanent: false,
+      },
     ];
   },
 };

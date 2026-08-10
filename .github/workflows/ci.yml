@@ -8,13 +8,9 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
-    # Public, browser-safe placeholders so the dashboard build + prod server
-    # boot without real Supabase credentials. Real values live in Vercel env.
-    # A fake URL is fine: the auth guard fails closed (getUser errors → no user
-    # → redirect to /login), which is exactly what the guard e2e asserts.
-    env:
-      NEXT_PUBLIC_SUPABASE_URL: https://placeholder.supabase.co
-      NEXT_PUBLIC_SUPABASE_ANON_KEY: placeholder-anon-key
+    # No Supabase env: Slice 8 retired the legacy dashboard — this repo is
+    # marketing-only. The service-role-leak guard below stays as a repo-wide
+    # invariant.
     steps:
       - uses: actions/checkout@v4
 

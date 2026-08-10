@@ -10,7 +10,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 ## Osppy context (company layer — sibling repo `../osppy-hq`)
 
-Company-level truth lives in **`../osppy-hq`** (2026-08-04 hybrid context architecture): `PROGRAM.md` = THE program board and session handoff surface · `decisions.md` = company/commercial ledger · `business/pricing.md` (fair-use structure is the only structure prospects see) · `customers/` (lucero, casa-tlaquepaque, aura, prospects). The three-repo topology map is in `osppy-hq/README.md`. This repo owns www.osppy.com: marketing site, legacy dashboard, /aviso redirect to the Railway-served guest aviso; the bot/api + engineering docs live in `../ai-concierge-p2`.
+Company-level truth lives in **`../osppy-hq`** (2026-08-04 hybrid context architecture): `PROGRAM.md` = THE program board and session handoff surface · `decisions.md` = company/commercial ledger · `business/pricing.md` (fair-use structure is the only structure prospects see) · `customers/` (lucero, casa-tlaquepaque, aura, prospects). The three-repo topology map is in `osppy-hq/README.md`. This repo owns www.osppy.com: marketing site + /aviso redirect to the Railway-served guest aviso (the legacy dashboard was retired 2026-08-10 by cockpit Slice 8 — the operator console is `../osppy-cockpit` at app.osppy.com); the bot/api + engineering docs live in `../ai-concierge-p2`.
 
 # Osppy landing page — working notes
 
@@ -49,11 +49,12 @@ Tailwind v4, Framer Motion 12, next-intl 4. See `README.md` for the full map.
 - **Animations respect `prefers-reduced-motion`** (via `useReducedMotion`) and
   mobile gets static fallbacks for the scroll cinematic. Keep both paths working.
 - **Stubs:** the marketing dashboard hero is a non-functional mockup, and the
-  demo form opens a `mailto:`. The nav "Log in" link (`nav.login`) points at the
-  real, deployed magic-link login at `/[locale]/login` — the dashboard now ships
-  live from this same repo, so a broken marketing build also blocks the dashboard
-  deploy. (Historical: the nav used to open a coming-soon `WaitlistModal`; that
-  component was retired once login went live.)
+  demo form opens a `mailto:` fallback when `NEXT_PUBLIC_LEAD_ENDPOINT` is
+  unset. The nav "Log in" link (`nav.login`) is a plain `<a>` to the cockpit
+  at `https://app.osppy.com/es/login` (`APP_LOGIN_URL` in `lib/site.ts`) —
+  Slice 8 (2026-08-10) retired the legacy dashboard, login and all Supabase
+  plumbing from this repo; `next.config.ts` 307s the old `/login` +
+  `/dashboard` URLs to the cockpit. This repo is marketing-only again.
 
 ## Gotchas
 

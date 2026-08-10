@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { LanguageToggle } from "@/components/ui/LanguageToggle";
 import { Logomark } from "@/components/ui/Logo";
 import { Link } from "@/i18n/navigation";
+import { APP_LOGIN_URL } from "@/lib/site";
 
 export function Navbar() {
   const t = useTranslations();
@@ -45,12 +46,15 @@ export function Navbar() {
         {/* Right side */}
         <div className="flex items-center gap-1.5 sm:gap-3">
           <LanguageToggle />
-          <Link
-            href="/login"
+          {/* Plain <a>, not the i18n Link: the console lives on another
+              origin (app.osppy.com) and the locale-aware Link would prefix
+              an absolute URL. */}
+          <a
+            href={APP_LOGIN_URL}
             className="inline-flex whitespace-nowrap text-sm font-medium text-ink/70 hover:text-ink px-2 py-2 sm:px-3 transition-colors"
           >
             {t("nav.login")}
-          </Link>
+          </a>
           <Link
             href="/#demo"
             className="whitespace-nowrap px-3 sm:px-4 py-2 rounded-full bg-turquoise-deep text-white text-sm font-semibold hover:bg-turquoise transition-colors"
