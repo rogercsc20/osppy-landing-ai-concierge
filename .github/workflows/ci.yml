@@ -12,7 +12,7 @@ jobs:
     # marketing-only. The service-role-leak guard below stays as a repo-wide
     # invariant.
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - uses: actions/setup-node@v4
         with:
