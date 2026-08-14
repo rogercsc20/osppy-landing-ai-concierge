@@ -57,8 +57,9 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-line pt-6 text-center text-xs text-ink/70">
-          {t("footer.rights")} · osppy.com
+        <div className="border-t border-line pt-6 text-center text-xs text-ink/70 space-y-1.5">
+          <p>{t("footer.rights")} · osppy.com</p>
+          <p className="text-ink/55">{t("footer.legal")}</p>
         </div>
       </div>
     </footer>
