@@ -61,6 +61,13 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: isES ? "Osppy — Tu recepción nunca duerme" : "Osppy — Your front desk never sleeps",
     },
+    // Meta Business Manager domain verification (osppy.com). Rendered server-side
+    // into <head> on every locale page — Meta's crawler ignores JS-injected tags.
+    verification: {
+      other: {
+        "facebook-domain-verification": "qlbay91x09y35ldrbk37ljz6hxtedp",
+      },
+    },
   };
 }
 
