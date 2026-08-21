@@ -25,7 +25,7 @@ export async function generateMetadata({
 }
 
 const ES: { updated: string; intro: string[]; sections: Section[] } = {
-  updated: "Última actualización: 5 de junio de 2026",
+  updated: "Última actualización: 20 de agosto de 2026",
   intro: [
     "En cumplimiento de la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (la «LFPDPPP»), su Reglamento y los Lineamientos del Aviso de Privacidad, ponemos a tu disposición el presente Aviso de Privacidad.",
     "Te recomendamos leerlo en su totalidad antes de proporcionarnos cualquier dato personal o utilizar nuestros servicios.",
@@ -34,7 +34,7 @@ const ES: { updated: string; intro: string[]; sections: Section[] } = {
     {
       heading: "Identidad y domicilio del responsable",
       blocks: [
-        "Osppy (en lo sucesivo, «Osppy», «nosotros» o el «Responsable»), operado por [RAZÓN SOCIAL], con domicilio en [DOMICILIO FISCAL COMPLETO], México, es responsable del tratamiento y protección de tus datos personales conforme al presente Aviso de Privacidad.",
+        "Osppy (en lo sucesivo, «Osppy», «nosotros» o el «Responsable») es una marca operada por Alejandro Méndez Ayala, persona física con actividad empresarial, con Registro Federal de Contribuyentes (RFC) MEAA0201072R5 y domicilio fiscal en Calle Jesús Bravo, Int. 17, Fracc. Río Nuevo, C.P. 59684, Zamora, Michoacán de Ocampo, México, responsable del tratamiento y protección de tus datos personales conforme al presente Aviso de Privacidad.",
         "Para cualquier asunto relacionado con tus datos personales puedes contactarnos en el correo electrónico hello@osppy.com.",
       ],
     },
@@ -94,6 +94,7 @@ const ES: { updated: string; intro: string[]; sections: Section[] } = {
       heading: "Transferencias y remisiones de datos",
       blocks: [
         "Para operar el servicio, tus datos pueden ser tratados por proveedores que actúan como encargados (por ejemplo, proveedores de mensajería como WhatsApp/Meta, servicios de cómputo en la nube, modelos de inteligencia artificial y procesadores de pagos), quienes están obligados a mantener la confidencialidad y seguridad de la información.",
+        "En particular, el texto de los mensajes es procesado por Anthropic, proveedor del modelo de inteligencia artificial que genera la respuesta, y almacenado por nuestros proveedores de infraestructura (alojamiento de base de datos y cómputo). Estos proveedores se ubican en los Estados Unidos y actúan como encargados ulteriores, tratando los datos únicamente por nuestra cuenta y bajo nuestras instrucciones. La comprensión de los mensajes (clasificación de intención y búsquedas semánticas) se calcula en nuestros propios servidores con un modelo local de código abierto; ningún proveedor externo de embeddings recibe el texto de las conversaciones. WhatsApp/Meta es el canal de transporte por el que se intercambian los mensajes.",
         "No transferimos tus datos personales a terceros para finalidades distintas a las descritas, salvo en los casos previstos por el artículo 37 de la LFPDPPP o cuando contemos con tu consentimiento. Algunos de estos proveedores pueden encontrarse fuera de México; en tales casos, adoptamos medidas para que se otorgue un nivel de protección adecuado.",
       ],
     },
@@ -126,7 +127,9 @@ const ES: { updated: string; intro: string[]; sections: Section[] } = {
     {
       heading: "Conservación de los datos",
       blocks: [
-        "Conservaremos tus datos personales durante el tiempo necesario para cumplir las finalidades descritas y las obligaciones legales aplicables (por ejemplo, las de carácter fiscal). Concluidos dichos plazos, los datos serán cancelados conforme a la normativa vigente.",
+        "Los datos de las conversaciones se conservan hasta por 12 meses para fines de calidad del servicio y posteriormente se eliminan de forma automática.",
+        "Los registros de reservación se conservan hasta por 10 años, conforme al plazo que exige la normativa fiscal mexicana (SAT), incluso después de anonimizar al huésped.",
+        "Los datos de cuenta y de facturación se conservan mientras esté vigente la relación contractual y, después, durante los plazos que exijan las obligaciones legales aplicables. Concluidos dichos plazos, los datos serán cancelados conforme a la normativa vigente.",
       ],
     },
     {
@@ -157,7 +160,7 @@ const ES: { updated: string; intro: string[]; sections: Section[] } = {
 };
 
 const EN: { updated: string; intro: string[]; sections: Section[] } = {
-  updated: "Last updated: June 5, 2026",
+  updated: "Last updated: August 20, 2026",
   intro: [
     "This Privacy Policy describes how Osppy collects, uses, and protects your personal data. For users in Mexico, it is issued in accordance with the Federal Law on Protection of Personal Data Held by Private Parties (LFPDPPP); the Spanish-language version of this notice is the legally operative one.",
     "Please read it in full before providing any personal data or using our services.",
@@ -166,7 +169,7 @@ const EN: { updated: string; intro: string[]; sections: Section[] } = {
     {
       heading: "Identity and address of the data controller",
       blocks: [
-        "Osppy (“Osppy”, “we”, or the “Controller”), operated by [LEGAL ENTITY NAME], with address at [FULL REGISTERED ADDRESS], Mexico, is responsible for the processing and protection of your personal data under this Privacy Policy.",
+        "Osppy (“Osppy”, “we”, or the “Controller”) is a brand operated by Alejandro Méndez Ayala, a Mexican sole proprietor (persona física con actividad empresarial), tax ID (RFC) MEAA0201072R5, with registered address at Calle Jesús Bravo, Int. 17, Fracc. Río Nuevo, C.P. 59684, Zamora, Michoacán de Ocampo, Mexico, responsible for the processing and protection of your personal data under this Privacy Policy.",
         "For any matter related to your personal data, you can contact us at hello@osppy.com.",
       ],
     },
@@ -226,6 +229,7 @@ const EN: { updated: string; intro: string[]; sections: Section[] } = {
       heading: "Data transfers",
       blocks: [
         "To operate the service, your data may be processed by providers acting as processors (for example, messaging providers such as WhatsApp/Meta, cloud computing services, AI models, and payment processors), who are required to maintain the confidentiality and security of the information.",
+        "Specifically, message text is processed by Anthropic, the provider of the artificial intelligence model that generates the reply, and stored by our infrastructure providers (database hosting and compute). These providers are located in the United States and act as sub-processors, handling the data solely on our behalf and under our instructions. Message understanding (intent classification and semantic search embeddings) is computed on our own servers with a local open-source model; no third-party embedding provider receives conversation text. WhatsApp/Meta is the transport channel over which messages are exchanged.",
         "We do not transfer your personal data to third parties for purposes other than those described, except in the cases provided by law or where we have your consent. Some of these providers may be located outside Mexico; in such cases, we adopt measures to ensure an adequate level of protection.",
       ],
     },
@@ -258,7 +262,9 @@ const EN: { updated: string; intro: string[]; sections: Section[] } = {
     {
       heading: "Data retention",
       blocks: [
-        "We will retain your personal data for as long as necessary to fulfill the purposes described and applicable legal obligations (for example, tax-related ones). Once those periods conclude, the data will be cancelled in accordance with applicable regulations.",
+        "Conversation data is retained for up to 12 months for service-quality purposes and is then deleted automatically.",
+        "Reservation records are kept for up to 10 years, the period required by Mexican tax rules (SAT), even after a guest has been anonymized.",
+        "Account and billing data is retained for as long as the contractual relationship is in force and, afterwards, for the periods required by applicable legal obligations. Once those periods conclude, the data will be cancelled in accordance with applicable regulations.",
       ],
     },
     {
