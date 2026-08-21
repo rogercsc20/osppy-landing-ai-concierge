@@ -33,7 +33,7 @@ const ES: { updated: string; intro: string[]; sections: Section[] } = {
     {
       heading: "Aceptación de los Términos",
       blocks: [
-        "El servicio es operado por Alejandro Méndez Ayala, persona física con actividad empresarial, con Registro Federal de Contribuyentes (RFC) MEAA0201072R5 y domicilio fiscal en Calle Jesús Bravo, Int. 17, Fracc. Río Nuevo, C.P. 59684, Zamora, Michoacán de Ocampo, México («Osppy», «nosotros»). Estos Términos constituyen un acuerdo vinculante entre Osppy y la persona física o moral que contrata o utiliza el servicio (el «Cliente» o «tú»). Declaras contar con la capacidad y facultades legales para obligarte conforme a estos Términos.",
+        "El servicio es operado por Alejandro Méndez Ayala, persona física con actividad empresarial, con domicilio fiscal en Calle Jesús Bravo, Int. 17, Fracc. Río Nuevo, C.P. 59684, Zamora, Michoacán de Ocampo, México («Osppy», «nosotros»). Estos Términos constituyen un acuerdo vinculante entre Osppy y la persona física o moral que contrata o utiliza el servicio (el «Cliente» o «tú»). Declaras contar con la capacidad y facultades legales para obligarte conforme a estos Términos.",
       ],
     },
     {
@@ -160,7 +160,7 @@ const EN: { updated: string; intro: string[]; sections: Section[] } = {
     {
       heading: "Acceptance of the Terms",
       blocks: [
-        "The service is operated by Alejandro Méndez Ayala, a Mexican sole proprietor (persona física con actividad empresarial), tax ID (RFC) MEAA0201072R5, with registered address at Calle Jesús Bravo, Int. 17, Fracc. Río Nuevo, C.P. 59684, Zamora, Michoacán de Ocampo, Mexico (“Osppy”, “we”). These Terms constitute a binding agreement between Osppy and the individual or entity that contracts or uses the service (the “Client” or “you”). You represent that you have the legal capacity and authority to be bound by these Terms.",
+        "The service is operated by Alejandro Méndez Ayala, a Mexican sole proprietor (persona física con actividad empresarial), with registered address at Calle Jesús Bravo, Int. 17, Fracc. Río Nuevo, C.P. 59684, Zamora, Michoacán de Ocampo, Mexico (“Osppy”, “we”). These Terms constitute a binding agreement between Osppy and the individual or entity that contracts or uses the service (the “Client” or “you”). You represent that you have the legal capacity and authority to be bound by these Terms.",
       ],
     },
     {
