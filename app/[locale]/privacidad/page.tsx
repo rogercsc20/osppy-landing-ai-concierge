@@ -34,7 +34,7 @@ const ES: { updated: string; intro: string[]; sections: Section[] } = {
     {
       heading: "Identidad y domicilio del responsable",
       blocks: [
-        "Osppy (en lo sucesivo, «Osppy», «nosotros» o el «Responsable») es una marca operada por Alejandro Méndez Ayala, persona física con actividad empresarial, con Registro Federal de Contribuyentes (RFC) MEAA0201072R5 y domicilio fiscal en Calle Jesús Bravo, Int. 17, Fracc. Río Nuevo, C.P. 59684, Zamora, Michoacán de Ocampo, México, responsable del tratamiento y protección de tus datos personales conforme al presente Aviso de Privacidad.",
+        "Osppy (en lo sucesivo, «Osppy», «nosotros» o el «Responsable») es una marca operada por Alejandro Méndez Ayala, persona física con actividad empresarial, con domicilio fiscal en Calle Jesús Bravo, Int. 17, Fracc. Río Nuevo, C.P. 59684, Zamora, Michoacán de Ocampo, México, responsable del tratamiento y protección de tus datos personales conforme al presente Aviso de Privacidad.",
         "Para cualquier asunto relacionado con tus datos personales puedes contactarnos en el correo electrónico hello@osppy.com.",
       ],
     },
@@ -169,7 +169,7 @@ const EN: { updated: string; intro: string[]; sections: Section[] } = {
     {
       heading: "Identity and address of the data controller",
       blocks: [
-        "Osppy (“Osppy”, “we”, or the “Controller”) is a brand operated by Alejandro Méndez Ayala, a Mexican sole proprietor (persona física con actividad empresarial), tax ID (RFC) MEAA0201072R5, with registered address at Calle Jesús Bravo, Int. 17, Fracc. Río Nuevo, C.P. 59684, Zamora, Michoacán de Ocampo, Mexico, responsible for the processing and protection of your personal data under this Privacy Policy.",
+        "Osppy (“Osppy”, “we”, or the “Controller”) is a brand operated by Alejandro Méndez Ayala, a Mexican sole proprietor (persona física con actividad empresarial), with registered address at Calle Jesús Bravo, Int. 17, Fracc. Río Nuevo, C.P. 59684, Zamora, Michoacán de Ocampo, Mexico, responsible for the processing and protection of your personal data under this Privacy Policy.",
         "For any matter related to your personal data, you can contact us at hello@osppy.com.",
       ],
     },
