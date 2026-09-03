@@ -34,7 +34,7 @@ test("Spanish landing renders", async ({ page }) => {
   await page.goto("/es");
   await expect(page.locator("html")).toHaveAttribute("lang", "es");
   await expect(
-    page.getByRole("heading", { level: 1, name: es.hero.headline }),
+    page.getByRole("heading", { level: 1, name: es.home.hero.headline }),
   ).toBeVisible();
 });
 
@@ -77,7 +77,7 @@ test("CTA offers contact links, no form", async ({ page }) => {
   await page.goto("/es#demo");
 
   await expect(
-    page.getByRole("link", { name: es.cta.button }),
+    page.getByRole("link", { name: es.home.cta.button }),
   ).toHaveAttribute("href", /^(https:\/\/wa\.me\/|mailto:hello@osppy\.com)/);
   await expect(
     page.getByRole("link", { name: "hello@osppy.com" }),

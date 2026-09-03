@@ -18,273 +18,190 @@
     "toDark": "Cambiar a modo oscuro",
     "toLight": "Cambiar a modo claro"
   },
-  "hero": {
-    "badge": "El recepcionista digital de Latinoamérica",
-    "headline": "Tu recepción nunca duerme.",
-    "subheadline": "Osppy responde a tus huéspedes por WhatsApp en segundos — precios, check-in, disponibilidad — a las 3am si hace falta. Sin contratar a nadie.",
-    "trust": "Sin tarjeta de crédito · Demo en 20 minutos · Cancelación libre",
+  "home": {
+    "hero": {
+      "kicker": "Empresa de IA aplicada",
+      "headline": "Ponemos la inteligencia artificial a trabajar dentro de tu operación.",
+      "sub": "Osppy es una empresa de IA aplicada, de Guadalajara. Aplicada quiere decir esto: una tarea concreta, un proceso escrito, un sistema que la hace por su cuenta y un resultado que tú revisas.",
+      "cta": "Cuéntanos de qué es tu operación",
+      "ctaMessage": "Hola, quiero platicar sobre la operación de mi negocio.",
+      "diagrama": {
+        "tarea": "La tarea",
+        "proceso": "El proceso",
+        "procesoEtiqueta": "escrito por alguien",
+        "agente": "El agente",
+        "resultado": "El resultado",
+        "pie": "El paso que casi nadie tiene escrito es el segundo.",
+        "alt": "Diagrama de cuatro pasos: la tarea pasa por un proceso escrito por alguien, un agente la ejecuta y produce un resultado."
+      }
+    },
+    "somos": {
+      "kicker": "Quiénes somos",
+      "headline": "Sistemas operando hoy en negocios reales.",
+      "p1": "Osppy es una empresa de inteligencia artificial aplicada, de Guadalajara. Trabajamos con empresas —también PyMEs— que quieren usar la IA con criterio: para quitar trabajo repetitivo, poner orden en la operación y que no todo dependa del dueño.",
+      "p2": "Los sistemas de Osppy operan hoy en negocios reales. Lo que recomendamos no viene de una conferencia: viene de construir, entregar y mantener sistemas funcionando.",
+      "p3": "Hay tres formas de entrar a una operación: capacitar al equipo, asesorar sobre dónde conviene la IA —y dónde no—, e implementar sistemas que quedan funcionando.",
+      "cita": "La inteligencia artificial propone. La persona revisa y decide.",
+      "citaNota": "El principio que cruza todo lo que construimos."
+    },
+    "hacemos": {
+      "kicker": "Qué hacemos",
+      "headline": "Tres maneras de entrar a tu operación.",
+      "capacitacion": {
+        "titulo": "Capacitación",
+        "estado": "Próximos grupos",
+        "body": "Talleres prácticos para dueños y equipos: sales sabiendo aplicar algo hoy, con tareas reales de tu negocio. Primero enseñamos a usar bien las herramientas; después vemos qué problemas se repiten.",
+        "f1Label": "Formato",
+        "f1Value": "Taller práctico, en vivo y por grupo",
+        "f2Label": "Para quién",
+        "f2Value": "Dueños, gerentes y equipos",
+        "f3Label": "Estado",
+        "f3Value": "La charla de introducción y el primer taller están escritos; los primeros grupos están por abrirse",
+        "f4Label": "Precio",
+        "f4Value": "Se cotiza por grupo y por resultado"
+      },
+      "asesoria": {
+        "titulo": "Asesoría",
+        "estado": "Disponible hoy",
+        "body": "Sesiones sobre cómo aprovechar la IA en tu negocio. La primera casi siempre es un diagnóstico: entender tu operación e identificar dónde ayudar. A veces la respuesta es capacitar; a veces, ordenar un proceso; a veces, construir.",
+        "preguntasTitulo": "El diagnóstico empieza con preguntas como:",
+        "preguntas": [
+          "¿Dónde se va el tiempo de tu equipo?",
+          "¿Qué proceso se repite igual todas las semanas?",
+          "¿Qué información ya tienes que nadie está usando?",
+          "¿Qué conviene automatizar — y qué todavía no?"
+        ]
+      },
+      "implementacion": {
+        "titulo": "Implementación",
+        "estado": "Disponible hoy",
+        "body": "Construimos sistemas que quedan funcionando dentro de tu operación —desde un cotizador hasta un agente que hace la tarea completa por su cuenta—, con alcance y criterios de éxito por escrito. Después de entregar, hay planes de hosting, monitoreo y mantenimiento.",
+        "tiposTitulo": "Lo que se ha construido:",
+        "tipos": [
+          "Cotizadores",
+          "Agentes de IA",
+          "Asistentes de IA",
+          "Adopción de Claude Enterprise",
+          "Modelos en tu infraestructura, con Amazon Bedrock",
+          "Estructuración de procesos"
+        ]
+      }
+    },
+    "ayudamos": {
+      "kicker": "A quién ayudamos",
+      "headline": "Empresas con una operación que se pueda describir.",
+      "body": "Trabajamos con empresas de cualquier tamaño — también PyMEs. Hay trabajo entregado en estos giros:",
+      "giros": [
+        "Construcción",
+        "Logística",
+        "Mueblerías",
+        "Retail",
+        "Escuelas privadas",
+        "Negocios en línea"
+      ],
+      "fraseCasa": "…y cualquier industria con una operación que se pueda describir."
+    },
+    "como": {
+      "kicker": "Cómo trabajamos",
+      "headline": "Primero entender. Construir es el último paso.",
+      "p1Titulo": "Diagnóstico",
+      "p1Body": "Entendemos tu operación e identificamos dónde la IA ayuda de verdad — y dónde no hace falta.",
+      "p2Titulo": "El proceso, por escrito",
+      "p2Body": "Antes de construir, el proceso queda escrito. Es el paso que casi nadie tiene hecho, y es del que depende todo lo demás.",
+      "p3Titulo": "Construcción",
+      "p3Body": "Se cotiza por separado, con alcance y criterios de éxito por escrito. Sin promesas de ahorro, ventas ni horas: el impacto lo mides tú, con tus números.",
+      "p4Titulo": "Operación",
+      "p4Body": "Lo entregado puede quedar bajo un plan de hosting, monitoreo y mantenimiento, según lo que tu operación necesite."
+    },
+    "trayectoria": {
+      "kicker": "Trayectoria",
+      "headline": "Lo que ya se hizo.",
+      "c1Valor": "+100",
+      "c1Label": "empresas asesoradas",
+      "c2Valor": "+50",
+      "c2Label": "soluciones construidas para empresas",
+      "c3Valor": "3",
+      "c3Label": "líneas de trabajo",
+      "c4Valor": "9",
+      "c4Label": "giros atendidos",
+      "c5Valor": "2",
+      "c5Label": "productos en producción",
+      "c6Valor": "24/7",
+      "c6Label": "atención del asistente",
+      "agentes": "Además: agentes que hacen la tarea completa por su cuenta —autónomos— operando hoy en sistemas en producción.",
+      "nota": "«+100» y «+50» son estimación del operador al 2026-09-02; no hay registro contable de esa etapa."
+    },
+    "casos": {
+      "kicker": "Casos",
+      "headline": "El trabajo se puede contar sin nombres.",
+      "body": "Aquí no se nombra a ningún cliente sin su permiso por escrito, y no se publica ninguna cifra sin medición. Lo que sí se puede decir: qué tipo de trabajo se ha entregado.",
+      "t1Titulo": "Cotizadores",
+      "t1Body": "Sistemas que arman una cotización con las reglas y los precios del negocio, para que no dependa de una sola persona.",
+      "t2Titulo": "Agentes de IA",
+      "t2Body": "Hacen una tarea completa por su cuenta —autónomos—, dentro de un proceso definido y con reglas escritas.",
+      "t3Titulo": "Asistentes de IA",
+      "t3Body": "Responden y atienden con la información que el negocio carga. Si algo no está, lo dicen o preguntan — no inventan.",
+      "t4Titulo": "Adopción de Claude Enterprise",
+      "t4Body": "Dejar a un equipo completo trabajando con una herramienta de IA de nivel empresarial, con orden y con reglas de uso.",
+      "t5Titulo": "Modelos en tu infraestructura",
+      "t5Body": "Cuando la información no puede salir de tu casa, el modelo se despliega dentro de tu propia infraestructura, con Amazon Bedrock.",
+      "t6Titulo": "Estructuración de procesos",
+      "t6Body": "El trabajo previo: dejar el proceso escrito antes de automatizar nada. Sin esto no construimos agentes.",
+      "t7Titulo": "Sesiones de asesoría",
+      "t7Body": "Diagnóstico de la operación e identificación de dónde la IA ayuda — y dónde no.",
+      "giros": "Entregado en giros como construcción, logística, mueblerías, retail, escuelas privadas y negocios en línea."
+    },
+    "productos": {
+      "kicker": "Productos",
+      "headline": "Dos productos, cada uno con su página.",
+      "body": "Además de los servicios, Osppy construye productos: un mismo asistente conversacional por WhatsApp, un giro a la vez.",
+      "hoteles": {
+        "nombre": "Diana Hoteles",
+        "estado": "En producción",
+        "body": "Diana responde a los huéspedes por WhatsApp con la información del hotel, y el equipo ve todo y opera desde un panel. Es el asistente de Osppy para hoteles, y opera hoy en hoteles en producción.",
+        "cta": "Conoce el producto"
+      },
+      "citas": {
+        "nombre": "Diana Citas",
+        "estado": "Próximamente",
+        "body": "Diana, para negocios que viven de citas: clínicas, consultorios, spas. Está en construcción, sin fecha comprometida; buscamos clínicas fundadoras.",
+        "cta": "Quiero ser clínica fundadora"
+      }
+    },
+    "testimonios": {
+      "kicker": "Voces",
+      "headline": "Voces ilustrativas de quienes usan un asistente así.",
+      "etiqueta": "Ilustrativo",
+      "nota": "Citas sin nombre y sin cifras: ilustran cómo se vive tener un asistente atendiendo. No son testimonios verificados.",
+      "q1": "Antes respondía mensajes a medianoche todos los días. Ahora duermo. El asistente contesta con mi tono y con la información exacta de mi negocio.",
+      "q2": "Pensé que un bot se notaría falso. Para nada: mis clientes le escriben igual que a mí, y él sabe cuándo pasarme la conversación.",
+      "q3": "Dejé de perder reservas por no contestar a tiempo. Lo que llega de madrugada ya no se queda sin respuesta."
+    },
+    "faq": {
+      "kicker": "Preguntas",
+      "headline": "Lo que normalmente nos preguntan.",
+      "q1": "¿Qué es eso de «IA aplicada»?",
+      "a1": "Que la inteligencia artificial no se queda en una demostración. Se pone a trabajar dentro de la operación: una tarea concreta, de un puesto concreto, con un resultado que alguien revisa.",
+      "q2": "¿Por dónde se empieza?",
+      "a2": "Casi siempre con un diagnóstico: entender tu operación e identificar dónde la IA ayuda de verdad. Lo que sigue depende de lo que aparezca: capacitar, ordenar un proceso o construir un sistema.",
+      "q3": "¿Y si mis procesos no están escritos en ningún lado?",
+      "a3": "Es lo más común. Estructurar el proceso es parte del trabajo — y va antes que cualquier automatización. No construimos agentes sin procesos bien definidos.",
+      "q4": "¿Qué no hace Osppy?",
+      "a4": "No promete ahorros, ventas ni horas: eso lo miden tus números. No entrega una herramienta y se va. Y sus sistemas no confirman precios, disponibilidad ni condiciones que nadie verificó: cuando no saben algo, lo dicen, preguntan o pasan la conversación a una persona.",
+      "q5": "¿Qué pasa con la información de mi negocio?",
+      "a5": "Se define por escrito qué información puede usarse, qué se anonimiza y qué se queda fuera. Y las herramientas de IA se equivocan a veces: por eso todo se arma para que una persona pueda revisar y decidir.",
+      "q6": "¿Cómo se cotiza?",
+      "a6": "La capacitación y la asesoría se cotizan por grupo y por resultado; la implementación, por separado, con alcance y criterios de éxito por escrito. No publicamos precios porque no vendemos paquetes: cada propuesta es sobre tu caso."
+    },
     "cta": {
-      "primary": "Agenda una demo gratuita",
-      "secondary": "Ver cómo funciona"
+      "kicker": "El siguiente paso",
+      "headline": "Cuéntanos de qué es tu operación.",
+      "body": "Nos escribes, te contesta una persona, y vemos si hay algo que valga la pena hacer. A veces la respuesta honesta es «todavía no» — también te la vamos a dar.",
+      "button": "Escríbenos",
+      "ctaMessage": "Hola, quiero platicar sobre la operación de mi negocio.",
+      "mailLabel": "hello@osppy.com",
+      "microcopy": "Sin formularios: te contesta una persona."
     }
-  },
-  "heroChat": {
-    "status": "en línea",
-    "now": "ahora",
-    "inputPlaceholder": "Escribe un mensaje…",
-    "autoQuestion": "¿Qué es Osppy?",
-    "labels": {
-      "different": "¿Qué te hace diferente?",
-      "pricing": "¿Cuánto cuesta?",
-      "night": "¿Funcionas de noche?",
-      "setup": "¿Cómo te conectas?",
-      "human": "¿Puedo intervenir yo?",
-      "demo": "Quiero una demo",
-      "demoCta": "Agendar mi demo"
-    },
-    "root": {
-      "answer": "¡Hola! 👋 Soy Osppy, la recepción que nunca duerme. Respondo a tus huéspedes por WhatsApp en segundos — precios, disponibilidad, check-in — a cualquier hora. Tú descansas, yo atiendo. 🌙"
-    },
-    "different": {
-      "answer": "Buena pregunta. No soy un chatbot genérico de botones y menús. Hablo español mexicano natural, conozco la información exacta de tu hotel y sé cuándo pasarte una conversación. Tus huéspedes sienten que hablan con tu recepción, no con un robot."
-    },
-    "human": {
-      "answer": "¡Cuando quieras! Ves todas las conversaciones en tiempo real y puedes tomar el control en cualquier momento. Y si detecto una queja o algo delicado, te lo paso de inmediato a tu WhatsApp."
-    },
-    "pricing": {
-      "answer": "Cada hotel es distinto, así que armamos un plan a tu medida: tarifa fija mensual, sin comisiones por reserva. Para que te des una idea: Booking.com le cobra a un hotel mediano ~$3,000 USD al mes en comisiones. En la demo te damos una propuesta clara. 😉"
-    },
-    "night": {
-      "answer": "Siempre. 🌙 A las 3am de un domingo respondo igual de rápido que al mediodía. Y eso importa: 7 de cada 10 viajeros reservan con el primer hotel que les contesta — ese serás tú."
-    },
-    "setup": {
-      "answer": "En 30 minutos. Conecto tu número de WhatsApp Business actual y cargo la info de tu hotel: precios, horarios, políticas. Sin apps nuevas, sin equipo técnico. ✅"
-    },
-    "demo": {
-      "answer": "¡Perfecto! Agenda una demo de 20 minutos y te muestro cómo respondo con la información real de tu hotel. Sin compromiso, sin tarjeta."
-    }
-  },
-  "auth": {
-    "close": "Cerrar"
-  },
-  "dashboardReveal": {
-    "lockDate": "Domingo 14 de junio",
-    "now": "ahora",
-    "notif": "Nueva reservación confirmada · Habitación doble, 2 noches",
-    "swipe": "Desliza para abrir",
-    "headline": "Todo tu hotel, en una sola pantalla.",
-    "sub": "Conversaciones, ventas y alertas — en tiempo real."
-  },
-  "dashboard": {
-    "title": "Panel de Osppy",
-    "hotel": "Casa Tlaquepaque",
-    "live": "En vivo",
-    "kpi": {
-      "open": "Conversaciones abiertas",
-      "closed": "Cerradas / ganadas",
-      "complaints": "Quejas",
-      "response": "Respuesta promedio"
-    },
-    "conversations": "Conversaciones activas",
-    "takeOver": "Tomar control",
-    "return": "Devolver",
-    "statusAI": "Osppy",
-    "statusYou": "Tú",
-    "chartTitle": "Conversaciones por hora",
-    "resolved": "Resueltas por Osppy",
-    "rows": [
-      {
-        "name": "María González",
-        "preview": "¿Tienen disponibilidad para el 14?",
-        "status": "ai",
-        "time": "ahora",
-        "initial": "MG"
-      },
-      {
-        "name": "Luis Ramírez",
-        "preview": "Perfecto, ¿puedo pagar con transferencia?",
-        "status": "ai",
-        "time": "2m",
-        "initial": "LR"
-      },
-      {
-        "name": "Ana Torres",
-        "preview": "El aire no enfría bien en la 204 😕",
-        "status": "you",
-        "time": "5m",
-        "initial": "AT"
-      },
-      {
-        "name": "Diego Herrera",
-        "preview": "Gracias, nos vemos el viernes 🎉",
-        "status": "ai",
-        "time": "12m",
-        "initial": "DH"
-      },
-      {
-        "name": "Paola Navarro",
-        "preview": "¿El desayuno está incluido?",
-        "status": "ai",
-        "time": "18m",
-        "initial": "PM"
-      },
-      {
-        "name": "Roberto Cruz",
-        "preview": "Necesito factura, ¿me ayudan?",
-        "status": "you",
-        "time": "25m",
-        "initial": "RC"
-      },
-      {
-        "name": "Valeria Ríos",
-        "preview": "¡Listo! Reservado para el sábado 🙌",
-        "status": "ai",
-        "time": "32m",
-        "initial": "VR"
-      }
-    ],
-    "insights": {
-      "title": "Insights de Osppy",
-      "hint": "Toca la gráfica para ver más",
-      "peakHour": "Hora pico",
-      "firstResponse": "Primera respuesta",
-      "resolution": "Resueltas por Osppy",
-      "bookings": "Reservas captadas",
-      "topics": "Temas más consultados",
-      "topicNames": {
-        "pricing": "Precios",
-        "availability": "Disponibilidad",
-        "checkin": "Check-in",
-        "pets": "Mascotas",
-        "other": "Otros"
-      }
-    }
-  },
-  "problem": {
-    "eyebrow": "El problema",
-    "headline": "80 mensajes de WhatsApp al día. Todos respondidos a mano. Por ti.",
-    "body": "Los dueños de hoteles pasan horas respondiendo las mismas 12 preguntas. Precios, horario de check-in, mascotas, estacionamiento, desayuno. Una y otra vez. A cualquier hora. Mientras que cada mensaje sin respuesta rápida es una reservación que se va con la competencia.",
-    "card1": {
-      "title": "Mensajes a medianoche",
-      "body": "Tus huéspedes no tienen horario. Tu teléfono tampoco."
-    },
-    "card2": {
-      "title": "Comisiones OTA brutales",
-      "body": "Booking.com se lleva 20% de cada reservación. Y encima te roba la relación con el huésped."
-    },
-    "card3": {
-      "title": "Respuesta lenta = huésped perdido",
-      "body": "El 70% de los viajeros reservan con el primer hotel que responde. No el mejor. El primero."
-    }
-  },
-  "solution": {
-    "eyebrow": "La solución",
-    "headline": "Osppy responde. Tú descansas.",
-    "body": "Conectamos Osppy a tu número de WhatsApp Business. En 30 minutos está listo para responder como si fuera tu mejor recepcionista — con la información exacta de tu hotel, en el tono que tú eliges, en español mexicano natural.",
-    "card1": {
-      "title": "Respuesta en segundos",
-      "body": "No en horas. Segundos. A las 2am un domingo."
-    },
-    "card2": {
-      "title": "Habla como tú",
-      "body": "Configurado con la información real de tu hotel. No respuestas genéricas."
-    },
-    "card3": {
-      "title": "Escala a humano cuando importa",
-      "body": "Quejas, solicitudes complejas y reservaciones confirmadas llegan directo a tu WhatsApp."
-    }
-  },
-  "how": {
-    "eyebrow": "Cómo funciona",
-    "headline": "Así de simple.",
-    "step1": "Conectamos tu número de WhatsApp Business",
-    "step2": "Cargamos la información de tu hotel",
-    "step3": "Tus huéspedes reciben respuestas instantáneas",
-    "callout": "Configuración completa en 30 minutos"
-  },
-  "features": {
-    "eyebrow": "Funciones",
-    "headline": "Todo lo que necesitas. Nada de lo que no.",
-    "f1": {
-      "title": "WhatsApp nativo",
-      "body": "Sin apps nuevas. Se conecta a tu número actual."
-    },
-    "f2": {
-      "title": "Disponible 24/7",
-      "body": "Responde a las 3am sin que tú tengas que despertar."
-    },
-    "f3": {
-      "title": "Español mexicano real",
-      "body": "No traducción de inglés. Construido para LATAM."
-    },
-    "f4": {
-      "title": "Configuración en 30 min",
-      "body": "Cargamos tu información. Listo. Sin IT."
-    },
-    "f5": {
-      "title": "Escalación inteligente",
-      "body": "Sabe cuándo enviarte el mensaje. No te molesta por tonterías."
-    },
-    "f6": {
-      "title": "Sin comisiones",
-      "body": "Precio fijo mensual. Lo que ahorras de OTAs es tuyo."
-    }
-  },
-  "pricing": {
-    "eyebrow": "Precios",
-    "headline": "Un plan a la medida de tu hotel.",
-    "body": "Cada hotel es distinto — tamaño, volumen de conversaciones, servicios. Por eso no vendemos paquetes genéricos: armamos tu plan sobre lo que tu operación realmente necesita.",
-    "f1": "Tarifa fija mensual — sin comisiones por reserva",
-    "f2": "Funciona sobre tu WhatsApp Business actual, sin apps nuevas",
-    "f3": "Propuesta clara y sin compromiso después de la demo",
-    "cta": "Agenda una demo",
-    "comparison": "Booking.com te cobra ~$3,000 USD/mes en comisiones en un hotel mediano. Con Osppy pagas una tarifa fija — lo que ahorras de OTAs es tuyo."
-  },
-  "pilot": {
-    "headline": "Lo que dicen nuestros hoteleros.",
-    "body": "Historias reales de dueños que recuperaron sus noches.",
-    "tag": "Clientes reales",
-    "r1": {
-      "quote": "Antes respondía mensajes a medianoche todos los días. Ahora duermo. Osppy maneja todo con mi tono y la información exacta de mi hotel.",
-      "author": "Mariana R.",
-      "hotel": "Hotel Boutique Casa Tlaquepaque, Jalisco",
-      "stars": "5"
-    },
-    "r2": {
-      "quote": "Pensé que un bot se notaría falso. Para nada — mis huéspedes le escriben igual que a mí. Y las reservaciones directas subieron 30% en el primer mes.",
-      "author": "Carlos V.",
-      "hotel": "Posada del Arte, San Cristóbal de las Casas",
-      "stars": "5"
-    },
-    "r3": {
-      "quote": "El ROI es brutal. Dejé de pagar comisiones de Booking en dos categorías de cuartos porque Osppy captura esas reservas directamente por WhatsApp.",
-      "author": "Sofía M.",
-      "hotel": "Hotel Hacienda del Mar, Puerto Vallarta",
-      "stars": "5"
-    }
-  },
-  "faq": {
-    "eyebrow": "FAQ",
-    "headline": "Preguntas frecuentes",
-    "q1": "¿Qué pasa si Osppy comete un error?",
-    "a1": "Osppy está configurado para escalar a ti cuando no tiene suficiente información o cuando detecta una situación delicada. Si comete un error en una respuesta rutinaria, puedes corregir la información en segundos desde el panel.",
-    "q2": "¿Necesito cambiar mi número de WhatsApp?",
-    "a2": "No. Osppy se conecta directamente a tu número de WhatsApp Business actual. Tus huéspedes siguen escribiendo al mismo número de siempre.",
-    "q3": "¿Cuánto tiempo tarda la configuración?",
-    "a3": "En 30 minutos tenemos Osppy conectado y respondiendo. Necesitamos la información básica de tu hotel: precios, políticas, horarios. Nosotros hacemos el resto.",
-    "q4": "¿En qué idiomas responde?",
-    "a4": "Por default en español mexicano. También puede responder en inglés cuando detecta que el huésped escribe en ese idioma. Próximamente portugués.",
-    "q5": "¿Puedo ver todas las conversaciones?",
-    "a5": "Sí. Tienes acceso a un panel donde puedes ver todas las conversaciones en tiempo real, intervenir cuando quieras y revisar el historial completo.",
-    "q6": "¿Hay contrato de permanencia?",
-    "a6": "No. Mes a mes. Puedes cancelar en cualquier momento. Sin letras chicas."
-  },
-  "cta": {
-    "eyebrow": "Empieza hoy",
-    "headline": "¿Cuántos mensajes respondiste anoche después de las 9pm?",
-    "body": "Agenda una demo de 20 minutos. Te mostramos cómo funciona Osppy con la información real de tu hotel. Sin compromiso.",
-    "button": "Agenda tu demo",
-    "microcopy": "Sin spam · Sin compromiso · Respondemos en menos de 24 horas"
   },
   "footer": {
     "about": "Inteligencia artificial aplicada a la operación de empresas.",
