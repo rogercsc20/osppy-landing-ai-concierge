@@ -45,7 +45,7 @@ test("English landing renders", async ({ page }) => {
     page.getByRole("heading", {
       level: 1,
       // Accessible names collapse non-breaking spaces used for line control.
-      name: en.hero.headline.replace(/\u00A0/g, " "),
+      name: en.home.hero.headline.replace(/\u00A0/g, " "),
     }),
   ).toBeVisible();
 });
