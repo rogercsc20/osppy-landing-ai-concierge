@@ -203,6 +203,287 @@
       "microcopy": "Sin formularios: te contesta una persona."
     }
   },
+  "hoteles": {
+    "hero": {
+      "kicker": "Diana Hoteles",
+      "estado": "En producción",
+      "headline": "Diana contesta el WhatsApp de tu hotel a cualquier hora. Diana reserva por ti y tú la gestionas.",
+      "sub": "Recepción con inteligencia artificial: responde con la información real de tu hotel, cotiza, arma la reservación completa, la confirma y se encarga de todo antes, durante y después de la estancia. Detrás hay un panel donde tu equipo ve todo y opera desde un solo lugar.",
+      "nota": "El asistente de Osppy opera hoy en hoteles en producción · Sobre la API oficial de WhatsApp de Meta",
+      "cta": "Agenda una demostración",
+      "ctaMessage": "Hola, quiero agendar una demostración de Diana para mi hotel.",
+      "secundario": "Ver cómo funciona",
+      "demoEtiqueta": "Datos de demostración"
+    },
+    "chat": {
+      "titulo": "Diana",
+      "status": "en línea",
+      "now": "ahora",
+      "inputPlaceholder": "Escribe un mensaje…",
+      "autoQuestion": "Hola, ¿qué es Diana?",
+      "labels": {
+        "different": "¿Qué te hace diferente?",
+        "pricing": "¿Cuánto cuesta?",
+        "night": "¿Contestas de noche?",
+        "setup": "¿Cómo te conectas?",
+        "human": "¿Puedo intervenir yo?",
+        "demo": "Quiero una demostración",
+        "demoCta": "Agendar mi demostración"
+      },
+      "root": {
+        "answer": "Hola 👋 Soy Diana, el asistente de Osppy para hoteles. Vivo en el WhatsApp de tu hotel: contesto a los huéspedes con tu información, les cotizo, les armo la reservación y les doy seguimiento hasta que se van. A ti te aviso de lo que necesita tu decisión. Pregúntame lo que quieras."
+      },
+      "different": {
+        "answer": "No soy un menú de opciones. Entiendo un mensaje largo con tres preguntas mezcladas y contesto las tres, en español de México o en inglés si me escriben en inglés. Y si algo no está cargado, lo digo o pregunto: nunca invento una tarifa ni una política."
+      },
+      "pricing": {
+        "answer": "Se cobra al mes, por propiedad. Hay distintos planes según cuántas conversaciones tenga tu hotel, y una puesta en marcha que se paga una sola vez. Los números te los enseñan en la demostración, con tu caso enfrente."
+      },
+      "night": {
+        "answer": "Sí. Un domingo a las tres de la mañana contesto igual que un martes a mediodía."
+      },
+      "setup": {
+        "answer": "Tú nos pasas tarifas, políticas, habitaciones y las preguntas que más te hacen; el equipo de Osppy lo carga, registra las plantillas con Meta y prueba todo de punta a punta antes de encender. Son días, no semanas."
+      },
+      "human": {
+        "answer": "Cuando quieras. Desde el panel ves todas las conversaciones, tomas el control y, al resolver, yo retomo. Y si detecto una queja o algo delicado, se lo paso de inmediato a una persona de tu equipo."
+      },
+      "demo": {
+        "answer": "Perfecto. Agenda una demostración y te enseño cómo contestaría en tu hotel, con tus tarifas y tus políticas. Te atiende una persona."
+      }
+    },
+    "problema": {
+      "kicker": "El problema",
+      "headline": "Los mensajes de la noche se enfrían. Los del día son siempre los mismos.",
+      "body": "Un hotel de pocas habitaciones vive de la reserva directa por WhatsApp, y ese WhatsApp casi siempre vive en el celular de quien lo dirige. Así se oye desde adentro:",
+      "r1": {
+        "titulo": "Escriben a la una de la mañana",
+        "body": "«Preguntan el precio y si incluye desayuno, y para cuando contesto ya reservaron en otro lado.»"
+      },
+      "r2": {
+        "titulo": "Contestar veinte veces lo mismo",
+        "body": "«Precio, desayuno, estacionamiento, hora de llegada. Lo mismo, todo el día, a cualquier hora.»"
+      },
+      "r3": {
+        "titulo": "Un número que no se apaga",
+        "body": "«Mi WhatsApp vive en mi celular personal y no puedo desconectarme nunca. Y la reserva directa se me va porque nadie contestó a tiempo.»"
+      }
+    },
+    "hace": {
+      "kicker": "Qué hace",
+      "headline": "Contesta con tu información. Arma la reserva. Tú apruebas.",
+      "body": "Diana responde en el WhatsApp de tu hotel con lo que tú cargaste: tarifas, impuestos, políticas de cancelación, desayuno, mascotas, estacionamiento, horarios de llegada y salida y tus preguntas frecuentes. Lo que no esté cargado, no lo inventa.",
+      "i1": {
+        "titulo": "Cotiza y arma la reserva completa",
+        "body": "Fechas, habitación, número de personas y nombre, en la misma conversación. También varias habitaciones o la propiedad completa, con persona extra e impuestos como tú los definiste."
+      },
+      "i2": {
+        "titulo": "Te la pasa con un botón",
+        "body": "A tu WhatsApp llega la reserva armada con dos botones: aprobar o rechazar. Al aprobar, Diana envía al huésped los datos para el depósito. La habitación se ocupa cuando se paga, no cuando se aprueba."
+      },
+      "i3": {
+        "titulo": "Pasa a una persona cuando importa",
+        "body": "Quejas, peticiones delicadas o lo que salga de lo suyo llegan a tu equipo con aviso. Desde el panel alguien responde y resuelve, y Diana retoma la conversación."
+      },
+      "conversacion": {
+        "hotel": "Hotel de demostración",
+        "status": "en línea",
+        "placeholder": "Mensaje",
+        "m1": "Hola, ¿tienen habitación para dos personas del viernes al domingo? ¿Incluye desayuno y tienen estacionamiento?",
+        "m2": "¡Hola! Sí, para esas fechas hay habitación doble para dos personas. El desayuno está incluido y hay estacionamiento sin costo para huéspedes. La tarifa te la mando con impuestos incluidos, sin sorpresas. ¿Te armo la reserva?",
+        "m3": "Sí, porfa. ¿Aceptan mascotas?",
+        "m4": "Sí, mascotas pequeñas con un cargo por estancia; te lo incluyo en el total. Para armar la reserva solo me falta tu nombre completo.",
+        "m5": "Andrea",
+        "m6": "Listo, Andrea: habitación doble, viernes a domingo, dos personas. Le paso tu reservación al hotel; en cuanto la aprueben te mando cómo hacer el depósito. Tu habitación queda apartada al recibir el pago."
+      }
+    },
+    "circuito": {
+      "kicker": "El circuito y el panel",
+      "headline": "Diana arma. Tú apruebas con un toque. El panel lo muestra todo.",
+      "sub": "Nada se confirma solo. Diana lo hace: cotiza, arma la reserva, manda los datos del depósito y confirma al huésped. Tú lo gestionas: apruebas y confirmas el pago con un toque.",
+      "telefono": {
+        "de": "Diana",
+        "ahora": "ahora",
+        "reservaTitulo": "Reserva armada",
+        "reservaDetalle": "Habitación doble · viernes a domingo · dos personas · Andrea",
+        "aprobar": "Aprobar",
+        "rechazar": "Rechazar",
+        "aprobada": "Aprobada. El huésped ya tiene los datos para transferir.",
+        "rechazada": "Rechazada.",
+        "pagoTitulo": "El huésped dice que ya transfirió",
+        "pagoDetalle": "«Ya te transferí» · Andrea",
+        "confirmarPago": "Confirmar pago",
+        "pagoConfirmado": "Pago confirmado. Diana confirma la reserva al huésped y la habitación queda ocupada.",
+        "reiniciar": "Ver de nuevo"
+      },
+      "panel": {
+        "titulo": "Panel de operación",
+        "hotel": "Hotel de demostración",
+        "etiqueta": "Datos de demostración",
+        "turno": "En el turno",
+        "turnoSub": "necesitan a una persona",
+        "llegadas": "Llegadas hoy",
+        "salidas": "Salidas hoy",
+        "abiertas": "Conversaciones abiertas",
+        "conversaciones": "Conversaciones",
+        "tomar": "Tomar el control",
+        "resolver": "Resolver",
+        "statusAI": "Diana",
+        "statusYou": "Tú",
+        "chartTitle": "Conversaciones por hora",
+        "chartNota": "Datos de demostración, no de un hotel real",
+        "chartCargando": "Cargando",
+        "rows": [
+          {
+            "name": "María González",
+            "preview": "¿Tienen disponibilidad del viernes al domingo?",
+            "status": "ai",
+            "initial": "MG"
+          },
+          {
+            "name": "Luis Ramírez",
+            "preview": "Ya te transferí, ¿me confirmas?",
+            "status": "you",
+            "initial": "LR"
+          },
+          {
+            "name": "Ana Torres",
+            "preview": "¿Pueden organizar un evento privado?",
+            "status": "you",
+            "initial": "AT"
+          },
+          {
+            "name": "Diego Herrera",
+            "preview": "Perfecto, nos vemos el viernes",
+            "status": "ai",
+            "initial": "DH"
+          },
+          {
+            "name": "Paola Navarro",
+            "preview": "¿El desayuno está incluido?",
+            "status": "ai",
+            "initial": "PN"
+          },
+          {
+            "name": "Roberto Cruz",
+            "preview": "Necesito factura, ¿me ayudan?",
+            "status": "you",
+            "initial": "RC"
+          },
+          {
+            "name": "Valeria Ríos",
+            "preview": "Hello, do you have parking?",
+            "status": "ai",
+            "initial": "VR"
+          }
+        ]
+      }
+    },
+    "funciones": {
+      "kicker": "Qué incluye",
+      "headline": "Lo que hace, y lo que a propósito no hace.",
+      "f1": {
+        "titulo": "Responde con la información de tu hotel",
+        "body": "Tarifas, impuestos, políticas, desayuno, mascotas, estacionamiento, horarios y tus preguntas frecuentes: se cargan una vez, con tu vocabulario, y Diana contesta con eso."
+      },
+      "f2": {
+        "titulo": "A cualquier hora",
+        "body": "De noche y en fin de semana contesta igual que a mediodía, con la misma información y el mismo tono."
+      },
+      "f3": {
+        "titulo": "Español e inglés",
+        "body": "Español de México por defecto. Si el huésped escribe en inglés, responde en inglés y se mantiene en ese idioma."
+      },
+      "f4": {
+        "titulo": "Tú apruebas con un toque",
+        "body": "Aprobar o rechazar desde tu propio WhatsApp, sin abrir nada más. Y si dos personas piden la misma habitación, se queda quien pague primero: nunca hay dos reservas pagadas sobre la misma habitación."
+      },
+      "f5": {
+        "titulo": "Sabe cuándo no le toca",
+        "body": "Quejas, peticiones delicadas o temas fuera de lo suyo no los contesta: los pasa a tu equipo con aviso y retoma cuando alguien resuelve."
+      },
+      "f6": {
+        "titulo": "Sobre la API oficial de WhatsApp de Meta",
+        "body": "Plantillas aprobadas por Meta, aviso de privacidad en el primer contacto, baja de mensajes con una palabra, datos aislados por negocio y respaldos diarios cifrados fuera del servidor."
+      },
+      "widgets": {
+        "chatQ1": "¿Tienen alberca?",
+        "chatA1": "Sí, hay alberca para huéspedes. ¿Te mando las fotos?",
+        "chatQ2": "Sí, porfa",
+        "hola": "Hola",
+        "hello": "Hello",
+        "reserva": "Reserva armada",
+        "aprobar": "Aprobar",
+        "rechazar": "Rechazar",
+        "diana": "Diana",
+        "tu": "Tú",
+        "check1": "Plantillas aprobadas",
+        "check2": "Aviso de privacidad",
+        "check3": "Respaldos diarios"
+      },
+      "no": {
+        "titulo": "A propósito, no:",
+        "n1": "No se conecta a plataformas ni a sistemas de reservas: hoy no, y sin fecha comprometida.",
+        "n2": "No confirma reservas solo: siempre pasa por tu botón.",
+        "n3": "No ofrece descuentos ni mejoras de habitación por iniciativa propia.",
+        "n4": "No sustituye a tu equipo: le quita lo repetitivo y le deja las decisiones."
+      }
+    },
+    "arranque": {
+      "kicker": "Puesta en marcha",
+      "headline": "Días de configuración, no semanas de proyecto.",
+      "p1": "Nos das tu información: tarifas, políticas, habitaciones, amenidades y tus conversaciones más repetidas, para que Diana hable con tu vocabulario desde el primer día.",
+      "p2": "Osppy carga la configuración, redacta y da de alta las plantillas ante Meta y prueba el circuito completo.",
+      "p3": "Te entregamos el panel con accesos por rol y damos la sesión de arranque a tu equipo.",
+      "nota": "El reloj lo marca la verificación de tu número por parte de Meta, no el trabajo de configuración."
+    },
+    "precio": {
+      "kicker": "Precio",
+      "headline": "Una estructura sin letra chica. Las cifras, sobre tu caso.",
+      "body": "No vendemos paquetes planos. El costo real del servicio lo mueve el volumen de conversación, y un precio plano termina degradando el servicio: preferimos decirlo de frente.",
+      "p1": "Una cuota mensual por propiedad, con conversaciones incluidas de uso justo.",
+      "p2": "Manejamos distintos planes según el número de conversaciones de tu hotel; el volumen lo ves en el panel.",
+      "p3": "Una puesta en marcha que se cobra una sola vez: carga de habitaciones, políticas, preguntas frecuentes, plantillas y pruebas.",
+      "p4": "Varias propiedades en una sola cuenta.",
+      "p5": "Sin contratos largos. Tus datos son tuyos y exportables.",
+      "nota": "Las cifras te las damos en la demostración, con tu volumen y tu operación enfrente.",
+      "cta": "Agenda una demostración"
+    },
+    "testimonios": {
+      "kicker": "Voces",
+      "headline": "Voces ilustrativas de quienes usan un asistente así.",
+      "etiqueta": "Ilustrativo",
+      "nota": "Citas sin nombre y sin cifras: ilustran cómo se vive tener un asistente atendiendo. No son testimonios verificados.",
+      "q1": "Antes respondía mensajes a medianoche todos los días. Ahora duermo. El asistente contesta con mi tono y con la información exacta de mi negocio.",
+      "q2": "Pensé que un bot se notaría falso. Para nada: mis clientes le escriben igual que a mí, y él sabe cuándo pasarme la conversación.",
+      "q3": "Dejé de perder reservas por no contestar a tiempo. Lo que llega de madrugada ya no se queda sin respuesta."
+    },
+    "faq": {
+      "kicker": "Preguntas",
+      "headline": "Lo que un hotel nos pregunta antes de empezar.",
+      "q1": "¿Y si Diana le dice algo mal a un huésped?",
+      "a1": "Solo responde con lo que tú cargaste. Si algo no está, lo dice o pregunta; nunca inventa una amenidad, una política ni una tarifa. Y nunca confirma una reserva sola: eso siempre pasa por tu botón.",
+      "q2": "¿Se conecta a mi sistema de reservas o a las plataformas?",
+      "a2": "Hoy no, y no te vamos a dar una fecha que no podamos cumplir. Por eso el candado eres tú, con los botones de aprobar: para un hotel de pocas habitaciones es lo más sano.",
+      "q3": "¿Tengo que cambiar mi número de WhatsApp?",
+      "a3": "Tú decides. Se puede pasar tu número actual a Diana —deja de funcionar en la app del celular y los chats viejos no se migran— o usar uno nuevo y dejar el tuyo como está. Lo vemos juntos según cómo lo uses hoy, y el reloj lo marca la verificación de Meta.",
+      "q4": "¿Me pueden bloquear el número?",
+      "a4": "Diana corre sobre la API oficial de WhatsApp de Meta, con plantillas aprobadas. Los bloqueos vienen de los montajes no oficiales.",
+      "q5": "¿Reemplaza a mi recepcionista?",
+      "a5": "No, y no es lo que te vendemos. Le quita la talacha de contestar lo mismo veinte veces al día. Las decisiones siguen siendo tuyas, y pasar la conversación a una persona es parte permanente del diseño.",
+      "q6": "¿Y si quiero cancelar?",
+      "a6": "Sin contratos largos. Tus datos te los llevas: son tuyos y exportables."
+    },
+    "cta": {
+      "kicker": "El siguiente paso",
+      "headline": "Te mostramos a Diana con la información de tu hotel.",
+      "body": "Nos escribes, te contesta una persona y vemos juntos cómo contestaría Diana en tu hotel. Sin compromiso.",
+      "button": "Agenda una demostración",
+      "ctaMessage": "Hola, quiero agendar una demostración de Diana para mi hotel.",
+      "mailLabel": "hello@osppy.com",
+      "microcopy": "Sin formularios: te contesta una persona."
+    }
+  },
   "footer": {
     "about": "Inteligencia artificial aplicada a la operación de empresas.",
     "lineas": "Líneas",
