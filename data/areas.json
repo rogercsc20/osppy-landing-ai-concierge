@@ -1,0 +1,10 @@
+[
+  { "slug": "contabilidad", "key": "contabilidad", "estado": "ofrecido" },
+  { "slug": "compras", "key": "compras", "estado": "ofrecido" },
+  { "slug": "ventas", "key": "ventas", "estado": "ofrecido" },
+  { "slug": "facturacion", "key": "facturacion", "estado": "ofrecido" },
+  { "slug": "rh", "key": "rh", "estado": "ofrecido" },
+  { "slug": "marketing", "key": "marketing", "estado": "ofrecido" },
+  { "slug": "comercio-exterior", "key": "comercioExterior", "estado": "ofrecido" },
+  { "slug": "direccion", "key": "direccion", "estado": "ofrecido" }
+]

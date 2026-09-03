@@ -2,43 +2,55 @@
 
 import { useTranslations } from "next-intl";
 import ParticleButton from "@/components/kokonutui/particle-button";
+import { Band } from "@/components/ui/Band";
+import { FxLayer } from "@/components/fx/FxLayer";
 import { CONTACT_EMAIL, whatsappHref } from "@/lib/site";
 
 /* The close (kit §10, HQA-D29): one CTA — the Kokonut particle button as a
-   link (WhatsApp when the number exists, prefilled mail until then) plus
-   the plain email. Dark green block: the dark is an object, not a mode. */
+   link (WhatsApp when the number exists, prefilled mail until then) plus the
+   plain email. The dark slab is gone: it painted a ground over the
+   atmosphere. What holds the block now is a <Band>, whose edges dissolve. */
 export function Cta() {
   const t = useTranslations("home.cta");
 
   return (
-    <section id="demo" className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
-      <div className="rounded-3xl bg-pizarra px-6 py-16 text-center sm:px-12 sm:py-20">
-        <p className="text-xs font-medium uppercase tracking-[0.18em] text-verde-claro/80">
+    <section id="demo" className="relative px-4 py-section sm:px-6">
+      <FxLayer>
+        <div
+          className="absolute inset-x-0 -top-24 bottom-[-20%]"
+          style={{
+            background:
+              "radial-gradient(55% 60% at 50% 20%, color-mix(in srgb, var(--glow-2) 22%, transparent), transparent 65%)",
+          }}
+        />
+      </FxLayer>
+      <Band className="mx-auto max-w-4xl px-6 py-16 text-center sm:px-12 sm:py-20">
+        <p className="eyebrow">
           {t("kicker")}
         </p>
-        <h2 className="font-display mx-auto mt-4 max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-4xl">
+        <h2 className="font-display mx-auto mt-5 max-w-2xl text-h2 font-semibold text-text">
           {t("headline")}
         </h2>
-        <p className="mx-auto mt-4 max-w-xl leading-relaxed text-verde-claro/90">
+        <p className="mx-auto mt-5 max-w-xl text-lead text-text-2">
           {t("body")}
         </p>
-        <div className="mt-8 flex flex-col items-center gap-4">
+        <div className="mt-10 flex flex-col items-center gap-4">
           <ParticleButton
             asChild
             size="lg"
-            className="rounded-full bg-verde-claro px-7 font-semibold text-pizarra hover:bg-white"
+            className="rounded-full bg-accent px-8 font-semibold text-primary-foreground hover:opacity-90"
           >
             <a href={whatsappHref(t("ctaMessage"))}>{t("button")}</a>
           </ParticleButton>
           <a
             href={`mailto:${CONTACT_EMAIL}`}
-            className="text-sm font-medium text-verde-claro underline-offset-4 hover:underline"
+            className="link-underline text-sm font-medium text-accent-text"
           >
             {t("mailLabel")}
           </a>
-          <p className="text-xs text-verde-claro/70">{t("microcopy")}</p>
+          <p className="text-xs text-text-2">{t("microcopy")}</p>
         </div>
-      </div>
+      </Band>
     </section>
   );
 }

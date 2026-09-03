@@ -1,18 +1,21 @@
 import { getTranslations } from "next-intl/server";
 import { SITE_URL, CONTACT_EMAIL } from "@/lib/site";
 import { Hero } from "@/components/home/Hero";
-import { Somos } from "@/components/home/Somos";
-import { Hacemos } from "@/components/home/Hacemos";
-import { Ayudamos } from "@/components/home/Ayudamos";
+import { Porque } from "@/components/home/Porque";
+import { Creemos } from "@/components/home/Creemos";
 import { Como } from "@/components/home/Como";
+import { Jerga } from "@/components/home/Jerga";
+import { SeVe } from "@/components/home/SeVe";
+import { Areas } from "@/components/home/Areas";
+import { Hacemos } from "@/components/home/Hacemos";
+import { Cuanto } from "@/components/home/Cuanto";
 import { Trayectoria } from "@/components/home/Trayectoria";
-import { Casos } from "@/components/home/Casos";
 import { Productos } from "@/components/home/Productos";
-import { Testimonios } from "@/components/home/Testimonios";
+import { Voces } from "@/components/home/Voces";
 import { Faq } from "@/components/home/Faq";
 import { Cta } from "@/components/home/Cta";
 
-const FAQ_COUNT = 6;
+const FAQ_COUNT = 7;
 
 export default async function LandingPage({
   params,
@@ -51,16 +54,33 @@ export default async function LandingPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
+      {/* WHY → HOW → WHAT (HQA-D39). The order is the argument: first the
+          feeling the reader already has, then the method, and only then the
+          catalogue.
+
+          No `.cv-auto` wrapper here. content-visibility applies layout and
+          style containment, which breaks the sticky chapter inside <Como/>
+          and makes every section below it guess its own height — the capture
+          gate showed the pinned chapter rendering empty. Skipping paint
+          below the fold comes back in V9, per section and measured with
+          Lighthouse, never around a scroll-linked one. */}
       <main>
         <Hero />
-        <Somos />
-        <Hacemos />
-        <Ayudamos />
+
+        <Porque />
+        <Creemos />
+
         <Como />
+        <Jerga />
+        <SeVe />
+
+        <Areas />
+        <Hacemos />
+        <Cuanto />
         <Trayectoria />
-        <Casos />
         <Productos />
-        <Testimonios />
+
+        <Voces />
         <Faq />
         <Cta />
       </main>

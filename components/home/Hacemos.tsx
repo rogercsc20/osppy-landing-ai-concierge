@@ -1,9 +1,11 @@
 import { getTranslations } from "next-intl/server";
+import { Reveal } from "@/components/fx/Reveal";
 
-/* What we do: three ways in, each with its OWN object (master §4 trap 11 —
-   three equal cards are a design failure): training = a spec sheet,
-   advisory = the diagnostic as questions, implementation = the row of
-   system types. */
+/* WHAT — three ways in, each with its OWN object (trap 11: three equal cards
+   are a design failure): training = a spec sheet, advisory = the diagnosis
+   as questions, implementation = the row of system types. The copy survives
+   V4 untouched except for the headline; what changed is that the section no
+   longer paints a ground and its surfaces are glass. */
 export async function Hacemos() {
   const t = await getTranslations("home.hacemos");
 
@@ -15,18 +17,21 @@ export async function Hacemos() {
   const tipos = t.raw("implementacion.tipos") as string[];
 
   return (
-    <section id="hacemos" className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
-      <p className="eyebrow">{t("kicker")}</p>
-      <h2 className="font-display mt-4 max-w-xl text-3xl font-bold tracking-tight text-text sm:text-4xl">
-        {t("headline")}
-      </h2>
+    <section id="hacemos" className="relative px-4 py-section sm:px-6">
+      <div className="mx-auto max-w-6xl">
+      <Reveal>
+        <p className="eyebrow">{t("kicker")}</p>
+        <h2 className="font-display mt-5 max-w-3xl text-h2 font-semibold text-text">
+          {t("headline")}
+        </h2>
+      </Reveal>
 
-      <div className="mt-12 space-y-12">
+      <div className="mt-14 space-y-14">
         {/* Capacitación — the spec sheet */}
-        <div className="grid gap-8 border-t border-line pt-10 lg:grid-cols-[1fr_1.1fr]">
+        <Reveal className="grid gap-8 border-t border-line pt-10 lg:grid-cols-[1fr_1.1fr]">
           <div>
             <div className="flex items-center gap-3">
-              <h3 className="font-display text-2xl font-bold text-text">
+              <h3 className="font-display text-h3 font-semibold text-text">
                 {t("capacitacion.titulo")}
               </h3>
               <span className="rounded-full border border-line px-3 py-1 text-xs font-medium text-text-2">
@@ -37,7 +42,7 @@ export async function Hacemos() {
               {t("capacitacion.body")}
             </p>
           </div>
-          <dl className="self-center rounded-2xl border border-line bg-surface p-6">
+          <dl className="glass self-center rounded-2xl p-6">
             {ficha.map((row, i) => (
               <div
                 key={row.label}
@@ -48,13 +53,13 @@ export async function Hacemos() {
               </div>
             ))}
           </dl>
-        </div>
+        </Reveal>
 
-        {/* Asesoría — the diagnostic as questions */}
-        <div className="grid gap-8 border-t border-line pt-10 lg:grid-cols-[1fr_1.1fr]">
+        {/* Asesoría — the diagnosis as questions */}
+        <Reveal className="grid gap-8 border-t border-line pt-10 lg:grid-cols-[1fr_1.1fr]">
           <div>
             <div className="flex items-center gap-3">
-              <h3 className="font-display text-2xl font-bold text-text">
+              <h3 className="font-display text-h3 font-semibold text-text">
                 {t("asesoria.titulo")}
               </h3>
               <span className="rounded-full bg-accent px-3 py-1 text-xs font-medium text-primary-foreground">
@@ -80,13 +85,13 @@ export async function Hacemos() {
               ))}
             </ul>
           </div>
-        </div>
+        </Reveal>
 
         {/* Implementación — the row of system types */}
-        <div className="grid gap-8 border-t border-line pt-10 lg:grid-cols-[1fr_1.1fr]">
+        <Reveal className="grid gap-8 border-t border-line pt-10 lg:grid-cols-[1fr_1.1fr]">
           <div>
             <div className="flex items-center gap-3">
-              <h3 className="font-display text-2xl font-bold text-text">
+              <h3 className="font-display text-h3 font-semibold text-text">
                 {t("implementacion.titulo")}
               </h3>
               <span className="rounded-full bg-accent px-3 py-1 text-xs font-medium text-primary-foreground">
@@ -105,14 +110,15 @@ export async function Hacemos() {
               {tipos.map((tipo) => (
                 <li
                   key={tipo}
-                  className="rounded-full border border-line bg-surface px-4 py-2 text-sm text-text"
+                  className="glass rounded-full px-4 py-2 text-sm text-text"
                 >
                   {tipo}
                 </li>
               ))}
             </ul>
           </div>
-        </div>
+        </Reveal>
+      </div>
       </div>
     </section>
   );

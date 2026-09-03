@@ -12,15 +12,17 @@ import { APP_LOGIN_URL, whatsappHref } from "@/lib/site";
 import { DUR, EASE_EXPO, EASE_LUXE, STAGGER } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
-// Home section anchors the observer tracks (their ids arrive with L4).
-const HOME_SECTIONS = ["hacemos", "ayudamos", "como"] as const;
+// Home section anchors the observer tracks. `/industrias` and `/diagnostico`
+// join this list when they exist (V5, V7): a nav link to a 404 is worse than
+// a nav that waits.
+const HOME_SECTIONS = ["areas", "hacemos", "como"] as const;
 type SectionId = (typeof HOME_SECTIONS)[number];
 
 const LINKS = [
   { key: "inicio", pathname: "/", hash: undefined },
-  { key: "hacemos", pathname: "/", hash: "#hacemos" },
-  { key: "ayudamos", pathname: "/", hash: "#ayudamos" },
+  { key: "areas", pathname: "/", hash: "#areas" },
   { key: "como", pathname: "/", hash: "#como" },
+  { key: "hacemos", pathname: "/", hash: "#hacemos" },
   { key: "hoteles", pathname: "/hoteles", hash: undefined },
   { key: "citas", pathname: "/citas", hash: undefined },
 ] as const;

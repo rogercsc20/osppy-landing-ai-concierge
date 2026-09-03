@@ -1,23 +1,29 @@
 import { getTranslations } from "next-intl/server";
 import { ChevronDown } from "lucide-react";
+import { Reveal } from "@/components/fx/Reveal";
 
 /* FAQ as a native, accessible accordion: <details>/<summary> needs no JS,
    is keyboard-operable by default, and the shared `name` makes the open
-   panel exclusive in browsers that support it. */
+   panel exclusive in browsers that support it. Seven questions since V4 —
+   the two new ones are the two an enterprise buyer asks first: does this
+   work across many areas, and does it connect to my systems. */
 export async function Faq() {
   const t = await getTranslations("home.faq");
-  const items = (["1", "2", "3", "4", "5", "6"] as const).map((i) => ({
+  const items = (["1", "2", "3", "4", "5", "6", "7"] as const).map((i) => ({
     q: t(`q${i}`),
     a: t(`a${i}`),
   }));
 
   return (
-    <section className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
-      <p className="eyebrow">{t("kicker")}</p>
-      <h2 className="font-display mt-4 max-w-xl text-3xl font-bold tracking-tight text-text sm:text-4xl">
-        {t("headline")}
-      </h2>
-      <div className="mt-10 max-w-3xl">
+    <section className="relative px-4 py-section sm:px-6">
+      <div className="mx-auto max-w-6xl">
+      <Reveal>
+        <p className="eyebrow">{t("kicker")}</p>
+        <h2 className="font-display mt-5 max-w-3xl text-h2 font-semibold text-text">
+          {t("headline")}
+        </h2>
+      </Reveal>
+      <Reveal delay={0.1} className="mt-12 max-w-3xl">
         {items.map((item) => (
           <details
             key={item.q}
@@ -36,6 +42,7 @@ export async function Faq() {
             </p>
           </details>
         ))}
+      </Reveal>
       </div>
     </section>
   );

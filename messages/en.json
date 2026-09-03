@@ -2,12 +2,12 @@
   "nav": {
     "inicio": "Home",
     "hacemos": "What we do",
-    "ayudamos": "Who we help",
+    "areas": "Areas",
     "como": "How we work",
     "hoteles": "Hotels",
     "citas": "Appointments",
     "cta": "Contact us",
-    "ctaMessage": "Hi, I'd like to talk about my business operations.",
+    "ctaMessage": "Hi, I'd like to talk about my company's operation.",
     "login": "Log in",
     "lang": "ES",
     "langLabel": "Switch to Spanish",
@@ -20,11 +20,12 @@
   },
   "home": {
     "hero": {
-      "kicker": "An applied-AI company",
-      "headline": "We put artificial intelligence to work inside your operation.",
-      "sub": "Osppy is an applied-AI company from Guadalajara. Applied means this: a concrete task, a written process, a system that does it on its own, and a result you review.",
-      "cta": "Tell us about your operation",
-      "ctaMessage": "Hi, I'd like to talk about my business operations.",
+      "kicker": "Applied AI for companies",
+      "headline": "Your company already knows it needs AI. What almost nobody tells you is where.",
+      "sub": "Osppy puts artificial intelligence to work inside the operation — one concrete task, a written process, a person who reviews it — at medium and large companies with full office teams.",
+      "cta": "Find out where it helps",
+      "ctaSecundario": "See the areas",
+      "ctaMessage": "Hi, I'd like to talk about my company's operation.",
       "diagrama": {
         "tarea": "The task",
         "proceso": "The process",
@@ -32,21 +33,120 @@
         "agente": "The agent",
         "resultado": "The result",
         "pie": "The step almost nobody has written down is the second one.",
-        "alt": "Four-step diagram: the task goes through a process written by someone, an agent carries it out, and it produces a result."
+        "alt": "Four-step diagram: the task goes through a process someone wrote down, an agent runs it, and it produces a result."
       }
     },
-    "somos": {
-      "kicker": "Who we are",
-      "headline": "Systems running in real businesses today.",
-      "p1": "Osppy is an applied artificial-intelligence company from Guadalajara. We work with businesses of every size that want to use AI with judgment: to remove repetitive work, bring order to the operation, and stop everything from depending on the owner.",
-      "p2": "Osppy's systems run in real businesses today. What we recommend doesn't come from a conference stage: it comes from building, delivering, and keeping systems running.",
-      "p3": "There are three ways into an operation: train the team, advise on where AI is worth it — and where it isn't — and implement systems that stay running.",
-      "cita": "Artificial intelligence proposes. A person reviews and decides.",
-      "citaNota": "The principle behind everything we build."
+    "porque": {
+      "kicker": "Why",
+      "headline": "“We know we need AI.” And then, silence.",
+      "p1": "The sentence gets said in leadership meetings all the time. The one that almost never follows is the second: in which area, on which task, under which rules, and who reviews the result.",
+      "p2": "Without that second sentence, one of two things happens. Nothing gets done for a year. Or a tool gets bought that nobody quite adopts, because the process it was meant to tidy up was never written down.",
+      "p3": "That is exactly where our work starts: turning “we need AI” into one concrete task in one concrete area.",
+      "cierre": "Sometimes the answer is: not yet. We tell you that too."
+    },
+    "creemos": {
+      "kicker": "What we believe",
+      "headline": "AI is worth it when it does a whole task, under written rules, with someone reviewing it.",
+      "c1Titulo": "A whole task, not a slice",
+      "c1Body": "Half an automated task leaves a person finishing it by hand and checking twice as much. If it can't be done end to end, it isn't time yet.",
+      "c2Titulo": "Written rules before code",
+      "c2Body": "The system does what the process says. If the process lives in one person's head, the first thing we deliver is the process — not the system.",
+      "c3Titulo": "A person reviews and decides",
+      "c3Body": "These tools get things wrong and sometimes make things up. That's why everything is built so someone can review it: the AI proposes, the person decides.",
+      "nota": "Technology can take away repetitive tasks; the decisions, the attention that matters and the responsibility stay with people."
+    },
+    "como": {
+      "kicker": "How we work",
+      "headline": "Understand first. Building is the last step.",
+      "p1Titulo": "Diagnosis",
+      "p1Body": "We understand your operation and identify where AI genuinely helps — and where it isn't needed.",
+      "p2Titulo": "The process, in writing",
+      "p2Body": "Before anything is built, the process gets written down. It's the step almost nobody has done, and everything else depends on it.",
+      "p3Titulo": "Build",
+      "p3Body": "Quoted separately, with written scope and success criteria. No promises about savings, sales or hours: you measure the impact, with your own numbers.",
+      "p4Titulo": "Operation",
+      "p4Body": "What we deliver can stay under a hosting, monitoring and maintenance plan, depending on what your operation needs."
+    },
+    "jerga": {
+      "kicker": "No jargon",
+      "headline": "The technical part, said in the language of your operation.",
+      "body": "The technical credential exists and can be checked. But it isn't what helps you: this is the same thing, said in your operation's language.",
+      "t1Operacion": "We run cloud systems that work in real businesses today.",
+      "t1Tecnico": "Cloud engineering and infrastructure as code",
+      "t2Operacion": "We build the systems from the inside, we don't just configure them.",
+      "t2Tecnico": "Backend development",
+      "t3Operacion": "We know how to keep AI systems running in production, not just how to demo them.",
+      "t3Tecnico": "MLOps and LLMOps",
+      "t4Operacion": "Our AI works in real businesses today.",
+      "t4Tecnico": "Applied AI, systems in production",
+      "t5Operacion": "We connect the technology to the way your team actually works.",
+      "t5Tecnico": "Systems design and process integration",
+      "t6Operacion": "We've been on the other side of the counter: payroll, suppliers, sales, customers.",
+      "t6Tecnico": "Having owned and run businesses"
+    },
+    "seve": {
+      "kicker": "What it looks like",
+      "headline": "This is what a system working inside a company looks like.",
+      "body": "Two examples, built with demonstration data. These are not screenshots of any client.",
+      "d1Titulo": "A quote that builds itself",
+      "d1Body": "The system takes the request, applies the pricing rules your team already uses and builds the document. A person reviews it before it goes out.",
+      "d2Titulo": "An assistant that knows your documents",
+      "d2Body": "It answers with the information the company loaded. If something isn't there, it says so or asks — it doesn't make it up.",
+      "etiqueta": "Demonstration data",
+      "demo": {
+        "titulo": "Quote",
+        "campo1": "Request received",
+        "valor1": "Supply and installation, site in Zapopan",
+        "campo2": "Rules applied",
+        "valor2": "Current price list · volume discount · lead time",
+        "campo3": "Document",
+        "valor3": "Quote assembled, ready for review",
+        "pie": "A person reviews it. Then it goes out."
+      }
+    },
+    "areas": {
+      "kicker": "Where",
+      "headline": "Where it goes first: the area, and the task you start with.",
+      "body": "AI doesn't go “into the company”. It goes into an area, on a task. These are the eight where the conversation most often starts, each with an example of where to begin.",
+      "insignia": "On offer",
+      "nota": "“On offer” means exactly that: we can build it for your operation. The day an area has delivered work we're allowed to describe, you'll see it marked differently — not before.",
+      "cardCta": "See if it applies to you",
+      "contabilidad": {
+        "nombre": "Accounting",
+        "tarea": "Classify and reconcile transactions against the documents that back them."
+      },
+      "compras": {
+        "nombre": "Purchasing",
+        "tarea": "Build the purchase order from the requisition and follow up with the supplier."
+      },
+      "ventas": {
+        "nombre": "Sales and quoting",
+        "tarea": "Build the quote using the pricing rules your team already applies."
+      },
+      "facturacion": {
+        "nombre": "Invoicing and collections",
+        "tarea": "Issue, send and follow up on what's waiting to be collected."
+      },
+      "rh": {
+        "nombre": "Human resources",
+        "tarea": "Answer the questions staff ask every week and keep the personnel file in order."
+      },
+      "marketing": {
+        "nombre": "Marketing",
+        "tarea": "Prepare and adapt materials using the information and tone the company has already defined."
+      },
+      "comercioExterior": {
+        "nombre": "Foreign trade",
+        "tarea": "Assemble the electronic file for an import and leave it in order for when an audit comes."
+      },
+      "direccion": {
+        "nombre": "Leadership",
+        "tarea": "Bring together in one place what today sits across five separate reports."
+      }
     },
     "hacemos": {
       "kicker": "What we do",
-      "headline": "Three ways into your operation.",
+      "headline": "Three ways in. Start with whichever one fits.",
       "capacitacion": {
         "titulo": "Training",
         "estado": "Groups opening soon",
@@ -87,35 +187,19 @@
         ]
       }
     },
-    "ayudamos": {
-      "kicker": "Who we help",
-      "headline": "Businesses with an operation you can describe.",
-      "body": "We work with enterprises and businesses of every size. There is delivered work in these industries:",
-      "giros": [
-        "Construction",
-        "Logistics",
-        "Furniture stores",
-        "Retail",
-        "Private schools",
-        "Online businesses"
-      ],
-      "fraseCasa": "…and any industry with an operation you can describe."
-    },
-    "como": {
-      "kicker": "How we work",
-      "headline": "Understand first. Building comes last.",
-      "p1Titulo": "Diagnostic",
-      "p1Body": "We get to know your operation and find where AI genuinely helps — and where it isn't needed.",
-      "p2Titulo": "The process, in writing",
-      "p2Body": "Before anything gets built, the process gets written down. It's the step almost nobody has done, and everything else depends on it.",
-      "p3Titulo": "Build",
-      "p3Body": "Quoted separately, with scope and success criteria in writing. No promises of savings, sales, or hours: the impact is measured by your numbers.",
-      "p4Titulo": "Operation",
-      "p4Body": "What we deliver can stay under a hosting, monitoring, and maintenance plan, depending on what your operation needs."
+    "cuanto": {
+      "kicker": "How much",
+      "headline": "No packages. Every proposal is about your case.",
+      "body": "We don't publish prices because we don't sell packages. Here's what we can tell you before we talk:",
+      "p1": "Training is priced per group and per result, never per hour.",
+      "p2": "Advisory and builds are quoted separately, each with written scope and success criteria.",
+      "p3": "What gets delivered can stay under an operation plan: hosting, monitoring and maintenance.",
+      "cierre": "The figures come in the first conversation.",
+      "nota": "And something you won't read here: an impact number. That one comes out of your data, not out of our proposal."
     },
     "trayectoria": {
       "kicker": "Track record",
-      "headline": "What has been done.",
+      "headline": "What's already been done, without names.",
       "c1Valor": "+100",
       "c1Label": "businesses advised",
       "c2Valor": "+50",
@@ -129,12 +213,10 @@
       "c6Valor": "24/7",
       "c6Label": "assistant coverage",
       "agentes": "Also: agents that do the whole task on their own — autonomous — running in production systems today.",
-      "nota": "“+100” and “+50” are the operator's own estimate as of 2026-09-02; no formal records exist for that stage."
+      "nota": "“+100” and “+50” are the operator's own estimate as of 2026-09-02; no formal records exist for that stage.",
+      "body": "No client is named here without written permission, and no figure measured by us is published. What can be told: how much, of what kind, and in which sectors."
     },
     "casos": {
-      "kicker": "Case work",
-      "headline": "The work can be told without names.",
-      "body": "No client is named here without written permission, and no figure is published without measurement. What we can say: the kind of work that has been delivered.",
       "t1Titulo": "Quoting tools",
       "t1Body": "Systems that put a quote together using the business's own rules and prices, so it doesn't depend on one person.",
       "t2Titulo": "AI agents",
@@ -149,56 +231,59 @@
       "t6Body": "The groundwork: getting the process written down before automating anything. Without it, we don't build agents.",
       "t7Titulo": "Advisory sessions",
       "t7Body": "A diagnostic of the operation and a map of where AI helps — and where it doesn't.",
-      "giros": "Delivered across industries like construction, logistics, furniture stores, retail, private schools, and online businesses."
+      "giros": "Delivered across industries like construction, logistics, furniture stores, retail, private schools, and online businesses.",
+      "tiposTitulo": "Of what kind:",
+      "fraseCasa": "…and any industry with an operation that can be described."
     },
     "productos": {
       "kicker": "Products",
-      "headline": "Two products, each with its own page.",
-      "body": "Besides services, Osppy builds products: the same conversational assistant on WhatsApp, one industry at a time.",
+      "headline": "We build products too.",
+      "body": "Besides working inside other companies' operations, Osppy builds its own product: one WhatsApp assistant, one sector at a time.",
       "hoteles": {
         "nombre": "Diana Hoteles",
         "estado": "In production",
-        "body": "Diana answers guests on WhatsApp with the hotel's own information, and the team sees everything and operates from a panel. It's Osppy's assistant for hotels, and it operates today in hotels in production.",
+        "body": "Diana answers guests on WhatsApp with the hotel's own information, and the team sees everything and operates from a panel. It runs in hotels in production today.",
         "cta": "See the product"
       },
       "citas": {
         "nombre": "Diana Citas",
-        "estado": "Coming soon",
+        "estado": "Under construction",
         "body": "Diana, for appointment-based businesses: clinics, practices, spas. It's under construction, with no committed date; we're looking for founding clinics.",
         "cta": "I want to be a founding clinic"
       }
     },
-    "testimonios": {
+    "voces": {
       "kicker": "Voices",
-      "headline": "Illustrative voices from people who use an assistant like this.",
-      "etiqueta": "Illustrative",
-      "nota": "Quotes without names and without figures: they illustrate what it's like to have an assistant answering. They are not verified testimonials.",
-      "q1": "I used to answer messages at midnight every single day. Now I sleep. The assistant replies in my tone, with my business's exact information.",
-      "q2": "I thought a bot would feel fake. Not at all: my clients write to it the same way they write to me, and it knows when to hand the conversation over.",
-      "q3": "I stopped losing bookings to slow replies. What comes in overnight no longer goes unanswered."
+      "headline": "What it feels like to have a system doing the work.",
+      "divulgacion": "Illustrative voices from people who run an assistant like this. They are not verified testimonials.",
+      "q1": "What changed wasn't the tool. It was that we finally wrote down how a quote gets made — and then it could be automated.",
+      "q2": "I thought it would be another chatbot. It's a step of the process nobody does by hand any more, and someone reviews it before it goes out.",
+      "q3": "They told us one area wasn't worth it yet. That conversation is what made us trust them."
     },
     "faq": {
       "kicker": "Questions",
-      "headline": "What we usually get asked.",
-      "q1": "What does “applied AI” mean?",
-      "a1": "That artificial intelligence doesn't stay in a demo. It goes to work inside the operation: a concrete task, from a concrete role, with a result someone reviews.",
-      "q2": "Where do you start?",
-      "a2": "Almost always with a diagnostic: understanding your operation and finding where AI genuinely helps. What follows depends on what shows up: training, putting a process in order, or building a system.",
-      "q3": "What if my processes aren't written down anywhere?",
+      "headline": "What people usually ask us.",
+      "q1": "Does this work at a company with many areas?",
+      "a1": "Yes, and that's where it pays off most — but you don't go in through all of them at once. You start with one area and one task, leave it running, and that becomes the example the rest of the company understands it by.",
+      "q2": "Where do we start?",
+      "a2": "Almost always with a diagnosis: understanding your operation and identifying where AI genuinely helps. What follows depends on what shows up: training, tidying up a process, or building a system.",
+      "q3": "What if our processes aren't written down anywhere?",
       "a3": "That's the most common case. Structuring the process is part of the work — and it comes before any automation. We don't build agents without well-defined processes.",
       "q4": "What doesn't Osppy do?",
-      "a4": "We don't promise savings, sales, or hours: your numbers measure that. We don't hand over a tool and walk away. And our systems don't confirm prices, availability, or terms nobody verified: when they don't know something, they say so, they ask, or they hand the conversation to a person.",
-      "q5": "What about my business's information?",
-      "a5": "We define in writing what information can be used, what gets anonymized, and what stays out. And AI tools do get things wrong sometimes: that's why everything is set up so a person can review and decide.",
-      "q6": "How is it priced?",
-      "a6": "Training and advisory are quoted per group and per outcome; implementation separately, with scope and success criteria in writing. We don't publish prices because we don't sell packages: every proposal is about your case."
+      "a4": "It doesn't promise savings, sales or hours: your numbers measure that. It doesn't hand over a tool and walk away. And its systems don't confirm prices, availability or terms nobody verified: when they don't know something, they say so, ask, or hand the conversation to a person.",
+      "q5": "What happens to my company's information?",
+      "a5": "We define in writing what information may be used, what gets anonymized and what stays out. And AI tools do get things wrong: that's why everything is built so a person can review and decide.",
+      "q6": "How is it quoted?",
+      "a6": "Training and advisory are quoted per group and per result; builds separately, with written scope and success criteria. We don't publish prices because we don't sell packages: every proposal is about your case.",
+      "q7": "Does it connect to my systems?",
+      "a7": "That gets settled in the diagnosis. We don't promise integrations that don't exist: if your ERP or your invoicing system has a way in, it gets checked there — by name — before it appears in a proposal."
     },
     "cta": {
       "kicker": "The next step",
-      "headline": "Tell us about your operation.",
-      "body": "You write to us, a person answers, and we see if there's something worth doing. Sometimes the honest answer is “not yet” — we'll give you that one too.",
+      "headline": "Tell us which area you want to start with.",
+      "body": "You write, a person answers, and we work out whether there's anything worth doing. Sometimes the honest answer is “not yet” — we'll give you that one too.",
       "button": "Write to us",
-      "ctaMessage": "Hi, I'd like to talk about my business operations.",
+      "ctaMessage": "Hi, I'd like to talk about my company's operation. The area I want to start with is…",
       "mailLabel": "hello@osppy.com",
       "microcopy": "No forms: a person answers."
     }

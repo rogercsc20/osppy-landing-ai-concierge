@@ -1,77 +1,113 @@
 "use client";
 
-import { useRef } from "react";
-import { useInView } from "motion/react";
-import { useReducedMotion } from "@/components/fx/motion-hooks";
 import { useTranslations } from "next-intl";
+import { AnimatePresence, motion } from "motion/react";
+import { useReducedMotion } from "@/components/fx/motion-hooks";
+import { Reveal } from "@/components/fx/Reveal";
+import { SplitText } from "@/components/fx/SplitText";
+import { Pinned } from "@/components/fx/Pinned";
+import { DUR, EASE_EXPO } from "@/lib/motion";
+import { cn } from "@/lib/utils";
 
-/* How we work: a four-step timeline whose marker lights up as each step
-   crosses the middle of the viewport. Reduced motion renders every step
-   in its final, active-marker state. */
+/* HOW, first beat — the method, and the one section of the page that pins
+   (landing v2 §3: sticky storytelling is used ONCE or it stops meaning
+   anything). The chapter holds still while the scroll walks the four steps;
+   below lg and under reduced motion the four simply stack, which is why the
+   step body is one component used by both shapes.
 
-function Step({
+   The copy is unchanged from the previous home: it is the paragraph that
+   survived every review. */
+
+const STEPS = ["p1", "p2", "p3", "p4"] as const;
+
+function StepBody({
   titulo,
   body,
-  last,
+  index,
 }: {
   titulo: string;
   body: string;
-  last: boolean;
+  index: number;
 }) {
-  const ref = useRef<HTMLLIElement>(null);
-  const reduce = useReducedMotion();
-  const inView = useInView(ref, { margin: "-40% 0px -40% 0px" });
-  const active = reduce || inView;
-
   return (
-    <li ref={ref} className="relative pl-10 pb-12 last:pb-0">
-      {!last && (
-        <span
-          aria-hidden="true"
-          className="absolute left-[7px] top-6 h-full w-px bg-line"
-        />
-      )}
-      <span
-        aria-hidden="true"
-        className={`absolute left-0 top-1.5 h-[15px] w-[15px] rounded-full border-2 transition-colors duration-300 ${
-          active ? "border-accent bg-accent" : "border-line bg-surface"
-        }`}
-      />
-      <h3
-        className={`font-display text-xl font-bold transition-colors duration-300 ${
-          active ? "text-text" : "text-text-2"
-        }`}
-      >
-        {titulo}
-      </h3>
-      <p className="mt-2 max-w-lg leading-relaxed text-text-2">{body}</p>
-    </li>
+    <div>
+      <span className="font-display text-sm font-semibold tabular-nums text-accent-text">
+        {`0${index + 1}`}
+      </span>
+      <h3 className="font-display mt-3 text-h2 font-semibold text-text">{titulo}</h3>
+      <p className="mt-5 max-w-xl text-lead text-text-2">{body}</p>
+    </div>
+  );
+}
+
+/** The rail: four dots, the current one lit and grown. */
+function Rail({ step, labels }: { step: number; labels: string[] }) {
+  return (
+    <ol className="flex flex-col gap-4">
+      {labels.map((label, i) => (
+        <li key={label} className="flex items-center gap-4">
+          <span
+            aria-hidden="true"
+            className={cn(
+              "h-px transition-all duration-500",
+              i === step ? "w-12 bg-accent-text" : "w-6 bg-line",
+            )}
+          />
+          <span
+            className={cn(
+              "text-sm transition-colors duration-500",
+              i === step ? "font-medium text-text" : "text-text-2",
+            )}
+          >
+            {label}
+          </span>
+        </li>
+      ))}
+    </ol>
   );
 }
 
 export function Como() {
   const t = useTranslations("home.como");
-  const pasos = (["p1", "p2", "p3", "p4"] as const).map((k) => ({
-    titulo: t(`${k}Titulo`),
-    body: t(`${k}Body`),
-  }));
+  const reduce = useReducedMotion();
+  const steps = STEPS.map((k) => ({ titulo: t(`${k}Titulo`), body: t(`${k}Body`) }));
+  const labels = steps.map((s) => s.titulo);
 
   return (
-    <section id="como" className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
-      <p className="eyebrow">{t("kicker")}</p>
-      <h2 className="font-display mt-4 max-w-xl text-3xl font-bold tracking-tight text-text sm:text-4xl">
-        {t("headline")}
-      </h2>
-      <ol className="mt-12 max-w-2xl">
-        {pasos.map((paso, i) => (
-          <Step
-            key={paso.titulo}
-            titulo={paso.titulo}
-            body={paso.body}
-            last={i === pasos.length - 1}
-          />
-        ))}
-      </ol>
+    <section id="como" className="relative px-4 py-section sm:px-6">
+      <div className="mx-auto max-w-6xl">
+        <Reveal>
+          <p className="eyebrow">{t("kicker")}</p>
+          <h2 className="font-display mt-5 max-w-3xl text-h2 font-semibold text-text">
+            <SplitText text={t("headline")} />
+          </h2>
+        </Reveal>
+
+        <Pinned steps={steps.length} className="mt-16">
+          {(step, stacked) =>
+            stacked ? (
+              <div className="border-t border-line py-10">
+                <StepBody {...steps[step]} index={step} />
+              </div>
+            ) : (
+              <div className="grid w-full grid-cols-[minmax(0,14rem)_1fr] gap-16">
+                <Rail step={step} labels={labels} />
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={step}
+                    initial={reduce ? false : { opacity: 0, y: 24, filter: "blur(6px)" }}
+                    animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                    exit={reduce ? undefined : { opacity: 0, y: -24, filter: "blur(6px)" }}
+                    transition={{ duration: DUR.fast, ease: EASE_EXPO }}
+                  >
+                    <StepBody {...steps[step]} index={step} />
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+            )
+          }
+        </Pinned>
+      </div>
     </section>
   );
 }

@@ -4,11 +4,20 @@ import type { CSSProperties } from "react";
 import { motion } from "motion/react";
 import { useReducedMotion } from "@/components/fx/motion-hooks";
 import { useTranslations } from "next-intl";
+import { ArrowRight } from "lucide-react";
+import { ShineButton } from "@/components/ui/ShineButton";
+import { Spotlight } from "@/components/fx/Spotlight";
 import { whatsappHref } from "@/lib/site";
 
-/* The house hero (L4c, HQA-D26/D31): typographic, with the ig-02 lámina-7
-   process diagram animated in SVG — nodes ignite in sequence; the second
-   node (the written process) carries the page's single copper accent. */
+/* The house hero (V4, HQA-D39): the WHY ring opens the page — the question
+   the reader already has ("we know we need AI") and the promise of the
+   answer ("where"). Typographic, with the ig-02 lámina-7 process diagram
+   animated in SVG: nodes ignite in sequence and the second one — the written
+   process — carries the page's single copper accent, because that is the
+   step the whole argument turns on.
+
+   The h1 is the LCP element: it rises with CSS and never starts at opacity 0
+   (globals.css). SplitText starts at h2, everywhere else. */
 
 const NODE_W = 181;
 const NODE_H = 72;
@@ -116,31 +125,40 @@ export function Hero() {
         };
 
   return (
-    <section className="mx-auto flex min-h-[calc(100svh-4rem)] max-w-6xl flex-col justify-center px-4 pb-16 pt-28 sm:px-6">
+    <section className="relative flex min-h-[calc(100svh-4rem)] items-center px-4 pb-section pt-28 sm:px-6">
+      <Spotlight className="mx-auto w-full max-w-6xl">
       <p className="eyebrow animate-fade-rise" style={{ "--rise-delay": "0s" } as CSSProperties}>
         {t("kicker")}
       </p>
       <h1
-        className="font-display animate-rise-only mt-4 max-w-4xl text-4xl font-extrabold leading-[1.05] tracking-tight text-text sm:text-6xl"
+        className="font-display animate-rise-only mt-4 max-w-4xl text-h1 font-extrabold text-text"
         style={{ "--rise-delay": "0.05s" } as CSSProperties}
       >
         {t("headline")}
       </h1>
       <p
-        className="animate-fade-rise mt-6 max-w-2xl text-lg leading-relaxed text-text-2"
+        className="animate-fade-rise mt-6 max-w-2xl text-lead text-text-2"
         style={{ "--rise-delay": "0.15s" } as CSSProperties}
       >
         {t("sub")}
       </p>
       <div
-        className="animate-fade-rise mt-8"
+        className="animate-fade-rise mt-9 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-8"
         style={{ "--rise-delay": "0.25s" } as CSSProperties}
       >
-        <a
-          href={whatsappHref(t("ctaMessage"))}
-          className="inline-flex items-center rounded-full bg-accent px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
-        >
+        {/* Until /diagnostico ships (V5) the primary CTA opens the same
+            conversation the rest of the page opens; the secondary one drops
+            the reader into the eight areas, which is the question it asks. */}
+        <ShineButton href={whatsappHref(t("ctaMessage"))}>
           {t("cta")}
+          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+        </ShineButton>
+        <a
+          href="#areas"
+          className="link-underline group inline-flex items-center gap-2 text-base font-medium text-text-2 transition-colors hover:text-text"
+        >
+          {t("ctaSecundario")}
+          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
         </a>
       </div>
 
@@ -220,6 +238,7 @@ export function Hero() {
           {t("diagrama.pie")}
         </p>
       </div>
+      </Spotlight>
     </section>
   );
 }
