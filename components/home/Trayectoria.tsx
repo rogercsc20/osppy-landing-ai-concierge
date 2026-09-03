@@ -10,13 +10,27 @@ import { GlowCard } from "@/components/ui/GlowCard";
    they were saying the same thing twice, one with numbers and one with
    kinds of work.
 
-   Every figure here is attested and nothing else is: +100 and +50 are the
-   operator's own estimate of 2026-09-02 (HQA-D30) and carry that note; 3, 9,
-   2 and 24/7 are structural facts. scripts/check-copy.mjs FAILS on any other
-   digit. No client is named, here or anywhere (source of truth §11.1). */
+   **Four figures, and no note under them** (tanda C, HQA-D60). It was six.
+   «2 productos en producción» came out because the operator asked for that
+   tile to change, «+20 soluciones implementadas» did not go in because it
+   would have sat next to «+50» saying almost the same thing with a different
+   number, and «3 líneas de trabajo» is taxonomy, not track record. The
+   estimate note is gone too, and NOT for design reasons: asked whether it
+   came off because the figures are firm or because it was in the way, the
+   operator answered «firmas las sostengo … ninguna frase ni disclaimer».
+   They stopped being estimates; where they are published they go alone.
 
-const COUNTERS = ["c1", "c2", "c3", "c4", "c5", "c6"] as const;
-const TIPOS = ["t1", "t2", "t3", "t4", "t5", "t6", "t7"] as const;
+   Every figure is still attested and nothing else is: +100 and +50 by the
+   operator (FDV §11.11), «+10 giros» by the twenty sectors of §11.10, 24/7 by
+   the product. scripts/check-copy.mjs FAILS on any other digit, and its
+   global whitelist lost 3, 9 and 2 with the tiles that used them. No client
+   is named, here or anywhere (source of truth §11.1). */
+
+const COUNTERS = ["c1", "c2", "c3", "c4"] as const;
+/* The order is the operator's, dictated on 2026-09-03: Claude Enterprise
+   first, the two documentary ones last. It is not alphabetical and it is not
+   the order they were built in — it is the order he wants read. */
+const TIPOS = ["t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8", "t9", "t10"] as const;
 
 /** "+100" → the prefix and the number; "24/7" stays a string. */
 function Figura({ value }: { value: string }) {
@@ -50,16 +64,16 @@ export function Trayectoria() {
         </Reveal>
 
         <Stagger
-          className="mt-14 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6 lg:gap-4"
+          className="mt-14 grid grid-cols-2 gap-4 lg:grid-cols-4"
           variant="scale-in"
           itemClassName="h-full"
         >
           {counters.map((c) => (
-            <div key={c.label} className="glass h-full rounded-2xl p-6">
-              <span className="font-display block text-h3 font-extrabold tracking-tight text-text">
+            <div key={c.label} className="glass h-full rounded-2xl p-7">
+              <span className="font-display block text-h2 font-extrabold leading-none tracking-tight text-text">
                 <Figura value={c.value} />
               </span>
-              <span className="mt-2 block text-sm leading-snug text-text-2">
+              <span className="mt-4 block text-sm leading-snug text-text-2">
                 {c.label}
               </span>
             </div>
@@ -68,14 +82,13 @@ export function Trayectoria() {
 
         <Reveal delay={0.1} className="mt-8">
           <p className="max-w-2xl leading-relaxed text-text">{t("agentes")}</p>
-          <p className="mt-3 max-w-2xl text-xs text-text-2">{t("nota")}</p>
         </Reveal>
 
         <Reveal className="mt-16">
           <p className="text-sm font-semibold text-text">{tc("tiposTitulo")}</p>
         </Reveal>
         <Stagger
-          className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4"
+          className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-5"
           variant="fade-up"
           itemClassName="h-full"
         >
@@ -89,7 +102,7 @@ export function Trayectoria() {
 
         <Reveal delay={0.1} className="mt-10">
           <p className="max-w-3xl border-t border-line pt-6 text-sm leading-relaxed text-text-2">
-            {tc("giros")} {tc("fraseCasa")}
+            {tc("giros")}
           </p>
         </Reveal>
       </div>

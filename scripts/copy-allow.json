@@ -1,4 +1,5 @@
 {
-  "_": "Per-key figure allow list for scripts/check-copy.mjs (landing v2, slice V2). A key (or a prefix ending in *) lists the substrings whose digits are attested; every other digit on the site is a FALLA. Add a row only with its source.",
-  "home.trayectoria.nota": ["2026-09-02"]
+  "_": "Per-key figure allow list for scripts/check-copy.mjs (landing v2, slice V2). A key (or a prefix ending in *) lists the substrings whose digits are attested; every other digit on the site is a FALLA. Add a row only with its source. Keys starting with `//` are the sources, read by humans.",
+  "//home.trayectoria.c3Valor": "«+10 giros atendidos» — operator, 2026-09-03 (HQA-D58 and HQA-D65): twenty sectors attested in FDV §11.10, so «more than ten» is the conservative reading of a figure that is now well past it. Replaces the «9» that used to sit in the global whitelist.",
+  "home.trayectoria.c3Valor": ["+10"]
 }

@@ -8,7 +8,7 @@
 // with --locale es|en):
 //   FALLA  — a banned term found as a substring of the normalized text
 //   FALLA  — the names Tlaquepaque / Aura / Lucero (whole word)
-//   FALLA  — a digit outside the global whitelist (24/7, 100, 50, 3, 9, 2;
+//   FALLA  — a digit outside the global whitelist (24/7, 100, 50;
 //            years in legal/rights keys) and outside the per-key allow list
 //            scripts/copy-allow.json (v2: this was an AVISO in v1 — every
 //            figure on the site is now either attested or a failure)
@@ -85,10 +85,13 @@ if (prohibidas.length === 0) {
 
 // ── per-key allow list ──────────────────────────────────────────────────────
 // { "<exact key>" | "<prefix>*": ["substrings whose digits are attested"] }
+// A value that is not an array is a comment, not a rule: `_` and the `//…`
+// source lines. Spreading a string here would allow its individual characters.
 const allow = existsSync(ALLOW) ? JSON.parse(readFileSync(ALLOW, "utf8")) : {};
 function permitidosPara(llave) {
   const out = [];
   for (const [k, v] of Object.entries(allow)) {
+    if (!Array.isArray(v)) continue;
     const hit = k.endsWith("*") ? llave.startsWith(k.slice(0, -1)) : k === llave;
     if (hit) out.push(...v);
   }
@@ -97,7 +100,11 @@ function permitidosPara(llave) {
 
 // ── the copy ────────────────────────────────────────────────────────────────
 const NOMBRES = ["tlaquepaque", "aura", "lucero"];
-const DIGITOS_OK = new Set(["24/7", "100", "50", "3", "9", "2"]);
+// The global whitelist shrank in tanda C: the home's tile row went from six
+// figures to four (HQA-D60), so «3 líneas de trabajo», «9 giros» and «2
+// productos en producción» no longer exist and their digits stop being
+// waved through everywhere. «+10» is attested per key in copy-allow.json.
+const DIGITOS_OK = new Set(["24/7", "100", "50"]);
 const PROMESAS = [
   /\bahorr\w*/u,
   /\breemplaz\w*/u,

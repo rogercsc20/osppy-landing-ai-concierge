@@ -186,7 +186,7 @@ seis tipos de construcción. **Un solo cambio de texto**, en el titular:
 *(Los tres puntos y el cierre son `business/pricing.md` §6 palabra por palabra. Si algún día
 hay rangos, se escriben primero ahí y después aquí — HQA-D43.)*
 
-## 10 · Trayectoria · `home.trayectoria.*` y `home.casos.*` — **fusionadas, sin cifras nuevas**
+## 10 · Trayectoria · `home.trayectoria.*` y `home.casos.*` — **cuatro cifras, diez tipos, diez industrias (tanda C, C5)**
 
 | Llave | Texto |
 |---|---|
@@ -194,26 +194,49 @@ hay rangos, se escriben primero ahí y después aquí — HQA-D43.)*
 | `trayectoria.headline` | **Lo que ya se hizo, sin nombres.** |
 | `trayectoria.body` | Aquí no se nombra a ningún cliente sin permiso por escrito, y no se publica ninguna cifra medida por nosotros. Lo que sí se puede contar: cuánto, de qué tipo y en qué giros. |
 
-Los seis contadores se quedan idénticos —**+100** empresas asesoradas · **+50** soluciones
-construidas para empresas · **3** líneas de trabajo · **9** giros atendidos · **2** productos en
-producción · **24/7** atención del asistente— con su línea de agentes autónomos y su nota
-íntegra: *“+100” y “+50” son estimación del operador al 2026-09-02; no hay registro contable de
-esa etapa.*
+**Cuatro contadores, no seis:** **+100** empresas asesoradas · **+50** soluciones construidas
+para empresas · **+10** giros atendidos · **24/7** atención del asistente. Se queda la línea de
+agentes autónomos. **La nota de estimación se va, y no por estética.**
 
-Los siete tipos de trabajo (`home.casos.t1`–`t7`) se conservan palabra por palabra:
-Cotizadores · Agentes de IA · Asistentes de IA · Adopción de Claude Enterprise · Modelos en tu
-infraestructura · Estructuración de procesos · Sesiones de asesoría.
+> **Las tres decisiones del operador detrás de esos cuatro números (2026-09-03).**
+> **(1)** *«+50 se queda y +20 no entra, 2 se va»* — «+20 soluciones implementadas» habría
+> quedado junto a «+50» diciendo casi lo mismo con otro número, y «2 productos en producción»
+> era el mosaico que pidió cambiar. **(2)** Con cinco mosaicos y un hueco, eligió **cuatro más
+> grandes**: se cae también «3 líneas de trabajo», que es taxonomía, no trayectoria.
+> **(3)** Preguntado si la nota de estimación salía porque las cifras son firmes o solo porque
+> estorbaba: *«firmas las sostengo, no neesitas escribir cifras sosetenidas por operador, solo
+> las cifras y ya, ninguna frase ni disclaimer»*. Cambia su **estatus** en la fuente de verdad
+> §11.11, no nada más el sitio (HQA-D60). El «+10» entra a `scripts/copy-allow.json` con su
+> fuente; la lista blanca global del verificador **perdió 3, 9 y 2** junto con los mosaicos que
+> los usaban.
 
-La línea de giros cierra la sección, **una sola vez en toda la página**:
+**Diez tipos de trabajo, en el orden que dictó el operador** (`home.casos.t1`–`t10`): Adopción
+de Claude Enterprise · Sesiones de asesoría · Agentes de IA · Modelos en tu infraestructura ·
+Estructuración de procesos · **Automatización de procesos** · Asistentes de IA · Cotizadores ·
+**Plantillas con los membretes de tu empresa** · **Sistema para manejar auditorías**. Los tres
+en negrita son nuevos y **los tres están atestiguados** (2026-09-03, «Los tres, entregados»,
+HQA-D62): ninguno aparecía en el repo antes de esa respuesta, que es exactamente por qué se
+preguntó en vez de suponerse.
+
+La línea de industrias cierra la sección, **una sola vez en toda la página**:
 
 | Llave | Texto |
 |---|---|
-| `casos.giros` | Entregado en giros como construcción, logística, mueblerías, retail, escuelas privadas y negocios en línea. |
+| `casos.giros` | Industrias a las que ayudamos: tecnología y software, manufactura, electrónica, logística y transporte, construcción e infraestructura, comercio exterior, agricultura, farmacéutica, energética e inmobiliaria. |
 
-> **Baja.** La sección «A quién ayudamos» (`home.ayudamos.*`) desaparece: repetía los mismos
-> seis giros y su cuerpo decía «también PyMEs», que HQA-D37 retira del sitio. Su frase de casa
-> —«…y cualquier industria con una operación que se pueda describir»— se conserva pegada a la
-> línea de giros de arriba.
+> **Por qué son diez y por qué no dicen «entregado».** Operador, 2026-09-03 (HQA-D65, supera
+> HQA-D32): *«quiero que sean 10, agrega inmobiliaria, todas entregadas pero NO MENCIONES
+> ENTREAGDO, mejor algo asi como industrias a las que ayudamos y ya la lista algo asi, no
+> necesitamos poner entregado ni disponible»*. Tres cosas a la vez: el tope de la guía §7.4
+> **sube de seis a diez**, la coletilla *«…y cualquier industria con una operación que se pueda
+> describir»* **se va** —él llamó vaga a la línea entera— y el encabezado es **más suave que la
+> verdad que lo respalda**, que es el sentido correcto y nunca el contrario. Cinco de los diez
+> (electrónica, agricultura, farmacéutica, energética, inmobiliaria) se atestiguaron en esa
+> misma respuesta: dos estaban en «Se ofrece» y tres no existían en el repo.
+
+> **Baja anterior, que sigue en pie.** La sección «A quién ayudamos» (`home.ayudamos.*`)
+> desapareció en V4. Su frase de casa se conservaba pegada a la línea de giros; **la tanda C
+> la retira** con la coletilla.
 
 ## 11 · Productos · `home.productos.*`
 
