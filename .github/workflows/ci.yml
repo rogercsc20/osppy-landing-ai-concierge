@@ -35,6 +35,11 @@ jobs:
           fi
           echo "service-role-leak guard: clean"
 
+      # Truth and design guards (landing v2, slice V2): key parity ES/EN, the
+      # banned-word bank with per-key figure allow list, and token contrast.
+      # `check:sections` runs separately until the sections comply (slice V3).
+      - run: npm run check
+
       - run: npm run lint
 
       - run: npm run build

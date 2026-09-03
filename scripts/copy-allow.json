@@ -1,0 +1,4 @@
+{
+  "_": "Per-key figure allow list for scripts/check-copy.mjs (landing v2, slice V2). A key (or a prefix ending in *) lists the substrings whose digits are attested; every other digit on the site is a FALLA. Add a row only with its source.",
+  "home.trayectoria.nota": ["2026-09-02"]
+}

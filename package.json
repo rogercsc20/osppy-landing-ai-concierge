@@ -10,7 +10,11 @@
     "test": "playwright test",
     "check:parity": "node scripts/check-parity.mjs",
     "check:copy": "node scripts/check-copy.mjs",
-    "check": "npm run check:parity && npm run check:copy"
+    "check": "npm run check:parity && npm run check:copy && npm run check:contrast",
+    "check:sections": "node scripts/check-sections.mjs",
+    "check:contrast": "node scripts/check-contrast.mjs",
+    "capture": "node scripts/capture.mjs",
+    "lighthouse": "node scripts/lighthouse.mjs"
   },
   "dependencies": {
     "@number-flow/react": "^0.6.2",
