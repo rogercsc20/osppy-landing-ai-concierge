@@ -1,10 +1,114 @@
 [
-  { "slug": "contabilidad", "key": "contabilidad", "estado": "ofrecido" },
-  { "slug": "compras", "key": "compras", "estado": "ofrecido" },
-  { "slug": "ventas", "key": "ventas", "estado": "ofrecido" },
-  { "slug": "facturacion", "key": "facturacion", "estado": "ofrecido" },
-  { "slug": "rh", "key": "rh", "estado": "ofrecido" },
-  { "slug": "marketing", "key": "marketing", "estado": "ofrecido" },
-  { "slug": "comercio-exterior", "key": "comercioExterior", "estado": "ofrecido" },
-  { "slug": "direccion", "key": "direccion", "estado": "ofrecido" }
+  {
+    "slug": "contabilidad",
+    "key": "contabilidad",
+    "estado": "hecho",
+    "fuente": "HQA-D64",
+    "foto": "contabilidad"
+  },
+  {
+    "slug": "compras",
+    "key": "compras",
+    "estado": "hecho",
+    "fuente": "HQA-D64",
+    "foto": "compras"
+  },
+  {
+    "slug": "ventas",
+    "key": "ventas",
+    "estado": "hecho",
+    "fuente": "HQA-D64",
+    "foto": "ventas"
+  },
+  {
+    "slug": "facturacion",
+    "key": "facturacion",
+    "estado": "hecho",
+    "fuente": "HQA-D64",
+    "foto": "facturacion"
+  },
+  {
+    "slug": "rh",
+    "key": "rh",
+    "estado": "hecho",
+    "fuente": "HQA-D64",
+    "foto": "rh"
+  },
+  {
+    "slug": "nomina",
+    "key": "nomina",
+    "estado": "hecho",
+    "fuente": "HQA-D64",
+    "foto": "nomina"
+  },
+  {
+    "slug": "marketing",
+    "key": "marketing",
+    "estado": "hecho",
+    "fuente": "HQA-D64",
+    "foto": "marketing"
+  },
+  {
+    "slug": "comercio-exterior",
+    "key": "comercioExterior",
+    "estado": "hecho",
+    "fuente": "HQA-D64",
+    "foto": "comercio-exterior"
+  },
+  {
+    "slug": "operaciones",
+    "key": "operaciones",
+    "estado": "hecho",
+    "fuente": "HQA-D64",
+    "foto": "operaciones"
+  },
+  {
+    "slug": "logistica",
+    "key": "logistica",
+    "estado": "hecho",
+    "fuente": "HQA-D64",
+    "foto": "logistica"
+  },
+  {
+    "slug": "calidad",
+    "key": "calidad",
+    "estado": "hecho",
+    "fuente": "HQA-D64",
+    "foto": "calidad"
+  },
+  {
+    "slug": "mantenimiento",
+    "key": "mantenimiento",
+    "estado": "hecho",
+    "fuente": "HQA-D64",
+    "foto": "mantenimiento"
+  },
+  {
+    "slug": "sistemas",
+    "key": "sistemas",
+    "estado": "hecho",
+    "fuente": "HQA-D64",
+    "foto": "sistemas"
+  },
+  {
+    "slug": "servicio",
+    "key": "servicio",
+    "estado": "hecho",
+    "fuente": "HQA-D64",
+    "foto": "servicio"
+  },
+  {
+    "slug": "legal",
+    "key": "legal",
+    "estado": "hecho",
+    "fuente": "HQA-D64",
+    "foto": "legal"
+  },
+  {
+    "slug": "direccion",
+    "key": "direccion",
+    "estado": "hecho",
+    "fuente": "HQA-D64",
+    "foto": "direccion"
+  }
 ]

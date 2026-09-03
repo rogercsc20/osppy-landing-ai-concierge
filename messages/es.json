@@ -90,9 +90,8 @@
     "areas": {
       "kicker": "Dónde",
       "headline": "Dónde entra primero: el área, y la tarea con la que se empieza.",
-      "body": "La IA no entra “en la empresa”. Entra en un área, con una tarea. Estas son las ocho donde más seguido empieza la conversación, con un ejemplo de por dónde.",
-      "insignia": "Se ofrece",
-      "nota": "“Se ofrece” quiere decir exactamente eso: lo podemos construir para tu operación. El día que un área tenga trabajo entregado que podamos contar, la vas a ver marcada distinto — no antes.",
+      "body": "La IA no entra “en la empresa”. Entra en un área, con una tarea. Estas son las dieciséis donde más seguido empieza la conversación, cada una con un ejemplo de por dónde.",
+      "nota": "Ninguna lista es la tuya. Si tu operación tiene un área que no está aquí, es la primera de la que queremos oír.",
       "cardCta": "Ver si aplica en tu caso",
       "contabilidad": {
         "nombre": "Contabilidad",
@@ -114,6 +113,10 @@
         "nombre": "Recursos humanos",
         "tarea": "Contestar las preguntas que el personal hace todas las semanas y mantener el expediente en orden."
       },
+      "nomina": {
+        "nombre": "Nómina",
+        "tarea": "Cuadrar las incidencias del periodo contra el registro de asistencia y dejar marcadas las excepciones."
+      },
       "marketing": {
         "nombre": "Marketing",
         "tarea": "Preparar y adaptar materiales con la información y el tono que la empresa ya definió."
@@ -121,6 +124,34 @@
       "comercioExterior": {
         "nombre": "Comercio exterior",
         "tarea": "Armar el expediente electrónico de una importación y dejarlo ordenado para cuando toque una auditoría."
+      },
+      "operaciones": {
+        "nombre": "Operaciones y producción",
+        "tarea": "Armar el reporte de turno con lo que se registró en el piso, para que el supervisor lo revise en vez de escribirlo."
+      },
+      "logistica": {
+        "nombre": "Logística y almacén",
+        "tarea": "Cruzar cada embarque contra su orden y su remisión, y marcar lo que no cuadra antes de que salga."
+      },
+      "calidad": {
+        "nombre": "Calidad",
+        "tarea": "Armar el reporte de no conformidad desde la evidencia y dejarlo listo para que alguien lo firme."
+      },
+      "mantenimiento": {
+        "nombre": "Mantenimiento",
+        "tarea": "Abrir la orden de trabajo con el historial del equipo ya adentro, en vez de en blanco."
+      },
+      "sistemas": {
+        "nombre": "Sistemas y TI",
+        "tarea": "Clasificar el ticket que entra y adjuntarle lo que ya se intentó, para que nadie empiece de cero."
+      },
+      "servicio": {
+        "nombre": "Servicio al cliente",
+        "tarea": "Redactar la respuesta con la información real del pedido, y que una persona la revise antes de enviarla."
+      },
+      "legal": {
+        "nombre": "Legal y cumplimiento",
+        "tarea": "Comparar el contrato contra tu machote y señalar lo que se salió de la línea."
       },
       "direccion": {
         "nombre": "Dirección",

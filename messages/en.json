@@ -90,9 +90,8 @@
     "areas": {
       "kicker": "Where",
       "headline": "Where it goes first: the area, and the task you start with.",
-      "body": "AI doesn't go “into the company”. It goes into an area, on a task. These are the eight where the conversation most often starts, each with an example of where to begin.",
-      "insignia": "On offer",
-      "nota": "“On offer” means exactly that: we can build it for your operation. The day an area has delivered work we're allowed to describe, you'll see it marked differently — not before.",
+      "body": "AI doesn't go “into the company”. It goes into an area, on a task. These are the sixteen where the conversation most often starts, each with an example of where to begin.",
+      "nota": "No list is your list. If your operation has an area that isn't here, that's the first one we want to hear about.",
       "cardCta": "See if it applies to you",
       "contabilidad": {
         "nombre": "Accounting",
@@ -114,6 +113,10 @@
         "nombre": "Human resources",
         "tarea": "Answer the questions staff ask every week and keep the personnel file in order."
       },
+      "nomina": {
+        "nombre": "Payroll",
+        "tarea": "Reconcile the period's exceptions against the time records and flag what does not add up."
+      },
       "marketing": {
         "nombre": "Marketing",
         "tarea": "Prepare and adapt materials using the information and tone the company has already defined."
@@ -121,6 +124,34 @@
       "comercioExterior": {
         "nombre": "Foreign trade",
         "tarea": "Assemble the electronic file for an import and leave it in order for when an audit comes."
+      },
+      "operaciones": {
+        "nombre": "Operations and production",
+        "tarea": "Build the shift report from what was logged on the floor, so the supervisor reviews it instead of writing it."
+      },
+      "logistica": {
+        "nombre": "Logistics and warehouse",
+        "tarea": "Match every shipment against its order and its delivery note, and flag what does not agree before it leaves."
+      },
+      "calidad": {
+        "nombre": "Quality",
+        "tarea": "Build the non-conformity report from the evidence and leave it ready for someone to sign."
+      },
+      "mantenimiento": {
+        "nombre": "Maintenance",
+        "tarea": "Open the work order with the equipment's history already in it, instead of blank."
+      },
+      "sistemas": {
+        "nombre": "IT and systems",
+        "tarea": "Classify the incoming ticket and attach what has already been tried, so nobody starts from zero."
+      },
+      "servicio": {
+        "nombre": "Customer service",
+        "tarea": "Draft the reply from the order's real information, and have a person review it before it goes out."
+      },
+      "legal": {
+        "nombre": "Legal and compliance",
+        "tarea": "Compare the contract against your template and flag what drifted off it."
       },
       "direccion": {
         "nombre": "Leadership",

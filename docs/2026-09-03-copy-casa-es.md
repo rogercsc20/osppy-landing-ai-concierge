@@ -113,36 +113,52 @@ forma: pasa a ser el capítulo fijado (§3 del plan), con el diagrama avanzando 
 
 # WHAT — el qué
 
-## 7 · Dónde entra · `home.areas.*`
+## 7 · Dónde entra · `home.areas.*` — **dieciséis áreas y sin insignia (tanda C, C4)**
 
 | Llave | Texto |
 |---|---|
 | `kicker` | Dónde |
 | `headline` | **Dónde entra primero: el área, y la tarea con la que se empieza.** |
-| `body` | La IA no entra “en la empresa”. Entra en un área, con una tarea. Estas son las ocho donde más seguido empieza la conversación, con un ejemplo de por dónde. |
-| `insignia` | Se ofrece |
-| `nota` | “Se ofrece” quiere decir exactamente eso: lo podemos construir para tu operación. El día que un área tenga trabajo entregado que podamos contar, la vas a ver marcada distinto — no antes. |
+| `body` | La IA no entra “en la empresa”. Entra en un área, con una tarea. Estas son las dieciséis donde más seguido empieza la conversación, cada una con un ejemplo de por dónde. |
+| `nota` | Ninguna lista es la tuya. Si tu operación tiene un área que no está aquí, es la primera de la que queremos oír. |
 | `cardCta` | Ver si aplica en tu caso |
 
-| # | Área | Tarea de ejemplo | Insignia |
-|---|---|---|---|
-| 1 | Contabilidad | Clasificar y conciliar movimientos contra los documentos que los respaldan. | Se ofrece |
-| 2 | Compras | Armar la orden de compra desde la requisición y darle seguimiento al proveedor. | Se ofrece |
-| 3 | Ventas y cotizaciones | Armar la cotización con las reglas de precio que ya usa el equipo. | Se ofrece |
-| 4 | Facturación y cobranza | Emitir, mandar y dar seguimiento a lo que está por cobrarse. | Se ofrece |
-| 5 | Recursos humanos | Contestar las preguntas que el personal hace todas las semanas y mantener el expediente en orden. | Se ofrece |
-| 6 | Marketing | Preparar y adaptar materiales con la información y el tono que la empresa ya definió. | Se ofrece |
-| 7 | Comercio exterior | Armar el expediente electrónico de una importación y dejarlo ordenado para cuando toque una auditoría. | Se ofrece |
-| 8 | Dirección | Reunir en un solo lugar lo que hoy está en cinco reportes distintos. | Se ofrece |
+| # | Área | Tarea de ejemplo |
+|---|---|---|
+| 1 | Contabilidad | Clasificar y conciliar movimientos contra los documentos que los respaldan. |
+| 2 | Compras | Armar la orden de compra desde la requisición y darle seguimiento al proveedor. |
+| 3 | Ventas y cotizaciones | Armar la cotización con las reglas de precio que ya usa el equipo. |
+| 4 | Facturación y cobranza | Emitir, mandar y dar seguimiento a lo que está por cobrarse. |
+| 5 | Recursos humanos | Contestar las preguntas que el personal hace todas las semanas y mantener el expediente en orden. |
+| 6 | Nómina | Cuadrar las incidencias del periodo contra el registro de asistencia y dejar marcadas las excepciones. |
+| 7 | Marketing | Preparar y adaptar materiales con la información y el tono que la empresa ya definió. |
+| 8 | Comercio exterior | Armar el expediente electrónico de una importación y dejarlo ordenado para cuando toque una auditoría. |
+| 9 | Operaciones y producción | Armar el reporte de turno con lo que se registró en el piso, para que el supervisor lo revise en vez de escribirlo. |
+| 10 | Logística y almacén | Cruzar cada embarque contra su orden y su remisión, y marcar lo que no cuadra antes de que salga. |
+| 11 | Calidad | Armar el reporte de no conformidad desde la evidencia y dejarlo listo para que alguien lo firme. |
+| 12 | Mantenimiento | Abrir la orden de trabajo con el historial del equipo ya adentro, en vez de en blanco. |
+| 13 | Sistemas y TI | Clasificar el ticket que entra y adjuntarle lo que ya se intentó, para que nadie empiece de cero. |
+| 14 | Servicio al cliente | Redactar la respuesta con la información real del pedido, y que una persona la revise antes de enviarla. |
+| 15 | Legal y cumplimiento | Comparar el contrato contra tu machote y señalar lo que se salió de la línea. |
+| 16 | Dirección | Reunir en un solo lugar lo que hoy está en cinco reportes distintos. |
 
-> **Por qué las ocho dicen lo mismo.** Es la respuesta del operador del 2026-09-03 (HQA-D44):
-> *«Todas "Se ofrece" por ahora»*. En el repo no hay nada que atestigüe trabajo entregado **por
-> área** — los nueve giros del §11.10 son industrias, no áreas. Cuando atestigües un área con
-> fecha, sube su fila en la fuente de verdad §11.12 y el sitio la refleja sin tocar código.
+> **Ocho más, y la insignia se va.** Operador, 2026-09-03 (HQA-D64, supera HQA-D44): *«las 8,
+> mas aparte todas las de piso y sistemas, operaciones y produccion, logistica y almacen,
+> calidad, mantenimiento, sistemas y TI, servicio al cliente, nomina, legal y cumplimiento, y
+> no tienes que poner que se ofrecen, implícitamente decimos que ya las hacemos, por eso estan
+> en la pagina»*. La segunda mitad es un **atestiguamiento**, no una preferencia de diseño: por
+> eso las dieciséis quedan `hecho` en `data/areas.json` con la fila del ledger como `fuente`
+> —que es lo que `check-copy.mjs` exige y sin lo cual falla— y la insignia desaparece de la
+> pantalla, no del dato. Las áreas de piso faltaban justo porque los giros que atestiguó ese
+> mismo día (manufactura, transporte, automotriz, infraestructura) tienen operaciones, calidad
+> y mantenimiento, y la casa no las nombraba.
 
-> **Nota de implementación (V4c).** Las ocho filas viven en `data/areas.json`, con `estado` y
-> `fuente`; `check-copy.mjs` **falla** si una dice «hecho» sin citar una fila del ledger o el
-> §11.12. El área es también la pista de entrada del diagnóstico (`/diagnostico?area=`).
+> **Nota de implementación (tanda C).** Deja de ser una rejilla de tarjetas iguales: a ocho era
+> una rejilla, a dieciséis es tapiz. Ahora es una **lista tipográfica** de dieciséis nombres y
+> **un solo marco** a la derecha que toma la foto y la tarea del renglón en el que va el
+> lector. Debajo de `lg`, y con movimiento reducido, los mismos dieciséis son un acordeón. Cada
+> fila lleva su `foto` (ver `lib/photos.generated.ts`) además de `estado` y `fuente`. El área
+> sigue siendo la pista de entrada del diagnóstico (`/diagnostico?area=`).
 
 ## 8 · Tres maneras de entrar · `home.hacemos.*` — **casi sin cambios**
 
