@@ -21,10 +21,10 @@ export function AppWindow({
       {/* under-glow seats the window on the stage */}
       <div
         aria-hidden="true"
-        className="absolute inset-x-6 bottom-0 top-1/3 -z-10 rounded-[3rem] bg-turquoise-glow/10 blur-3xl"
+        className="absolute inset-x-6 bottom-0 top-1/3 -z-10 rounded-[3rem] bg-accent/10 blur-3xl"
       />
 
-      <div className="relative overflow-hidden rounded-xl border border-white/10 bg-ink-panel shadow-[0_60px_120px_-32px_rgba(0,0,0,0.9)]">
+      <div className="relative overflow-hidden rounded-xl border border-white/10 bg-surface shadow-[0_60px_120px_-32px_rgba(0,0,0,0.9)]">
         {/* top edge catch-light */}
         <div aria-hidden="true" className="absolute inset-x-0 top-0 z-10 h-px bg-white/20" />
 

@@ -96,6 +96,10 @@ export function Navbar() {
   }, [open]);
 
   const activeSection = pathname === "/" ? section : null;
+  // /hoteles opens on the product's dark object (HQA-D27): while the bar is
+  // still transparent over it, it borrows the hotel roles so its text reads;
+  // once scrolled it paints the site theme like everywhere else.
+  const overDarkHero = pathname === "/hoteles" && !scrolled;
 
   const isActive = (link: (typeof LINKS)[number]) => {
     if (link.hash) return activeSection === link.hash.slice(1);
@@ -132,7 +136,12 @@ export function Navbar() {
         scrolled ? "border-b border-line bg-bg/85 backdrop-blur-md" : "border-b border-transparent",
       )}
     >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-2 px-4 sm:px-6">
+      <div
+        className={cn(
+          "mx-auto flex h-16 max-w-6xl items-center justify-between gap-2 px-4 sm:px-6",
+          overDarkHero && "theme-hotel",
+        )}
+      >
         {/* Logo: glyph + wordmark */}
         <Link href="/" className="flex items-center gap-2">
           <Logomark className="h-8 w-8" />

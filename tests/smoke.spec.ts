@@ -96,3 +96,24 @@ test("SEO files respond", async ({ request }) => {
   expect(robots.ok()).toBeTruthy();
   expect(await robots.text()).toContain("sitemap.xml");
 });
+
+// L5: the hotel product's page — the Obsidian object with its own CTA.
+test("Spanish hotels page renders with its demo CTA", async ({ page }) => {
+  await page.goto("/es/hoteles");
+  await expect(
+    page.getByRole("heading", { level: 1, name: es.hoteles.hero.headline }),
+  ).toBeVisible();
+  const demo = page.locator("#demo");
+  await expect(
+    demo.getByRole("link", { name: es.hoteles.cta.button }),
+  ).toHaveAttribute("href", /^(https:\/\/wa\.me\/|mailto:hello@osppy\.com)/);
+  expect(await page.locator("form").count()).toBe(0);
+});
+
+test("English hotels page renders on its localized slug", async ({ page }) => {
+  await page.goto("/en/hotels");
+  await expect(page.locator("html")).toHaveAttribute("lang", "en");
+  await expect(
+    page.getByRole("heading", { level: 1, name: en.hoteles.hero.headline }),
+  ).toBeVisible();
+});

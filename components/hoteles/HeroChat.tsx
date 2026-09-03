@@ -1,12 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import {
-  AnimatePresence,
-  motion,
-  useInView,
-  useReducedMotion,
-} from "motion/react";
+import { AnimatePresence, motion, useInView, useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { ArrowRight } from "lucide-react";
 import {
@@ -16,46 +11,42 @@ import {
   PhoneFrame,
   TypingIndicator,
   type ChatMessage,
-} from "./ChatPrimitives";
-import { AUTO_QUESTION_KEY, CHAT_NODES, CHIP_LABELS, ROOT_ID } from "./script";
+} from "@/components/ui/chat/ChatPrimitives";
+import { AUTO_QUESTION_KEY, CHAT_NODES, CHIP_LABELS, ROOT_ID } from "./chat-script";
 
-export function InteractiveChat() {
-  const t = useTranslations();
+/* The real interactive demo of the hero (HQA-D31): a scripted WhatsApp
+   thread where Diana introduces herself and answers tapped questions. The
+   phone is labeled "demo data" by the hero that renders it. */
+export function HeroChat() {
+  const t = useTranslations("hoteles.chat");
   const reduce = useReducedMotion() ?? false;
 
   const containerRef = useRef<HTMLDivElement>(null);
   const inView = useInView(containerRef, { once: true, amount: 0.4 });
 
-  const now = t("heroChat.now");
+  const now = t("now");
 
-  // Seed the opening question so the phone is never empty (renders in the
-  // server HTML immediately, before hydration). It shows with no entrance
-  // animation; Osppy's reply then types in on mount.
+  // The opening question is server-rendered so the phone is never empty;
+  // Diana's reply then types in on mount.
   const [thread, setThread] = useState<ChatMessage[]>(() => [
     { id: 0, sender: "guest", text: t(AUTO_QUESTION_KEY), time: now, instant: true },
   ]);
   const [typing, setTyping] = useState(false);
   const [chips, setChips] = useState<string[]>([]);
-  const [cta, setCta] = useState<{ labelKey: string; href: string } | null>(
-    null,
-  );
+  const [cta, setCta] = useState<{ labelKey: string; href: string } | null>(null);
   const started = useRef(false);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
   const seq = useRef(1);
 
-  // Drive the conversation once it scrolls into view.
   useEffect(() => {
     if (!inView || started.current) return;
     started.current = true;
 
     const push = (msg: Omit<ChatMessage, "id">) =>
       setThread((prev) => [...prev, { ...msg, id: seq.current++ }]);
-
     const after = (ms: number, fn: () => void) => {
-      const id = setTimeout(fn, ms);
-      timers.current.push(id);
+      timers.current.push(setTimeout(fn, ms));
     };
-
     const answer = (nodeId: string, delay: number) => {
       const node = CHAT_NODES[nodeId];
       setChips([]);
@@ -76,11 +67,7 @@ export function InteractiveChat() {
       });
     };
 
-    // The opening question is already seeded; just let Osppy reply once the
-    // phone has settled.
-    after(reduce ? 0 : 600, () => {
-      answer(ROOT_ID, reduce ? 0 : 1000);
-    });
+    after(reduce ? 0 : 600, () => answer(ROOT_ID, reduce ? 0 : 1000));
 
     return () => {
       timers.current.forEach(clearTimeout);
@@ -118,8 +105,8 @@ export function InteractiveChat() {
   return (
     <div ref={containerRef}>
       <PhoneFrame
-        title="Osppy"
-        subtitle={t("heroChat.status")}
+        title={t("titulo")}
+        subtitle={t("status")}
         avatar={<OsppyAvatar />}
         float={!reduce}
         footer={
@@ -130,7 +117,7 @@ export function InteractiveChat() {
             reduce={reduce}
             label={(id) => t(CHIP_LABELS[id])}
             ctaLabel={cta ? t(cta.labelKey) : ""}
-            placeholder={t("heroChat.inputPlaceholder")}
+            placeholder={t("inputPlaceholder")}
             onChip={handleChip}
           />
         }
@@ -146,9 +133,7 @@ export function InteractiveChat() {
               reduce={reduce || !!m.instant}
             />
           ))}
-          <AnimatePresence>
-            {typing && <TypingIndicator key="typing" reduce={reduce} />}
-          </AnimatePresence>
+          <AnimatePresence>{typing && <TypingIndicator key="typing" reduce={reduce} />}</AnimatePresence>
         </ChatViewport>
       </PhoneFrame>
     </div>
@@ -180,7 +165,7 @@ function Footer({
     return (
       <a
         href={cta!.href}
-        className="flex items-center justify-center gap-2 rounded-full bg-turquoise px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-turquoise-deep"
+        className="flex items-center justify-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-accent-text hover:text-bg"
       >
         {ctaLabel}
         <ArrowRight className="h-4 w-4" />
@@ -195,11 +180,12 @@ function Footer({
           {chips.map((id, i) => (
             <motion.button
               key={id}
+              type="button"
               onClick={() => onChip(id)}
               initial={reduce ? false : { opacity: 0, y: 8, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={reduce ? { duration: 0 } : { delay: i * 0.05 }}
-              className="rounded-full border border-turquoise-glow/40 bg-turquoise-glow/10 px-3.5 py-1.5 text-xs font-medium text-turquoise-glow transition-colors hover:bg-turquoise hover:text-white"
+              className="rounded-full border border-accent-text/40 bg-accent-text/10 px-3.5 py-1.5 text-xs font-medium text-accent-text transition-colors hover:bg-accent hover:text-white"
             >
               {label(id)}
             </motion.button>
@@ -209,13 +195,11 @@ function Footer({
     );
   }
 
-  // idle / typing — show a dead input pill so the frame never looks empty.
+  // idle / typing — a dead input pill so the frame never looks empty.
   return (
     <div className="flex items-center gap-2" aria-hidden="true">
-      <div className="flex-1 rounded-full bg-white/5 px-4 py-2 text-sm text-white/55">
-        {placeholder}
-      </div>
-      <div className="flex h-9 w-9 items-center justify-center rounded-full bg-turquoise">
+      <div className="flex-1 rounded-full bg-white/5 px-4 py-2 text-sm text-white/55">{placeholder}</div>
+      <div className="flex h-9 w-9 items-center justify-center rounded-full bg-accent">
         <svg className="h-4 w-4 fill-white" viewBox="0 0 24 24">
           <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
         </svg>

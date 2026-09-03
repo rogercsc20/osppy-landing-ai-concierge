@@ -144,7 +144,7 @@ export function PhoneFrame({
   return (
     <div className="relative mx-auto w-fit">
       {/* soft ambient glow */}
-      <div className="absolute -inset-8 -z-10 rounded-[4rem] bg-turquoise/10 blur-3xl" />
+      <div className="absolute -inset-8 -z-10 rounded-[4rem] bg-accent/10 blur-3xl" />
 
       <IPhone width={380} float={float}>
         <div className="flex h-full flex-col">
@@ -210,7 +210,7 @@ export function OsppyAvatar({ size = "md" }: { size?: "sm" | "md" }) {
   const dim = size === "sm" ? "h-8 w-8" : "h-9 w-9";
   return (
     <div
-      className={`flex ${dim} flex-shrink-0 items-center justify-center rounded-full bg-turquoise text-white`}
+      className={`flex ${dim} flex-shrink-0 items-center justify-center rounded-full bg-accent text-white`}
     >
       <LogoGlyph className="h-[58%] w-[58%]" />
     </div>

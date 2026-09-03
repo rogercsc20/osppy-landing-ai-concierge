@@ -11,7 +11,7 @@
    Light = the brand guide's "Taller" system (§8.2); dark = the Obsidian
    ground with the house's green accent (operator, 2026-09-02, superseding the
    guide's §8.5 tokens); .theme-hotel re-skins the same roles with the full
-   Obsidian world (teal + coral) so only /hoteles sees it (L5). */
+   Obsidian world (teal and its warm) so only /hoteles sees it (L5). */
 :root {
   --bg: #f7f5f0; /* Marfil */
   --bg-alt: #d6e8e1; /* Verde claro — fondo alterno de pieza */
@@ -86,7 +86,7 @@
 /* Operador, 2026-09-02: «el obsidian me gustaba más para night mode» — the
    site's dark mode is the Obsidian world's ground (near-black, green-tinted
    panels, 8% hairlines). The accent stays the house's green (Salvia, 8.7:1
-   on Obsidian) and the warm stays copper; teal and coral remain
+   on Obsidian) and the warm stays copper; teal and the hotel's warm remain
    .theme-hotel's alone (HQA-D27). */
 [data-theme="dark"] {
   --bg: #0a0f0e; /* Obsidian */
@@ -108,7 +108,7 @@
 
 /* The hotel product's world (Obsidian) as an object: /hoteles wraps its
    content in .theme-hotel (L5). Nav and footer stay outside and follow the
-   site theme. Coral lives ONLY here. */
+   site theme. The hotel's warm color lives ONLY here. */
 .theme-hotel {
   --bg: #0a0f0e;
   --bg-alt: #0f1514;
@@ -121,6 +121,40 @@
   --warm: #ff6b4a; /* coral */
   --warm-text: #ff6b4a;
   color-scheme: dark;
+  /* shadcn's structural variables are computed on :root; redeclared here so
+     they follow the hotel roles inside the object. */
+  --background: var(--bg);
+  --foreground: var(--text);
+  --card: var(--surface);
+  --card-foreground: var(--text);
+  --popover: var(--surface);
+  --popover-foreground: var(--text);
+  --primary: var(--accent);
+  --primary-foreground: #ffffff;
+  --secondary: var(--bg-alt);
+  --secondary-foreground: var(--text);
+  --muted: var(--bg-alt);
+  --muted-foreground: var(--text-2);
+  --accent-foreground: #ffffff;
+  --border: var(--line);
+  --input: var(--line);
+  --ring: var(--accent-text);
+  /* Bklit chart variables for the demo panel (HQA-D34) */
+  --chart-1: #2fc4d9;
+  --chart-line-primary: #2fc4d9;
+  --chart-background: #111817;
+  --chart-foreground: #eef2f0;
+  --chart-foreground-muted: rgba(238, 242, 240, 0.65);
+  --chart-crosshair: #2fc4d9;
+  --chart-grid: rgba(255, 255, 255, 0.1);
+  --chart-brush-border: var(--chart-grid);
+  --chart-label: rgba(238, 242, 240, 0.6);
+  --chart-tooltip-background: rgba(17, 24, 23, 0.92);
+  --chart-tooltip-foreground: #eef2f0;
+  --chart-tooltip-muted: rgba(238, 242, 240, 0.65);
+  --chart-marker-background: #0f1514;
+  --chart-marker-border: rgba(255, 255, 255, 0.2);
+  --chart-marker-foreground: #eef2f0;
 }
 
 @theme inline {
@@ -158,20 +192,8 @@
   --color-warm: var(--warm);
   --color-warm-text: var(--warm-text);
 
-  /* ── Obsidian tokens (the hotel world; components under .theme-hotel) ── */
-  --color-canvas: #0a0f0e;
-  --color-warm-white: #0a0f0e; /* legacy alias */
-  --color-sand: #0f1514;
-  --color-ink: #eef2f0;
-  --color-ink-panel: #111817;
-  --color-turquoise: #129db5;
-  --color-turquoise-deep: #0d7f95;
-  --color-turquoise-ink: #2fc4d9;
-  --color-turquoise-glow: #1ba3b8;
-  --color-turquoise-soft: rgba(34, 196, 217, 0.1);
-  --color-ember: rgba(255, 107, 74, 0.1);
-  --color-coral: #ff6b4a;
-  --color-coral-soft: rgba(255, 107, 74, 0.12);
+  /* The Obsidian world reaches components only through the roles above,
+     set by .theme-hotel (L5): no named hotel tokens here. */
 
   /* WhatsApp brand colors — used only inside the chat mockup, do not rebrand */
   --color-wa-green: #25d366;
