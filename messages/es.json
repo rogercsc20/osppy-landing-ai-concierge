@@ -163,14 +163,14 @@
       "headline": "Tres maneras de entrar a tu operación. Empieza por la que te quede.",
       "capacitacion": {
         "titulo": "Capacitación",
-        "estado": "Próximos grupos",
+        "estado": "Disponible hoy",
         "body": "Talleres prácticos para dueños y equipos: sales sabiendo aplicar algo hoy, con tareas reales de tu negocio. Primero enseñamos a usar bien las herramientas; después vemos qué problemas se repiten.",
         "f1Label": "Formato",
         "f1Value": "Taller práctico, en vivo y por grupo",
         "f2Label": "Para quién",
         "f2Value": "Dueños, gerentes y equipos",
         "f3Label": "Estado",
-        "f3Value": "La charla de introducción y el primer taller están escritos; los primeros grupos están por abrirse",
+        "f3Value": "Se imparte hoy: se contrata y se agenda como la asesoría y la implementación",
         "f4Label": "Precio",
         "f4Value": "Se cotiza por grupo y por resultado"
       },
@@ -189,15 +189,18 @@
       "implementacion": {
         "titulo": "Implementación",
         "estado": "Disponible hoy",
-        "body": "Construimos sistemas que quedan funcionando dentro de tu operación —desde un cotizador hasta un agente que hace la tarea completa por su cuenta—, con alcance y criterios de éxito por escrito. Después de entregar, hay planes de hosting, monitoreo y mantenimiento.",
+        "body": "Construimos sistemas que quedan funcionando dentro de tu operación —desde un cotizador hasta un agente que hace la tarea completa por su cuenta—, con alcance y criterios de éxito por escrito. Se conectan con el ERP y el sistema de facturación que ya usas, con el alcance definido en el diagnóstico. Después de entregar, hay planes de hosting, monitoreo y mantenimiento.",
         "tiposTitulo": "Lo que se ha construido:",
         "tipos": [
-          "Cotizadores",
-          "Agentes de IA",
-          "Asistentes de IA",
           "Adopción de Claude Enterprise",
+          "Agentes de IA",
           "Modelos en tu infraestructura, con Amazon Bedrock",
-          "Estructuración de procesos"
+          "Estructuración de procesos",
+          "Automatización de procesos",
+          "Asistentes de IA",
+          "Cotizadores",
+          "Plantillas con los membretes de tu empresa",
+          "Sistema para manejar auditorías"
         ]
       }
     },
@@ -290,7 +293,7 @@
       "q6": "¿Cómo se cotiza?",
       "a6": "La capacitación y la asesoría se cotizan por grupo y por resultado; la implementación, por separado, con alcance y criterios de éxito por escrito. No publicamos precios porque no vendemos paquetes: cada propuesta es sobre tu caso.",
       "q7": "¿Se conecta con mis sistemas?",
-      "a7": "Se define en el diagnóstico. No prometemos integraciones que no existan: si tu ERP o tu sistema de facturación tiene por dónde conectarse, se revisa ahí —con nombre y apellido— antes de que aparezca en una propuesta."
+      "a7": "Sí: se conectan con el ERP y el sistema de facturación que ya usas. Con cuáles exactamente y hasta dónde llega la conexión se define en el diagnóstico, con nombre y apellido, antes de que aparezca en una propuesta — no prometemos una integración que no hayamos revisado contra tu sistema."
     },
     "cta": {
       "kicker": "El siguiente paso",

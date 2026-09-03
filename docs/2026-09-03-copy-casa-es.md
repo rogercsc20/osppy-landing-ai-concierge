@@ -160,7 +160,7 @@ forma: pasa a ser el capítulo fijado (§3 del plan), con el diagrama avanzando 
 > fila lleva su `foto` (ver `lib/photos.generated.ts`) además de `estado` y `fuente`. El área
 > sigue siendo la pista de entrada del diagnóstico (`/diagnostico?area=`).
 
-## 8 · Tres maneras de entrar · `home.hacemos.*` — **casi sin cambios**
+## 8 · Tres maneras de entrar · `home.hacemos.*` — **capacitación pasa a ✅ (tanda C, C3)**
 
 Se conserva completo: Capacitación (Próximos grupos) · Asesoría (Disponible hoy) ·
 Implementación (Disponible hoy), con sus fichas, sus cuatro preguntas de diagnóstico y sus
@@ -169,6 +169,21 @@ seis tipos de construcción. **Un solo cambio de texto**, en el titular:
 | Llave | Antes | Ahora |
 |---|---|---|
 | `headline` | Tres maneras de entrar a tu operación. | **Tres maneras de entrar a tu operación. Empieza por la que te quede.** |
+
+> **Tres cambios de la tanda C, todos por respuesta del operador del 2026-09-03.**
+> **(1) Capacitación deja de decir «Próximos grupos» y dice «Disponible hoy»**, con la misma
+> píldora de acento que asesoría e implementación: *«Ya se imparte»* (HQA-D61). La ficha de
+> estado deja de decir «los primeros grupos están por abrirse» y dice que se contrata y se
+> agenda como las otras dos. **La cifra —más de diez sesiones— NO se publica**: *«no hay que
+> mencionar esto, solo que ya lo hacemos»*. Y las fichas numeradas del catálogo conservan su
+> propia marca, porque el operador dijo cuántas sesiones, no cuáles fichas.
+> **(2) La lista de «Lo que se ha construido» se alinea con la de la sección 10.** Tenía seis
+> y la otra pasó a diez: dos listas de lo mismo en una página, diciendo cosas distintas, es un
+> defecto, no una variante. Ahora son las mismas nueve entradas de implementación (las «sesiones
+> de asesoría» viven en su propia tarjeta y no se repiten aquí).
+> **(3) Implementación afirma la conexión con ERP y facturación**, en genérico y sin nombrar
+> marcas (HQA-D59); nombrar un sistema concreto sigue exigiendo una instancia entregada, y la
+> pregunta 7 de la sección 13 dice lo mismo con más detalle.
 
 ## 9 · Cuánto cuesta · `home.cuanto.*`
 
@@ -308,7 +323,7 @@ una fecha que no existe.)*
 | `q6` | ¿Cómo se cotiza? |
 | `a6` | La capacitación y la asesoría se cotizan por grupo y por resultado; la implementación, por separado, con alcance y criterios de éxito por escrito. No publicamos precios porque no vendemos paquetes: cada propuesta es sobre tu caso. |
 | `q7` | ¿Se conecta con mis sistemas? |
-| `a7` | Se define en el diagnóstico. No prometemos integraciones que no existan: si tu ERP o tu sistema de facturación tiene por dónde conectarse, se revisa ahí —con nombre y apellido— antes de que aparezca en una propuesta. |
+| `a7` | Sí: se conectan con el ERP y el sistema de facturación que ya usas. Con cuáles exactamente y hasta dónde llega la conexión se define en el diagnóstico, con nombre y apellido, antes de que aparezca en una propuesta — no prometemos una integración que no hayamos revisado contra tu sistema. |
 
 *(`a2` a `a6` son las respuestas de hoy, intactas. `a1` y `a7` son nuevas y son las dos que el
 público de empresa pregunta primero.)*

@@ -163,14 +163,14 @@
       "headline": "Three ways in. Start with whichever one fits.",
       "capacitacion": {
         "titulo": "Training",
-        "estado": "Groups opening soon",
+        "estado": "Available today",
         "body": "Hands-on workshops for owners and teams: you leave able to apply something today, working on real tasks from your business. First we teach people to use the tools well; then we watch which problems keep coming back.",
         "f1Label": "Format",
         "f1Value": "Live, hands-on, per group",
         "f2Label": "Who it's for",
         "f2Value": "Owners, managers, and teams",
         "f3Label": "Status",
-        "f3Value": "The intro talk and the first workshop are written; the first groups are about to open",
+        "f3Value": "Running today: booked and scheduled like advisory and implementation",
         "f4Label": "Pricing",
         "f4Value": "Quoted per group and per outcome"
       },
@@ -189,15 +189,18 @@
       "implementacion": {
         "titulo": "Implementation",
         "estado": "Available today",
-        "body": "We build systems that stay running inside your operation — from a quoting tool to an agent that does the whole task on its own — with scope and success criteria in writing. After delivery, there are hosting, monitoring, and maintenance plans.",
+        "body": "We build systems that stay running inside your operation — from a quoting tool to an agent that does a whole task on its own — with scope and success criteria in writing. They connect to the ERP and the invoicing system you already use, with the scope defined in the diagnosis. After delivery there are hosting, monitoring and maintenance plans.",
         "tiposTitulo": "What has been built:",
         "tipos": [
-          "Quoting tools",
-          "AI agents",
-          "AI assistants",
           "Claude Enterprise adoption",
-          "Models in your own infrastructure, with Amazon Bedrock",
-          "Process structuring"
+          "AI agents",
+          "Models in your infrastructure, with Amazon Bedrock",
+          "Process structuring",
+          "Process automation",
+          "AI assistants",
+          "Quoting tools",
+          "Templates with your company's letterhead",
+          "A system for handling audits"
         ]
       }
     },
@@ -290,7 +293,7 @@
       "q6": "How is it quoted?",
       "a6": "Training and advisory are quoted per group and per result; builds separately, with written scope and success criteria. We don't publish prices because we don't sell packages: every proposal is about your case.",
       "q7": "Does it connect to my systems?",
-      "a7": "That gets settled in the diagnosis. We don't promise integrations that don't exist: if your ERP or your invoicing system has a way in, it gets checked there — by name — before it appears in a proposal."
+      "a7": "Yes: they connect to the ERP and the invoicing system you already use. Which ones exactly, and how far the connection goes, is settled in the diagnosis — by name, before it appears in a proposal. We don't promise an integration we haven't checked against your system."
     },
     "cta": {
       "kicker": "The next step",

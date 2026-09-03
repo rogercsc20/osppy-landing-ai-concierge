@@ -34,7 +34,12 @@ export async function Hacemos() {
               <h3 className="font-display text-h3 font-semibold text-text">
                 {t("capacitacion.titulo")}
               </h3>
-              <span className="rounded-full border border-line px-3 py-1 text-xs font-medium text-text-2">
+              {/* Same accent pill as advisory and implementation since
+                  2026-09-03: the operator answered «Ya se imparte» (HQA-D61),
+                  so training is ✅ like the other two and a muted outline
+                  chip would keep saying «not yet» in colour after the words
+                  stopped saying it. */}
+              <span className="rounded-full bg-accent px-3 py-1 text-xs font-medium text-primary-foreground">
                 {t("capacitacion.estado")}
               </span>
             </div>
