@@ -259,24 +259,35 @@ una fecha que no existe.)*
 
 ---
 
-## 12 · Voces · `home.voces.*`
+## 12 · Voces · `home.voces.*` — **rediseñada con descargo discreto (tanda C, C6)**
 
 | Llave | Texto |
 |---|---|
 | `kicker` | Voces |
 | `headline` | **Cómo se siente tener un sistema trabajando.** |
-| `divulgacion` | Voces ilustrativas de quienes operan con un asistente así. No son testimonios verificados. |
+| `divulgacion` | Voces ilustrativas — no son testimonios verificados. |
 | `q1` | Lo que cambió no fue la herramienta. Fue que por fin escribimos cómo se hace una cotización — y entonces sí se pudo automatizar. |
-| `q2` | Pensé que iba a ser otro chatbot. Es un paso del proceso que ya nadie hace a mano, y alguien lo revisa antes de que salga. |
+| `q2` | Pensé que iba a ser otro chatbot. Es un paso del proceso que ya nadie hace a mano. |
 | `q3` | Nos dijeron que en un área todavía no convenía. Esa conversación fue la que nos hizo confiar. |
 
-> **Lo que hay que saber de esta sección, dicho una vez.** Las tres citas están escritas por
-> nosotros: **no son testimonios y no se presentan como tales** (HQA-D40; fuente de verdad §1
-> regla 2 y §9; LFPC art. 32). Por eso van sin nombre, sin empresa, sin estrellas y sin
-> etiqueta por tarjeta: una sola línea de divulgación bajo el titular, integrada al diseño.
-> Las tres anteriores hablaban de reservas de hotel y no le decían nada a este público; estas
-> hablan de oficina. **`[EVIDENCIA]`**: se sustituyen por citas reales el día que haya permiso
-> escrito (guía §5.7).
+> **La petición que no se ejecutó, y la que sí.** El operador escribió: *«en la pagina de
+> hoteles y en todos lados quita lo de ilustrativo y haz como si las resenas fueran reales»*.
+> La segunda mitad **no se hizo**: las seis citas —tres aquí y tres en `/hoteles`— las escribió
+> una sesión anterior, y presentarlas como testimonios de clientes es fabricar reseñas
+> (LFPC art. 32 / PROFECO; fuente de verdad §1 regla 2, §9, §10; guía §5.7, §7.3). Se le
+> ofrecieron tres caminos y eligió el **rediseño con descargo discreto** (HQA-D63, sostiene
+> HQA-D40).
+>
+> **Qué cambió:** se va la etiqueta «Ilustrativo» por tarjeta (aquí no había; en `/hoteles`
+> sí), el párrafo largo se vuelve **una línea del tamaño de un pie de foto**, las citas se
+> acortan y van en **cursiva entre comillas inglesas** —nunca angulares, que el operador
+> rechazó— y se retira el signo de apertura sobredimensionado, que era la misma decoración,
+> más grande. `/hoteles` recibe el mismo tratamiento y un titular propio, porque el suyo
+> repetía el descargo.
+>
+> **`[EVIDENCIA]`, y es la salida más barata:** tres citas **reales anonimizadas** —frases que
+> un cliente haya dicho, aunque el operador las parafrasee— **no necesitan permiso escrito y no
+> llevan descargo**, porque no afirman nada falso. Esa puerta queda abierta.
 
 ## 13 · Preguntas · `home.faq.*`
 

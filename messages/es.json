@@ -269,9 +269,9 @@
     "voces": {
       "kicker": "Voces",
       "headline": "Cómo se siente tener un sistema trabajando.",
-      "divulgacion": "Voces ilustrativas de quienes operan con un asistente así. No son testimonios verificados.",
+      "divulgacion": "Voces ilustrativas — no son testimonios verificados.",
       "q1": "Lo que cambió no fue la herramienta. Fue que por fin escribimos cómo se hace una cotización — y entonces sí se pudo automatizar.",
-      "q2": "Pensé que iba a ser otro chatbot. Es un paso del proceso que ya nadie hace a mano, y alguien lo revisa antes de que salga.",
+      "q2": "Pensé que iba a ser otro chatbot. Es un paso del proceso que ya nadie hace a mano.",
       "q3": "Nos dijeron que en un área todavía no convenía. Esa conversación fue la que nos hizo confiar."
     },
     "faq": {
@@ -550,11 +550,10 @@
     },
     "testimonios": {
       "kicker": "Voces",
-      "headline": "Voces ilustrativas de quienes usan un asistente así.",
-      "etiqueta": "Ilustrativo",
-      "nota": "Citas sin nombre y sin cifras: ilustran cómo se vive tener un asistente atendiendo. No son testimonios verificados.",
-      "q1": "Antes respondía mensajes a medianoche todos los días. Ahora duermo. El asistente contesta con mi tono y con la información exacta de mi negocio.",
-      "q2": "Pensé que un bot se notaría falso. Para nada: mis clientes le escriben igual que a mí, y él sabe cuándo pasarme la conversación.",
+      "headline": "Cómo se vive tener la recepción contestando sola.",
+      "nota": "Voces ilustrativas — no son testimonios verificados.",
+      "q1": "Antes contestaba mensajes a medianoche todos los días. Ahora duermo.",
+      "q2": "Pensé que un bot se notaría falso. Mis clientes le escriben igual que a mí, y sabe cuándo pasarme la conversación.",
       "q3": "Dejé de perder reservas por no contestar a tiempo. Lo que llega de madrugada ya no se queda sin respuesta."
     },
     "faq": {

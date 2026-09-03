@@ -269,9 +269,9 @@
     "voces": {
       "kicker": "Voices",
       "headline": "What it feels like to have a system doing the work.",
-      "divulgacion": "Illustrative voices from people who run an assistant like this. They are not verified testimonials.",
+      "divulgacion": "Illustrative voices — not verified testimonials.",
       "q1": "What changed wasn't the tool. It was that we finally wrote down how a quote gets made — and then it could be automated.",
-      "q2": "I thought it would be another chatbot. It's a step of the process nobody does by hand any more, and someone reviews it before it goes out.",
+      "q2": "I thought it would be another chatbot. It's a step of the process nobody does by hand any more.",
       "q3": "They told us one area wasn't worth it yet. That conversation is what made us trust them."
     },
     "faq": {
@@ -550,11 +550,10 @@
     },
     "testimonios": {
       "kicker": "Voices",
-      "headline": "Illustrative voices from people who use an assistant like this.",
-      "etiqueta": "Illustrative",
-      "nota": "Quotes without names and without figures: they illustrate what it's like to have an assistant answering. They are not verified testimonials.",
-      "q1": "I used to answer messages at midnight every single day. Now I sleep. The assistant replies in my tone, with my business's exact information.",
-      "q2": "I thought a bot would feel fake. Not at all: my clients write to it the same way they write to me, and it knows when to hand the conversation over.",
+      "headline": "What it's like to have the front desk answering on its own.",
+      "nota": "Illustrative voices — not verified testimonials.",
+      "q1": "I used to answer messages at midnight every single day. Now I sleep.",
+      "q2": "I thought a bot would feel fake. My clients write to it the same way they write to me, and it knows when to hand the conversation over.",
       "q3": "I stopped losing bookings to slow replies. What comes in overnight no longer goes unanswered."
     },
     "faq": {

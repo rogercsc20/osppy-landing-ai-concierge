@@ -7,10 +7,18 @@ import { SplitText } from "@/components/fx/SplitText";
 /* Illustrative voices — NOT testimonials (HQA-D40).
    The three quotes were written by us. Presenting them as real testimonials
    would be misleading advertising (LFPC art. 32 / PROFECO; source of truth
-   §1 rule 2 and §9), so: no names, no companies, no stars, no per-card
-   label — and ONE disclosure line under the headline, in the layout rather
-   than in a footnote. `[EVIDENCIA]`: they get replaced by real quotes the
-   day there is written permission (brand guide §5.7). */
+   §1 rule 2 and §9). Offered three paths on 2026-09-03, the operator chose
+   the redesign with a discreet disclosure (HQA-D63): no names, no companies,
+   no stars, no per-card chip, and ONE caption-sized line under the headline
+   — the size of a photo credit, not of a legal notice, which is the whole
+   difference between honest and apologetic. The quotes are set in italics
+   between curly quotation marks; guillemets read as decoration and the
+   operator rejected them.
+
+   `[EVIDENCIA]`: three REAL anonymized quotes would replace these, need no
+   written permission and no disclosure line at all, because they would not
+   assert anything false (brand guide §5.7). That door is the cheapest fix
+   available and it stays open. */
 export function Voces() {
   const t = useTranslations("home.voces");
   const quotes = (["q1", "q2", "q3"] as const).map((k) => t(k));
@@ -23,7 +31,7 @@ export function Voces() {
           <h2 className="font-display mt-5 max-w-3xl text-h2 font-semibold text-text">
             <SplitText text={t("headline")} />
           </h2>
-          <p className="mt-5 max-w-2xl text-sm leading-relaxed text-text-2">
+          <p className="mt-4 max-w-2xl text-xs leading-relaxed text-text-2/80">
             {t("divulgacion")}
           </p>
         </Reveal>
