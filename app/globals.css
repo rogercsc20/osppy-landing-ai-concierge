@@ -8,9 +8,10 @@
 
 /* ── Semantic roles (HQA-D27) ─────────────────────────────────────────────
    Components use ONLY these roles (via the @theme utilities below).
-   Light = the brand guide's "Taller" system (§8.2); dark = its dark tokens
-   (§8.5); .theme-hotel re-skins the same roles with the Obsidian world so
-   only /hoteles sees it (L5). */
+   Light = the brand guide's "Taller" system (§8.2); dark = the Obsidian
+   ground with the house's green accent (operator, 2026-09-02, superseding the
+   guide's §8.5 tokens); .theme-hotel re-skins the same roles with the full
+   Obsidian world (teal + coral) so only /hoteles sees it (L5). */
 :root {
   --bg: #f7f5f0; /* Marfil */
   --bg-alt: #d6e8e1; /* Verde claro — fondo alterno de pieza */
@@ -82,16 +83,21 @@
   --chart-scale-pattern-color: oklch(0.96 0.005 106);
 }
 
+/* Operador, 2026-09-02: «el obsidian me gustaba más para night mode» — the
+   site's dark mode is the Obsidian world's ground (near-black, green-tinted
+   panels, 8% hairlines). The accent stays the house's green (Salvia, 8.7:1
+   on Obsidian) and the warm stays copper; teal and coral remain
+   .theme-hotel's alone (HQA-D27). */
 [data-theme="dark"] {
-  --bg: #0e1d24; /* Carbón */
-  --bg-alt: #152932; /* Panel oscuro */
-  --surface: #152932;
-  --text: #edf1f2; /* Niebla (15.14:1 AAA) */
-  --text-2: rgba(237, 241, 242, 0.65);
-  --line: rgba(255, 255, 255, 0.1);
-  --accent: #74c0ac; /* Salvia — el verde de acento en oscuro (7.6:1 sobre Carbón) */
+  --bg: #0a0f0e; /* Obsidian */
+  --bg-alt: #0f1514;
+  --surface: #111817;
+  --text: #eef2f0;
+  --text-2: rgba(238, 242, 240, 0.65);
+  --line: rgba(255, 255, 255, 0.08);
+  --accent: #74c0ac; /* Salvia */
   --accent-text: #74c0ac;
-  --warm: #d99c71; /* Cobre claro (7.33:1 AAA) */
+  --warm: #d99c71; /* Cobre claro */
   --warm-text: #d99c71;
   color-scheme: dark;
   /* On dark, the accent is light green: white on it fails contrast, Tinta
