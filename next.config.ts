@@ -6,6 +6,14 @@ const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
 const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
+    // Landing v2 §8 (tanda C). `qualities` is an allow list in Next 16: a
+    // request for a quality outside it 400s, so Photo.tsx's 75 has to be
+    // listed. deviceSizes matches the capture matrix's widths plus the two
+    // retina steps; imageSizes covers the areas frame and the card photos,
+    // which are the only places a photo is rendered narrower than the page.
+    qualities: [60, 75, 82],
+    deviceSizes: [360, 640, 768, 1024, 1280, 1440, 1920],
+    imageSizes: [320, 480, 640],
   },
   // Guest-facing aviso de privacidad (LFPDPPP encargado notice) — a branded
   // short URL for the WhatsApp first-contact footer. Distinct from
