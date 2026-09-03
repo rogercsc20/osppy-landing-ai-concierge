@@ -4,6 +4,10 @@
     "login": "Log in",
     "lang": "ES"
   },
+  "theme": {
+    "toDark": "Switch to dark mode",
+    "toLight": "Switch to light mode"
+  },
   "hero": {
     "badge": "Latin America's digital front desk",
     "headline": "Your front desk never sleeps.",

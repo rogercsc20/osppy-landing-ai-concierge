@@ -4,6 +4,10 @@
     "login": "Iniciar sesión",
     "lang": "EN"
   },
+  "theme": {
+    "toDark": "Cambiar a modo oscuro",
+    "toLight": "Cambiar a modo claro"
+  },
   "hero": {
     "badge": "El recepcionista digital de Latinoamérica",
     "headline": "Tu recepción nunca duerme.",

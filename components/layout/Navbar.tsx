@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { LanguageToggle } from "@/components/ui/LanguageToggle";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { Logomark } from "@/components/ui/Logo";
 import { Link } from "@/i18n/navigation";
 import { APP_LOGIN_URL } from "@/lib/site";
@@ -46,6 +47,7 @@ export function Navbar() {
         {/* Right side */}
         <div className="flex items-center gap-1.5 sm:gap-3">
           <LanguageToggle />
+          <ThemeToggle />
           {/* Plain <a>, not the i18n Link: the console lives on another
               origin (app.osppy.com) and the locale-aware Link would prefix
               an absolute URL. */}

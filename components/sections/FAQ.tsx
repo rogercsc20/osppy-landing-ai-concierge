@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { Plus, Minus } from "lucide-react";
 
 interface FAQItem {

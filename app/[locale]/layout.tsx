@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
-import { Fraunces } from "next/font/google";
+import { Inter, Fraunces, Manrope, IBM_Plex_Serif } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { SmoothScroll } from "@/components/providers/SmoothScroll";
 import { getMessages } from "next-intl/server";
@@ -15,6 +14,7 @@ const inter = Inter({
   display: "swap",
 });
 
+// Fraunces stays loaded for the hotel world only (.theme-hotel, HQA-D27).
 const fraunces = Fraunces({
   variable: "--font-fraunces",
   subsets: ["latin"],
@@ -23,6 +23,25 @@ const fraunces = Fraunces({
   // so display-size headlines get the high-contrast cut.
   axes: ["opsz"],
 });
+
+// The site's display face (brand guide §8.6): Manrope for headlines.
+const manrope = Manrope({
+  variable: "--font-manrope",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+// One editorial quote per page at most (guide §8.6).
+const plexSerif = IBM_Plex_Serif({
+  variable: "--font-plex-serif",
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+});
+
+// Runs before paint: stored choice wins, then the system preference,
+// light otherwise — so a reload never flashes the wrong theme.
+const themeInit = `(function(){try{var t=localStorage.getItem("theme");if(t!=="dark"&&t!=="light"){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}document.documentElement.setAttribute("data-theme",t)}catch(e){document.documentElement.setAttribute("data-theme","light")}})();`;
 
 export async function generateMetadata({
   params,
@@ -72,7 +91,10 @@ export async function generateMetadata({
 }
 
 export const viewport: Viewport = {
-  themeColor: "#0a0f0e",
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#0e1d24" },
+    { color: "#f7f5f0" },
+  ],
 };
 
 export function generateStaticParams() {
@@ -97,9 +119,11 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${inter.variable} ${fraunces.variable}`}
+      className={`${inter.variable} ${fraunces.variable} ${manrope.variable} ${plexSerif.variable}`}
+      suppressHydrationWarning
     >
       <body className="antialiased min-h-screen">
+        <script dangerouslySetInnerHTML={{ __html: themeInit }} />
         <NextIntlClientProvider messages={messages}>
           <SmoothScroll>{children}</SmoothScroll>
         </NextIntlClientProvider>

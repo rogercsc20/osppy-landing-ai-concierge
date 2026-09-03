@@ -1,27 +1,165 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/* Dark mode is a data-attribute, not a media query: the inline script in
+   app/[locale]/layout.tsx sets data-theme on <html> before paint. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* ── Semantic roles (HQA-D27) ─────────────────────────────────────────────
+   Components use ONLY these roles (via the @theme utilities below).
+   Light = the brand guide's "Taller" system (§8.2); dark = its dark tokens
+   (§8.5); .theme-hotel re-skins the same roles with the Obsidian world so
+   only /hoteles sees it (L5). */
+:root {
+  --bg: #f7f5f0; /* Marfil */
+  --bg-alt: #d6e8e1; /* Verde claro — fondo alterno de pieza */
+  --surface: #ffffff; /* Blanco — tarjetas y paneles */
+  --text: #1c2b33; /* Tinta */
+  --text-2: #54646b; /* Grafito */
+  --line: #e6e1d6; /* Arena — sobre Verde claro usar --color-hairline-verde */
+  --accent: #0d7f95; /* Teal profundo — acción con texto blanco (4.68:1 AA) */
+  --accent-text: #0b6b7e; /* Teal tinta — enlaces y texto teal (5.64:1 AA) */
+  --warm: #b26a45; /* Cobre — solo ≥24 px (3.82:1 AA-grande) */
+  --warm-text: #8c4b2c; /* Cobre tinta — cobre en texto chico (6.10:1 AA) */
+  color-scheme: light;
+  /* shadcn's structural variables follow the roles, so its components get
+     both modes from data-theme — the CLI's .dark block was removed as dead. */
+  --background: var(--bg);
+  --foreground: var(--text);
+  --card: var(--surface);
+  --card-foreground: var(--text);
+  --popover: var(--surface);
+  --popover-foreground: var(--text);
+  --primary: var(--accent);
+  --primary-foreground: #ffffff;
+  --secondary: var(--bg-alt);
+  --secondary-foreground: var(--text);
+  --muted: var(--bg-alt);
+  --muted-foreground: var(--text-2);
+  --accent-foreground: #ffffff;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: var(--line);
+  --input: var(--line);
+  --ring: var(--accent-text);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+  --chart-background: oklch(1 0 0);
+  --chart-foreground: oklch(0.145 0.004 285);
+  --chart-foreground-muted: oklch(0.55 0.014 260);
+  --chart-line-primary: var(--chart-1);
+  --chart-line-secondary: var(--chart-2);
+  --chart-crosshair: oklch(0.4 0.1828 274.34);
+  --chart-grid: oklch(0.9 0 0);
+  --chart-brush-border: var(--chart-grid);
+  --chart-tooltip-background: oklch(0.21 0.006 285 / 0.8);
+  --chart-tooltip-foreground: oklch(0.985 0 0);
+  --chart-tooltip-muted: oklch(0.65 0.01 260);
+  --chart-marker-background: oklch(0.97 0.005 260);
+  --chart-marker-border: oklch(0.85 0.01 260);
+  --chart-marker-foreground: oklch(0.3 0.01 260);
+  --chart-label: oklch(0.45 0.01 260);
+  --chart-scale-01: oklch(0.98 0.003 106);
+  --chart-scale-02: oklch(0.92 0.008 106);
+  --chart-scale-03: oklch(0.82 0.015 106);
+  --chart-scale-04: oklch(0.68 0.02 106);
+  --chart-scale-05: oklch(0.55 0.025 106);
+  --chart-scale-pattern-color: oklch(0.96 0.005 106);
+}
+
+[data-theme="dark"] {
+  --bg: #0e1d24; /* Carbón */
+  --bg-alt: #152932; /* Panel oscuro */
+  --surface: #152932;
+  --text: #edf1f2; /* Niebla (15.14:1 AAA) */
+  --text-2: rgba(237, 241, 242, 0.65);
+  --line: rgba(255, 255, 255, 0.1);
+  --accent: #2fc4d9; /* Teal pleno (8.21:1 AAA sobre Carbón) */
+  --accent-text: #2fc4d9;
+  --warm: #d99c71; /* Cobre claro (7.33:1 AAA) */
+  --warm-text: #d99c71;
+  color-scheme: dark;
+  /* On dark, the accent is bright teal: white on it fails contrast, Tinta
+     passes (6.94:1 AA) — flip the two foregrounds that sit on accent. */
+  --primary-foreground: #1c2b33;
+  --accent-foreground: #1c2b33;
+}
+
+/* The hotel product's world (Obsidian) as an object: /hoteles wraps its
+   content in .theme-hotel (L5). Nav and footer stay outside and follow the
+   site theme. Coral lives ONLY here. */
+.theme-hotel {
+  --bg: #0a0f0e;
+  --bg-alt: #0f1514;
+  --surface: #111817;
+  --text: #eef2f0;
+  --text-2: rgba(238, 242, 240, 0.65);
+  --line: rgba(255, 255, 255, 0.08);
+  --accent: #0d7f95;
+  --accent-text: #2fc4d9;
+  --warm: #ff6b4a; /* coral */
+  --warm-text: #ff6b4a;
+  color-scheme: dark;
+}
 
 @theme inline {
-  /* ── Osppy "Obsidian" palette (dark engineered tech) ───────
-     The semantic roles survive the world-flip: canvas = page base,
-     ink = primary text, sand = elevated section punctuation,
-     line = hairline rules. Light-world values live in git history. */
-  --color-canvas: #0a0f0e;        /* near-black, green-tinted base */
-  --color-warm-white: var(--color-canvas); /* legacy alias */
-  --color-sand: #0f1514;          /* elevated section surface */
-  --color-ink: #eef2f0;           /* primary text (near-white) */
-  --color-ink-panel: #111817;     /* dashboard / glass panel base */
-  --color-line: rgba(255, 255, 255, 0.08); /* hairline rules */
+  /* ── Taller tokens, named as in the brand guide §8.2 / §8.5 ── */
+  --color-marfil: #f7f5f0;
+  --color-blanco: #ffffff;
+  --color-tinta: #1c2b33;
+  --color-grafito: #54646b;
+  --color-petroleo: #0e4f4f;
+  --color-pizarra: #0a3a3a;
+  --color-bruma: #e7efea;
+  --color-verde-claro: #d6e8e1;
+  --color-teal: #2fc4d9;
+  --color-teal-profundo: #0d7f95;
+  --color-teal-tinta: #0b6b7e;
+  --color-cobre: #b26a45;
+  --color-cobre-tinta: #8c4b2c;
+  --color-arena: #e6e1d6;
+  --color-hairline-verde: #b8cac5;
+  --color-carbon: #0e1d24;
+  --color-panel-oscuro: #152932;
+  --color-niebla: #edf1f2;
+  --color-salvia: #74c0ac;
+  --color-cobre-claro: #d99c71;
 
-  /* Action color — luminous teal. Deep base keeps white button text
-     AA-legible; -ink is the bright accent for text/links on canvas;
-     -glow is the mockup/dark-surface accent. */
-  --color-turquoise: #129db5;     /* button hover */
-  --color-turquoise-deep: #0d7f95; /* button base, ≥4.5:1 with white */
-  --color-turquoise-ink: #2fc4d9; /* accent text/links on canvas */
-  --color-turquoise-glow: #1ba3b8; /* mockup accents (unchanged) */
+  /* ── Role utilities: bg-bg, text-text, border-line, bg-surface, … ── */
+  --color-bg: var(--bg);
+  --color-bg-alt: var(--bg-alt);
+  --color-surface: var(--surface);
+  --color-text: var(--text);
+  --color-text-2: var(--text-2);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-text: var(--accent-text);
+  --color-warm: var(--warm);
+  --color-warm-text: var(--warm-text);
+
+  /* ── Obsidian tokens (the hotel world; components under .theme-hotel) ── */
+  --color-canvas: #0a0f0e;
+  --color-warm-white: #0a0f0e; /* legacy alias */
+  --color-sand: #0f1514;
+  --color-ink: #eef2f0;
+  --color-ink-panel: #111817;
+  --color-turquoise: #129db5;
+  --color-turquoise-deep: #0d7f95;
+  --color-turquoise-ink: #2fc4d9;
+  --color-turquoise-glow: #1ba3b8;
   --color-turquoise-soft: rgba(34, 196, 217, 0.1);
-
-  /* Warm ember — hospitality heat in an engineered world */
   --color-ember: rgba(255, 107, 74, 0.1);
   --color-coral: #ff6b4a;
   --color-coral-soft: rgba(255, 107, 74, 0.12);
@@ -33,10 +171,68 @@
 
   /* Typography */
   --font-sans: var(--font-inter);
-  --font-display: var(--font-fraunces);
 
   /* Motion */
   --ease-luxe: cubic-bezier(0.22, 1, 0.36, 1);
+  --font-heading: var(--font-manrope);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+  --color-chart-scale-pattern-color: var(--chart-scale-pattern-color);
+  --color-chart-scale-05: var(--chart-scale-05);
+  --color-chart-scale-04: var(--chart-scale-04);
+  --color-chart-scale-03: var(--chart-scale-03);
+  --color-chart-scale-02: var(--chart-scale-02);
+  --color-chart-scale-01: var(--chart-scale-01);
+  --color-chart-label: var(--chart-label);
+  --color-chart-marker-foreground: var(--chart-marker-foreground);
+  --color-chart-marker-border: var(--chart-marker-border);
+  --color-chart-marker-background: var(--chart-marker-background);
+  --color-chart-tooltip-muted: var(--chart-tooltip-muted);
+  --color-chart-tooltip-foreground: var(--chart-tooltip-foreground);
+  --color-chart-tooltip-background: var(--chart-tooltip-background);
+  --chart-brush-border: var(--chart-brush-border);
+  --color-chart-grid: var(--chart-grid);
+  --color-chart-crosshair: var(--chart-crosshair);
+  --chart-line-secondary: var(--chart-line-secondary);
+  --chart-line-primary: var(--chart-line-primary);
+  --color-chart-foreground-muted: var(--chart-foreground-muted);
+  --color-chart-foreground: var(--chart-foreground);
+  --color-chart-background: var(--chart-background);
 }
 
 * {
@@ -45,12 +241,11 @@
 
 html {
   scroll-behavior: smooth;
-  color-scheme: dark;
 }
 
 body {
-  background-color: var(--color-canvas);
-  color: var(--color-ink);
+  background-color: var(--bg);
+  color: var(--text);
   font-family: var(--font-inter), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -68,31 +263,26 @@ html.lenis body {
   scroll-behavior: auto !important;
 }
 
-/* Serif display face for headlines */
+/* Display face: Manrope for the whole site (guide §8.6); Fraunces stays the
+   hotel product's voice, so only .theme-hotel re-points the class. */
 .font-display {
+  font-family: var(--font-manrope), system-ui, sans-serif;
+}
+.theme-hotel .font-display {
   font-family: var(--font-fraunces), Georgia, "Times New Roman", serif;
 }
+/* One editorial quote per page at most (guide §8.6) */
+.font-editorial {
+  font-family: var(--font-plex-serif), Georgia, "Times New Roman", serif;
+}
 
-/* Eyebrow label above section headlines — 65% keeps WCAG AA at 11px */
+/* Eyebrow label above section headlines */
 .eyebrow {
   font-size: 0.6875rem;
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: color-mix(in srgb, var(--color-ink) 65%, transparent);
-}
-
-/* Fine engineering grid for dark sections */
-.bg-grid-pattern {
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: 64px 64px;
-}
-
-/* Soft radial mask so grids/glows fall off toward the edges */
-.mask-radial-fade {
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 30%, transparent 100%);
+  color: color-mix(in srgb, var(--text) 65%, transparent);
 }
 
 /* WA dot pattern for chat background */
@@ -167,24 +357,13 @@ html.lenis body {
   animation-play-state: paused;
 }
 
-/* Rotating conic border beam (Pricing highlighted tier) */
-@property --beam-angle {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
+/* Skeleton pulse (components/ui/Skeleton.tsx) */
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
 }
-@keyframes beam-spin {
-  to { --beam-angle: 360deg; }
-}
-.beam-ring {
-  background: conic-gradient(
-    from var(--beam-angle),
-    rgba(47, 196, 217, 0) 0%,
-    rgba(47, 196, 217, 0.9) 10%,
-    rgba(255, 107, 74, 0.45) 16%,
-    rgba(47, 196, 217, 0) 26%
-  );
-  animation: beam-spin 5.5s linear infinite;
+.animate-skeleton {
+  animation: skeleton-pulse 1.6s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -194,7 +373,8 @@ html.lenis body {
   .typing-dot,
   .animate-ping,
   .animate-pulse,
-  .beam-ring,
+  .animate-skeleton,
+  .marquee-track,
   [class*="animate-["] {
     animation: none !important;
   }
@@ -203,4 +383,40 @@ html.lenis body {
 /* Smooth anchor scroll offset for sticky navbar */
 [id] {
   scroll-margin-top: 80px;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+[data-theme="dark"] {
+  --chart-1: oklch(1 0 none);
+  --chart-2: oklch(0.73 0 none);
+  --chart-3: oklch(0.51 0 none);
+  --chart-4: oklch(0.39 0 none);
+  --chart-5: oklch(0.32 0 none);
+  --chart-background: oklch(0.145 0 0);
+  --chart-foreground: oklch(0.45 0 0);
+  --chart-foreground-muted: oklch(0.65 0.01 260);
+  --chart-crosshair: oklch(0.45 0 0);
+  --chart-grid: oklch(0.25 0 0);
+  --chart-brush-border: var(--chart-grid);
+  --chart-marker-background: oklch(0.25 0.01 260);
+  --chart-marker-border: oklch(0.4 0.01 260);
+  --chart-marker-foreground: oklch(0.9 0 0);
+  --chart-label: oklch(0.75 0.01 260);
+  --chart-scale-01: oklch(0.28 0.03 270);
+  --chart-scale-02: oklch(0.38 0.04 270);
+  --chart-scale-03: oklch(0.48 0.05 270);
+  --chart-scale-04: oklch(0.58 0.06 270);
+  --chart-scale-05: oklch(0.68 0.07 270);
+  --chart-scale-pattern-color: oklch(0.145 0 0);
 }

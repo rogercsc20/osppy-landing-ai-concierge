@@ -8,7 +8,7 @@ import {
   useReducedMotion,
   useMotionValueEvent,
   type MotionValue,
-} from "framer-motion";
+} from "motion/react";
 import { useTranslations } from "next-intl";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { DashboardMockup } from "@/components/ui/DashboardMockup";
@@ -318,7 +318,6 @@ export function BeachToDashboard() {
       {!reduce && (
         <div className="sticky top-0 hidden h-screen items-center justify-center overflow-hidden lg:flex">
           {/* stage dressing: engineering grid + teal core + ember floor */}
-          <div className="pointer-events-none absolute inset-0 bg-grid-pattern mask-radial-fade opacity-60" />
           <div className="pointer-events-none absolute left-1/2 top-1/2 h-[640px] w-[640px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-turquoise-glow/10 blur-3xl" />
           <div className="pointer-events-none absolute bottom-[-20%] left-1/2 h-80 w-[60%] -translate-x-1/2 rounded-full bg-ember blur-3xl" />
 

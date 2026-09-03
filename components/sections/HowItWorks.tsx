@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion, type Variants } from "framer-motion";
+import { motion, useReducedMotion, type Variants } from "motion/react";
 import { useTranslations } from "next-intl";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { SplitWords } from "@/components/fx/SplitWords";

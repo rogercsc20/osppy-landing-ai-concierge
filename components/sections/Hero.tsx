@@ -1,7 +1,6 @@
 "use client";
 
-import dynamic from "next/dynamic";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { InteractiveChat } from "@/components/ui/chat/InteractiveChat";
 import { Tilt } from "@/components/fx/Tilt";
@@ -9,7 +8,6 @@ import { Magnetic } from "@/components/fx/Magnetic";
 import { ArrowRight, ChevronDown } from "lucide-react";
 
 // WebGL loads after hydration; the CSS gradient beneath covers first paint.
-const Aurora = dynamic(() => import("@/components/fx/Aurora"), { ssr: false });
 
 export function Hero() {
   const t = useTranslations();
@@ -31,10 +29,6 @@ export function Hero() {
             "radial-gradient(120% 90% at 70% -10%, rgba(13, 127, 149, 0.32), transparent 60%), radial-gradient(80% 60% at 15% 0%, rgba(34, 196, 217, 0.12), transparent 55%)",
         }}
       />
-      <div aria-hidden="true" className="absolute inset-0 opacity-40 mix-blend-screen sm:opacity-60">
-        <Aurora className="absolute inset-0" />
-      </div>
-      <div aria-hidden="true" className="absolute inset-0 bg-grid-pattern mask-radial-fade" />
       {/* fade the scene into the page canvas */}
       <div
         aria-hidden="true"

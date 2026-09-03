@@ -23,7 +23,6 @@ export function FinalCTA() {
             "radial-gradient(55% 60% at 50% -10%, rgba(18,157,181,0.28), transparent 65%)",
         }}
       />
-      <div aria-hidden="true" className="absolute inset-0 bg-grid-pattern mask-radial-fade" />
 
       <div className="relative max-w-2xl mx-auto text-center">
         <AnimatedSection className="mb-12">

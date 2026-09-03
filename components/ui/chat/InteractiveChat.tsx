@@ -6,7 +6,7 @@ import {
   motion,
   useInView,
   useReducedMotion,
-} from "framer-motion";
+} from "motion/react";
 import { useTranslations } from "next-intl";
 import { ArrowRight } from "lucide-react";
 import {

@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { useScroll, useMotionValueEvent } from "framer-motion";
+import { useScroll, useMotionValueEvent } from "motion/react";
 import { useTranslations } from "next-intl";
 import { AnimatedSection, AnimatedGroup } from "@/components/ui/AnimatedSection";
 import { WhatsAppMockup } from "@/components/ui/WhatsAppMockup";

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, type ReactNode } from "react";
-import { motion, type Transition } from "framer-motion";
+import { motion, type Transition } from "motion/react";
 import { Check } from "lucide-react";
 import { LogoGlyph } from "@/components/ui/Logo";
 import { IPhone } from "@/components/device/IPhone";

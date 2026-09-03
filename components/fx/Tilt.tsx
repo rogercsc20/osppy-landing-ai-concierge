@@ -7,7 +7,7 @@ import {
   useSpring,
   useTransform,
   useReducedMotion,
-} from "framer-motion";
+} from "motion/react";
 
 /**
  * Pointer-tracked 3D tilt with spring physics. Children render flat under
