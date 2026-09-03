@@ -69,6 +69,7 @@ export default function ParticleButton({
   onSuccess,
   successDuration = 1000,
   className,
+  asChild,
   ...props
 }: ParticleButtonProps) {
   const [showParticles, setShowParticles] = useState(false);
@@ -98,10 +99,19 @@ export default function ParticleButton({
         )}
         onClick={handleClick}
         ref={buttonRef}
+        asChild={asChild}
         {...props}
       >
-        {children}
-        <MousePointerClick className="h-4 w-4" />
+        {/* asChild: Slot demands a single child, so the decorative icon is
+            skipped and the child element (e.g. a link) renders as-is. */}
+        {asChild ? (
+          children
+        ) : (
+          <>
+            {children}
+            <MousePointerClick className="h-4 w-4" />
+          </>
+        )}
       </Button>
     </>
   );

@@ -76,11 +76,13 @@ test("legacy login/dashboard bookmarks redirect to the cockpit", async ({
 test("CTA offers contact links, no form", async ({ page }) => {
   await page.goto("/es#demo");
 
+  // Scoped to #demo: the navbar CTA shares the button's accessible name.
+  const demo = page.locator("#demo");
   await expect(
-    page.getByRole("link", { name: es.home.cta.button }),
+    demo.getByRole("link", { name: es.home.cta.button }),
   ).toHaveAttribute("href", /^(https:\/\/wa\.me\/|mailto:hello@osppy\.com)/);
   await expect(
-    page.getByRole("link", { name: "hello@osppy.com" }),
+    demo.getByRole("link", { name: "hello@osppy.com" }),
   ).toHaveAttribute("href", "mailto:hello@osppy.com");
   expect(await page.locator("#demo form").count()).toBe(0);
 });

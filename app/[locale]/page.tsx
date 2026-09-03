@@ -1,15 +1,16 @@
 import { getTranslations } from "next-intl/server";
 import { SITE_URL, CONTACT_EMAIL } from "@/lib/site";
-import { Hero } from "@/components/sections/Hero";
-import { Problem } from "@/components/sections/Problem";
-import { Solution } from "@/components/sections/Solution";
-import { HowItWorks } from "@/components/sections/HowItWorks";
-import { Features } from "@/components/sections/Features";
-import { BeachToDashboard } from "@/components/sections/BeachToDashboard";
-import { Pricing } from "@/components/sections/Pricing";
-import { PilotProof } from "@/components/sections/PilotProof";
-import { FAQ } from "@/components/sections/FAQ";
-import { FinalCTA } from "@/components/sections/FinalCTA";
+import { Hero } from "@/components/home/Hero";
+import { Somos } from "@/components/home/Somos";
+import { Hacemos } from "@/components/home/Hacemos";
+import { Ayudamos } from "@/components/home/Ayudamos";
+import { Como } from "@/components/home/Como";
+import { Trayectoria } from "@/components/home/Trayectoria";
+import { Casos } from "@/components/home/Casos";
+import { Productos } from "@/components/home/Productos";
+import { Testimonios } from "@/components/home/Testimonios";
+import { Faq } from "@/components/home/Faq";
+import { Cta } from "@/components/home/Cta";
 
 const FAQ_COUNT = 6;
 
@@ -19,7 +20,7 @@ export default async function LandingPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "faq" });
+  const t = await getTranslations({ locale, namespace: "home.faq" });
 
   const organizationJsonLd = {
     "@context": "https://schema.org",
@@ -52,15 +53,16 @@ export default async function LandingPage({
       />
       <main>
         <Hero />
-        <Problem />
-        <Solution />
-        <HowItWorks />
-        <Features />
-        <BeachToDashboard />
-        <Pricing />
-        <PilotProof />
-        <FAQ />
-        <FinalCTA />
+        <Somos />
+        <Hacemos />
+        <Ayudamos />
+        <Como />
+        <Trayectoria />
+        <Casos />
+        <Productos />
+        <Testimonios />
+        <Faq />
+        <Cta />
       </main>
     </>
   );
