@@ -1,8 +1,18 @@
 {
   "nav": {
-    "cta": "Book demo",
+    "inicio": "Home",
+    "hacemos": "What we do",
+    "ayudamos": "Who we help",
+    "como": "How we work",
+    "hoteles": "Hotels",
+    "citas": "Appointments",
+    "cta": "Contact us",
+    "ctaMessage": "Hi, I'd like to talk about my business operations.",
     "login": "Log in",
-    "lang": "ES"
+    "lang": "ES",
+    "langLabel": "Switch to Spanish",
+    "menu": "Open menu",
+    "close": "Close menu"
   },
   "theme": {
     "toDark": "Switch to dark mode",
@@ -277,7 +287,14 @@
     "microcopy": "No spam · No commitment · We reply within 24 hours"
   },
   "footer": {
-    "tagline": "The front desk that never sleeps.",
+    "about": "Applied artificial intelligence for business operations.",
+    "lineas": "Solutions",
+    "hoteles": "Hotels",
+    "citas": "Appointments",
+    "empresarial": "Enterprise AI",
+    "contacto": "Contact",
+    "whatsapp": "WhatsApp",
+    "legalTitle": "Legal",
     "privacy": "Privacy policy",
     "terms": "Terms of use",
     "rights": "© 2026 Osppy. All rights reserved.",

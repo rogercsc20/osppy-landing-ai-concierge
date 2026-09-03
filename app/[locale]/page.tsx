@@ -1,6 +1,4 @@
 import { getTranslations } from "next-intl/server";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
 import { SITE_URL, CONTACT_EMAIL } from "@/lib/site";
 import { Hero } from "@/components/sections/Hero";
 import { Problem } from "@/components/sections/Problem";
@@ -52,7 +50,6 @@ export default async function LandingPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      <Navbar />
       <main>
         <Hero />
         <Problem />
@@ -65,7 +62,6 @@ export default async function LandingPage({
         <FAQ />
         <FinalCTA />
       </main>
-      <Footer />
     </>
   );
 }

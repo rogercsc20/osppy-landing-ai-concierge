@@ -1,17 +1,17 @@
 import { brandOgImage, OG_SIZE } from "@/lib/og";
 
-export const alt = "Osppy";
+export const alt = "Osppy Citas";
 export const size = OG_SIZE;
 export const contentType = "image/png";
 
 const COPY = {
   es: {
-    title: "IA aplicada para empresas",
-    sub: "Inteligencia artificial en la operación de tu negocio",
+    title: "Osppy Citas",
+    sub: "Asistente para negocios de citas · próximamente",
   },
   en: {
-    title: "Applied AI for businesses",
-    sub: "Artificial intelligence inside your operation",
+    title: "Osppy Appointments",
+    sub: "Assistant for appointment-based businesses · coming soon",
   },
 } as const;
 

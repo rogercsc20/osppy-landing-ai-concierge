@@ -1,22 +1,24 @@
 "use client";
 
-import { useRouter, usePathname } from "next/navigation";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useTransition } from "react";
+import { usePathname, useRouter } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
 export function LanguageToggle() {
+  const t = useTranslations("nav");
   const locale = useLocale();
   const router = useRouter();
+  // The i18n-aware pathname (the internal key, e.g. "/hoteles"), so the
+  // switch lands on the localized slug of the same page (/en/hotels).
   const pathname = usePathname();
   const [isPending, startTransition] = useTransition();
 
   const otherLocale = locale === "es" ? "en" : "es";
 
   const switchLocale = () => {
-    const newPath = pathname.replace(`/${locale}`, `/${otherLocale}`);
     startTransition(() => {
-      router.replace(newPath);
+      router.replace(pathname as never, { locale: otherLocale });
     });
   };
 
@@ -25,13 +27,13 @@ export function LanguageToggle() {
       onClick={switchLocale}
       disabled={isPending}
       className={cn(
-        "text-sm font-medium px-3 py-1.5 rounded-full border transition-colors",
-        "border-ink/20 text-ink/70 hover:text-ink hover:border-ink/40",
-        isPending && "opacity-50 cursor-not-allowed"
+        "rounded-full border px-3 py-1.5 text-sm font-medium transition-colors",
+        "border-line text-text-2 hover:border-text-2 hover:text-text",
+        isPending && "cursor-not-allowed opacity-50",
       )}
-      aria-label={`Switch to ${otherLocale === "es" ? "Spanish" : "English"}`}
+      aria-label={t("langLabel")}
     >
-      {otherLocale.toUpperCase()}
+      {t("lang")}
     </button>
   );
 }

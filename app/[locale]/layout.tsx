@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Fraunces, Manrope, IBM_Plex_Serif } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { SmoothScroll } from "@/components/providers/SmoothScroll";
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
 import { getMessages } from "next-intl/server";
 import { Analytics } from "@vercel/analytics/next";
 import { notFound } from "next/navigation";
@@ -39,8 +41,11 @@ const plexSerif = IBM_Plex_Serif({
   display: "swap",
 });
 
-// Runs before paint: stored choice wins, then the system preference,
-// light otherwise — so a reload never flashes the wrong theme.
+// Runs before paint: stored choice wins, then the system preference, light
+// otherwise — so a reload never flashes the wrong theme (HQA-D27). React
+// logs a DEV-ONLY note when the locale layout re-renders this script on a
+// language switch; the script only ever executes from the initial HTML and
+// the warning is stripped from production builds (verified on next start).
 const themeInit = `(function(){try{var t=localStorage.getItem("theme");if(t!=="dark"&&t!=="light"){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}document.documentElement.setAttribute("data-theme",t)}catch(e){document.documentElement.setAttribute("data-theme","light")}})();`;
 
 export async function generateMetadata({
@@ -125,7 +130,11 @@ export default async function LocaleLayout({
       <body className="antialiased min-h-screen">
         <script dangerouslySetInnerHTML={{ __html: themeInit }} />
         <NextIntlClientProvider messages={messages}>
-          <SmoothScroll>{children}</SmoothScroll>
+          <SmoothScroll>
+            <Navbar />
+            {children}
+            <Footer />
+          </SmoothScroll>
         </NextIntlClientProvider>
         <Analytics />
       </body>

@@ -1,18 +1,12 @@
 import { brandOgImage, OG_SIZE } from "@/lib/og";
 
-export const alt = "Osppy";
+export const alt = "Osppy Hoteles";
 export const size = OG_SIZE;
 export const contentType = "image/png";
 
 const COPY = {
-  es: {
-    title: "IA aplicada para empresas",
-    sub: "Inteligencia artificial en la operación de tu negocio",
-  },
-  en: {
-    title: "Applied AI for businesses",
-    sub: "Artificial intelligence inside your operation",
-  },
+  es: { title: "Osppy Hoteles", sub: "Asistente y panel para hoteles" },
+  en: { title: "Osppy Hotels", sub: "Assistant and panel for hotels" },
 } as const;
 
 export default async function Image({
@@ -22,5 +16,6 @@ export default async function Image({
 }) {
   const { locale } = await params;
   const copy = COPY[locale === "en" ? "en" : "es"];
-  return brandOgImage({ title: copy.title, sub: copy.sub });
+  // The hotel product keeps its Obsidian world (HQA-D27).
+  return brandOgImage({ title: copy.title, sub: copy.sub, dark: true });
 }

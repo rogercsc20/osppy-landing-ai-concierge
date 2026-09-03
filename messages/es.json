@@ -1,8 +1,18 @@
 {
   "nav": {
-    "cta": "Agenda demo",
+    "inicio": "Inicio",
+    "hacemos": "Qué hacemos",
+    "ayudamos": "A quién ayudamos",
+    "como": "Cómo trabajamos",
+    "hoteles": "Hoteles",
+    "citas": "Citas",
+    "cta": "Escríbenos",
+    "ctaMessage": "Hola, quiero platicar sobre la operación de mi negocio.",
     "login": "Iniciar sesión",
-    "lang": "EN"
+    "lang": "EN",
+    "langLabel": "Cambiar al inglés",
+    "menu": "Abrir menú",
+    "close": "Cerrar menú"
   },
   "theme": {
     "toDark": "Cambiar a modo oscuro",
@@ -277,8 +287,15 @@
     "microcopy": "Sin spam · Sin compromiso · Respondemos en menos de 24 horas"
   },
   "footer": {
-    "tagline": "El recepcionista que nunca duerme.",
-    "privacy": "Política de privacidad",
+    "about": "Inteligencia artificial aplicada a la operación de empresas.",
+    "lineas": "Líneas",
+    "hoteles": "Hoteles",
+    "citas": "Citas",
+    "empresarial": "IA Empresarial",
+    "contacto": "Contacto",
+    "whatsapp": "WhatsApp",
+    "legalTitle": "Legal",
+    "privacy": "Aviso de privacidad",
     "terms": "Términos de uso",
     "rights": "© 2026 Osppy. Todos los derechos reservados.",
     "legal": "Osppy · Guadalajara, México · hello@osppy.com"
