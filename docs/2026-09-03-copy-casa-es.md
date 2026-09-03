@@ -52,10 +52,10 @@ se queda tal cual, incluido el pie «El paso que casi nadie tiene escrito es el 
 | Llave | Texto |
 |---|---|
 | `kicker` | Por qué |
-| `headline` | **«Sabemos que necesitamos IA.» Y después, silencio.** |
+| `headline` | **“Sabemos que necesitamos IA.” Y después, silencio.** |
 | `p1` | La frase se dice en juntas de dirección todo el tiempo. La que casi nunca sigue es la segunda: en qué área, con qué tarea, con qué reglas y quién revisa el resultado. |
 | `p2` | Sin esa segunda frase pasan dos cosas. O no se hace nada en todo un año. O se compra una herramienta que nadie termina de usar, porque el proceso que iba a ordenar nunca estuvo escrito. |
-| `p3` | Nuestro trabajo empieza justo ahí: en convertir «necesitamos IA» en una tarea concreta de un área concreta. |
+| `p3` | Nuestro trabajo empieza justo ahí: en convertir “necesitamos IA” en una tarea concreta de un área concreta. |
 | `cierre` | A veces la respuesta es: todavía no. Y también te lo decimos. |
 
 ## 3 · Lo que creemos · `home.creemos.*`
@@ -140,9 +140,9 @@ etiqueta chica.** No es un detalle de diseño: es la regla de «el concepto en c
 |---|---|
 | `kicker` | Dónde |
 | `headline` | **Dónde entra primero: el área, y la tarea con la que se empieza.** |
-| `body` | La IA no entra «en la empresa». Entra en un área, con una tarea. Estas son las ocho donde más seguido empieza la conversación, con un ejemplo de por dónde. |
+| `body` | La IA no entra “en la empresa”. Entra en un área, con una tarea. Estas son las ocho donde más seguido empieza la conversación, con un ejemplo de por dónde. |
 | `insignia` | Se ofrece |
-| `nota` | «Se ofrece» quiere decir exactamente eso: lo podemos construir para tu operación. El día que un área tenga trabajo entregado que podamos contar, la vas a ver marcada distinto — no antes. |
+| `nota` | “Se ofrece” quiere decir exactamente eso: lo podemos construir para tu operación. El día que un área tenga trabajo entregado que podamos contar, la vas a ver marcada distinto — no antes. |
 | `cardCta` | Ver si aplica en tu caso |
 
 | # | Área | Tarea de ejemplo | Insignia |
@@ -202,7 +202,7 @@ hay rangos, se escriben primero ahí y después aquí — HQA-D43.)*
 Los seis contadores se quedan idénticos —**+100** empresas asesoradas · **+50** soluciones
 construidas para empresas · **3** líneas de trabajo · **9** giros atendidos · **2** productos en
 producción · **24/7** atención del asistente— con su línea de agentes autónomos y su nota
-íntegra: *«+100» y «+50» son estimación del operador al 2026-09-02; no hay registro contable de
+íntegra: *“+100” y “+50” son estimación del operador al 2026-09-02; no hay registro contable de
 esa etapa.*
 
 Los siete tipos de trabajo (`home.casos.t1`–`t7`) se conservan palabra por palabra:
@@ -290,7 +290,7 @@ público de empresa pregunta primero.)*
 |---|---|
 | `kicker` | El siguiente paso |
 | `headline` | **Cuéntanos con qué área quieres empezar.** |
-| `body` | Nos escribes, te contesta una persona, y vemos si hay algo que valga la pena hacer. A veces la respuesta honesta es «todavía no» — también te la vamos a dar. |
+| `body` | Nos escribes, te contesta una persona, y vemos si hay algo que valga la pena hacer. A veces la respuesta honesta es “todavía no” — también te la vamos a dar. |
 | `button` | Escríbenos |
 | `ctaMessage` | Hola, quiero platicar sobre la operación de mi empresa. El área por la que quiero empezar es… |
 | `mailLabel` | hello@osppy.com |

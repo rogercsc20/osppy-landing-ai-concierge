@@ -32,11 +32,12 @@ export function Voces() {
           {quotes.map((quote, i) => (
             <Reveal key={quote} variant="blur-in" delay={i * 0.12}>
               <figure>
-                <span aria-hidden="true" className="font-editorial block text-h2 leading-none text-accent-text/40">
-                  &ldquo;
-                </span>
-                <blockquote className="font-editorial mt-2 text-lead leading-relaxed text-text">
-                  {quote}
+                {/* The quote is set in italics between curly quotation marks
+                    (C1). Guillemets read as decoration at this size and the
+                    operator rejected them; an oversized opening mark on its
+                    own line was the same decoration, larger. */}
+                <blockquote className="font-editorial text-lead italic leading-relaxed text-text">
+                  &ldquo;{quote}&rdquo;
                 </blockquote>
               </figure>
             </Reveal>

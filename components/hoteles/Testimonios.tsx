@@ -18,7 +18,9 @@ function QuoteCard({ quote, label }: { quote: string; label: string }) {
       <span className="w-fit rounded-full border border-line px-2.5 py-0.5 text-[11px] font-medium uppercase tracking-wide text-text-2">
         {label}
       </span>
-      <blockquote className="flex-1 font-display text-lg leading-normal text-text/90">&ldquo;{quote}&rdquo;</blockquote>
+      <blockquote className="flex-1 font-display text-lg italic leading-normal text-text/90">
+        &ldquo;{quote}&rdquo;
+      </blockquote>
     </figure>
   );
 }

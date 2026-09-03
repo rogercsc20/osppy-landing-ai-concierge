@@ -38,10 +38,10 @@
     },
     "porque": {
       "kicker": "Por qué",
-      "headline": "«Sabemos que necesitamos IA.» Y después, silencio.",
+      "headline": "“Sabemos que necesitamos IA.” Y después, silencio.",
       "p1": "La frase se dice en juntas de dirección todo el tiempo. La que casi nunca sigue es la segunda: en qué área, con qué tarea, con qué reglas y quién revisa el resultado.",
       "p2": "Sin esa segunda frase pasan dos cosas. O no se hace nada en todo un año. O se compra una herramienta que nadie termina de usar, porque el proceso que iba a ordenar nunca estuvo escrito.",
-      "p3": "Nuestro trabajo empieza justo ahí: en convertir «necesitamos IA» en una tarea concreta de un área concreta.",
+      "p3": "Nuestro trabajo empieza justo ahí: en convertir “necesitamos IA” en una tarea concreta de un área concreta.",
       "cierre": "A veces la respuesta es: todavía no. Y también te lo decimos."
     },
     "creemos": {
@@ -107,9 +107,9 @@
     "areas": {
       "kicker": "Dónde",
       "headline": "Dónde entra primero: el área, y la tarea con la que se empieza.",
-      "body": "La IA no entra «en la empresa». Entra en un área, con una tarea. Estas son las ocho donde más seguido empieza la conversación, con un ejemplo de por dónde.",
+      "body": "La IA no entra “en la empresa”. Entra en un área, con una tarea. Estas son las ocho donde más seguido empieza la conversación, con un ejemplo de por dónde.",
       "insignia": "Se ofrece",
-      "nota": "«Se ofrece» quiere decir exactamente eso: lo podemos construir para tu operación. El día que un área tenga trabajo entregado que podamos contar, la vas a ver marcada distinto — no antes.",
+      "nota": "“Se ofrece” quiere decir exactamente eso: lo podemos construir para tu operación. El día que un área tenga trabajo entregado que podamos contar, la vas a ver marcada distinto — no antes.",
       "cardCta": "Ver si aplica en tu caso",
       "contabilidad": {
         "nombre": "Contabilidad",
@@ -213,7 +213,7 @@
       "c6Valor": "24/7",
       "c6Label": "atención del asistente",
       "agentes": "Además: agentes que hacen la tarea completa por su cuenta —autónomos— operando hoy en sistemas en producción.",
-      "nota": "«+100» y «+50» son estimación del operador al 2026-09-02; no hay registro contable de esa etapa.",
+      "nota": "“+100” y “+50” son estimación del operador al 2026-09-02; no hay registro contable de esa etapa.",
       "body": "Aquí no se nombra a ningún cliente sin permiso por escrito, y no se publica ninguna cifra medida por nosotros. Lo que sí se puede contar: cuánto, de qué tipo y en qué giros."
     },
     "casos": {
@@ -281,7 +281,7 @@
     "cta": {
       "kicker": "El siguiente paso",
       "headline": "Cuéntanos con qué área quieres empezar.",
-      "body": "Nos escribes, te contesta una persona, y vemos si hay algo que valga la pena hacer. A veces la respuesta honesta es «todavía no» — también te la vamos a dar.",
+      "body": "Nos escribes, te contesta una persona, y vemos si hay algo que valga la pena hacer. A veces la respuesta honesta es “todavía no” — también te la vamos a dar.",
       "button": "Escríbenos",
       "ctaMessage": "Hola, quiero platicar sobre la operación de mi empresa. El área por la que quiero empezar es…",
       "mailLabel": "hello@osppy.com",
@@ -343,15 +343,15 @@
       "body": "Un hotel de pocas habitaciones vive de la reserva directa por WhatsApp, y ese WhatsApp casi siempre vive en el celular de quien lo dirige. Así se oye desde adentro:",
       "r1": {
         "titulo": "Escriben a la una de la mañana",
-        "body": "«Preguntan el precio y si incluye desayuno, y para cuando contesto ya reservaron en otro lado.»"
+        "body": "“Preguntan el precio y si incluye desayuno, y para cuando contesto ya reservaron en otro lado.”"
       },
       "r2": {
         "titulo": "Contestar veinte veces lo mismo",
-        "body": "«Precio, desayuno, estacionamiento, hora de llegada. Lo mismo, todo el día, a cualquier hora.»"
+        "body": "“Precio, desayuno, estacionamiento, hora de llegada. Lo mismo, todo el día, a cualquier hora.”"
       },
       "r3": {
         "titulo": "Un número que no se apaga",
-        "body": "«Mi WhatsApp vive en mi celular personal y no puedo desconectarme nunca. Y la reserva directa se me va porque nadie contestó a tiempo.»"
+        "body": "“Mi WhatsApp vive en mi celular personal y no puedo desconectarme nunca. Y la reserva directa se me va porque nadie contestó a tiempo.”"
       }
     },
     "hace": {
@@ -396,7 +396,7 @@
         "aprobada": "Aprobada. El huésped ya tiene los datos para transferir.",
         "rechazada": "Rechazada.",
         "pagoTitulo": "El huésped dice que ya transfirió",
-        "pagoDetalle": "«Ya te transferí» · Andrea",
+        "pagoDetalle": "“Ya te transferí” · Andrea",
         "confirmarPago": "Confirmar pago",
         "pagoConfirmado": "Pago confirmado. Diana confirma la reserva al huésped y la habitación queda ocupada.",
         "reiniciar": "Ver de nuevo"

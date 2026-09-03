@@ -17,11 +17,21 @@ export function Pinned({
   children,
   className,
   stickyClassName,
+  stepVh = 100,
 }: {
   steps: number;
   children: (step: number, stacked: boolean) => ReactNode;
   className?: string;
   stickyClassName?: string;
+  /**
+   * Viewport heights of scroll per step, and therefore how long the chapter
+   * holds. At 100 the last step still has a full viewport of scroll behind
+   * it before the block releases and another full viewport to travel off
+   * screen — the empty stretch the operator saw after "Operación" (C1). The
+   * block itself is `min-h-[68svh]`, not a full viewport, for the same
+   * reason: a short step centred in 100svh is mostly air.
+   */
+  stepVh?: number;
 }) {
   const reduce = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
@@ -45,15 +55,15 @@ export function Pinned({
         ))}
       </div>
 
-      {/* pinned: one viewport tall per step, the chapter stays put */}
+      {/* pinned: `stepVh` of scroll per step, the chapter stays put */}
       <div
         ref={ref}
         className={cn("hidden lg:block", className)}
-        style={{ height: reduce ? undefined : `${steps * 100}vh` }}
+        style={{ height: reduce ? undefined : `${steps * stepVh}vh` }}
       >
         <div
           className={cn(
-            reduce ? undefined : "sticky top-16 flex min-h-[calc(100svh-4rem)] items-center",
+            reduce ? undefined : "sticky top-[16vh] flex min-h-[68svh] items-center",
             stickyClassName,
           )}
         >

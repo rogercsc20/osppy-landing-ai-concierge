@@ -74,7 +74,7 @@ export function Como() {
   const labels = steps.map((s) => s.titulo);
 
   return (
-    <section id="como" className="relative px-4 py-section sm:px-6">
+    <section id="como" className="relative px-4 pt-section sm:px-6">
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <p className="eyebrow">{t("kicker")}</p>
@@ -83,7 +83,7 @@ export function Como() {
           </h2>
         </Reveal>
 
-        <Pinned steps={steps.length} className="mt-16">
+        <Pinned steps={steps.length} stepVh={72} className="mt-16">
           {(step, stacked) =>
             stacked ? (
               <div className="border-t border-line py-10">

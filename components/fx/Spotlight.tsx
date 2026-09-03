@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, type ReactNode } from "react";
+import type { ReactNode } from "react";
 import { motion, useMotionTemplate, useMotionValue } from "motion/react";
 import { cn } from "@/lib/utils";
 import { useMotionOK } from "./motion-hooks";
@@ -9,6 +9,14 @@ import { useMotionOK } from "./motion-hooks";
  * A soft light that follows the cursor across a surface. Pointer effect: off
  * under reduced motion and on touch (useMotionOK), where it would either
  * never move or stick where a finger last was.
+ *
+ * The light layer is `fixed inset-0`, not `absolute inset-0` (C1): a
+ * gradient painted inside a `max-w-6xl` box is cut at that box's edges, so
+ * a light near the container's left border draws a hard vertical line down
+ * the page — the one bounded gradient in a design whose whole rule is that
+ * no glow is ever clipped (landing v2 §2). Anchored to the viewport it has
+ * no edge to be cut by; the coordinates are therefore client coordinates,
+ * and it only lights while the pointer is inside `children`.
  */
 export function Spotlight({
   children,
@@ -26,7 +34,6 @@ export function Spotlight({
   color?: string;
 }) {
   const ok = useMotionOK();
-  const ref = useRef<HTMLDivElement>(null);
   const x = useMotionValue(-9999);
   const y = useMotionValue(-9999);
 
@@ -34,15 +41,12 @@ export function Spotlight({
 
   return (
     <div
-      ref={ref}
       className={cn("relative", className)}
       onPointerMove={
         ok
           ? (e) => {
-              const r = ref.current?.getBoundingClientRect();
-              if (!r) return;
-              x.set(e.clientX - r.left);
-              y.set(e.clientY - r.top);
+              x.set(e.clientX);
+              y.set(e.clientY);
             }
           : undefined
       }
@@ -58,7 +62,7 @@ export function Spotlight({
       {ok && (
         <motion.div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 -z-10"
+          className="pointer-events-none fixed inset-0 -z-10"
           style={{ background }}
         />
       )}
