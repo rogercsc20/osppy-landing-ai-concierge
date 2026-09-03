@@ -57,7 +57,7 @@ export function LegalDocument({
           <p className="mt-3 text-sm text-ink/45">{updated}</p>
 
           {intro && (
-            <div className="mt-8 flex flex-col gap-3 border-l-2 border-turquoise/40 pl-5">
+            <div className="mt-8 flex flex-col gap-3 border-l-2 border-accent/40 pl-5">
               {intro.map((p, i) => (
                 <p key={i} className="text-[15px] leading-relaxed text-ink/70">
                   {p}
@@ -70,7 +70,7 @@ export function LegalDocument({
             {sections.map((section, i) => (
               <section key={i}>
                 <h2 className="mb-4 font-display text-2xl font-semibold text-ink">
-                  <span className="mr-2 text-turquoise-deep">{i + 1}.</span>
+                  <span className="mr-2 text-accent-text">{i + 1}.</span>
                   {section.heading}
                 </h2>
                 <div className="flex flex-col gap-3">

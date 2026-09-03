@@ -18,8 +18,11 @@
   --text: #1c2b33; /* Tinta */
   --text-2: #54646b; /* Grafito */
   --line: #e6e1d6; /* Arena — sobre Verde claro usar --color-hairline-verde */
-  --accent: #0d7f95; /* Teal profundo — acción con texto blanco (4.68:1 AA) */
-  --accent-text: #0b6b7e; /* Teal tinta — enlaces y texto teal (5.64:1 AA) */
+  /* Operador, 2026-09-02: «i dont like the tourquoise, lets make the butons
+     and details dark and green» — el acento de la casa deja el teal y pasa a
+     Petróleo/Salvia. El teal queda solo dentro de .theme-hotel (HQA-D27). */
+  --accent: #0e4f4f; /* Petróleo — acción con texto blanco (9.33:1 AAA) */
+  --accent-text: #0e4f4f; /* Petróleo — enlaces y texto de acento (8.57:1 AAA) */
   --warm: #b26a45; /* Cobre — solo ≥24 px (3.82:1 AA-grande) */
   --warm-text: #8c4b2c; /* Cobre tinta — cobre en texto chico (6.10:1 AA) */
   color-scheme: light;
@@ -86,13 +89,13 @@
   --text: #edf1f2; /* Niebla (15.14:1 AAA) */
   --text-2: rgba(237, 241, 242, 0.65);
   --line: rgba(255, 255, 255, 0.1);
-  --accent: #2fc4d9; /* Teal pleno (8.21:1 AAA sobre Carbón) */
-  --accent-text: #2fc4d9;
+  --accent: #74c0ac; /* Salvia — el verde de acento en oscuro (7.6:1 sobre Carbón) */
+  --accent-text: #74c0ac;
   --warm: #d99c71; /* Cobre claro (7.33:1 AAA) */
   --warm-text: #d99c71;
   color-scheme: dark;
-  /* On dark, the accent is bright teal: white on it fails contrast, Tinta
-     passes (6.94:1 AA) — flip the two foregrounds that sit on accent. */
+  /* On dark, the accent is light green: white on it fails contrast, Tinta
+     passes — flip the two foregrounds that sit on accent. */
   --primary-foreground: #1c2b33;
   --accent-foreground: #1c2b33;
 }

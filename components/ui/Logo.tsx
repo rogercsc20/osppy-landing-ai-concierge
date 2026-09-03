@@ -15,13 +15,13 @@ export function LogoGlyph({ className }: { className?: string }) {
 
 /**
  * The glyph on a brand tile. Size, radius, and surface come from className
- * (e.g. "h-8 w-8", "rounded-xl", "bg-turquoise-glow" for dark contexts).
+ * (e.g. "h-8 w-8", "rounded-xl", a surface override for special contexts).
  */
 export function Logomark({ className }: { className?: string }) {
   return (
     <span
       className={cn(
-        "flex items-center justify-center rounded-lg bg-turquoise-deep text-white",
+        "flex items-center justify-center rounded-lg bg-pizarra text-verde-claro",
         className,
       )}
     >
