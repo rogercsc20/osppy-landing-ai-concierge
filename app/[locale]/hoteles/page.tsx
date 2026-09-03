@@ -12,9 +12,11 @@ import { Cta } from "@/components/hoteles/Cta";
 
 const FAQ_COUNT = 6;
 
-/* Diana Hoteles (L5, HQA-D27): the product's Obsidian world as an object.
-   Everything inside .theme-hotel is dark in both site modes — hero and demo
-   included; the navbar and footer outside follow the site theme. */
+/* Diana Hoteles (HQA-D38, superseding D27): the product is no longer a dark
+   object bolted onto the site. data-accent="hotel" re-points the accent, the
+   warm and two of the four auras — teal and coral — and nothing else, so the
+   ground, the text and the theme toggle stay the site's. Navbar wears the
+   same accent while this route is open (it sets the attribute on <html>). */
 export default async function HotelesPage({
   params,
 }: {
@@ -36,20 +38,18 @@ export default async function HotelesPage({
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
-      <div className="theme-hotel bg-bg text-text">
-        <main>
-          <Hero />
-          <Problema />
-          <Hace />
-          <Circuito />
-          <Funciones />
-          <Arranque />
-          <Precio />
-          <Testimonios />
-          <Faq />
-          <Cta />
-        </main>
-      </div>
+      <main data-accent="hotel">
+        <Hero />
+        <Problema />
+        <Hace />
+        <Circuito />
+        <Funciones />
+        <Arranque />
+        <Precio />
+        <Testimonios />
+        <Faq />
+        <Cta />
+      </main>
     </>
   );
 }

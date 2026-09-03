@@ -1,7 +1,8 @@
 "use client";
 
 import { useRef } from "react";
-import { useInView, useReducedMotion } from "motion/react";
+import { useInView } from "motion/react";
+import { useReducedMotion } from "@/components/fx/motion-hooks";
 import { useTranslations } from "next-intl";
 
 /* How we work: a four-step timeline whose marker lights up as each step

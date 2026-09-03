@@ -1,7 +1,8 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { AnimatePresence, useReducedMotion } from "motion/react";
+import { AnimatePresence } from "motion/react";
+import { useReducedMotion } from "@/components/fx/motion-hooks";
 import {
   ChatViewport,
   MessageBubble,
@@ -23,7 +24,7 @@ const TYPING_LEAD = 0.1;
 
 export function Conversacion({ progress }: { progress: number }) {
   const t = useTranslations("hoteles.hace.conversacion");
-  const reduce = useReducedMotion() ?? false;
+  const reduce = useReducedMotion();
 
   const messages: ChatMessage[] = SENDERS.map((sender, i) => ({
     id: i + 1,

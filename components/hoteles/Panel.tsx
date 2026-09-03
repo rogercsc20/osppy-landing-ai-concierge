@@ -71,7 +71,7 @@ export function Panel({ compact = false }: { compact?: boolean }) {
         {/* Tiles */}
         <div className="grid grid-cols-2 gap-3 @2xl:grid-cols-4">
           {tiles.map(({ icon: Icon, label, value, sub, live }) => (
-            <div key={label} className="rounded-xl border border-line bg-white/[0.03] p-4">
+            <div key={label} className="rounded-xl glass p-4">
               <div className="mb-3 flex items-center justify-between">
                 <Icon className="h-4 w-4 text-text-2" aria-hidden="true" />
                 {live && <span className="h-2 w-2 animate-pulse rounded-full bg-accent-text" aria-hidden="true" />}
@@ -87,7 +87,7 @@ export function Panel({ compact = false }: { compact?: boolean }) {
 
         <div className="mt-4 grid gap-4 @2xl:grid-cols-5">
           {/* Conversations */}
-          <div className="rounded-xl border border-line bg-white/[0.03] p-4 @2xl:col-span-3">
+          <div className="rounded-xl glass p-4 @2xl:col-span-3">
             <div className="mb-3 flex items-center justify-between">
               <p className="text-sm font-medium">{t("conversaciones")}</p>
               <span className="text-xs text-text-2">{youCount > 0 ? `${youCount} · ${t("statusYou")}` : rows.length}</span>
@@ -130,7 +130,7 @@ export function Panel({ compact = false }: { compact?: boolean }) {
                         "flex flex-shrink-0 items-center gap-1 rounded-full border px-2.5 py-1 text-[10px] font-medium transition-colors",
                         you
                           ? "border-white/15 text-text-2 hover:bg-white/5"
-                          : "border-accent-text/40 text-accent-text hover:bg-accent hover:text-white",
+                          : "border-accent-text/40 text-accent-text hover:bg-accent hover:text-primary-foreground",
                       )}
                     >
                       {you ? <Undo2 className="h-3 w-3" aria-hidden="true" /> : <Hand className="h-3 w-3" aria-hidden="true" />}
@@ -143,7 +143,7 @@ export function Panel({ compact = false }: { compact?: boolean }) {
           </div>
 
           {/* Chart — Bklit, with its skeleton while "loading" */}
-          <div className="flex flex-col rounded-xl border border-line bg-white/[0.03] p-4 @2xl:col-span-2">
+          <div className="flex flex-col rounded-xl glass p-4 @2xl:col-span-2">
             <p className="text-sm font-medium">{t("chartTitle")}</p>
             <p className="mt-0.5 text-[11px] text-text-2">{t("chartNota")}</p>
             <div className="mt-3">

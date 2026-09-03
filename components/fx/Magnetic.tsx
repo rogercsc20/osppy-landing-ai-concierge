@@ -5,8 +5,8 @@ import {
   motion,
   useMotionValue,
   useSpring,
-  useReducedMotion,
 } from "motion/react";
+import { useReducedMotion } from "./motion-hooks";
 
 /** Element is gently pulled toward the cursor while hovered. */
 export function Magnetic({

@@ -11,7 +11,7 @@ export async function Casos() {
   );
 
   return (
-    <section className="bg-bg-alt py-24">
+    <section className="py-section">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <p className="eyebrow">{t("kicker")}</p>
         <h2 className="font-display mt-4 max-w-xl text-3xl font-bold tracking-tight text-text sm:text-4xl">
@@ -23,7 +23,7 @@ export async function Casos() {
           {cards.map((card) => (
             <li
               key={card.titulo}
-              className="rounded-2xl border border-hairline-verde bg-surface p-6"
+              className="glass rounded-2xl p-6"
             >
               <h3 className="font-display text-lg font-bold text-text">
                 {card.titulo}
@@ -34,7 +34,7 @@ export async function Casos() {
             </li>
           ))}
         </ul>
-        <p className="mt-8 border-t border-hairline-verde pt-6 text-sm text-text-2">
+        <p className="mt-8 border-t border-line pt-6 text-sm text-text-2">
           {t("giros")}
         </p>
       </div>

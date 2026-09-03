@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion, useInView, useReducedMotion } from "motion/react";
+import { AnimatePresence, motion, useInView } from "motion/react";
+import { useReducedMotion } from "@/components/fx/motion-hooks";
 import { useTranslations } from "next-intl";
 import { ArrowRight } from "lucide-react";
 import {
@@ -19,7 +20,7 @@ import { AUTO_QUESTION_KEY, CHAT_NODES, CHIP_LABELS, ROOT_ID } from "./chat-scri
    phone is labeled "demo data" by the hero that renders it. */
 export function HeroChat() {
   const t = useTranslations("hoteles.chat");
-  const reduce = useReducedMotion() ?? false;
+  const reduce = useReducedMotion();
 
   const containerRef = useRef<HTMLDivElement>(null);
   const inView = useInView(containerRef, { once: true, amount: 0.4 });
@@ -185,7 +186,7 @@ function Footer({
               initial={reduce ? false : { opacity: 0, y: 8, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={reduce ? { duration: 0 } : { delay: i * 0.05 }}
-              className="rounded-full border border-accent-text/40 bg-accent-text/10 px-3.5 py-1.5 text-xs font-medium text-accent-text transition-colors hover:bg-accent hover:text-white"
+              className="rounded-full border border-accent-text/40 bg-accent-text/10 px-3.5 py-1.5 text-xs font-medium text-accent-text transition-colors hover:bg-accent hover:text-primary-foreground"
             >
               {label(id)}
             </motion.button>

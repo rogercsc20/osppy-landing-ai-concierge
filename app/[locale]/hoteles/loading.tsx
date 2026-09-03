@@ -1,9 +1,9 @@
 import { Skeleton } from "@/components/ui/Skeleton";
 
-/** /hoteles silhouette, in the Obsidian object: dark hero band with a phone, then two rows. */
+/** /hoteles silhouette, wearing the product accent: hero with a phone, then two rows. */
 export default function Loading() {
   return (
-    <div className="theme-hotel min-h-screen bg-bg">
+    <div data-accent="hotel" className="min-h-[100svh]">
       <div className="mx-auto max-w-6xl px-4 pt-28 pb-16 sm:px-6">
         <div className="grid gap-10 lg:grid-cols-2">
           <div>

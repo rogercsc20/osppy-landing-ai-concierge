@@ -1,7 +1,10 @@
-import type { Metadata, Viewport } from "next";
+import type { Metadata } from "next";
 import { Inter, Fraunces, Manrope, IBM_Plex_Serif } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
-import { SmoothScroll } from "@/components/providers/SmoothScroll";
+import { MotionProvider } from "@/components/providers/MotionProvider";
+import { Lenis } from "@/components/providers/Lenis";
+import { Atmosphere } from "@/components/atmosphere/Atmosphere";
+import { ScrollProgress } from "@/components/fx/ScrollProgress";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { getMessages } from "next-intl/server";
@@ -16,7 +19,7 @@ const inter = Inter({
   display: "swap",
 });
 
-// Fraunces stays loaded for the hotel world only (.theme-hotel, HQA-D27).
+// Fraunces stays loaded for the hotel world only ([data-accent="hotel"]).
 const fraunces = Fraunces({
   variable: "--font-fraunces",
   subsets: ["latin"],
@@ -41,12 +44,16 @@ const plexSerif = IBM_Plex_Serif({
   display: "swap",
 });
 
-// Runs before paint: stored choice wins, then the system preference, light
-// otherwise — so a reload never flashes the wrong theme (HQA-D27). React
-// logs a DEV-ONLY note when the locale layout re-renders this script on a
-// language switch; the script only ever executes from the initial HTML and
+// Runs before paint: the stored choice wins, otherwise DARK — Obsidian is
+// the site's default mode (operator, 2026-09-03; HQA-D42), not the system
+// preference. The same script writes <meta name="theme-color">, which is why
+// the metadata `viewport.themeColor` pair was removed: a media-query pair
+// cannot follow a choice the user made inside the page.
+// React logs a DEV-ONLY note when the locale layout re-renders this script on
+// a language switch; the script only ever executes from the initial HTML and
 // the warning is stripped from production builds (verified on next start).
-const themeInit = `(function(){try{var t=localStorage.getItem("theme");if(t!=="dark"&&t!=="light"){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}document.documentElement.setAttribute("data-theme",t)}catch(e){document.documentElement.setAttribute("data-theme","light")}})();`;
+const THEME_COLOR = { dark: "#0a0f0e", light: "#f7f5f0" };
+const themeInit = `(function(){var t="dark";try{var s=localStorage.getItem("theme");if(s==="light"||s==="dark")t=s}catch(e){}document.documentElement.setAttribute("data-theme",t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute("content",t==="dark"?"${THEME_COLOR.dark}":"${THEME_COLOR.light}")})();`;
 
 export async function generateMetadata({
   params,
@@ -95,13 +102,6 @@ export async function generateMetadata({
   };
 }
 
-export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#0a0f0e" },
-    { color: "#f7f5f0" },
-  ],
-};
-
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
@@ -128,13 +128,23 @@ export default async function LocaleLayout({
       suppressHydrationWarning
     >
       <body className="antialiased min-h-screen">
+        {/* Rewritten by the script below and by ThemeToggle: the browser
+            chrome follows the theme the reader chose, not the OS. */}
+        <meta name="theme-color" content={THEME_COLOR.dark} />
         <script dangerouslySetInnerHTML={{ __html: themeInit }} />
         <NextIntlClientProvider messages={messages}>
-          <SmoothScroll>
-            <Navbar />
-            {children}
-            <Footer />
-          </SmoothScroll>
+          <MotionProvider>
+            <Lenis>
+              <ScrollProgress />
+              {/* One fixed atmosphere under everything; its children are the
+                  page, lifted to z-10 (landing v2 §2). */}
+              <Atmosphere>
+                <Navbar />
+                {children}
+                <Footer />
+              </Atmosphere>
+            </Lenis>
+          </MotionProvider>
         </NextIntlClientProvider>
         <Analytics />
       </body>

@@ -44,7 +44,7 @@ export function LegalDocument({
   sections: Section[];
 }) {
   return (
-    <main className="min-h-screen bg-bg px-4 pb-24 pt-28 sm:px-6">
+    <main className="min-h-[100svh] px-4 pb-24 pt-28 sm:px-6">
       <article className="mx-auto max-w-3xl">
         <h1 className="font-display text-4xl font-semibold leading-tight text-text sm:text-5xl">
           {title}

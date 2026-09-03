@@ -6,7 +6,8 @@
 // so the walk pauses per step), then saves a full-page PNG per combination in
 // captures/ (gitignored) and captures/report.json with, per combination:
 //   overflow   — document.scrollWidth <= window.innerWidth
-//   errors     — console errors + page errors (count and first three)
+//   errors     — console errors + page errors (count and first three), minus
+//                the Vercel insights script, which 404s off Vercel by design
 //   invisible  — with --reduced (prefers-reduced-motion emulated) the number
 //                of text-bearing elements still at computed opacity 0 two
 //                seconds after load: under reduced motion nothing may hide
@@ -45,6 +46,13 @@ for (const theme of THEMES) {
       await ctx.addInitScript((t) => localStorage.setItem("theme", t), theme);
       const page = await ctx.newPage();
       const errors = [];
+      // @vercel/analytics fetches /_vercel/insights/script.js, which only
+      // exists on Vercel: on a local `next start` it 404s on every page. It is
+      // the one console error that says nothing about the page, so it is
+      // served as an empty script here (aborting logs the same error).
+      await ctx.route("**/_vercel/insights/**", (r) =>
+        r.fulfill({ status: 200, contentType: "application/javascript", body: "" }),
+      );
       page.on("console", (m) => {
         if (m.type() === "error") errors.push(m.text());
       });

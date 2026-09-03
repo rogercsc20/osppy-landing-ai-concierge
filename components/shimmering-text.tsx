@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, useReducedMotion, type Variants } from "motion/react";
+import { motion, type Variants } from "motion/react";
+import { useReducedMotion } from "@/components/fx/motion-hooks";
 import { type ComponentProps, useCallback } from "react";
 import { cn } from "@/lib/utils";
 

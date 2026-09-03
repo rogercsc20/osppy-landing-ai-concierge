@@ -1,10 +1,12 @@
 // check-contrast.mjs — WCAG contrast of the role tokens, both modes and the
-// hotel accent override (landing v2, slice V2).
+// hotel accent override (landing v2, slices V2 and V3).
 //
-// Reads app/globals.css, takes the role tokens declared in `:root` (light),
-// the first `[data-theme="dark"]` block (dark) and, when it exists, the
-// `[data-accent="hotel"]` block (an override applied on top of each mode),
-// and checks these pairs:
+// Reads app/globals.css and builds four palettes: `:root` (light), the first
+// `[data-theme="dark"]` block (dark) and, when they exist, the two halves of
+// the hotel accent override — `[data-accent="hotel"]` (its light values) and
+// `[data-theme="dark"][data-accent="hotel"]` (the values it re-points in dark
+// mode, teal and coral). The override is layered on top of each mode, which
+// is exactly how the cascade applies it, and then checks these pairs:
 //   text / bg · text-2 / bg · text / surface · text-2 / surface
 //   accent-text / bg (links) · warm-text / bg (small warm text)      ≥ 4.5:1
 //   warm / bg (decorative warm, ≥ 24 px only)                        ≥ 3:1
@@ -68,12 +70,16 @@ const ratio = (fg, bg) => {
 
 const light = vars(block(":root"));
 const dark = vars(block('[data-theme="dark"]'));
-const hotel = vars(block('[data-accent="hotel"]'));
+// `[data-accent="hotel"]` is a substring of the dark compound selector, so the
+// light half is matched at the start of its own line (the leading newline) —
+// otherwise a file that declared the compound first would hand back its block.
+const hotelDark = vars(block('[data-theme="dark"][data-accent="hotel"]'));
+const hotelLight = vars(block('\n[data-accent="hotel"]'));
 
 const modes = { light, dark };
-if (Object.keys(hotel).length) {
-  modes["light+hotel"] = { ...light, ...hotel };
-  modes["dark+hotel"] = { ...dark, ...hotel };
+if (Object.keys(hotelLight).length) {
+  modes["light+hotel"] = { ...light, ...hotelLight };
+  modes["dark+hotel"] = { ...dark, ...hotelLight, ...hotelDark };
 }
 
 const PAIRS = [

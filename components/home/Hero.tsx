@@ -1,7 +1,8 @@
 "use client";
 
 import type { CSSProperties } from "react";
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
+import { useReducedMotion } from "@/components/fx/motion-hooks";
 import { useTranslations } from "next-intl";
 import { whatsappHref } from "@/lib/site";
 
@@ -212,18 +213,12 @@ export function Hero() {
             </motion.g>
           ))}
         </svg>
-        <motion.p
-          className="mt-4 max-w-3xl text-sm text-text-2 max-sm:text-center"
-          {...(reduce
-            ? {}
-            : {
-                initial: { opacity: 0 },
-                animate: { opacity: 1 },
-                transition: { delay: 2.6, duration: 0.5 },
-              })}
+        <p
+          className="animate-fade-rise mt-4 max-w-3xl text-sm text-text-2 max-sm:text-center"
+          style={{ "--rise-delay": "2.6s" } as CSSProperties}
         >
           {t("diagrama.pie")}
-        </motion.p>
+        </p>
       </div>
     </section>
   );

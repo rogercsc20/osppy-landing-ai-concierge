@@ -1,10 +1,11 @@
 "use client";
 
-import { motion, useReducedMotion, type Variants } from "motion/react";
+import { motion, type Variants } from "motion/react";
+import { useReducedMotion } from "@/components/fx/motion-hooks";
 import { useTranslations } from "next-intl";
 import { FileText, ShieldCheck, LayoutDashboard, Clock } from "lucide-react";
-import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { SplitWords } from "@/components/fx/SplitWords";
+import { Reveal } from "@/components/fx/Reveal";
+import { SplitText } from "@/components/fx/SplitText";
 import { EASE_LUXE } from "@/lib/motion";
 
 /* Getting started (source of truth §4.9): three steps lit by a traveling
@@ -25,7 +26,7 @@ const igniteVariants: Variants = {
 
 export function Arranque() {
   const t = useTranslations("hoteles.arranque");
-  const reduce = useReducedMotion() ?? false;
+  const reduce = useReducedMotion();
 
   const steps = [
     { number: "01", icon: FileText, label: t("p1") },
@@ -34,14 +35,14 @@ export function Arranque() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-bg-alt px-4 py-24 sm:px-6 sm:py-32 lg:py-36">
+    <section className="relative px-4 py-section sm:px-6">
       <div className="mx-auto max-w-6xl">
-        <AnimatedSection className="mb-20 text-center lg:mb-28">
+        <Reveal className="mb-20 text-center lg:mb-28">
           <p className="eyebrow mb-5">{t("kicker")}</p>
           <h2 className="font-display text-[clamp(2.5rem,4.5vw,4rem)] font-semibold leading-[1.05] tracking-[-0.015em] text-text">
-            <SplitWords text={t("headline")} />
+            <SplitText text={t("headline")} />
           </h2>
-        </AnimatedSection>
+        </Reveal>
 
         <motion.div
           className="relative"
@@ -72,7 +73,7 @@ export function Arranque() {
                 )}
                 <motion.div variants={igniteVariants} className="relative flex-shrink-0">
                   <div
-                    className="flex h-11 w-11 items-center justify-center rounded-full border border-accent-text/40 bg-bg lg:h-[4.5rem] lg:w-[4.5rem]"
+                    className="glass flex h-11 w-11 items-center justify-center rounded-full border-accent-text/40 lg:h-[4.5rem] lg:w-[4.5rem]"
                     style={{ boxShadow: "0 0 28px -4px color-mix(in srgb, var(--accent-text) 45%, transparent)" }}
                   >
                     <Icon className="h-4 w-4 text-accent-text lg:h-6 lg:w-6" strokeWidth={1.5} />
@@ -89,12 +90,12 @@ export function Arranque() {
           </div>
         </motion.div>
 
-        <AnimatedSection delay={0.3} className="mt-20 text-center">
-          <span className="inline-flex max-w-2xl items-start gap-2.5 rounded-2xl border border-line bg-white/[0.03] px-5 py-3 text-left text-sm leading-relaxed text-text-2 sm:items-center sm:rounded-full">
+        <Reveal delay={0.3} className="mt-20 text-center">
+          <span className="inline-flex max-w-2xl items-start gap-2.5 rounded-2xl glass px-5 py-3 text-left text-sm leading-relaxed text-text-2 sm:items-center sm:rounded-full">
             <Clock className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent-text sm:mt-0" aria-hidden="true" />
             {t("nota")}
           </span>
-        </AnimatedSection>
+        </Reveal>
       </div>
     </section>
   );

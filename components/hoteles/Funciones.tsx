@@ -1,35 +1,19 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { useEffect, useState, type ReactNode } from "react";
+import { AnimatePresence, motion } from "motion/react";
+import { useReducedMotion } from "@/components/fx/motion-hooks";
 import { useTranslations } from "next-intl";
 import { Check, Minus } from "lucide-react";
-import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { SplitWords } from "@/components/fx/SplitWords";
+import { Reveal } from "@/components/fx/Reveal";
+import { SplitText } from "@/components/fx/SplitText";
+import { GlowCard } from "@/components/ui/GlowCard";
 
 /* ── Bento card with a cursor-tracking spotlight ─────────────────────── */
 
 function BentoCard({ title, body, children }: { title: string; body: string; children?: ReactNode }) {
-  const ref = useRef<HTMLDivElement>(null);
   return (
-    <div
-      ref={ref}
-      onPointerMove={(e) => {
-        const r = ref.current?.getBoundingClientRect();
-        if (!r) return;
-        ref.current!.style.setProperty("--mx", `${e.clientX - r.left}px`);
-        ref.current!.style.setProperty("--my", `${e.clientY - r.top}px`);
-      }}
-      className="group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-line bg-white/[0.02] p-7 transition-colors hover:border-accent-text/25"
-    >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-        style={{
-          background:
-            "radial-gradient(280px circle at var(--mx, 50%) var(--my, 50%), color-mix(in srgb, var(--accent-text) 8%, transparent), transparent 70%)",
-        }}
-      />
+    <GlowCard className="flex flex-col justify-between p-7">
       {children && (
         <div aria-hidden="true" className="relative mb-7">
           {children}
@@ -39,7 +23,7 @@ function BentoCard({ title, body, children }: { title: string; body: string; chi
         <h3 className="mb-1.5 font-semibold text-text">{title}</h3>
         <p className="text-sm leading-relaxed text-text-2">{body}</p>
       </div>
-    </div>
+    </GlowCard>
   );
 }
 
@@ -159,28 +143,28 @@ export function Funciones() {
   const nos = (["n1", "n2", "n3", "n4"] as const).map((k) => t(`no.${k}`));
 
   return (
-    <section className="relative bg-bg px-4 py-24 sm:px-6 sm:py-32 lg:py-36">
+    <section className="relative px-4 py-section sm:px-6">
       <div className="mx-auto max-w-6xl">
-        <AnimatedSection className="mb-16 text-center lg:mb-20">
+        <Reveal className="mb-16 text-center lg:mb-20">
           <p className="eyebrow mb-5">{t("kicker")}</p>
           <h2 className="font-display text-[clamp(2.5rem,4.5vw,4rem)] font-semibold leading-[1.05] tracking-[-0.015em] text-text">
-            <SplitWords text={t("headline")} />
+            <SplitText text={t("headline")} />
           </h2>
-        </AnimatedSection>
+        </Reveal>
 
-        {/* AnimatedSection is the grid child so col-span applies */}
+        {/* Reveal is the grid child so col-span applies */}
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-6">
           {cards.map(([key, span, widget], i) => (
-            <AnimatedSection key={key} delay={i * 0.07} className={span}>
+            <Reveal key={key} delay={i * 0.07} className={span}>
               <BentoCard title={t(`${key}.titulo`)} body={t(`${key}.body`)}>
                 {widget}
               </BentoCard>
-            </AnimatedSection>
+            </Reveal>
           ))}
         </div>
 
         {/* What it deliberately does not do (source of truth §4.6) */}
-        <AnimatedSection delay={0.2} className="mx-auto mt-16 max-w-4xl">
+        <Reveal delay={0.2} className="mx-auto mt-16 max-w-4xl">
           <h3 className="eyebrow mb-5">{t("no.titulo")}</h3>
           <ul className="grid gap-x-10 gap-y-3 border-t border-line pt-6 sm:grid-cols-2">
             {nos.map((item) => (
@@ -190,7 +174,7 @@ export function Funciones() {
               </li>
             ))}
           </ul>
-        </AnimatedSection>
+        </Reveal>
       </div>
     </section>
   );

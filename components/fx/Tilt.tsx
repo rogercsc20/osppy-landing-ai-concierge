@@ -6,8 +6,8 @@ import {
   useMotionValue,
   useSpring,
   useTransform,
-  useReducedMotion,
 } from "motion/react";
+import { useReducedMotion } from "./motion-hooks";
 
 /**
  * Pointer-tracked 3D tilt with spring physics. Children render flat under

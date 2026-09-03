@@ -1,12 +1,15 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
+import { useReducedMotion } from "@/components/fx/motion-hooks";
 import { useTranslations } from "next-intl";
 import { RotateCcw } from "lucide-react";
-import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { SplitWords } from "@/components/fx/SplitWords";
+import { Reveal } from "@/components/fx/Reveal";
+import { SplitText } from "@/components/fx/SplitText";
 import { AppWindow } from "@/components/device/AppWindow";
+import { Fit } from "@/components/device/Fit";
+import { FxLayer } from "@/components/fx/FxLayer";
 import {
   ChatViewport,
   MessageBubble,
@@ -22,42 +25,6 @@ import { Panel } from "./Panel";
    payment confirmation with one — and, beside it, the operations panel.
    Replaces the old scroll-scrubbed "phone app" act: this is the real
    circuit, and every number is labeled demo data. */
-
-/**
- * Renders children at a fixed `designWidth` and scales the whole thing to
- * the available width, so the panel's container queries still see a wide
- * container on phones. The outer height follows the scaled content.
- */
-function FitToWidth({ designWidth, children }: { designWidth: number; children: ReactNode }) {
-  const outerRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-  const [scale, setScale] = useState(0.4);
-  const [height, setHeight] = useState<number | undefined>(undefined);
-
-  useEffect(() => {
-    const outer = outerRef.current;
-    const content = contentRef.current;
-    if (!outer || !content) return;
-    const update = () => {
-      const s = outer.clientWidth / designWidth;
-      setScale(s);
-      setHeight(content.offsetHeight * s);
-    };
-    update();
-    const ro = new ResizeObserver(update);
-    ro.observe(outer);
-    ro.observe(content);
-    return () => ro.disconnect();
-  }, [designWidth]);
-
-  return (
-    <div ref={outerRef} className="w-full overflow-hidden" style={{ height }}>
-      <div ref={contentRef} style={{ width: designWidth, transform: `scale(${scale})`, transformOrigin: "top left" }}>
-        {children}
-      </div>
-    </div>
-  );
-}
 
 type Step = "reserva" | "aprobada" | "rechazada" | "pago" | "confirmado";
 
@@ -114,7 +81,7 @@ function Card({
 function OwnerPhone() {
   const t = useTranslations("hoteles.circuito.telefono");
   const chat = useTranslations("hoteles.chat");
-  const reduce = useReducedMotion() ?? false;
+  const reduce = useReducedMotion();
   const now = t("ahora");
 
   const [step, setStep] = useState<Step>("reserva");
@@ -174,7 +141,7 @@ function OwnerPhone() {
           <button
             type="button"
             onClick={reset}
-            className="flex w-full items-center justify-center gap-2 rounded-full border border-accent-text/40 bg-accent-text/10 px-4 py-2 text-sm font-medium text-accent-text transition-colors hover:bg-accent hover:text-white"
+            className="flex w-full items-center justify-center gap-2 rounded-full border border-accent-text/40 bg-accent-text/10 px-4 py-2 text-sm font-medium text-accent-text transition-colors hover:bg-accent hover:text-primary-foreground"
           >
             <RotateCcw className="h-3.5 w-3.5" aria-hidden="true" />
             {t("reiniciar")}
@@ -245,24 +212,23 @@ export function Circuito() {
   const t = useTranslations("hoteles.circuito");
 
   return (
-    <section id="circuito" className="relative overflow-hidden bg-bg px-4 py-24 sm:px-6 sm:py-32 lg:py-36">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[640px] w-[640px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/10 blur-3xl"
-      />
-      <div aria-hidden="true" className="pointer-events-none absolute bottom-[-20%] left-1/2 h-80 w-[60%] -translate-x-1/2 rounded-full bg-warm/10 blur-3xl" />
+    <section id="circuito" className="relative px-4 py-section sm:px-6">
+      <FxLayer>
+        <div className="absolute left-1/2 top-1/2 h-[640px] w-[640px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/10 blur-3xl" />
+        <div className="absolute bottom-[-20%] left-1/2 h-80 w-[60%] -translate-x-1/2 rounded-full bg-warm/10 blur-3xl" />
+      </FxLayer>
 
       <div className="relative mx-auto max-w-6xl">
-        <AnimatedSection className="mb-16 max-w-3xl lg:mb-20">
+        <Reveal className="mb-16 max-w-3xl lg:mb-20">
           <p className="eyebrow mb-5">{t("kicker")}</p>
           <h2 className="font-display text-[clamp(2.5rem,4.5vw,4rem)] font-semibold leading-[1.05] tracking-[-0.015em] text-text">
-            <SplitWords text={t("headline")} />
+            <SplitText text={t("headline")} />
           </h2>
           <p className="mt-7 max-w-2xl text-lg leading-relaxed text-text-2">{t("sub")}</p>
-        </AnimatedSection>
+        </Reveal>
 
         <div className="grid items-start gap-14 lg:grid-cols-12 lg:gap-10">
-          <AnimatedSection className="flex min-w-0 flex-col items-center gap-5 lg:col-span-4">
+          <Reveal className="flex min-w-0 flex-col items-center gap-5 lg:col-span-4">
             <div className="relative">
               <div
                 aria-hidden="true"
@@ -274,9 +240,9 @@ export function Circuito() {
             <span className="rounded-full border border-line px-2.5 py-0.5 text-[11px] font-medium uppercase tracking-wide text-text-2">
               {t("panel.etiqueta")}
             </span>
-          </AnimatedSection>
+          </Reveal>
 
-          <AnimatedSection delay={0.15} className="min-w-0 lg:col-span-8">
+          <Reveal delay={0.15} className="min-w-0 lg:col-span-8">
             {/* Wide: the panel at its own width. Narrow: scaled to fit. */}
             <div className="hidden md:block">
               <AppWindow>
@@ -285,12 +251,12 @@ export function Circuito() {
             </div>
             <div className="overflow-hidden md:hidden">
               <AppWindow compact>
-                <FitToWidth designWidth={860}>
+                <Fit designWidth={860}>
                   <Panel compact />
-                </FitToWidth>
+                </Fit>
               </AppWindow>
             </div>
-          </AnimatedSection>
+          </Reveal>
         </div>
       </div>
     </section>

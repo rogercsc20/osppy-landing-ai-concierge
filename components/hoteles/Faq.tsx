@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "motion/react";
 import { Plus, Minus } from "lucide-react";
-import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import { Reveal } from "@/components/fx/Reveal";
 
 interface Item {
   q: string;
@@ -51,21 +51,21 @@ export function Faq() {
   const items: Item[] = (["1", "2", "3", "4", "5", "6"] as const).map((i) => ({ q: t(`q${i}`), a: t(`a${i}`) }));
 
   return (
-    <section className="bg-bg-alt px-4 py-24 sm:px-6 sm:py-32 lg:py-40">
+    <section className="px-4 py-section sm:px-6">
       <div className="mx-auto max-w-3xl">
-        <AnimatedSection className="mb-14 text-center lg:mb-16">
+        <Reveal className="mb-14 text-center lg:mb-16">
           <p className="eyebrow mb-4">{t("kicker")}</p>
           <h2 className="font-display text-[clamp(2.25rem,4vw,3.5rem)] font-semibold leading-[1.08] tracking-[-0.01em] text-text">
             {t("headline")}
           </h2>
-        </AnimatedSection>
-        <AnimatedSection delay={0.2}>
+        </Reveal>
+        <Reveal delay={0.2}>
           <div className="border-t border-line">
             {items.map((item, i) => (
               <Row key={item.q} item={item} isOpen={open === i} onToggle={() => setOpen(open === i ? null : i)} />
             ))}
           </div>
-        </AnimatedSection>
+        </Reveal>
       </div>
     </section>
   );

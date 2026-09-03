@@ -8,13 +8,16 @@ export function Footer() {
   const t = useTranslations();
 
   return (
-    <footer className="relative overflow-hidden border-t border-line bg-bg px-4 pt-14 pb-28 sm:px-6 lg:pb-36">
+    <footer className="relative border-t border-line px-4 pt-14 pb-28 sm:px-6 lg:pb-36">
       {/* ghost wordmark sinking below the fold — pseudo-element content so
-          contrast audits treat it as the decoration it is */}
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 bottom-[-0.28em] select-none text-center font-display text-[clamp(6rem,18vw,16rem)] font-semibold leading-none text-text/[0.04] after:content-['Osppy']"
-      />
+          contrast audits treat it as the decoration it is. The clip lives on
+          this wrapper, not on the <footer>: the atmosphere runs under the
+          footer now, and a footer that clipped would cut the last aura. */}
+      <span aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+        <span
+          className="absolute inset-x-0 bottom-[-0.28em] select-none text-center font-display text-[clamp(6rem,18vw,16rem)] font-semibold leading-none text-text/[0.04] after:content-['Osppy']"
+        />
+      </span>
 
       <div className="relative mx-auto max-w-6xl">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
