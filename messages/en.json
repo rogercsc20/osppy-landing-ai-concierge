@@ -67,23 +67,6 @@
       "p4Titulo": "Operation",
       "p4Body": "What we deliver can stay under a hosting, monitoring and maintenance plan, depending on what your operation needs."
     },
-    "jerga": {
-      "kicker": "No jargon",
-      "headline": "The technical part, said in the language of your operation.",
-      "body": "The technical credential exists and can be checked. But it isn't what helps you: this is the same thing, said in your operation's language.",
-      "t1Operacion": "We run cloud systems that work in real businesses today.",
-      "t1Tecnico": "Cloud engineering and infrastructure as code",
-      "t2Operacion": "We build the systems from the inside, we don't just configure them.",
-      "t2Tecnico": "Backend development",
-      "t3Operacion": "We know how to keep AI systems running in production, not just how to demo them.",
-      "t3Tecnico": "MLOps and LLMOps",
-      "t4Operacion": "Our AI works in real businesses today.",
-      "t4Tecnico": "Applied AI, systems in production",
-      "t5Operacion": "We connect the technology to the way your team actually works.",
-      "t5Tecnico": "Systems design and process integration",
-      "t6Operacion": "We've been on the other side of the counter: payroll, suppliers, sales, customers.",
-      "t6Tecnico": "Having owned and run businesses"
-    },
     "seve": {
       "kicker": "What it looks like",
       "headline": "This is what a system working inside a company looks like.",

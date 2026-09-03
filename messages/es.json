@@ -67,23 +67,6 @@
       "p4Titulo": "Operación",
       "p4Body": "Lo entregado puede quedar bajo un plan de hosting, monitoreo y mantenimiento, según lo que tu operación necesite."
     },
-    "jerga": {
-      "kicker": "Sin jerga",
-      "headline": "Lo técnico, dicho en lenguaje de operación.",
-      "body": "La credencial técnica existe y se puede revisar. Pero no es lo que te sirve a ti: esto es lo mismo, dicho en el idioma de tu operación.",
-      "t1Operacion": "Operamos sistemas en la nube que trabajan hoy en negocios reales.",
-      "t1Tecnico": "Ingeniería en la nube e infraestructura como código",
-      "t2Operacion": "Construimos los sistemas por dentro, no solo los configuramos.",
-      "t2Tecnico": "Desarrollo backend",
-      "t3Operacion": "Sabemos mantener sistemas de IA funcionando en producción, no solo hacer demostraciones.",
-      "t3Tecnico": "MLOps y LLMOps",
-      "t4Operacion": "Nuestra IA trabaja hoy en negocios reales.",
-      "t4Tecnico": "IA aplicada, sistemas en producción",
-      "t5Operacion": "Conectamos la tecnología con la forma real en que trabaja tu equipo.",
-      "t5Tecnico": "Diseño de sistemas e integración de procesos",
-      "t6Operacion": "Hemos estado del otro lado del mostrador: nómina, proveedores, ventas, clientes.",
-      "t6Tecnico": "Haber sido dueño y operador de negocios"
-    },
     "seve": {
       "kicker": "Cómo se ve",
       "headline": "Así se ve un sistema trabajando dentro de una empresa.",

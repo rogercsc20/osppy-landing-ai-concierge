@@ -85,37 +85,16 @@ cuatro pasos —Diagnóstico · El proceso, por escrito · Construcción · Oper
 exactamente como están hoy. Es el copy que mejor aguantó la revisión. Lo que cambia es la
 forma: pasa a ser el capítulo fijado (§3 del plan), con el diagrama avanzando por paso.
 
-## 5 · Sin jerga · `home.jerga.*`
+## 5 · Sin jerga · `home.jerga.*` — **ELIMINADA el 2026-09-03 (tanda C, C2)**
 
-| Llave | Texto |
-|---|---|
-| `kicker` | Sin jerga |
-| `headline` | **Lo técnico, dicho en lenguaje de operación.** |
-| `body` | La credencial técnica existe y se puede revisar. Pero no es lo que te sirve a ti: esto es lo mismo, dicho en el idioma de tu operación. |
-
-**En cada tarjeta la frase de operación va primero y grande; el término técnico va debajo, en
-etiqueta chica.** No es un detalle de diseño: es la regla de «el concepto en claro va primero»
-(guía §6.6). Escrito al revés, la sección sería justo la jerga que dice evitar.
-| `t1Tecnico` | Ingeniería en la nube e infraestructura como código |
-| `t1Operacion` | Operamos sistemas en la nube que trabajan hoy en negocios reales. |
-| `t2Tecnico` | Desarrollo backend |
-| `t2Operacion` | Construimos los sistemas por dentro, no solo los configuramos. |
-| `t3Tecnico` | MLOps y LLMOps |
-| `t3Operacion` | Sabemos mantener sistemas de IA funcionando en producción, no solo hacer demostraciones. |
-| `t4Tecnico` | IA aplicada, sistemas en producción |
-| `t4Operacion` | Nuestra IA trabaja hoy en negocios reales. |
-| `t5Tecnico` | Diseño de sistemas e integración de procesos |
-| `t5Operacion` | Conectamos la tecnología con la forma real en que trabaja tu equipo. |
-| `t6Tecnico` | Haber sido dueño y operador de negocios |
-| `t6Operacion` | Hemos estado del otro lado del mostrador: nómina, proveedores, ventas, clientes. |
-
-*(Las seis filas son la tabla de traducción de la guía §7.1, sin agregar ninguna.)*
-
-> **Un aviso nuevo del verificador, a propósito.** `t3Tecnico` dice «LLMOps», y «llm» está en el
-> banco como jerga: `check-copy.mjs` va a levantar un AVISO ahí. Es el único lugar del sitio
-> donde el término técnico **es** el contenido, y va después de su traducción, que es lo que la
-> regla pide. Queda declarado aquí para que nadie lo lea como un descuido. Si prefieres que
-> desaparezca, la fila se queda solo con «MLOps» y el aviso se va.
+> **Baja completa, con sus tarjetas giratorias.** El operador, después de ver la casa
+> construida: *«las tarjetas giratorias de ingeniería en la nube etc, estan horribles el texto
+> no se deberia poder leer al reverso, no se alcanza a leer bien»* y *«"sin jerga" esta
+> horrible, quitalo»*. Se borró la sección entera (`components/home/Jerga.tsx`, `home.jerga.*`
+> en los dos idiomas) y **no se sustituye por otra tarjeta que gire**. La tabla de traducción
+> de la guía §7.1 sigue existiendo como **regla de redacción** —el concepto en claro antes que
+> el término técnico— y deja de ser una sección de la casa. Con ella se va también el aviso
+> declarado de `LLMOps`: `check-copy` ya no lo levanta porque el texto ya no existe.
 
 ## 6 · Cómo se ve · `home.seve.*`
 
@@ -302,11 +281,11 @@ público de empresa pregunta primero.)*
 
 | | Hoy | V4 |
 |---|---|---|
-| Secciones | 11 | 14 |
+| Secciones | 11 | 14 en V4; **13 desde la tanda C** (baja «Sin jerga») |
 | Orden | identidad → servicios → giros → método | WHY → HOW → WHAT |
 | Sujeto | «empresas de cualquier tamaño — también PyMEs» | empresas medianas y grandes con equipos por área |
-| Nuevas | — | El silencio (2) · Lo que creemos (3) · Sin jerga (5) · Cómo se ve (6) · **Dónde entra: las ocho áreas** (7) · Cuánto cuesta (9) |
-| Bajas | «Quiénes somos» y «A quién ayudamos» | su contenido se reparte entre el héroe, la 3 y la 10 |
+| Nuevas | — | El silencio (2) · Lo que creemos (3) · ~~Sin jerga (5)~~ · Cómo se ve (6) · **Dónde entra: las ocho áreas** (7) · Cuánto cuesta (9) |
+| Bajas | «Quiénes somos» y «A quién ayudamos» | su contenido se reparte entre el héroe, la 3 y la 10; **«Sin jerga» se dio de baja el 2026-09-03 (C2)** |
 | Conservado palabra por palabra | — | el método (4), las tres maneras (8), los contadores y los siete tipos de trabajo (10), cinco de las siete preguntas (13) |
 
 ## Lo que hace falta antes de V4c
