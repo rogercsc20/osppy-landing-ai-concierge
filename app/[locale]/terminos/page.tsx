@@ -25,15 +25,16 @@ export async function generateMetadata({
 }
 
 const ES: { updated: string; intro: string[]; sections: Section[] } = {
-  updated: "Última actualización: 20 de agosto de 2026",
+  updated: "Última actualización: 2 de septiembre de 2026",
   intro: [
+    "Este documento se actualiza al constituirse la sociedad; vigente desde 2026-09-02.",
     "Los presentes Términos de Uso (los «Términos») regulan el acceso y uso del servicio Osppy. Al contratar, acceder o utilizar el servicio, aceptas estos Términos en su totalidad. Si no estás de acuerdo, no debes utilizar el servicio.",
   ],
   sections: [
     {
       heading: "Aceptación de los Términos",
       blocks: [
-        "El servicio es operado por Alejandro Méndez Ayala, persona física con actividad empresarial, con domicilio fiscal en Calle Jesús Bravo, Int. 17, Fracc. Río Nuevo, C.P. 59684, Zamora, Michoacán de Ocampo, México («Osppy», «nosotros»). Estos Términos constituyen un acuerdo vinculante entre Osppy y la persona física o moral que contrata o utiliza el servicio (el «Cliente» o «tú»). Declaras contar con la capacidad y facultades legales para obligarte conforme a estos Términos.",
+        "El servicio lo presta «Osppy» («nosotros»), nombre comercial de [RAZÓN SOCIAL] (sociedad en proceso de constitución), con domicilio en [DOMICILIO] (por definir al constituirse). Estos Términos constituyen un acuerdo vinculante entre Osppy y quien contrata o utiliza el servicio, sea individuo o empresa (el «Cliente» o «tú»). Declaras contar con la capacidad y facultades legales para obligarte conforme a estos Términos.",
       ],
     },
     {
@@ -139,7 +140,7 @@ const ES: { updated: string; intro: string[]; sections: Section[] } = {
     {
       heading: "Ley aplicable y jurisdicción",
       blocks: [
-        "Estos Términos se rigen por las leyes de los Estados Unidos Mexicanos. Para la interpretación y cumplimiento de los mismos, las partes se someten a la jurisdicción de los tribunales competentes de Zamora, Michoacán de Ocampo, renunciando a cualquier otro fuero que pudiera corresponderles.",
+        "Estos Términos se rigen por las leyes de los Estados Unidos Mexicanos. Para la interpretación y cumplimiento de los mismos, las partes se someten a la jurisdicción de los tribunales competentes de Guadalajara, Jalisco, renunciando a cualquier otro fuero que pudiera corresponderles.",
       ],
     },
     {
@@ -152,15 +153,16 @@ const ES: { updated: string; intro: string[]; sections: Section[] } = {
 };
 
 const EN: { updated: string; intro: string[]; sections: Section[] } = {
-  updated: "Last updated: August 20, 2026",
+  updated: "Last updated: September 2, 2026",
   intro: [
+    "This document will be updated when the company is incorporated; in effect since 2026-09-02.",
     "These Terms of Use (the “Terms”) govern access to and use of the Osppy service. By contracting, accessing, or using the service, you accept these Terms in full. If you do not agree, you must not use the service. For users in Mexico, the Spanish-language version of these Terms prevails.",
   ],
   sections: [
     {
       heading: "Acceptance of the Terms",
       blocks: [
-        "The service is operated by Alejandro Méndez Ayala, a Mexican sole proprietor (persona física con actividad empresarial), with registered address at Calle Jesús Bravo, Int. 17, Fracc. Río Nuevo, C.P. 59684, Zamora, Michoacán de Ocampo, Mexico (“Osppy”, “we”). These Terms constitute a binding agreement between Osppy and the individual or entity that contracts or uses the service (the “Client” or “you”). You represent that you have the legal capacity and authority to be bound by these Terms.",
+        "The service is provided by “Osppy” (“we”), the trade name of [RAZÓN SOCIAL] (a company in the process of incorporation), with address at [DOMICILIO] (to be defined upon incorporation). These Terms constitute a binding agreement between Osppy and the individual or entity that contracts or uses the service (the “Client” or “you”). You represent that you have the legal capacity and authority to be bound by these Terms.",
       ],
     },
     {
@@ -266,7 +268,7 @@ const EN: { updated: string; intro: string[]; sections: Section[] } = {
     {
       heading: "Governing law and jurisdiction",
       blocks: [
-        "These Terms are governed by the laws of the United Mexican States. For their interpretation and performance, the parties submit to the jurisdiction of the competent courts of Zamora, Michoacán de Ocampo, Mexico, waiving any other jurisdiction that may correspond to them.",
+        "These Terms are governed by the laws of the United Mexican States. For their interpretation and performance, the parties submit to the jurisdiction of the competent courts of Guadalajara, Jalisco, Mexico, waiving any other jurisdiction that may correspond to them.",
       ],
     },
     {

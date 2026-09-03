@@ -25,8 +25,9 @@ export async function generateMetadata({
 }
 
 const ES: { updated: string; intro: string[]; sections: Section[] } = {
-  updated: "Última actualización: 20 de agosto de 2026",
+  updated: "Última actualización: 2 de septiembre de 2026",
   intro: [
+    "Este documento se actualiza al constituirse la sociedad; vigente desde 2026-09-02.",
     "En cumplimiento de la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (la «LFPDPPP»), su Reglamento y los Lineamientos del Aviso de Privacidad, ponemos a tu disposición el presente Aviso de Privacidad.",
     "Te recomendamos leerlo en su totalidad antes de proporcionarnos cualquier dato personal o utilizar nuestros servicios.",
   ],
@@ -34,7 +35,7 @@ const ES: { updated: string; intro: string[]; sections: Section[] } = {
     {
       heading: "Identidad y domicilio del responsable",
       blocks: [
-        "Osppy (en lo sucesivo, «Osppy», «nosotros» o el «Responsable») es una marca operada por Alejandro Méndez Ayala, persona física con actividad empresarial, con domicilio fiscal en Calle Jesús Bravo, Int. 17, Fracc. Río Nuevo, C.P. 59684, Zamora, Michoacán de Ocampo, México, responsable del tratamiento y protección de tus datos personales conforme al presente Aviso de Privacidad.",
+        "Osppy (en lo sucesivo, «Osppy», «nosotros» o el «Responsable») es el nombre comercial de [RAZÓN SOCIAL] (sociedad en proceso de constitución), con domicilio en [DOMICILIO] (por definir al constituirse), responsable del tratamiento y protección de tus datos personales conforme al presente Aviso de Privacidad.",
         "Para cualquier asunto relacionado con tus datos personales puedes contactarnos en el correo electrónico hello@osppy.com.",
       ],
     },
@@ -160,8 +161,9 @@ const ES: { updated: string; intro: string[]; sections: Section[] } = {
 };
 
 const EN: { updated: string; intro: string[]; sections: Section[] } = {
-  updated: "Last updated: August 20, 2026",
+  updated: "Last updated: September 2, 2026",
   intro: [
+    "This document will be updated when the company is incorporated; in effect since 2026-09-02.",
     "This Privacy Policy describes how Osppy collects, uses, and protects your personal data. For users in Mexico, it is issued in accordance with the Federal Law on Protection of Personal Data Held by Private Parties (LFPDPPP); the Spanish-language version of this notice is the legally operative one.",
     "Please read it in full before providing any personal data or using our services.",
   ],
@@ -169,7 +171,7 @@ const EN: { updated: string; intro: string[]; sections: Section[] } = {
     {
       heading: "Identity and address of the data controller",
       blocks: [
-        "Osppy (“Osppy”, “we”, or the “Controller”) is a brand operated by Alejandro Méndez Ayala, a Mexican sole proprietor (persona física con actividad empresarial), with registered address at Calle Jesús Bravo, Int. 17, Fracc. Río Nuevo, C.P. 59684, Zamora, Michoacán de Ocampo, Mexico, responsible for the processing and protection of your personal data under this Privacy Policy.",
+        "Osppy (“Osppy”, “we”, or the “Controller”) is the trade name of [RAZÓN SOCIAL] (a company in the process of incorporation), with address at [DOMICILIO] (to be defined upon incorporation), responsible for the processing and protection of your personal data under this Privacy Policy.",
         "For any matter related to your personal data, you can contact us at hello@osppy.com.",
       ],
     },

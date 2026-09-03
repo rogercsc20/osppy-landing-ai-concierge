@@ -48,9 +48,10 @@ Tailwind v4, Framer Motion 12, next-intl 4. See `README.md` for the full map.
   and breaks the container queries).
 - **Animations respect `prefers-reduced-motion`** (via `useReducedMotion`) and
   mobile gets static fallbacks for the scroll cinematic. Keep both paths working.
-- **Stubs:** the marketing dashboard hero is a non-functional mockup, and the
-  demo form opens a `mailto:` fallback when `NEXT_PUBLIC_LEAD_ENDPOINT` is
-  unset. The nav "Log in" link (`nav.login`) is a plain `<a>` to the cockpit
+- **Stubs:** the marketing dashboard hero is a non-functional mockup. The lead
+  form was retired 2026-09-02 (HQA-D25) — the CTA uses `whatsappHref` from
+  `lib/site.ts` (prefilled email until `WHATSAPP_NUMBER` is set, owner O).
+  The nav "Log in" link (`nav.login`) is a plain `<a>` to the cockpit
   at `https://app.osppy.com/es/login` (`APP_LOGIN_URL` in `lib/site.ts`) —
   Slice 8 (2026-08-10) retired the legacy dashboard, login and all Supabase
   plumbing from this repo; `next.config.ts` 307s the old `/login` +

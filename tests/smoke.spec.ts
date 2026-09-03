@@ -71,18 +71,18 @@ test("legacy login/dashboard bookmarks redirect to the cockpit", async ({
   }
 });
 
-test("demo form validates and submits", async ({ page }) => {
+// HQA-D25: there is no lead form — the CTA is a pair of links. While
+// WHATSAPP_NUMBER is empty the primary link opens a prefilled email (HQA-D29).
+test("CTA offers contact links, no form", async ({ page }) => {
   await page.goto("/es#demo");
 
-  // Empty submit shows validation styling and does not enter success state.
-  await page.getByRole("button", { name: es.cta.form.submit }).click();
-  await expect(page.getByText(es.cta.form.success.title)).not.toBeVisible();
-
-  await page.getByPlaceholder(es.cta.form.name).fill("Prueba");
-  await page.getByPlaceholder(es.cta.form.hotel).fill("Hotel Prueba");
-  await page.getByPlaceholder(es.cta.form.contact).fill("prueba@example.com");
-  await page.getByRole("button", { name: es.cta.form.submit }).click();
-  await expect(page.getByText(es.cta.form.success.title)).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: es.cta.button }),
+  ).toHaveAttribute("href", /^(https:\/\/wa\.me\/|mailto:hello@osppy\.com)/);
+  await expect(
+    page.getByRole("link", { name: "hello@osppy.com" }),
+  ).toHaveAttribute("href", "mailto:hello@osppy.com");
+  expect(await page.locator("#demo form").count()).toBe(0);
 });
 
 test("SEO files respond", async ({ request }) => {

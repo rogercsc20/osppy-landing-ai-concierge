@@ -1,65 +1,16 @@
 "use client";
 
-import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { SplitWords } from "@/components/fx/SplitWords";
-import { ArrowRight, CheckCircle } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { submitLead } from "@/lib/lead";
-import { CONTACT_EMAIL } from "@/lib/site";
+import { ArrowRight, Mail } from "lucide-react";
+import { whatsappHref, CONTACT_EMAIL } from "@/lib/site";
 
-const schema = z.object({
-  name: z.string().min(2),
-  hotel: z.string().min(2),
-  contact: z.string().min(5),
-});
-
-type FormData = z.infer<typeof schema>;
-
+// HQA-D25: the lead form is retired — the site collects no personal data
+// while the privacy notice is incomplete. Primary CTA goes to WhatsApp when
+// WHATSAPP_NUMBER exists, to a prefilled email until then (HQA-D29).
 export function FinalCTA() {
   const t = useTranslations();
-  const [submitted, setSubmitted] = useState(false);
-  const [failed, setFailed] = useState(false);
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitting },
-  } = useForm<FormData>({ resolver: zodResolver(schema) });
-
-  const onSubmit = async (data: FormData) => {
-    setFailed(false);
-    const result = await submitLead({
-      type: "demo",
-      name: data.name,
-      hotel: data.hotel,
-      contact: data.contact,
-      _subject: `Osppy demo request — ${data.hotel}`,
-    });
-
-    if (result.unconfigured) {
-      // No endpoint set yet (e.g. local dev): fall back to a prefilled email.
-      const body = encodeURIComponent(
-        `Nombre: ${data.name}\nHotel: ${data.hotel}\nContacto: ${data.contact}`
-      );
-      window.open(`mailto:${CONTACT_EMAIL}?subject=Demo request - ${data.hotel}&body=${body}`);
-      setSubmitted(true);
-    } else if (result.ok) {
-      setSubmitted(true);
-    } else {
-      setFailed(true);
-    }
-  };
-
-  const inputClass = (hasError: boolean) =>
-    cn(
-      "w-full bg-transparent px-1 py-3.5 border-0 border-b rounded-none text-ink placeholder:text-ink/40 text-base outline-none transition-colors",
-      hasError ? "border-red-500/70" : "border-ink/20 focus:border-ink"
-    );
 
   return (
     <section id="demo" className="relative overflow-hidden bg-canvas py-32 lg:py-44 px-4 sm:px-6">
@@ -83,45 +34,22 @@ export function FinalCTA() {
           <p className="text-lg text-ink/70 leading-relaxed">{t("cta.body")}</p>
         </AnimatedSection>
 
-        <AnimatedSection delay={0.2} className="rounded-3xl border border-line bg-white/[0.02] p-7 backdrop-blur-sm sm:p-10">
-          {submitted ? (
-            <div className="flex flex-col items-center gap-4 py-12">
-              <CheckCircle className="w-12 h-12 text-wa-green" />
-              <h3 className="text-xl font-semibold text-ink">{t("cta.form.success.title")}</h3>
-              <p className="text-ink/65 text-sm max-w-sm">{t("cta.form.success.body")}</p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
-              <input
-                {...register("name")}
-                placeholder={t("cta.form.name")}
-                className={inputClass(!!errors.name)}
-              />
-              <input
-                {...register("hotel")}
-                placeholder={t("cta.form.hotel")}
-                className={inputClass(!!errors.hotel)}
-              />
-              <input
-                {...register("contact")}
-                placeholder={t("cta.form.contact")}
-                className={inputClass(!!errors.contact)}
-              />
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="flex items-center justify-center gap-2 w-full py-4 rounded-full bg-turquoise-deep text-white font-semibold text-base hover:bg-turquoise transition-colors disabled:opacity-60 disabled:cursor-not-allowed mt-4"
-              >
-                {t("cta.form.submit")}
-                <ArrowRight className="w-4 h-4" />
-              </button>
-              {failed && (
-                <p className="text-sm text-red-500/90 mt-1">{t("cta.form.error")}</p>
-              )}
-            </form>
-          )}
-
-          <p className="text-xs text-ink/70 mt-5">{t("cta.microcopy")}</p>
+        <AnimatedSection delay={0.2} className="flex flex-col items-center gap-4">
+          <a
+            href={whatsappHref(t("cta.button"))}
+            className="flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-turquoise-deep text-white font-semibold text-base hover:bg-turquoise transition-colors"
+          >
+            {t("cta.button")}
+            <ArrowRight className="w-4 h-4" />
+          </a>
+          <a
+            href={`mailto:${CONTACT_EMAIL}`}
+            className="flex items-center gap-2 text-ink/70 hover:text-ink text-sm transition-colors"
+          >
+            <Mail className="w-4 h-4" />
+            {CONTACT_EMAIL}
+          </a>
+          <p className="text-xs text-ink/70 mt-3">{t("cta.microcopy")}</p>
         </AnimatedSection>
       </div>
     </section>

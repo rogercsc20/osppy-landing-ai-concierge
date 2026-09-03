@@ -108,7 +108,7 @@
         "initial": "DH"
       },
       {
-        "name": "Paola Méndez",
+        "name": "Paola Navarro",
         "preview": "Is breakfast included?",
         "status": "ai",
         "time": "18m",
@@ -270,24 +270,13 @@
     "headline": "How many messages did you answer last night after 9pm?",
     "body": "Book a 20-minute demo. We'll show you how Osppy works with your hotel's real information. No commitment.",
     "button": "Book your demo",
-    "microcopy": "No spam · No commitment · We reply within 24 hours",
-    "form": {
-      "name": "Your name",
-      "hotel": "Hotel name",
-      "contact": "WhatsApp or email",
-      "submit": "Book my free demo",
-      "error": "Couldn't send. Please try again or email hello@osppy.com.",
-      "success": {
-        "title": "Done! We'll be in touch soon.",
-        "body": "Check your WhatsApp or email. We'll write to you within 24 hours to schedule the demo."
-      }
-    }
+    "microcopy": "No spam · No commitment · We reply within 24 hours"
   },
   "footer": {
     "tagline": "The front desk that never sleeps.",
     "privacy": "Privacy policy",
     "terms": "Terms of use",
     "rights": "© 2026 Osppy. All rights reserved.",
-    "legal": "Osppy is a brand operated by Alejandro Méndez Ayala · Calle Jesús Bravo, Int. 17, Fracc. Río Nuevo, C.P. 59684, Zamora, Michoacán de Ocampo, México · +52 351 147 7314"
+    "legal": "Osppy · Guadalajara, Mexico · hello@osppy.com"
   }
 }
