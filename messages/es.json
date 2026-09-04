@@ -67,26 +67,6 @@
       "p4Titulo": "Operación",
       "p4Body": "Lo entregado puede quedar bajo un plan de hosting, monitoreo y mantenimiento, según lo que tu operación necesite."
     },
-    "seve": {
-      "kicker": "Cómo se ve",
-      "headline": "Así se ve un sistema trabajando dentro de una empresa.",
-      "body": "Dos ejemplos, armados con datos de demostración. No son capturas de ningún cliente.",
-      "d1Titulo": "Una cotización que se arma sola",
-      "d1Body": "El sistema toma la solicitud, aplica las reglas de precio que ya usa tu equipo y arma el documento. Una persona lo revisa antes de que salga.",
-      "d2Titulo": "Un asistente que conoce tus documentos",
-      "d2Body": "Contesta con la información que la empresa cargó. Si algo no está, lo dice o pregunta — no lo inventa.",
-      "etiqueta": "Datos de demostración",
-      "demo": {
-        "titulo": "Cotización",
-        "campo1": "Solicitud recibida",
-        "valor1": "Suministro y montaje, obra en Zapopan",
-        "campo2": "Reglas aplicadas",
-        "valor2": "Lista de precios vigente · descuento por volumen · tiempo de entrega",
-        "campo3": "Documento",
-        "valor3": "Cotización armada, lista para revisión",
-        "pie": "Revisa una persona. Después sale."
-      }
-    },
     "areas": {
       "kicker": "Dónde",
       "headline": "Dónde entra primero: el área, y la tarea con la que se empieza.",

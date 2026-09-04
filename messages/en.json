@@ -67,26 +67,6 @@
       "p4Titulo": "Operation",
       "p4Body": "What we deliver can stay under a hosting, monitoring and maintenance plan, depending on what your operation needs."
     },
-    "seve": {
-      "kicker": "What it looks like",
-      "headline": "This is what a system working inside a company looks like.",
-      "body": "Two examples, built with demonstration data. These are not screenshots of any client.",
-      "d1Titulo": "A quote that builds itself",
-      "d1Body": "The system takes the request, applies the pricing rules your team already uses and builds the document. A person reviews it before it goes out.",
-      "d2Titulo": "An assistant that knows your documents",
-      "d2Body": "It answers with the information the company loaded. If something isn't there, it says so or asks — it doesn't make it up.",
-      "etiqueta": "Demonstration data",
-      "demo": {
-        "titulo": "Quote",
-        "campo1": "Request received",
-        "valor1": "Supply and installation, site in Zapopan",
-        "campo2": "Rules applied",
-        "valor2": "Current price list · volume discount · lead time",
-        "campo3": "Document",
-        "valor3": "Quote assembled, ready for review",
-        "pie": "A person reviews it. Then it goes out."
-      }
-    },
     "areas": {
       "kicker": "Where",
       "headline": "Where it goes first: the area, and the task you start with.",

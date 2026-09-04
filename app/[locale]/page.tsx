@@ -4,7 +4,6 @@ import { Hero } from "@/components/home/Hero";
 import { Porque } from "@/components/home/Porque";
 import { Creemos } from "@/components/home/Creemos";
 import { Como } from "@/components/home/Como";
-import { SeVe } from "@/components/home/SeVe";
 import { Areas } from "@/components/home/Areas";
 import { Hacemos } from "@/components/home/Hacemos";
 import { Cuanto } from "@/components/home/Cuanto";
@@ -70,7 +69,6 @@ export default async function LandingPage({
         <Creemos />
 
         <Como />
-        <SeVe />
 
         <Areas />
         <Hacemos />

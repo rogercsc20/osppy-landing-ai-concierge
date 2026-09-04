@@ -96,18 +96,15 @@ forma: pasa a ser el capítulo fijado (§3 del plan), con el diagrama avanzando 
 > el término técnico— y deja de ser una sección de la casa. Con ella se va también el aviso
 > declarado de `LLMOps`: `check-copy` ya no lo levanta porque el texto ya no existe.
 
-## 6 · Cómo se ve · `home.seve.*`
+## 6 · Cómo se ve · `home.seve.*` — **ELIMINADA el 2026-09-03 (tanda D, D1)**
 
-| Llave | Texto |
-|---|---|
-| `kicker` | Cómo se ve |
-| `headline` | **Así se ve un sistema trabajando dentro de una empresa.** |
-| `body` | Dos ejemplos, armados con datos de demostración. No son capturas de ningún cliente. |
-| `d1Titulo` | Una cotización que se arma sola |
-| `d1Body` | El sistema toma la solicitud, aplica las reglas de precio que ya usa tu equipo y arma el documento. Una persona lo revisa antes de que salga. |
-| `d2Titulo` | Un asistente que conoce tus documentos |
-| `d2Body` | Contesta con la información que la empresa cargó. Si algo no está, lo dice o pregunta — no lo inventa. |
-| `etiqueta` | Datos de demostración |
+> **Baja completa, con su demo.** El operador, después de ver la casa con la tanda C dentro:
+> *«Borra completamente la seccion de "como se ve" esta horrible, por lo pronto quitala»*. Se
+> borró la sección entera (`components/home/SeVe.tsx`, `home.seve.*` en los dos idiomas). El
+> «por lo pronto» queda registrado: la sección no se sustituye por otra, y si vuelve, vuelve
+> con un objeto nuevo, no con este. Su contenido honesto (la cotización que se arma sola, con
+> su etiqueta de datos de demostración) **no se tira**: se recicla en el panel de operación del
+> héroe (rebanada D4, compuerta D0-5).
 
 ---
 
@@ -346,11 +343,11 @@ público de empresa pregunta primero.)*
 
 | | Hoy | V4 |
 |---|---|---|
-| Secciones | 11 | 14 en V4; **13 desde la tanda C** (baja «Sin jerga») |
+| Secciones | 11 | 14 en V4; 13 desde la tanda C (baja «Sin jerga»); **12 desde la tanda D** (baja «Cómo se ve») |
 | Orden | identidad → servicios → giros → método | WHY → HOW → WHAT |
 | Sujeto | «empresas de cualquier tamaño — también PyMEs» | empresas medianas y grandes con equipos por área |
-| Nuevas | — | El silencio (2) · Lo que creemos (3) · ~~Sin jerga (5)~~ · Cómo se ve (6) · **Dónde entra: las ocho áreas** (7) · Cuánto cuesta (9) |
-| Bajas | «Quiénes somos» y «A quién ayudamos» | su contenido se reparte entre el héroe, la 3 y la 10; **«Sin jerga» se dio de baja el 2026-09-03 (C2)** |
+| Nuevas | — | El silencio (2) · Lo que creemos (3) · ~~Sin jerga (5)~~ · ~~Cómo se ve (6)~~ · **Dónde entra: las ocho áreas** (7) · Cuánto cuesta (9) |
+| Bajas | «Quiénes somos» y «A quién ayudamos» | su contenido se reparte entre el héroe, la 3 y la 10; **«Sin jerga» se dio de baja el 2026-09-03 (C2) y «Cómo se ve» el mismo día (D1)** |
 | Conservado palabra por palabra | — | el método (4), las tres maneras (8), los contadores y los siete tipos de trabajo (10), cinco de las siete preguntas (13) |
 
 ## Lo que hace falta antes de V4c
