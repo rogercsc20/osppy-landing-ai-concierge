@@ -9,7 +9,7 @@ export async function generateMetadata({
   const { locale } = await params;
   const isES = locale === "es";
   return {
-    title: isES ? "Términos de Uso — Osppy" : "Terms of Use — Osppy",
+    title: isES ? "Términos de Uso · Osppy" : "Terms of Use · Osppy",
     description: isES
       ? "Términos y Condiciones de Uso del servicio Osppy."
       : "Osppy's Terms of Use.",

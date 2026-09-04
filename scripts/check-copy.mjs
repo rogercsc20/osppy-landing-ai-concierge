@@ -20,6 +20,19 @@
 //            costos», save/saving, replac…) — legitimate in negations
 //            («no promete ahorros»), so it is reviewed by hand (guide §5.8)
 //   AVISO  — «hotel» outside keys that start with `hoteles` or `diana`
+//
+// A SECOND PASS (tanda D, HQA-D79) applies the bank to the metadata files
+// listed in METADATA_FILES — layout, legal pages, product pages and the
+// opengraph images — which no linter looked at until now and which carry the
+// <title>, the description and the OG/Twitter cards a customer reads. It is
+// deliberately narrow: only bank rows whose term has NO letters and NO digits
+// (today, exactly the em-dash row) are applied there. Word rows never belong
+// in a .tsx, so every English identifier and every one of the 115 em dashes
+// living in code COMMENTS stays out by construction, not by an exception
+// list. The pass fails hard when a listed file is missing, so a rename cannot
+// quietly shrink the coverage. A future punctuation row inherits all of this
+// without touching the script — which is why this is a second pass here and
+// not a separate check-dash.mjs that would drift from the bank.
 // Ends with `N fallas · M avisos`; exit code 1 when there are fallas.
 // Normalization mirrors plano() in osppy-content's verificar-texto.py:
 // lowercase, NFD, combining marks stripped.
@@ -183,6 +196,52 @@ for (const locale of locales) {
     if (t.includes("hotel") && !/^(hoteles|diana)/.test(llave)) {
       console.log(`AVISO  ${llave}: «hotel» fuera de las llaves hoteles.* / diana*`);
       avisos++;
+    }
+  }
+}
+
+// ── metadata files: punctuation rows only ───────────────────────────────────
+// The <title>, description and OG/Twitter cards live in .tsx, not in
+// messages/, so the walk above never saw them. Listed explicitly rather than
+// globbed: a glob that stops matching is silent, a missing listed file is not.
+const METADATA_FILES = [
+  "app/[locale]/layout.tsx",
+  "app/[locale]/privacidad/page.tsx",
+  "app/[locale]/terminos/page.tsx",
+  "app/[locale]/hoteles/page.tsx",
+  "app/[locale]/citas/page.tsx",
+  "app/[locale]/opengraph-image.tsx",
+  "app/[locale]/hoteles/opengraph-image.tsx",
+  "app/[locale]/citas/opengraph-image.tsx",
+];
+// Only rows whose term is pure punctuation. A row of words in a .tsx would hit
+// identifiers and English prose in comments; a row of punctuation cannot.
+const PUNTUACION = prohibidas.filter((t) => /^[^\p{L}\p{N}]+$/u.test(t));
+
+if (PUNTUACION.length > 0) {
+  console.log(`— metadatos (${METADATA_FILES.length} archivos · ${PUNTUACION.length} filas de puntuación)`);
+  for (const rel of METADATA_FILES) {
+    const p = join(root, rel);
+    if (!existsSync(p)) {
+      console.log(`FALLA  ${rel}: archivo listado en METADATA_FILES que no existe — un renombre no baja la cobertura en silencio`);
+      fallas++;
+      continue;
+    }
+    // strip comments first, then take string literals — the same extraction
+    // check-sections.mjs already uses, no dependency needed
+    const src = readFileSync(p, "utf8")
+      .replace(/\/\*[\s\S]*?\*\//g, " ")
+      .replace(/(^|[^:"'`\\])\/\/[^\n]*/g, "$1 ");
+    const literales = [...src.matchAll(/"([^"\\]*(?:\\.[^"\\]*)*)"|'([^'\\]*(?:\\.[^'\\]*)*)'|`([^`\\]*(?:\\.[^`\\]*)*)`/g)]
+      .map((m) => m[1] ?? m[2] ?? m[3] ?? "");
+    for (const lit of literales) {
+      const t = plano(lit);
+      for (const term of PUNTUACION) {
+        if (t.includes(term)) {
+          console.log(`FALLA  ${rel}: prohibida «${term}» en «${lit.slice(0, 60)}»`);
+          fallas++;
+        }
+      }
     }
   }
 }

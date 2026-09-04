@@ -22,7 +22,7 @@
     "hero": {
       "kicker": "IA aplicada para empresas",
       "headline": "Tu empresa ya sabe que necesita IA. Lo que casi nadie te dice es dónde.",
-      "sub": "Osppy pone la inteligencia artificial a hacer trabajo dentro de la operación —una tarea concreta, un proceso escrito, una persona que revisa— en empresas medianas y grandes con equipos de oficina completos.",
+      "sub": "Osppy pone la inteligencia artificial a hacer trabajo dentro de la operación (una tarea concreta, un proceso escrito, una persona que revisa) en empresas medianas y grandes con equipos de oficina completos.",
       "cta": "Descubre dónde te sirve",
       "ctaSecundario": "Ver las áreas",
       "ctaMessage": "Hola, quiero platicar sobre la operación de mi empresa.",
@@ -50,7 +50,7 @@
       "c1Titulo": "Una tarea completa, no un pedazo",
       "c1Body": "Media tarea automatizada deja a una persona terminándola a mano y revisando el doble. Si no se puede hacer completa, todavía no toca.",
       "c2Titulo": "Reglas escritas antes que código",
-      "c2Body": "El sistema hace lo que dice el proceso. Si el proceso vive en la cabeza de una persona, lo primero que entregamos es el proceso — no el sistema.",
+      "c2Body": "El sistema hace lo que dice el proceso. Si el proceso vive en la cabeza de una persona, lo primero que entregamos es el proceso, no el sistema.",
       "c3Titulo": "Una persona revisa y decide",
       "c3Body": "Estas herramientas se equivocan y a veces inventan. Por eso todo se arma para que alguien pueda revisar: la IA propone, la persona decide.",
       "nota": "La tecnología puede quitar tareas repetitivas; las decisiones, la atención importante y la responsabilidad siguen siendo de las personas."
@@ -59,7 +59,7 @@
       "kicker": "Cómo trabajamos",
       "headline": "Primero entender. Construir es el último paso.",
       "p1Titulo": "Diagnóstico",
-      "p1Body": "Entendemos tu operación e identificamos dónde la IA ayuda de verdad — y dónde no hace falta.",
+      "p1Body": "Entendemos tu operación e identificamos dónde la IA ayuda de verdad, y dónde no hace falta.",
       "p2Titulo": "El proceso, por escrito",
       "p2Body": "Antes de construir, el proceso queda escrito. Es el paso que casi nadie tiene hecho, y es del que depende todo lo demás.",
       "p3Titulo": "Construcción",
@@ -163,13 +163,13 @@
           "¿Dónde se va el tiempo de tu equipo?",
           "¿Qué proceso se repite igual todas las semanas?",
           "¿Qué información ya tienes que nadie está usando?",
-          "¿Qué conviene automatizar — y qué todavía no?"
+          "¿Qué conviene automatizar, y qué todavía no?"
         ]
       },
       "implementacion": {
         "titulo": "Implementación",
         "estado": "Disponible hoy",
-        "body": "Construimos sistemas que quedan funcionando dentro de tu operación —desde un cotizador hasta un agente que hace la tarea completa por su cuenta—, con alcance y criterios de éxito por escrito. Se conectan con el ERP y el sistema de facturación que ya usas, con el alcance definido en el diagnóstico. Después de entregar, hay planes de hosting, monitoreo y mantenimiento.",
+        "body": "Construimos sistemas que quedan funcionando dentro de tu operación (desde un cotizador hasta un agente que hace la tarea completa por su cuenta), con alcance y criterios de éxito por escrito. Se conectan con el ERP y el sistema de facturación que ya usas, con el alcance definido en el diagnóstico. Después de entregar, hay planes de hosting, monitoreo y mantenimiento.",
         "tiposTitulo": "Lo que se ha construido:",
         "tipos": [
           "Adopción de Claude Enterprise",
@@ -205,16 +205,16 @@
       "c3Label": "giros atendidos",
       "c4Valor": "24/7",
       "c4Label": "atención del asistente",
-      "agentes": "Además: agentes que hacen la tarea completa por su cuenta —autónomos— operando hoy en sistemas en producción.",
+      "agentes": "Además: agentes que hacen la tarea completa por su cuenta, de forma autónoma, operando hoy en sistemas en producción.",
       "body": "Aquí no se nombra a ningún cliente sin permiso por escrito, y no se publica ninguna cifra medida por nosotros. Lo que sí se puede contar: cuánto, de qué tipo y en qué giros."
     },
     "casos": {
       "t1Titulo": "Adopción de Claude Enterprise",
       "t1Body": "Dejar a un equipo completo trabajando con una herramienta de IA de nivel empresarial, con orden y con reglas de uso.",
       "t2Titulo": "Sesiones de asesoría",
-      "t2Body": "Diagnóstico de la operación e identificación de dónde la IA ayuda — y dónde no.",
+      "t2Body": "Diagnóstico de la operación e identificación de dónde la IA ayuda, y dónde no.",
       "t3Titulo": "Agentes de IA",
-      "t3Body": "Hacen una tarea completa por su cuenta —autónomos—, dentro de un proceso definido y con reglas escritas.",
+      "t3Body": "Hacen una tarea completa por su cuenta, de forma autónoma, dentro de un proceso definido y con reglas escritas.",
       "t4Titulo": "Modelos en tu infraestructura",
       "t4Body": "Cuando la información no puede salir de tu casa, el modelo se despliega dentro de tu propia infraestructura, con Amazon Bedrock.",
       "t5Titulo": "Estructuración de procesos",
@@ -222,7 +222,7 @@
       "t6Titulo": "Automatización de procesos",
       "t6Body": "Una vez escrito, el proceso deja de hacerse a mano: el sistema lo ejecuta y una persona revisa el resultado.",
       "t7Titulo": "Asistentes de IA",
-      "t7Body": "Responden y atienden con la información que el negocio carga. Si algo no está, lo dicen o preguntan — no inventan.",
+      "t7Body": "Responden y atienden con la información que el negocio carga. Si algo no está, lo dicen o preguntan, no inventan.",
       "t8Titulo": "Cotizadores",
       "t8Body": "Sistemas que arman una cotización con las reglas y los precios del negocio, para que no dependa de una sola persona.",
       "t9Titulo": "Plantillas con los membretes de tu empresa",
@@ -252,8 +252,8 @@
     "voces": {
       "kicker": "Voces",
       "headline": "Cómo se siente tener un sistema trabajando.",
-      "divulgacion": "Voces ilustrativas — no son testimonios verificados.",
-      "q1": "Lo que cambió no fue la herramienta. Fue que por fin escribimos cómo se hace una cotización — y entonces sí se pudo automatizar.",
+      "divulgacion": "Voces ilustrativas: no son testimonios verificados.",
+      "q1": "Lo que cambió no fue la herramienta. Fue que por fin escribimos cómo se hace una cotización, y entonces sí se pudo automatizar.",
       "q2": "Pensé que iba a ser otro chatbot. Es un paso del proceso que ya nadie hace a mano.",
       "q3": "Nos dijeron que en un área todavía no convenía. Esa conversación fue la que nos hizo confiar."
     },
@@ -261,11 +261,11 @@
       "kicker": "Preguntas",
       "headline": "Lo que normalmente nos preguntan.",
       "q1": "¿Esto funciona en una empresa con muchas áreas?",
-      "a1": "Sí, y de hecho es donde más rinde — pero no se entra por todas a la vez. Se empieza por un área y una tarea, se deja funcionando, y esa se vuelve el ejemplo con el que el resto de la empresa entiende de qué se trata.",
+      "a1": "Sí, y de hecho es donde más rinde, pero no se entra por todas a la vez. Se empieza por un área y una tarea, se deja funcionando, y esa se vuelve el ejemplo con el que el resto de la empresa entiende de qué se trata.",
       "q2": "¿Por dónde se empieza?",
       "a2": "Casi siempre con un diagnóstico: entender tu operación e identificar dónde la IA ayuda de verdad. Lo que sigue depende de lo que aparezca: capacitar, ordenar un proceso o construir un sistema.",
       "q3": "¿Y si mis procesos no están escritos en ningún lado?",
-      "a3": "Es lo más común. Estructurar el proceso es parte del trabajo — y va antes que cualquier automatización. No construimos agentes sin procesos bien definidos.",
+      "a3": "Es lo más común. Estructurar el proceso es parte del trabajo, y va antes que cualquier automatización. No construimos agentes sin procesos bien definidos.",
       "q4": "¿Qué no hace Osppy?",
       "a4": "No promete ahorros, ventas ni horas: eso lo miden tus números. No entrega una herramienta y se va. Y sus sistemas no confirman precios, disponibilidad ni condiciones que nadie verificó: cuando no saben algo, lo dicen, preguntan o pasan la conversación a una persona.",
       "q5": "¿Qué pasa con la información de mi empresa?",
@@ -273,12 +273,12 @@
       "q6": "¿Cómo se cotiza?",
       "a6": "La capacitación y la asesoría se cotizan por grupo y por resultado; la implementación, por separado, con alcance y criterios de éxito por escrito. No publicamos precios porque no vendemos paquetes: cada propuesta es sobre tu caso.",
       "q7": "¿Se conecta con mis sistemas?",
-      "a7": "Sí: se conectan con el ERP y el sistema de facturación que ya usas. Con cuáles exactamente y hasta dónde llega la conexión se define en el diagnóstico, con nombre y apellido, antes de que aparezca en una propuesta — no prometemos una integración que no hayamos revisado contra tu sistema."
+      "a7": "Sí: se conectan con el ERP y el sistema de facturación que ya usas. Con cuáles exactamente y hasta dónde llega la conexión se define en el diagnóstico, con nombre y apellido, antes de que aparezca en una propuesta. No prometemos una integración que no hayamos revisado contra tu sistema."
     },
     "cta": {
       "kicker": "El siguiente paso",
       "headline": "Cuéntanos con qué área quieres empezar.",
-      "body": "Nos escribes, te contesta una persona, y vemos si hay algo que valga la pena hacer. A veces la respuesta honesta es “todavía no” — también te la vamos a dar.",
+      "body": "Nos escribes, te contesta una persona, y vemos si hay algo que valga la pena hacer. A veces la respuesta honesta es “todavía no”, y también te la vamos a dar.",
       "button": "Escríbenos",
       "ctaMessage": "Hola, quiero platicar sobre la operación de mi empresa. El área por la que quiero empezar es…",
       "mailLabel": "hello@osppy.com",
@@ -534,7 +534,7 @@
     "testimonios": {
       "kicker": "Voces",
       "headline": "Cómo se vive tener la recepción contestando sola.",
-      "nota": "Voces ilustrativas — no son testimonios verificados.",
+      "nota": "Voces ilustrativas: no son testimonios verificados.",
       "q1": "Antes contestaba mensajes a medianoche todos los días. Ahora duermo.",
       "q2": "Pensé que un bot se notaría falso. Mis clientes le escriben igual que a mí, y sabe cuándo pasarme la conversación.",
       "q3": "Dejé de perder reservas por no contestar a tiempo. Lo que llega de madrugada ya no se queda sin respuesta."
@@ -547,7 +547,7 @@
       "q2": "¿Se conecta a mi sistema de reservas o a las plataformas?",
       "a2": "Hoy no, y no te vamos a dar una fecha que no podamos cumplir. Por eso el candado eres tú, con los botones de aprobar: para un hotel de pocas habitaciones es lo más sano.",
       "q3": "¿Tengo que cambiar mi número de WhatsApp?",
-      "a3": "Tú decides. Se puede pasar tu número actual a Diana —deja de funcionar en la app del celular y los chats viejos no se migran— o usar uno nuevo y dejar el tuyo como está. Lo vemos juntos según cómo lo uses hoy, y el reloj lo marca la verificación de Meta.",
+      "a3": "Tú decides. Se puede pasar tu número actual a Diana (deja de funcionar en la app del celular y los chats viejos no se migran) o usar uno nuevo y dejar el tuyo como está. Lo vemos juntos según cómo lo uses hoy, y el reloj lo marca la verificación de Meta.",
       "q4": "¿Me pueden bloquear el número?",
       "a4": "Diana corre sobre la API oficial de WhatsApp de Meta, con plantillas aprobadas. Los bloqueos vienen de los montajes no oficiales.",
       "q5": "¿Reemplaza a mi recepcionista?",

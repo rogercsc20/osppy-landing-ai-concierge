@@ -22,7 +22,7 @@
     "hero": {
       "kicker": "Applied AI for companies",
       "headline": "Your company already knows it needs AI. What almost nobody tells you is where.",
-      "sub": "Osppy puts artificial intelligence to work inside the operation — one concrete task, a written process, a person who reviews it — at medium and large companies with full office teams.",
+      "sub": "Osppy puts artificial intelligence to work inside the operation (one concrete task, a written process, a person who reviews it) at medium and large companies with full office teams.",
       "cta": "Find out where it helps",
       "ctaSecundario": "See the areas",
       "ctaMessage": "Hi, I'd like to talk about my company's operation.",
@@ -50,7 +50,7 @@
       "c1Titulo": "A whole task, not a slice",
       "c1Body": "Half an automated task leaves a person finishing it by hand and checking twice as much. If it can't be done end to end, it isn't time yet.",
       "c2Titulo": "Written rules before code",
-      "c2Body": "The system does what the process says. If the process lives in one person's head, the first thing we deliver is the process — not the system.",
+      "c2Body": "The system does what the process says. If the process lives in one person's head, the first thing we deliver is the process, not the system.",
       "c3Titulo": "A person reviews and decides",
       "c3Body": "These tools get things wrong and sometimes make things up. That's why everything is built so someone can review it: the AI proposes, the person decides.",
       "nota": "Technology can take away repetitive tasks; the decisions, the attention that matters and the responsibility stay with people."
@@ -59,7 +59,7 @@
       "kicker": "How we work",
       "headline": "Understand first. Building is the last step.",
       "p1Titulo": "Diagnosis",
-      "p1Body": "We understand your operation and identify where AI genuinely helps — and where it isn't needed.",
+      "p1Body": "We understand your operation and identify where AI genuinely helps, and where it isn't needed.",
       "p2Titulo": "The process, in writing",
       "p2Body": "Before anything is built, the process gets written down. It's the step almost nobody has done, and everything else depends on it.",
       "p3Titulo": "Build",
@@ -163,13 +163,13 @@
           "Where does your team's time actually go?",
           "Which process repeats the same way every week?",
           "What information do you already have that nobody is using?",
-          "What's worth automating — and what isn't yet?"
+          "What's worth automating, and what isn't yet?"
         ]
       },
       "implementacion": {
         "titulo": "Implementation",
         "estado": "Available today",
-        "body": "We build systems that stay running inside your operation — from a quoting tool to an agent that does a whole task on its own — with scope and success criteria in writing. They connect to the ERP and the invoicing system you already use, with the scope defined in the diagnosis. After delivery there are hosting, monitoring and maintenance plans.",
+        "body": "We build systems that stay running inside your operation (from a quoting tool to an agent that does a whole task on its own), with scope and success criteria in writing. They connect to the ERP and the invoicing system you already use, with the scope defined in the diagnosis. After delivery there are hosting, monitoring and maintenance plans.",
         "tiposTitulo": "What has been built:",
         "tipos": [
           "Claude Enterprise adoption",
@@ -205,16 +205,16 @@
       "c3Label": "industries served",
       "c4Valor": "24/7",
       "c4Label": "assistant coverage",
-      "agentes": "Also: agents that do the whole task on their own — autonomous — running in production systems today.",
+      "agentes": "Also: agents that do the whole task on their own, autonomously, running in production systems today.",
       "body": "No client is named here without written permission, and no figure measured by us is published. What can be told: how much, of what kind, and in which sectors."
     },
     "casos": {
       "t1Titulo": "Claude Enterprise adoption",
       "t1Body": "Getting a whole team working with an enterprise-grade AI tool, with order and rules of use.",
       "t2Titulo": "Advisory sessions",
-      "t2Body": "A diagnostic of the operation and a map of where AI helps — and where it doesn't.",
+      "t2Body": "A diagnostic of the operation and a map of where AI helps, and where it doesn't.",
       "t3Titulo": "AI agents",
-      "t3Body": "They do a whole task on their own — autonomous — inside a defined process, with written rules.",
+      "t3Body": "They do a whole task on their own, autonomously, inside a defined process, with written rules.",
       "t4Titulo": "Models in your infrastructure",
       "t4Body": "When the information can't leave your house, the model is deployed inside your own infrastructure, with Amazon Bedrock.",
       "t5Titulo": "Process structuring",
@@ -222,7 +222,7 @@
       "t6Titulo": "Process automation",
       "t6Body": "Once it is written, the process stops being done by hand: the system runs it and a person reviews the result.",
       "t7Titulo": "AI assistants",
-      "t7Body": "They answer and attend with the information the business loads. If something isn't there, they say so or ask — they don't make things up.",
+      "t7Body": "They answer and attend with the information the business loads. If something isn't there, they say so or ask; they don't make things up.",
       "t8Titulo": "Quoting tools",
       "t8Body": "Systems that put a quote together using the business's own rules and prices, so it doesn't depend on one person.",
       "t9Titulo": "Templates with your company's letterhead",
@@ -252,8 +252,8 @@
     "voces": {
       "kicker": "Voices",
       "headline": "What it feels like to have a system doing the work.",
-      "divulgacion": "Illustrative voices — not verified testimonials.",
-      "q1": "What changed wasn't the tool. It was that we finally wrote down how a quote gets made — and then it could be automated.",
+      "divulgacion": "Illustrative voices: not verified testimonials.",
+      "q1": "What changed wasn't the tool. It was that we finally wrote down how a quote gets made, and then it could be automated.",
       "q2": "I thought it would be another chatbot. It's a step of the process nobody does by hand any more.",
       "q3": "They told us one area wasn't worth it yet. That conversation is what made us trust them."
     },
@@ -261,11 +261,11 @@
       "kicker": "Questions",
       "headline": "What people usually ask us.",
       "q1": "Does this work at a company with many areas?",
-      "a1": "Yes, and that's where it pays off most — but you don't go in through all of them at once. You start with one area and one task, leave it running, and that becomes the example the rest of the company understands it by.",
+      "a1": "Yes, and that's where it pays off most, but you don't go in through all of them at once. You start with one area and one task, leave it running, and that becomes the example the rest of the company understands it by.",
       "q2": "Where do we start?",
       "a2": "Almost always with a diagnosis: understanding your operation and identifying where AI genuinely helps. What follows depends on what shows up: training, tidying up a process, or building a system.",
       "q3": "What if our processes aren't written down anywhere?",
-      "a3": "That's the most common case. Structuring the process is part of the work — and it comes before any automation. We don't build agents without well-defined processes.",
+      "a3": "That's the most common case. Structuring the process is part of the work, and it comes before any automation. We don't build agents without well-defined processes.",
       "q4": "What doesn't Osppy do?",
       "a4": "It doesn't promise savings, sales or hours: your numbers measure that. It doesn't hand over a tool and walk away. And its systems don't confirm prices, availability or terms nobody verified: when they don't know something, they say so, ask, or hand the conversation to a person.",
       "q5": "What happens to my company's information?",
@@ -273,12 +273,12 @@
       "q6": "How is it quoted?",
       "a6": "Training and advisory are quoted per group and per result; builds separately, with written scope and success criteria. We don't publish prices because we don't sell packages: every proposal is about your case.",
       "q7": "Does it connect to my systems?",
-      "a7": "Yes: they connect to the ERP and the invoicing system you already use. Which ones exactly, and how far the connection goes, is settled in the diagnosis — by name, before it appears in a proposal. We don't promise an integration we haven't checked against your system."
+      "a7": "Yes: they connect to the ERP and the invoicing system you already use. Which ones exactly, and how far the connection goes, is settled in the diagnosis, by name, before it appears in a proposal. We don't promise an integration we haven't checked against your system."
     },
     "cta": {
       "kicker": "The next step",
       "headline": "Tell us which area you want to start with.",
-      "body": "You write, a person answers, and we work out whether there's anything worth doing. Sometimes the honest answer is “not yet” — we'll give you that one too.",
+      "body": "You write, a person answers, and we work out whether there's anything worth doing. Sometimes the honest answer is “not yet”, and we'll give you that one too.",
       "button": "Write to us",
       "ctaMessage": "Hi, I'd like to talk about my company's operation. The area I want to start with is…",
       "mailLabel": "hello@osppy.com",
@@ -534,7 +534,7 @@
     "testimonios": {
       "kicker": "Voices",
       "headline": "What it's like to have the front desk answering on its own.",
-      "nota": "Illustrative voices — not verified testimonials.",
+      "nota": "Illustrative voices: not verified testimonials.",
       "q1": "I used to answer messages at midnight every single day. Now I sleep.",
       "q2": "I thought a bot would feel fake. My clients write to it the same way they write to me, and it knows when to hand the conversation over.",
       "q3": "I stopped losing bookings to slow replies. What comes in overnight no longer goes unanswered."
@@ -547,7 +547,7 @@
       "q2": "Does it connect to my reservation system or to the platforms?",
       "a2": "Not today, and we won't give you a date we can't keep. That's why the lock is you, with the approve buttons: for a small hotel it's the healthiest way.",
       "q3": "Do I have to change my WhatsApp number?",
-      "a3": "You decide. Your current number can move to Diana — it stops working in the phone app and old chats don't migrate — or you use a new one and keep yours as it is. We look at it together based on how you use it today, and the clock is set by Meta's verification.",
+      "a3": "You decide. Your current number can move to Diana (it stops working in the phone app and old chats don't migrate), or you use a new one and keep yours as it is. We look at it together based on how you use it today, and the clock is set by Meta's verification.",
       "q4": "Can my number get blocked?",
       "a4": "Diana runs on the official WhatsApp API from Meta, with approved templates. Blocks come from unofficial setups.",
       "q5": "Does it replace my front-desk staff?",
