@@ -60,13 +60,20 @@ test.describe("scroll engine", () => {
     // The step title inside the PIN SPACER, not the first h3 of #como: the
     // lg:hidden stacked branch renders every step in order and its first
     // heading never changes, so reading that one passes on a broken chapter.
+    // Wait for the scroll to LAND at each sample instead of sampling on a
+    // timer: under full-suite parallelism Lenis and React need longer than a
+    // fixed wait, and a sample taken mid-flight reads the previous step —
+    // the test flaked exactly that way against the dev server.
     const titles = new Set<string>();
     for (let f = 0; f <= 1.0001; f += 0.1) {
-      await page.evaluate(
-        (y) => window.scrollTo({ top: y, behavior: "instant" }),
-        band!.top + f * band!.height,
+      const y = band!.top + f * band!.height;
+      await page.evaluate((t) => window.scrollTo({ top: t, behavior: "instant" }), y);
+      await page.waitForFunction(
+        (t) => Math.abs(window.scrollY - t) < 2,
+        y,
+        { timeout: 5_000 },
       );
-      await page.waitForTimeout(250);
+      await page.waitForTimeout(350); // one React commit for the step state
       const t = await page.evaluate(
         () => document.querySelector(".pin-spacer h3")?.textContent?.trim() ?? "",
       );

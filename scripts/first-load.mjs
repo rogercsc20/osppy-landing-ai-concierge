@@ -6,9 +6,12 @@
 // the build. This measures the thing the budget is actually about — the bytes
 // a first-time reader downloads before the page is interactive — by loading
 // the route in a cold context against `next start` and summing the ENCODED
-// (over-the-wire, so gzip/brotli) size of every script the document pulls in
-// on its own. Lazy chunks that only arrive on scroll or interaction are not
-// first load and do not count, which is the whole point of next/dynamic.
+// (over-the-wire, so gzip/brotli) size of every script, snapshotted TWICE:
+// at the window load event (the budgeted first load) and again at network
+// idle (the total, lazy chunks included). A next/dynamic chunk arrives after
+// hydration, so it lands between the two snapshots — which is exactly how
+// the D4 rule is verified: if the deferred panel still moves the FIRST
+// number, the boundary is not doing its job and the chart leaves the hero.
 //
 //   node scripts/first-load.mjs [--base URL] [--routes /es,/en] [--budget 200]
 //
@@ -33,28 +36,34 @@ for (const route of ROUTES) {
   // every shared chunk and quietly turn the budget into a no-op.
   const context = await browser.newContext();
   const page = await context.newPage();
-  await page.goto(BASE + route, { waitUntil: "networkidle" });
 
-  const { bytes, count } = await page.evaluate(() =>
-    performance
-      .getEntriesByType("resource")
-      .filter((r) => r.initiatorType === "script" || /\.js(\?|$)/.test(r.name))
-      .reduce(
-        (acc, r) => ({
-          // encodedBodySize is the compressed payload; decodedBodySize would
-          // report the unzipped source and roughly triple every number.
-          bytes: acc.bytes + (r.encodedBodySize || 0),
-          count: acc.count + 1,
-        }),
-        { bytes: 0, count: 0 },
-      ),
-  );
+  const snapshot = () =>
+    page.evaluate(() =>
+      performance
+        .getEntriesByType("resource")
+        .filter((r) => r.initiatorType === "script" || /\.js(\?|$)/.test(r.name))
+        .reduce(
+          (acc, r) => ({
+            // encodedBodySize is the compressed payload; decodedBodySize
+            // would report the unzipped source and triple every number.
+            bytes: acc.bytes + (r.encodedBodySize || 0),
+            count: acc.count + 1,
+          }),
+          { bytes: 0, count: 0 },
+        ),
+    );
 
-  const kb = bytes / 1024;
+  await page.goto(BASE + route, { waitUntil: "load" });
+  const first = await snapshot();
+  await page.waitForLoadState("networkidle");
+  const total = await snapshot();
+
+  const kb = first.bytes / 1024;
+  const totalKb = total.bytes / 1024;
   const bad = kb > BUDGET_KB;
   if (bad) over++;
   console.log(
-    `${bad ? "FALLA " : "  ok  "} ${route.padEnd(16)} ${kb.toFixed(1).padStart(7)} kB en ${String(count).padStart(3)} archivos  (presupuesto ${BUDGET_KB} kB)`,
+    `${bad ? "FALLA " : "  ok  "} ${route.padEnd(16)} primera carga ${kb.toFixed(1).padStart(7)} kB en ${String(first.count).padStart(3)} archivos · con diferidos ${totalKb.toFixed(1).padStart(7)} kB en ${String(total.count).padStart(3)}  (presupuesto ${BUDGET_KB} kB sobre la primera)`,
   );
   await context.close();
 }

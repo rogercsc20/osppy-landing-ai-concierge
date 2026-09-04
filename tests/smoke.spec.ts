@@ -68,6 +68,26 @@ test.describe("hero subtitle underline (tanda D, D3)", () => {
   }
 });
 
+test.describe("hero operation panel (tanda D, D4)", () => {
+  // The demonstration-data chip is the truth label of the hero's one moving
+  // object (source of truth §9/§10): a mock never presents itself as a
+  // client screenshot. The panel body is behind the repo's first
+  // next/dynamic boundary with ssr:false, so the assertion waits for the
+  // chunk — and thereby also proves the boundary actually loads.
+  for (const [route, label] of [
+    ["/es", "Datos de demostración"],
+    ["/en", "Demonstration data"],
+  ] as const) {
+    test(`${route}: the demo-data chip is present and says «${label}»`, async ({ page }) => {
+      await page.setViewportSize({ width: 1280, height: 900 });
+      await page.goto(route);
+      const chip = page.getByTestId("panel-demo-chip");
+      await expect(chip).toBeVisible();
+      await expect(chip).toHaveText(label);
+    });
+  }
+});
+
 test("nav Log in points at the cockpit login (cross-origin — assert, don't navigate)", async ({
   page,
 }) => {

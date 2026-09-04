@@ -26,6 +26,34 @@
       "cta": "Descubre dónde te sirve",
       "ctaSecundario": "Ver las áreas",
       "ctaMessage": "Hola, quiero platicar sobre la operación de mi empresa.",
+      "panel": {
+        "titulo": "Panel de operación",
+        "empresa": "Empresa de demostración",
+        "etiqueta": "Datos de demostración",
+        "enCurso": "Tareas en curso",
+        "enCursoSub": "avanzan solas",
+        "revision": "Esperan revisión",
+        "revisionSub": "la persona decide",
+        "cola": "Cola de trabajo",
+        "etapas": {
+          "recibido": "Recibido",
+          "proceso": "Proceso",
+          "agente": "Agente",
+          "revision": "Revisión"
+        },
+        "rows": [
+          { "area": "Ventas y cotizaciones", "tarea": "Cotización: suministro y montaje, obra en Zapopan" },
+          { "area": "Contabilidad", "tarea": "Conciliar movimientos contra sus documentos" },
+          { "area": "Compras", "tarea": "Orden de compra desde la requisición" },
+          { "area": "Comercio exterior", "tarea": "Expediente electrónico de una importación" },
+          { "area": "Recursos humanos", "tarea": "Preguntas frecuentes del personal" }
+        ],
+        "pie": "Revisa una persona. Después sale.",
+        "chartTitle": "Tareas completadas",
+        "chartNota": "Semana de demostración",
+        "chartSerie": "tareas",
+        "alt": "Panel de operación con una cola de trabajo avanzando por etapas y una gráfica de la semana"
+      },
       "diagrama": {
         "tarea": "La tarea",
         "proceso": "El proceso",

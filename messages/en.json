@@ -26,6 +26,34 @@
       "cta": "Find out where it helps",
       "ctaSecundario": "See the areas",
       "ctaMessage": "Hi, I'd like to talk about my company's operation.",
+      "panel": {
+        "titulo": "Operations panel",
+        "empresa": "Demonstration company",
+        "etiqueta": "Demonstration data",
+        "enCurso": "Tasks in motion",
+        "enCursoSub": "moving on their own",
+        "revision": "Awaiting review",
+        "revisionSub": "a person decides",
+        "cola": "Work queue",
+        "etapas": {
+          "recibido": "Received",
+          "proceso": "Process",
+          "agente": "Agent",
+          "revision": "Review"
+        },
+        "rows": [
+          { "area": "Sales and quotes", "tarea": "Quote: supply and installation, site in Zapopan" },
+          { "area": "Accounting", "tarea": "Reconcile movements against their documents" },
+          { "area": "Purchasing", "tarea": "Purchase order from the requisition" },
+          { "area": "Foreign trade", "tarea": "Electronic file for an import" },
+          { "area": "Human resources", "tarea": "The staff's frequently asked questions" }
+        ],
+        "pie": "A person reviews it. Then it goes out.",
+        "chartTitle": "Tasks completed",
+        "chartNota": "Demonstration week",
+        "chartSerie": "tasks",
+        "alt": "Operations panel with a work queue advancing through stages and a chart of the week"
+      },
       "diagrama": {
         "tarea": "The task",
         "proceso": "The process",

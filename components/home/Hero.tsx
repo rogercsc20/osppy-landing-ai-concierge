@@ -8,6 +8,59 @@ import { ArrowRight } from "lucide-react";
 import { ShineButton } from "@/components/ui/ShineButton";
 import { Spotlight } from "@/components/fx/Spotlight";
 import { whatsappHref } from "@/lib/site";
+import dynamic from "next/dynamic";
+import { AppWindow } from "@/components/device/AppWindow";
+
+/* The panel body is the repo's FIRST next/dynamic boundary (D4 rule 2): the
+   Bklit chart stack (~80 files over visx) must not ride the first load. ONE
+   boundary, and it splits the FRAME from the CONTENT: AppWindow is pure
+   markup and renders statically, so the window is there from the first
+   paint; only its body is deferred, behind a skeleton that reproduces the
+   same structure with the same paddings, so nothing jumps when it lands.
+   `ssr: false` is legal here because Hero is a client component (the Next 16
+   lazy-loading guide: the option only works inside Client Components), and
+   it is wanted: the panel is a living demo whose every state is client
+   state, and server HTML for it would be a lie the client immediately
+   replaces. */
+const PanelEmpresa = dynamic(
+  () => import("./PanelEmpresa").then((m) => m.PanelEmpresa),
+  { ssr: false, loading: () => <PanelSkeleton /> },
+);
+
+/** The same boxes the loaded panel paints, empty: top bar, two tiles, five
+    queue rows, the chart card. One loading state — the chart's own Bklit
+    skeleton takes over INSIDE the loaded panel, so the reader never sees
+    two nested spinners fighting (D4 rule 2). */
+function PanelSkeleton() {
+  return (
+    <div className="w-full bg-surface" aria-hidden="true">
+      <div className="flex items-center gap-2.5 border-b border-line px-5 py-3.5">
+        <div className="h-7 w-7 rounded-lg bg-white/5" />
+        <div className="h-4 w-32 rounded bg-white/5" />
+        <div className="ml-auto h-6 w-36 rounded-full bg-white/5" />
+      </div>
+      <div className="p-4">
+        <div className="grid grid-cols-2 gap-3">
+          <div className="glass h-[92px] rounded-xl" />
+          <div className="glass h-[92px] rounded-xl" />
+        </div>
+        <div className="glass mt-3 rounded-xl p-4">
+          <div className="h-4 w-28 rounded bg-white/5" />
+          <div className="mt-3 flex flex-col gap-1">
+            {Array.from({ length: 5 }, (_, i) => (
+              <div key={i} className="h-[44px] rounded-lg bg-white/[0.03]" />
+            ))}
+          </div>
+          <div className="mt-3 h-8 border-t border-line" />
+        </div>
+        <div className="glass mt-3 rounded-xl p-4">
+          <div className="h-4 w-32 rounded bg-white/5" />
+          <div className="mt-3 aspect-[4.6/1] rounded bg-white/[0.03]" />
+        </div>
+      </div>
+    </div>
+  );
+}
 
 /* The house hero (V4, HQA-D39): the WHY ring opens the page — the question
    the reader already has ("we know we need AI") and the promise of the
@@ -127,19 +180,28 @@ export function Hero() {
   return (
     <section className="relative flex min-h-[calc(100svh-4rem)] items-center px-4 pb-section pt-32 sm:px-6 lg:pt-36">
       <Spotlight className="mx-auto w-full max-w-7xl">
+      {/* Two columns from lg (D3/D4): the argument on the left, the living
+          panel on the right. Below lg everything stacks; below md the panel
+          is not rendered at all (D4 rule 5) and the hero's object is the
+          vertical diagram. */}
+      <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,34rem)] lg:gap-16">
+      <div>
       <p className="eyebrow animate-fade-rise" style={{ "--rise-delay": "0s" } as CSSProperties}>
         {t("kicker")}
       </p>
-      {/* The split headline (tanda D, D3). The h1 keeps text-display from
-          @theme — defined in V3, used here first — and keeps animate-rise-only
-          because it is the LCP element and never starts at opacity 0. The
+      {/* The split headline (tanda D, D3). text-display measures in vw —
+          viewport, not container — so inside the lg half-column it wraps six
+          lines at 1024 (measured; the tanda-D prompt's own trigger was "more
+          than four"). text-h1 with xl:text-display is the prescribed fix.
+          animate-rise-only stays: this is the LCP element and never starts
+          at opacity 0. The
           subtitle is the second half of the thought, smaller, with the page's
           one thick underline on the word the whole site exists to answer;
           t.rich lets each language pick which word that is («dónde» / "where",
           not in the same position). The subtitle's comma is the operator's,
           verbatim. */}
       <h1
-        className="font-display animate-rise-only mt-6 max-w-4xl text-display font-extrabold text-text"
+        className="font-display animate-rise-only mt-6 max-w-4xl text-h1 font-extrabold text-text xl:text-display"
         style={{ "--rise-delay": "0.05s" } as CSSProperties}
       >
         {t("headline")}
@@ -170,6 +232,24 @@ export function Hero() {
           {t("ctaSecundario")}
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
         </a>
+      </div>
+      </div>
+
+      {/* The operation panel (D4): a scaled-down tablero is decoration, not
+          communication, and it would cost the phone its LCP — below md it
+          simply does not exist. animate-fade-rise, not a motion entrance:
+          the panel is content, arriving with the same CSS rise as the copy,
+          and reduced motion turns that off in globals.css. */}
+      <div
+        className="animate-fade-rise hidden md:block"
+        style={{ "--rise-delay": "0.35s" } as CSSProperties}
+        role="img"
+        aria-label={t("panel.alt")}
+      >
+        <AppWindow>
+          <PanelEmpresa />
+        </AppWindow>
+      </div>
       </div>
 
       {/* The diagram — horizontal from sm up, vertical on phones (no
