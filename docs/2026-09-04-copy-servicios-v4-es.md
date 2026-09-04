@@ -11,6 +11,10 @@
 > decir "este bloque sobra" es la forma de aprobarlo. Los renglones marcados **DECISIÓN** son
 > los que no puedo cerrar yo.
 >
+> **APROBADO el 2026-09-04. Las cuatro decisiones están cerradas** con la recomendación de la
+> sesión ("sigue con tus recomendaciones", operador, 2026-09-04). El documento está completo y
+> **E5b escribe el inglés de todo**, sin renglones pendientes.
+>
 > **De dónde sale el texto.** Los renglones marcados **(mudado)** vienen palabra por palabra de
 > `2026-09-04-copy-mudado-a-servicios.md`, el documento que E3c escribió al bajar 84 renglones de
 > la casa. No se reescriben: se colocan. Los renglones marcados **(nuevo)** los escribió esta
@@ -58,14 +62,15 @@ tres no comparten forma, y no por decoración: cada una carga un peso distinto.
 | Llave | Texto | Origen |
 |---|---|---|
 | `kicker` | Capacitación | reusado |
-| `headline` | **Tu equipo sale sabiendo usar la IA en su propio trabajo.** | **DECISIÓN 1** |
+| `headline` | **Tu equipo sale sabiendo usar la IA en su propio trabajo.** | **DECISIÓN 1 · CERRADA** |
 | `body` | Talleres en vivo, por grupo, con las tareas que tu equipo ya hace. | nuevo |
 | `cta` | Contacta un asesor | reusado |
 | `ctaMessage` | Hola, quiero platicar sobre capacitación de IA para mi equipo. | reusado |
 | `metaTitle` | Capacitación · Osppy | reusado |
-| `metaDescription` | **Talleres prácticos de inteligencia artificial para dueños, gerentes y equipos, con tareas reales de tu operación.** | **DECISIÓN 2** |
+| `metaDescription` | **Talleres prácticos de inteligencia artificial para dueños, gerentes y equipos, con tareas reales de tu operación.** | **DECISIÓN 2 · CERRADA** |
 
-> **DECISIÓN 1 · El titular del héroe.** Hoy la llave dice *"Tu equipo sale sabiendo usarla en su
+> **DECISIÓN 1 · CERRADA por el operador el 2026-09-04, con la recomendación de la sesión: gana
+> "usar la IA".** El titular del héroe. Hoy la llave dice *"Tu equipo sale sabiendo usarla en su
 > propio trabajo."* y la tarjeta de la casa dice *"Tu equipo sale sabiendo usar la IA en su propio
 > trabajo."*
 >
@@ -78,7 +83,8 @@ tres no comparten forma, y no por decoración: cada una carga un peso distinto.
 > **Ninguna prueba se rompe con el cambio:** `smoke.spec.ts` lee el titular **del JSON**, no de un
 > literal, así que sigue el valor a donde vaya.
 
-> **DECISIÓN 2 · La descripción para buscadores.** Hoy dice *"para dueños, gerentes y equipos de
+> **DECISIÓN 2 · CERRADA por el operador el 2026-09-04, con la recomendación de la sesión: fuera
+> la segmentación, sin sustituto.** La descripción para buscadores. Hoy dice *"para dueños, gerentes y equipos de
 > **empresas medianas y grandes**"* y en inglés *"medium and large companies"*. La decisión 3 de la
 > compuerta E3a sacó esa segmentación del sitio (operador, 2026-09-04: *"no menciones empresas
 > medianas y grandes, simplemente para empresas, o corporaciones o algo así"*), y esas dos llaves
@@ -154,7 +160,9 @@ catálogo §3 palabra por palabra en su sustancia.
 > continuos y sectoriales colgando debajo de las cuatro, no al lado. La tabla de arriba sigue al
 > catálogo: cuatro rutas y un bloque de continuos aparte.
 
-> **DECISIÓN 3 · Cómo se dice el estado de una ruta, cuando el catálogo solo marca fichas.**
+> **DECISIÓN 3 · CERRADA por el operador el 2026-09-04, con la recomendación de la sesión: las dos
+> redacciones derivadas del §1.2, y el plazo y el costo de la charla NO se publican.** Cómo se dice
+> el estado de una ruta, cuando el catálogo solo marca fichas.
 > Ninguna ficha está en ✅ y **el sitio no puede marcar ninguna** mientras no digas cuál (catálogo
 > §1.2, corrección del 2026-09-03). Pero el catálogo marca **talleres**, no **rutas**, así que el
 > estado de una ruta no existe en ninguna fuente y hay que derivarlo. Lo que hice: cada ruta lleva
@@ -165,15 +173,15 @@ catálogo §3 palabra por palabra en su sustancia.
 > | 🚧 en producción | la charla y el taller de entrada, y la clínica mensual | "Estamos terminando el material." |
 > | 🔜 a solicitud | las trece restantes | "Se prepara con tu operación al contratarlo." |
 >
-> **Lo que dejé fuera a propósito, y es tu llamada.** La leyenda del §1.2 autoriza decir, para un
-> 🔜, *"necesito dos a tres semanas"*. **No lo publiqué.** Un plazo en una página es un compromiso
+> **Lo que queda fuera, y quedó fuera por decisión.** La leyenda del §1.2 autoriza decir, para un
+> 🔜, *"necesito dos a tres semanas"*. **No se publica.** Un plazo en una página es un compromiso
 > con cualquiera que la lea, y el catálogo lo escribió como una frase de conversación, con la
-> operación del cliente enfrente. Si quieres que el plazo aparezca, se agrega en una llave y en
-> letras, nunca en cifras, para no abrir `copy-allow.json` por un plazo.
+> operación del cliente enfrente. El día que se quiera publicar, entra en una llave y en letras,
+> nunca en cifras, para no abrir `copy-allow.json` por un plazo.
 >
 > Lo mismo con el precio de la charla de entrada: el catálogo §11 la pone "sin costo o costo
 > simbólico" porque es adquisición. **Publicar "sin costo" es una promesa comercial**, no una
-> estructura de precio, y no la escribí. Si la quieres, es una llave más.
+> estructura de precio, y tampoco entra. Si algún día se quiere, es una llave más.
 
 ## 5 · Lo que se ha hecho · `servicios.capacitacion.hecho.*`
 
@@ -295,7 +303,8 @@ renglones son palabra por palabra los de `home.creemos.*`.
 | `titulo` | Estructuración de procesos | **mudado** (`home.casos.t5Titulo`) |
 | `body` | El trabajo previo: dejar el proceso escrito antes de automatizar nada. Sin esto no construimos agentes. | **mudado** (`home.casos.t5Body`) |
 
-> **DECISIÓN 4 · ¿Dónde vive la estructuración de procesos?** Es la pregunta 5 del §9 del plan y
+> **DECISIÓN 4 · CERRADA por el operador el 2026-09-04, con la recomendación de la sesión: se
+> queda en asesoría.** ¿Dónde vive la estructuración de procesos? Es la pregunta 5 del §9 del plan y
 > lleva abierta desde la sesión de planeación. Las dos lecturas, sin acomodar ninguna:
 >
 > | Lectura | Qué la sostiene |
@@ -311,10 +320,10 @@ renglones son palabra por palabra los de `home.creemos.*`.
 > dictado también se puede honrar sin moverla: **es lo último de la asesoría y lo primero de la
 > implementación**, y por eso el bloque 6 de abajo enlaza directo a la página siguiente.
 >
-> **Si decides que va a implementación**, el cambio no es solo mover este bloque: `/implementacion`
-> pasa de tres familias a cuatro renglones en la primera, y el bloque 2 de `/asesoria` se queda
-> sin su salida natural. Es una llave por idioma más el rediseño de esos dos bloques, todo dentro
-> de E5c.
+> **Queda cerrada también la pregunta 5 del §9 del plan**, que llevaba abierta desde la sesión de
+> planeación del 2026-09-03. La lectura contraria queda escrita arriba, no borrada: si algún día se
+> revierte, `/implementacion` pasa de tres familias a cuatro renglones en la primera y el bloque 2
+> de `/asesoria` se queda sin su salida natural.
 
 ## 6 · Dónde encaja · `servicios.asesoria.encaja.*`
 
@@ -421,10 +430,9 @@ nombre y cada cuerpo bajan de `home.casos.*` palabra por palabra.
 > Enterprise** se fue a `/capacitacion` y **estructuración de procesos** a `/asesoria`, los dos
 > por el §3.3. Siete más dos son los nueve, y ninguna página los repite.
 >
-> **Ojo con el orden de las decisiones:** este agrupamiento **ya supone que la decisión 4 sale
-> hacia asesoría**. Si sale hacia implementación, la estructuración vuelve aquí y la primera
-> familia pasa de tres renglones a cuatro. El plan escribió las tres familias sin notar que
-> dependían de una pregunta abierta.
+> **El agrupamiento dependía de una pregunta abierta y el plan no lo notó.** Suponía que la
+> decisión 4 salía hacia asesoría, y así salió: la estructuración se queda allá y esta familia se
+> queda en tres renglones. Se deja escrito porque el plan lo dio por hecho sin decirlo.
 
 ## 4 · Cómo se conecta · `servicios.implementacion.conecta.*`
 
@@ -529,16 +537,16 @@ Para que no se descubra con una compuerta en rojo.
 
 # Las cuatro decisiones, juntas
 
-| # | Qué | Recomendación |
+| # | Qué | Estado |
 |---|---|---|
-| **1** | El titular de `/capacitacion`: "usarla" o "usar la IA" | **"usar la IA"**, la versión de la casa. El pronombre no tiene antecedente en su propia página |
-| **2** | La descripción de `/capacitacion` dice "empresas medianas y grandes" | **Quitar la segmentación** y no sustituirla. HQA-D37 no se mueve; el sitio deja de decirlo en voz alta |
-| **3** | Cómo se dice el estado de una ruta, y si se publican el plazo de preparación y el costo de la charla | **Dos redacciones derivadas de la leyenda del catálogo §1.2.** El plazo y el costo **no** se publican salvo que lo pidas |
-| **4** | Dónde vive la estructuración de procesos | **Asesoría.** Si sale a implementación, se rediseñan dos bloques dentro de E5c |
+| **1** | El titular de `/capacitacion`: "usarla" o "usar la IA" | ✅ **CERRADA:** "usar la IA", la versión de la casa |
+| **2** | La descripción de `/capacitacion` dice "empresas medianas y grandes" | ✅ **CERRADA:** se quita la segmentación y no se sustituye. HQA-D37 no se mueve |
+| **3** | El estado de una ruta, y si se publican el plazo y el costo de la charla | ✅ **CERRADA:** las dos redacciones del §1.2; el plazo y el costo **no** se publican |
+| **4** | Dónde vive la estructuración de procesos | ✅ **CERRADA:** asesoría. Cierra también la pregunta 5 del §9 del plan |
 
-**Ninguna se tomó sola.** Ninguna fila del ledger se escribió en esta tanda: el ID máximo sigue en
-HQA-D98 y estas cuatro son decisiones tuyas, no lecturas de la sesión. La que las cierre escribe
-sus filas.
+**Las cuatro están cerradas.** El operador contestó "sigue con tus recomendaciones" el 2026-09-04,
+y las cuatro salieron con la recomendación de la sesión. **E5b tiene el documento completo** y
+escribe el inglés de todo, sin renglones pendientes.
 
 *Documento de copy · tanda E5a · 2026-09-04 · Español (MX) · El inglés (E5b) se escribe contra la
 versión aprobada de este documento, no contra este.*
