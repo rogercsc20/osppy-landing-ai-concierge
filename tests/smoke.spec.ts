@@ -50,6 +50,24 @@ test("English landing renders", async ({ page }) => {
   ).toBeVisible();
 });
 
+test.describe("hero subtitle underline (tanda D, D3)", () => {
+  // One assertion per language, on the rendered element and not the JSON:
+  // it catches a broken <u> tag in the message (t.rich silently drops
+  // unbalanced markup), a lost .underline-thick class, and the wrong word
+  // underlined — each language picks its own.
+  for (const [route, word] of [
+    ["/es", "dónde"],
+    ["/en", "where"],
+  ] as const) {
+    test(`${route}: the underlined word is exactly «${word}»`, async ({ page }) => {
+      await page.goto(route);
+      const u = page.locator("u.underline-thick");
+      await expect(u).toHaveCount(1);
+      await expect(u).toHaveText(word);
+    });
+  }
+});
+
 test("nav Log in points at the cockpit login (cross-origin — assert, don't navigate)", async ({
   page,
 }) => {

@@ -472,6 +472,24 @@ h3 {
   background-size: 100% 1px;
 }
 
+/* The thick standing underline of the hero's subtitle (tanda D, D3): the
+   brand guide §8.11 resource — one word, ~10% of the type size, clear of the
+   descenders — drawn with a background so it never touches the glyphs. NOT
+   .link-underline, which is 1px and hover-drawn: that one is a link
+   affordance, this one is emphasis that is simply there. And NOT the guide's
+   literal #2FC4D9: that teal is the HOTEL accent in this system and the house
+   rejected it on 2026-09-02; var(--accent-text) is Petróleo in light, Salvia
+   in dark, and follows the hotel override where that override rules
+   (guide §8.12: the site has its own visual system). */
+.underline-thick {
+  text-decoration: none;
+  background-image: linear-gradient(var(--accent-text), var(--accent-text));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 100% 0.1em;
+  padding-bottom: 0.12em;
+}
+
 /* WA dot pattern for chat background */
 .bg-wa-dots {
   background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);

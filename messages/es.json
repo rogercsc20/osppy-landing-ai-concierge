@@ -21,8 +21,8 @@
   "home": {
     "hero": {
       "kicker": "IA aplicada para empresas",
-      "headline": "Tu empresa ya sabe que necesita IA. Lo que casi nadie te dice es dónde.",
-      "sub": "Osppy pone la inteligencia artificial a hacer trabajo dentro de la operación (una tarea concreta, un proceso escrito, una persona que revisa) en empresas medianas y grandes con equipos de oficina completos.",
+      "headline": "Tu empresa ya sabe que necesita IA",
+      "subtitulo": "Lo que no te dicen, es <u>dónde</u>",
       "cta": "Descubre dónde te sirve",
       "ctaSecundario": "Ver las áreas",
       "ctaMessage": "Hola, quiero platicar sobre la operación de mi empresa.",

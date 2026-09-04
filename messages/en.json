@@ -21,8 +21,8 @@
   "home": {
     "hero": {
       "kicker": "Applied AI for companies",
-      "headline": "Your company already knows it needs AI. What almost nobody tells you is where.",
-      "sub": "Osppy puts artificial intelligence to work inside the operation (one concrete task, a written process, a person who reviews it) at medium and large companies with full office teams.",
+      "headline": "Your company already knows it needs AI",
+      "subtitulo": "What they don't tell you is <u>where</u>",
       "cta": "Find out where it helps",
       "ctaSecundario": "See the areas",
       "ctaMessage": "Hi, I'd like to talk about my company's operation.",

@@ -35,8 +35,9 @@
 | Llave | Texto |
 |---|---|
 | `kicker` | IA aplicada para empresas |
-| `headline` | **Tu empresa ya sabe que necesita IA. Lo que casi nadie te dice es dónde.** |
-| `sub` | Osppy pone la inteligencia artificial a hacer trabajo dentro de la operación —una tarea concreta, un proceso escrito, una persona que revisa— en empresas medianas y grandes con equipos de oficina completos. |
+| `headline` | **Tu empresa ya sabe que necesita IA** *(tanda D, D3: el titular se parte en dos por pedido textual del operador)* |
+| `subtitulo` | **Lo que no te dicen, es <u>dónde</u>** *(subrayado grueso solo en «dónde»; la coma es del operador, textual — es un splice y se le señaló en una línea en vez de corregirse en silencio)* |
+| ~~`sub`~~ | **ELIMINADA el 2026-09-03 (D3, respuesta D-3 de la planeación).** Su contenido (qué hace Osppy y para quién) baja a «Por qué» en la rebanada D5 |
 | `cta` | Descubre dónde te sirve |
 | `ctaSecundario` | Ver las áreas |
 | `ctaMessage` | Hola, quiero platicar sobre la operación de mi empresa. |

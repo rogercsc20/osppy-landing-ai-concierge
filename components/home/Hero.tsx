@@ -125,25 +125,35 @@ export function Hero() {
         };
 
   return (
-    <section className="relative flex min-h-[calc(100svh-4rem)] items-center px-4 pb-section pt-28 sm:px-6">
-      <Spotlight className="mx-auto w-full max-w-6xl">
+    <section className="relative flex min-h-[calc(100svh-4rem)] items-center px-4 pb-section pt-32 sm:px-6 lg:pt-36">
+      <Spotlight className="mx-auto w-full max-w-7xl">
       <p className="eyebrow animate-fade-rise" style={{ "--rise-delay": "0s" } as CSSProperties}>
         {t("kicker")}
       </p>
+      {/* The split headline (tanda D, D3). The h1 keeps text-display from
+          @theme — defined in V3, used here first — and keeps animate-rise-only
+          because it is the LCP element and never starts at opacity 0. The
+          subtitle is the second half of the thought, smaller, with the page's
+          one thick underline on the word the whole site exists to answer;
+          t.rich lets each language pick which word that is («dónde» / "where",
+          not in the same position). The subtitle's comma is the operator's,
+          verbatim. */}
       <h1
-        className="font-display animate-rise-only mt-4 max-w-4xl text-h1 font-extrabold text-text"
+        className="font-display animate-rise-only mt-6 max-w-4xl text-display font-extrabold text-text"
         style={{ "--rise-delay": "0.05s" } as CSSProperties}
       >
         {t("headline")}
       </h1>
       <p
-        className="animate-fade-rise mt-6 max-w-2xl text-lead text-text-2"
+        className="font-display animate-fade-rise mt-8 max-w-3xl text-h3 font-semibold text-text"
         style={{ "--rise-delay": "0.15s" } as CSSProperties}
       >
-        {t("sub")}
+        {t.rich("subtitulo", {
+          u: (chunks) => <u className="underline-thick">{chunks}</u>,
+        })}
       </p>
       <div
-        className="animate-fade-rise mt-9 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-8"
+        className="animate-fade-rise mt-12 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-8"
         style={{ "--rise-delay": "0.25s" } as CSSProperties}
       >
         {/* Until /diagnostico ships (V5) the primary CTA opens the same
@@ -164,7 +174,7 @@ export function Hero() {
 
       {/* The diagram — horizontal from sm up, vertical on phones (no
           horizontal scroll). Both are the same four nodes and three arrows. */}
-      <div className="mt-14" role="img" aria-label={t("diagrama.alt")}>
+      <div className="mt-20" role="img" aria-label={t("diagrama.alt")}>
         {/* Horizontal */}
         <svg
           viewBox="0 0 824 132"
