@@ -81,7 +81,7 @@ function StageDots({ stage, labels }: { stage: Stage; labels: Record<Stage, stri
 }
 
 export function PanelEmpresa() {
-  const t = useTranslations("home.hero.panel");
+  const t = useTranslations("home.aplicada.panel");
   const reduce = useReducedMotion();
   const rows = t.raw("rows") as { area: string; tarea: string }[];
   const stageLabel: Record<Stage, string> = {

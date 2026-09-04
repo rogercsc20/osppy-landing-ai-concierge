@@ -8,6 +8,9 @@ import { SplitText } from "@/components/fx/SplitText";
 import { Float } from "@/components/fx/Float";
 import { Pinned, type GoTo } from "@/components/fx/Pinned";
 import { DUR, EASE_EXPO } from "@/lib/motion";
+import { ArrowUpRight } from "lucide-react";
+import { Link } from "@/i18n/navigation";
+import type { AppPathname } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 
 /* HOW, first beat — the method, and the one section of the page that pins
@@ -42,13 +45,30 @@ import { cn } from "@/lib/utils";
 const STEP_COUNT = 5;
 const STEP_IDS = Array.from({ length: STEP_COUNT }, (_, i) => `como-p${i + 1}`);
 
+/* HQA-D92: the five phases stop being a chapter and become navigation.
+   Exploración → training, Diagnóstico → advisory, and the last three →
+   implementation, which is the operator's own mapping. Three of the five
+   share a destination, which is exactly why each link carries the SERVICE
+   NAME and not "ver más": five links called "ver más" are five
+   indistinguishable links to anyone reading with a keyboard or a screen
+   reader. The label comes from `pNCta`, one key per phase. */
+const STEP_HREF: readonly AppPathname[] = [
+  "/capacitacion",
+  "/asesoria",
+  "/implementacion",
+  "/implementacion",
+  "/implementacion",
+];
+
 function StepBody({
   titulo,
   body,
+  cta,
   index,
 }: {
   titulo: string;
   body: string;
+  cta: string;
   index: number;
 }) {
   return (
@@ -58,6 +78,19 @@ function StepBody({
       </span>
       <h3 className="font-display mt-3 text-h2 font-semibold text-text">{titulo}</h3>
       <p className="mt-5 max-w-xl text-lead text-text-2">{body}</p>
+      {/* The phase's own door. A real link, not the rail button: the rail
+          SCROLLS within the chapter and this NAVIGATES away from it, and one
+          control cannot mean both. */}
+      <Link
+        href={STEP_HREF[index]}
+        className="link-underline group mt-8 inline-flex items-center gap-1.5 text-sm font-medium text-accent-text"
+      >
+        {cta}
+        <ArrowUpRight
+          className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+          aria-hidden="true"
+        />
+      </Link>
     </div>
   );
 }
@@ -162,6 +195,7 @@ export function Como() {
   const steps = Array.from({ length: STEP_COUNT }, (_, i) => ({
     titulo: t(`p${i + 1}Titulo`),
     body: t(`p${i + 1}Body`),
+    cta: t(`p${i + 1}Cta`),
   }));
   const labels = steps.map((s) => s.titulo);
 

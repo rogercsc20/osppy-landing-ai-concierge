@@ -47,10 +47,13 @@ export function Areas() {
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <p className="eyebrow">{t("kicker")}</p>
+          {/* E3c: the headline is now the two words the operator asked for
+              and the paragraph under it is gone ("todo eso me lo quitas… y le
+              pones una frase tipo Áreas Funcionales"). The scroll of sixteen
+              below is untouched. */}
           <h2 className="font-display mt-5 max-w-4xl text-h2 font-semibold text-text">
             <SplitText text={t("headline")} />
           </h2>
-          <p className="mt-6 max-w-2xl text-lead text-text-2">{t("body")}</p>
         </Reveal>
 
         {/* ── lg and up: the list, and one frame that follows it ───────── */}
@@ -123,9 +126,10 @@ export function Areas() {
                 </motion.div>
               </AnimatePresence>
 
-              {/* The diagnosis takes the area as its entry hint (?area=…) and
-                  ships in V5; until then this points at the one place that can
-                  answer today — a conversation. */}
+              {/* Points at the close, and stays there. It used to be a
+                  placeholder for /diagnostico; that route left the scope with
+                  no date (HQA-D93), so the conversation IS the destination
+                  rather than a stand-in for one. */}
               <a
                 href="#demo"
                 className="link-underline mt-5 inline-flex w-fit items-center gap-1.5 text-sm font-medium text-accent-text"

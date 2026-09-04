@@ -19,12 +19,14 @@
   },
   "home": {
     "hero": {
-      "kicker": "Applied AI for companies",
+      "headline": "Corporate AI",
+      "apoyo": "The future is waiting for you.",
+      "scroll": "Scroll"
+    },
+    "aplicada": {
+      "kicker": "Corporate AI, applied",
       "headline": "Your company already knows it needs AI",
       "subtitulo": "What they don't tell you is <u>where</u>",
-      "cta": "Find out where it helps",
-      "ctaSecundario": "See the areas",
-      "ctaMessage": "Hi, I'd like to talk about my company's operation.",
       "panel": {
         "titulo": "Operations panel",
         "empresa": "Demonstration company",
@@ -67,36 +69,14 @@
         "chartNota": "Demonstration week",
         "chartSerie": "tasks",
         "alt": "Operations panel with a work queue advancing through stages and a chart of the week"
-      },
-      "diagrama": {
-        "tarea": "The task",
-        "proceso": "The process",
-        "procesoEtiqueta": "written by someone",
-        "agente": "The agent",
-        "resultado": "The result",
-        "pie": "The step almost nobody has written down is the second one.",
-        "alt": "Four-step diagram: the task goes through a process someone wrote down, an agent runs it, and it produces a result."
       }
     },
-    "porque": {
-      "kicker": "Why",
-      "headline": "“We know we need AI.” And then, silence.",
-      "quienes": "Osppy puts artificial intelligence to work inside the operation (one concrete task, a written process, a person who reviews it) at medium and large companies with full office teams.",
-      "p1": "The sentence gets said in leadership meetings all the time. The one that almost never follows is the second: in which area, on which task, under which rules, and who reviews the result.",
-      "p2": "Without that second sentence, one of two things happens. Nothing gets done for a year. Or a tool gets bought that nobody quite adopts, because the process it was meant to tidy up was never written down.",
-      "p3": "That is exactly where our work starts: turning “we need AI” into one concrete task in one concrete area.",
-      "cierre": "Sometimes the answer is: not yet. We tell you that too."
+    "silencio": {
+      "headline": "“We know we need AI.” And then, silence."
     },
-    "creemos": {
-      "kicker": "What we believe",
-      "headline": "AI is worth it when it does a whole task, under written rules, with someone reviewing it.",
-      "c1Titulo": "A whole task, not a slice",
-      "c1Body": "Half an automated task leaves a person finishing it by hand and checking twice as much. If it can't be done end to end, it isn't time yet.",
-      "c2Titulo": "Written rules before code",
-      "c2Body": "The system does what the process says. If the process lives in one person's head, the first thing we deliver is the process, not the system.",
-      "c3Titulo": "A person reviews and decides",
-      "c3Body": "These tools get things wrong and sometimes make things up. That's why everything is built so someone can review it: the AI proposes, the person decides.",
-      "nota": "Technology can take away repetitive tasks; the decisions, the attention that matters and the responsibility stay with people."
+    "porque": {
+      "kicker": "What Osppy is",
+      "quienes": "Osppy is a Corporate AI consultancy: we put artificial intelligence to work inside your company's operation."
     },
     "como": {
       "kicker": "How we work",
@@ -110,13 +90,17 @@
       "p4Titulo": "Implementation",
       "p4Body": "Development of the system and of its technical operation (MLOps). Quoted separately, with written scope and success criteria: you measure the impact, with your own numbers.",
       "p5Titulo": "Support and monitoring",
-      "p5Body": "Governance and retraining: what we deliver stays under a monitoring and maintenance plan, and the system adjusts as your operation changes."
+      "p5Body": "Governance and retraining: what we deliver stays under a monitoring and maintenance plan, and the system adjusts as your operation changes.",
+      "p1Cta": "See Training",
+      "p2Cta": "See Advisory",
+      "p3Cta": "See Implementation",
+      "p4Cta": "See Implementation",
+      "p5Cta": "See Implementation"
     },
     "areas": {
       "kicker": "Where",
-      "headline": "Where it goes first: the area, and the task you start with.",
-      "body": "AI doesn't go “into the company”. It goes into an area, on a task. These are the sixteen where the conversation most often starts, each with an example of where to begin.",
-      "nota": "No list is your list. If your operation has an area that isn't here, that's the first one we want to hear about.",
+      "headline": "Functional areas",
+      "nota": "If your operation has an area that isn't here, that's the first one we want to hear about.",
       "cardCta": "See if it applies to you",
       "contabilidad": {
         "nombre": "Accounting",
@@ -185,114 +169,36 @@
     },
     "hacemos": {
       "kicker": "What we do",
-      "headline": "Three ways in. Start with whichever one fits.",
+      "headline": "Three ways in.",
       "capacitacion": {
         "titulo": "Training",
         "estado": "Available today",
-        "body": "Hands-on workshops for owners and teams: you leave able to apply something today, working on real tasks from your business. First we teach people to use the tools well; then we watch which problems keep coming back.",
-        "f1Label": "Format",
-        "f1Value": "Live, hands-on, per group",
-        "f2Label": "Who it's for",
-        "f2Value": "Owners, managers, and teams",
-        "f3Label": "Status",
-        "f3Value": "Running today: booked and scheduled like advisory and implementation",
-        "f4Label": "Pricing",
-        "f4Value": "Quoted per group and per outcome"
+        "body": "Your team leaves knowing how to use AI in their own work.",
+        "cta": "See Training"
       },
       "asesoria": {
         "titulo": "Advisory",
         "estado": "Available today",
-        "body": "Sessions on how to make AI useful in your business. The first one is almost always a diagnostic: understanding your operation and finding where we can help. Sometimes the answer is training; sometimes it's putting a process in order; sometimes it's building.",
-        "preguntasTitulo": "The diagnostic starts with questions like:",
-        "preguntas": [
-          "Where does your team's time actually go?",
-          "Which process repeats the same way every week?",
-          "What information do you already have that nobody is using?",
-          "What's worth automating, and what isn't yet?"
-        ]
+        "body": "Before building anything, understanding where it fits and where it doesn't.",
+        "cta": "See Advisory"
       },
       "implementacion": {
         "titulo": "Implementation",
         "estado": "Available today",
-        "body": "We build systems that stay running inside your operation (from a quoting tool to an agent that does a whole task on its own), with scope and success criteria in writing. They connect to the ERP and the invoicing system you already use, with the scope defined in the diagnosis. After delivery there are hosting, monitoring and maintenance plans.",
-        "tiposTitulo": "What has been built:",
-        "tipos": [
-          "Claude Enterprise adoption",
-          "AI agents",
-          "Models in your infrastructure, with Amazon Bedrock",
-          "Process structuring",
-          "Process automation",
-          "AI assistants",
-          "Quoting tools",
-          "Templates with your company's letterhead",
-          "A system for handling audits"
-        ]
+        "body": "Systems that stay working inside your operation.",
+        "cta": "See Implementation"
       }
-    },
-    "cuanto": {
-      "kicker": "How much",
-      "headline": "No packages. Every proposal is about your case.",
-      "body": "We don't publish prices because we don't sell packages. Here's what we can tell you before we talk:",
-      "p1": "Training is priced per group and per result, never per hour.",
-      "p2": "Advisory and builds are quoted separately, each with written scope and success criteria.",
-      "p3": "What gets delivered can stay under an operation plan: hosting, monitoring and maintenance.",
-      "cierre": "The figures come in the first conversation.",
-      "nota": "And something you won't read here: an impact number. That one comes out of your data, not out of our proposal."
     },
     "trayectoria": {
       "kicker": "Track record",
-      "headline": "What's already been done, without names.",
+      "headline": "What's already been done.",
       "c1Valor": "+100",
       "c1Label": "companies advised",
       "c2Valor": "+50",
       "c2Label": "solutions built for companies",
-      "c3Valor": "+10",
+      "c3Valor": "+20",
       "c3Label": "industries served",
-      "c4Valor": "24/7",
-      "c4Label": "assistant coverage",
-      "agentes": "Also: agents that do the whole task on their own, autonomously, running in production systems today.",
-      "body": "No client is named here without written permission, and no figure measured by us is published. What can be told: how much, of what kind, and in which sectors."
-    },
-    "casos": {
-      "t1Titulo": "Claude Enterprise adoption",
-      "t1Body": "Getting a whole team working with an enterprise-grade AI tool, with order and rules of use.",
-      "t2Titulo": "Advisory sessions",
-      "t2Body": "A diagnostic of the operation and a map of where AI helps, and where it doesn't.",
-      "t3Titulo": "AI agents",
-      "t3Body": "They do a whole task on their own, autonomously, inside a defined process, with written rules.",
-      "t4Titulo": "Models in your infrastructure",
-      "t4Body": "When the information can't leave your house, the model is deployed inside your own infrastructure, with Amazon Bedrock.",
-      "t5Titulo": "Process structuring",
-      "t5Body": "The groundwork: getting the process written down before automating anything. Without it, we don't build agents.",
-      "t6Titulo": "Process automation",
-      "t6Body": "Once it is written, the process stops being done by hand: the system runs it and a person reviews the result.",
-      "t7Titulo": "AI assistants",
-      "t7Body": "They answer and attend with the information the business loads. If something isn't there, they say so or ask; they don't make things up.",
-      "t8Titulo": "Quoting tools",
-      "t8Body": "Systems that put a quote together using the business's own rules and prices, so it doesn't depend on one person.",
-      "t9Titulo": "Templates with your company's letterhead",
-      "t9Body": "Documents that go out to a client are built with your format, your letterhead and your details, without being redone each time.",
-      "t10Titulo": "A system for handling audits",
-      "t10Body": "The file is assembled as things happen, not the week the auditor arrives, and every document ends up where someone will look for it.",
-      "giros": "Industries we help: technology and software, manufacturing, electronics, logistics and transport, construction and infrastructure, foreign trade, agriculture, pharmaceuticals, energy and real estate.",
-      "tiposTitulo": "Of what kind:"
-    },
-    "productos": {
-      "kicker": "Products",
-      "headline": "We build products too.",
-      "body": "Besides working inside other companies' operations, Osppy builds its own product: one WhatsApp assistant, one sector at a time.",
-      "hoteles": {
-        "nombre": "Diana Hoteles",
-        "estado": "In production",
-        "body": "Diana answers guests on WhatsApp with the hotel's own information, and the team sees everything and operates from a panel. It runs in hotels in production today.",
-        "cta": "See the product"
-      },
-      "citas": {
-        "nombre": "Diana Citas",
-        "estado": "Under construction",
-        "body": "Diana, for appointment-based businesses: clinics, practices, spas. It's under construction, with no committed date; we're looking for founding clinics.",
-        "cta": "I want to be a founding clinic"
-      }
+      "giros": "Industry experience and knowledge: technology and software, manufacturing, electronics, logistics and transport, construction and infrastructure, foreign trade, agriculture, pharmaceuticals, energy and real estate."
     },
     "voces": {
       "kicker": "Voices",
@@ -312,7 +218,7 @@
       "q3": "What if our processes aren't written down anywhere?",
       "a3": "That's the most common case. Structuring the process is part of the work, and it comes before any automation. We don't build agents without well-defined processes.",
       "q4": "What doesn't Osppy do?",
-      "a4": "It doesn't promise savings, sales or hours: your numbers measure that. It doesn't hand over a tool and walk away. And its systems don't confirm prices, availability or terms nobody verified: when they don't know something, they say so, ask, or hand the conversation to a person.",
+      "a4": "It doesn't promise savings, sales or hours: your numbers measure that. It doesn't hand over a tool and walk away. And it doesn't build systems that decide for your team: artificial intelligence proposes, a person reviews and decides.",
       "q5": "What happens to my company's information?",
       "a5": "We define in writing what information may be used, what gets anonymized and what stays out. And AI tools do get things wrong: that's why everything is built so a person can review and decide.",
       "q6": "How is it quoted?",
@@ -323,8 +229,7 @@
     "cta": {
       "kicker": "The next step",
       "headline": "Tell us which area you want to start with.",
-      "body": "You write, a person answers, and we work out whether there's anything worth doing. Sometimes the honest answer is “not yet”, and we'll give you that one too.",
-      "button": "Write to us",
+      "button": "Talk to an advisor",
       "ctaMessage": "Hi, I'd like to talk about my company's operation. The area I want to start with is…",
       "mailLabel": "hello@osppy.com",
       "microcopy": "No forms: a person answers."

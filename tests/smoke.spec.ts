@@ -50,7 +50,7 @@ test("English landing renders", async ({ page }) => {
   ).toBeVisible();
 });
 
-test.describe("hero subtitle underline (tanda D, D3)", () => {
+test.describe("section 2 subtitle underline (tanda D D3, moved by E3c)", () => {
   // One assertion per language, on the rendered element and not the JSON:
   // it catches a broken <u> tag in the message (t.rich silently drops
   // unbalanced markup), a lost .underline-thick class, and the wrong word
@@ -68,8 +68,8 @@ test.describe("hero subtitle underline (tanda D, D3)", () => {
   }
 });
 
-test.describe("hero operation panel (tanda D, D4)", () => {
-  // The demonstration-data chip is the truth label of the hero's one moving
+test.describe("section 2 operation panel (tanda D D4, moved by E3c)", () => {
+  // The demonstration-data chip is the truth label of section 2's one moving
   // object (source of truth §9/§10): a mock never presents itself as a
   // client screenshot. The panel body is behind the repo's first
   // next/dynamic boundary with ssr:false, so the assertion waits for the
@@ -245,4 +245,105 @@ test("the title and description stopped selling hotels (HQA-D96, closing D85)", 
       .getAttribute("content");
     expect(description, route).not.toMatch(/recepci|front desk|hu[ée]sped|guest/i);
   }
+});
+
+// ── tanda E3c: the house is restructured ──────────────────────────────────
+
+test("the house opens with one phrase and exactly one h1", async ({ page }) => {
+  await page.goto("/es");
+  // Exactly one: <Aplicada/> carries the old hero's headline and it had to
+  // stop being an h1 when it came down a screen. If it stays an h1 the page
+  // has two, the document outline breaks, and this is the only thing that
+  // notices.
+  await expect(page.locator("h1")).toHaveCount(1);
+  await expect(page.locator("h1")).toHaveText(es.home.hero.headline);
+  await expect(page.getByText(es.home.hero.apoyo)).toBeVisible();
+});
+
+test("the hero has no button, only the scroll indicator (decision 2)", async ({
+  page,
+}) => {
+  await page.goto("/es");
+  const hero = page.locator("section").first();
+  // The operator closed this one: "no boton en el heroe". Asserting the
+  // ABSENCE of contact links rather than a link count, because the scroll
+  // indicator is itself a link and a count would pass with a CTA swapped in
+  // for it.
+  await expect(hero.locator('a[href^="mailto:"], a[href^="https://wa.me/"]')).toHaveCount(0);
+  await expect(hero.locator('a[href="#aplicada"]')).toHaveCount(1);
+});
+
+test("the three cards are the links, and the whole card is the target", async ({
+  page,
+}) => {
+  await page.goto("/es");
+  const cards = page.locator("#hacemos a");
+  await expect(cards).toHaveCount(3);
+  for (const [i, href] of [
+    "/es/capacitacion",
+    "/es/asesoria",
+    "/es/implementacion",
+  ].entries()) {
+    await expect(cards.nth(i)).toHaveAttribute("href", href);
+    // the title lives INSIDE the anchor: that is what "the whole card is
+    // clickable" means, and a card with a small link at the bottom would
+    // pass a href check while failing the instruction
+    await expect(cards.nth(i).locator("h3")).toBeVisible();
+  }
+});
+
+test("the five method phases navigate to their service (HQA-D92)", async ({
+  page,
+}) => {
+  // Below lg the chapter is STACKED and all five steps are mounted, which is
+  // the only viewport where the whole map can be asserted at once. At lg+ it
+  // pins and AnimatePresence mounts one step at a time, so a five-link
+  // assertion there would be asserting the animation, not the map.
+  await page.setViewportSize({ width: 768, height: 900 });
+  await page.goto("/es");
+
+  // `:visible` is load-bearing, not decoration. <Pinned/> renders BOTH
+  // branches into the DOM and hides one with lg:hidden / hidden lg:block, so
+  // an unfiltered count sees the stacked five PLUS the pinned current step
+  // and reads 2 for phase 1. Filtering to what a reader can actually reach
+  // is both the correct count and the thing worth asserting.
+  const link = (href: string) =>
+    page.locator(`#como a[href="${href}"]:visible`);
+
+  // Three of the five share a destination, so the counts are the assertion:
+  // a bug that sent every phase to the same page would pass "five links
+  // exist", and one that sent none would pass "there is a link".
+  await expect(link("/es/capacitacion")).toHaveCount(1);
+  await expect(link("/es/asesoria")).toHaveCount(1);
+  await expect(link("/es/implementacion")).toHaveCount(3);
+
+  // And the label names the service rather than saying "ver más" five times.
+  await expect(link("/es/capacitacion")).toHaveText(
+    new RegExp(es.home.como.p1Cta),
+  );
+});
+
+test("the sections that died are gone from the house", async ({ page }) => {
+  await page.goto("/es");
+  const body = page.locator("body");
+  // One string each from Cuanto, Productos and Creemos. They are asserted by
+  // their COPY and not by a component name, because a section that survives
+  // under a new file name is still on the page.
+  await expect(body).not.toContainText("Sin paquetes");
+  await expect(body).not.toContainText("Diana Hoteles");
+  await expect(body).not.toContainText("Lo que creemos");
+});
+
+test("the track record shows three figures and no 24/7", async ({ page }) => {
+  await page.goto("/es");
+  await expect(page.getByText(es.home.trayectoria.c3Label)).toBeVisible();
+  await expect(page.locator("body")).not.toContainText("24/7");
+});
+
+test("the +20 figure says the same thing in both locales", async () => {
+  // scripts/copy-allow.json is keyed by MESSAGE KEY, not by locale, so one
+  // entry authorises the figure in both files. If the two ever disagree,
+  // check-copy passes and the site lies in one language.
+  expect(es.home.trayectoria.c3Valor).toBe("+20");
+  expect(en.home.trayectoria.c3Valor).toBe(es.home.trayectoria.c3Valor);
 });

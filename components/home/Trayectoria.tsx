@@ -4,33 +4,32 @@ import { useTranslations } from "next-intl";
 import { Reveal, Stagger } from "@/components/fx/Reveal";
 import { SplitText } from "@/components/fx/SplitText";
 import { Counter } from "@/components/fx/Counter";
-import { GlowCard } from "@/components/ui/GlowCard";
 
-/* WHAT — the track record, and the section that absorbed the old "Casos":
-   they were saying the same thing twice, one with numbers and one with
-   kinds of work.
+/* WHAT — the track record. Three figures since E3c, not four.
 
-   **Four figures, and no note under them** (tanda C, HQA-D72). It was six.
-   «2 productos en producción» came out because the operator asked for that
-   tile to change, «+20 soluciones implementadas» did not go in because it
-   would have sat next to «+50» saying almost the same thing with a different
-   number, and «3 líneas de trabajo» is taxonomy, not track record. The
-   estimate note is gone too, and NOT for design reasons: asked whether it
-   came off because the figures are firm or because it was in the way, the
-   operator answered «firmas las sostengo … ninguna frase ni disclaimer».
-   They stopped being estimates; where they are published they go alone.
+   **Three, and composed for three.** 24/7 came out by the operator's
+   instruction ("esa de 24/7 hay que quitarla"): it was product language on
+   the home page of a consultancy whose products left the site (HQA-D88).
+   The fourth slot is deliberately EMPTY and stays open with owner O
+   (HQA-D95) — a four-column grid with a hole would read as a layout bug, so
+   the grid is three.
 
-   Every figure is still attested and nothing else is: +100 and +50 by the
-   operator (FDV §11.11), «+10 giros» by the twenty sectors of §11.10, 24/7 by
-   the product. scripts/check-copy.mjs FAILS on any other digit, and its
-   global whitelist lost 3, 9 and 2 with the tiles that used them. No client
-   is named, here or anywhere (source of truth §11.1). */
+   Every figure is attested and nothing else is: +100 and +50 by the operator
+   (FDV §11.11), and **+20 giros** by the twenty sectors of §11.10 (it was
+   +10; the conservative reading stopped being necessary once twenty were
+   attested). scripts/check-copy.mjs FAILS on any other digit and reads
+   scripts/copy-allow.json by key, which moved with the figure.
 
-const COUNTERS = ["c1", "c2", "c3", "c4"] as const;
-/* The order is the operator's, dictated on 2026-09-03: Claude Enterprise
-   first, the two documentary ones last. It is not alphabetical and it is not
-   the order they were built in — it is the order he wants read. */
-const TIPOS = ["t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8", "t9", "t10"] as const;
+   What also left: the paragraph about naming no client, the line about
+   autonomous agents, and the ten kinds of work, which moved to the three
+   service pages. What stayed is the industries line, under a new heading the
+   operator wrote — "Experiencia y conocimiento de la industria" — which
+   guide §7.3 backs BETTER than the old one did: until documented cases
+   exist, we speak of experience, not of results, and "industrias a las que
+   ayudamos" claimed a present relationship with each one. No client is
+   named, here or anywhere (FDV §11.1). */
+
+const COUNTERS = ["c1", "c2", "c3"] as const;
 
 /** "+100" → the prefix and the number; "24/7" stays a string. */
 function Figura({ value }: { value: string }) {
@@ -41,15 +40,10 @@ function Figura({ value }: { value: string }) {
 
 export function Trayectoria() {
   const t = useTranslations("home.trayectoria");
-  const tc = useTranslations("home.casos");
 
   const counters = COUNTERS.map((k) => ({
     value: t(`${k}Valor`),
     label: t(`${k}Label`),
-  }));
-  const tipos = TIPOS.map((k) => ({
-    titulo: tc(`${k}Titulo`),
-    body: tc(`${k}Body`),
   }));
 
   return (
@@ -60,11 +54,10 @@ export function Trayectoria() {
           <h2 className="font-display mt-5 max-w-3xl text-h2 font-semibold text-text">
             <SplitText text={t("headline")} />
           </h2>
-          <p className="mt-6 max-w-2xl text-lead text-text-2">{t("body")}</p>
         </Reveal>
 
         <Stagger
-          className="mt-14 grid grid-cols-2 gap-4 lg:grid-cols-4"
+          className="mt-14 grid gap-4 sm:grid-cols-3"
           variant="scale-in"
           itemClassName="h-full"
         >
@@ -80,29 +73,9 @@ export function Trayectoria() {
           ))}
         </Stagger>
 
-        <Reveal delay={0.1} className="mt-8">
-          <p className="max-w-2xl leading-relaxed text-text">{t("agentes")}</p>
-        </Reveal>
-
-        <Reveal className="mt-16">
-          <p className="text-sm font-semibold text-text">{tc("tiposTitulo")}</p>
-        </Reveal>
-        <Stagger
-          className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-5"
-          variant="fade-up"
-          itemClassName="h-full"
-        >
-          {tipos.map((tipo) => (
-            <GlowCard key={tipo.titulo} className="p-6">
-              <h3 className="font-display font-semibold text-text">{tipo.titulo}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-text-2">{tipo.body}</p>
-            </GlowCard>
-          ))}
-        </Stagger>
-
         <Reveal delay={0.1} className="mt-10">
           <p className="max-w-3xl border-t border-line pt-6 text-sm leading-relaxed text-text-2">
-            {tc("giros")}
+            {t("giros")}
           </p>
         </Reveal>
       </div>

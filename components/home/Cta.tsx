@@ -6,10 +6,21 @@ import { Band } from "@/components/ui/Band";
 import { FxLayer } from "@/components/fx/FxLayer";
 import { CONTACT_EMAIL, whatsappHref } from "@/lib/site";
 
-/* The close (kit §10, HQA-D29): one CTA — the Kokonut particle button as a
-   link (WhatsApp when the number exists, prefilled mail until then) plus the
-   plain email. The dark slab is gone: it painted a ground over the
-   atmosphere. What holds the block now is a <Band>, whose edges dissolve. */
+/* The close (kit §10, HQA-D29), and since E3c the ONLY close: HQA-D94 killed
+   the price section and merged it here, by the operator's own words — "se
+   fusionan en un solo cierre grande en donde sigue la frase, Cuentanos con
+   que area quieres empezar, y el boton de contacta un asesor".
+
+   The headline survived that merge and the paragraph did not: "sin
+   párrafos". What is left is the eyebrow, the headline, one button, the mail
+   link and one line of microcopy. The price RULE did not die with the
+   section: no figure is published, structure only (pricing.md §6), and the
+   sentences that carried it moved to the three service pages.
+
+   One CTA — the Kokonut particle button as a link (WhatsApp when the number
+   exists, prefilled mail until then) plus the plain email. The dark slab is
+   gone: it painted a ground over the atmosphere. What holds the block is a
+   <Band>, whose edges dissolve. */
 export function Cta() {
   const t = useTranslations("home.cta");
 
@@ -31,9 +42,6 @@ export function Cta() {
         <h2 className="font-display mx-auto mt-5 max-w-2xl text-h2 font-semibold text-text">
           {t("headline")}
         </h2>
-        <p className="mx-auto mt-5 max-w-xl text-lead text-text-2">
-          {t("body")}
-        </p>
         <div className="mt-10 flex flex-col items-center gap-4">
           <ParticleButton
             asChild

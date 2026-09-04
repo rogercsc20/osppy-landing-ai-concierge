@@ -19,12 +19,14 @@
   },
   "home": {
     "hero": {
-      "kicker": "IA aplicada para empresas",
+      "headline": "IA Corporativa",
+      "apoyo": "El futuro te está esperando.",
+      "scroll": "Baja"
+    },
+    "aplicada": {
+      "kicker": "IA Corporativa Aplicada",
       "headline": "Tu empresa ya sabe que necesita IA",
       "subtitulo": "Lo que no te dicen, es <u>dónde</u>",
-      "cta": "Descubre dónde te sirve",
-      "ctaSecundario": "Ver las áreas",
-      "ctaMessage": "Hola, quiero platicar sobre la operación de mi empresa.",
       "panel": {
         "titulo": "Panel de operación",
         "empresa": "Empresa de demostración",
@@ -67,36 +69,14 @@
         "chartNota": "Semana de demostración",
         "chartSerie": "tareas",
         "alt": "Panel de operación con una cola de trabajo avanzando por etapas y una gráfica de la semana"
-      },
-      "diagrama": {
-        "tarea": "La tarea",
-        "proceso": "El proceso",
-        "procesoEtiqueta": "escrito por alguien",
-        "agente": "El agente",
-        "resultado": "El resultado",
-        "pie": "El paso que casi nadie tiene escrito es el segundo.",
-        "alt": "Diagrama de cuatro pasos: la tarea pasa por un proceso escrito por alguien, un agente la ejecuta y produce un resultado."
       }
     },
-    "porque": {
-      "kicker": "Por qué",
-      "headline": "“Sabemos que necesitamos IA.” Y después, silencio.",
-      "quienes": "Osppy pone la inteligencia artificial a hacer trabajo dentro de la operación (una tarea concreta, un proceso escrito, una persona que revisa) en empresas medianas y grandes con equipos de oficina completos.",
-      "p1": "La frase se dice en juntas de dirección todo el tiempo. La que casi nunca sigue es la segunda: en qué área, con qué tarea, con qué reglas y quién revisa el resultado.",
-      "p2": "Sin esa segunda frase pasan dos cosas. O no se hace nada en todo un año. O se compra una herramienta que nadie termina de usar, porque el proceso que iba a ordenar nunca estuvo escrito.",
-      "p3": "Nuestro trabajo empieza justo ahí: en convertir “necesitamos IA” en una tarea concreta de un área concreta.",
-      "cierre": "A veces la respuesta es: todavía no. Y también te lo decimos."
+    "silencio": {
+      "headline": "“Sabemos que necesitamos IA.” Y después, silencio."
     },
-    "creemos": {
-      "kicker": "Lo que creemos",
-      "headline": "La IA vale la pena cuando hace una tarea completa, con reglas escritas, y alguien la revisa.",
-      "c1Titulo": "Una tarea completa, no un pedazo",
-      "c1Body": "Media tarea automatizada deja a una persona terminándola a mano y revisando el doble. Si no se puede hacer completa, todavía no toca.",
-      "c2Titulo": "Reglas escritas antes que código",
-      "c2Body": "El sistema hace lo que dice el proceso. Si el proceso vive en la cabeza de una persona, lo primero que entregamos es el proceso, no el sistema.",
-      "c3Titulo": "Una persona revisa y decide",
-      "c3Body": "Estas herramientas se equivocan y a veces inventan. Por eso todo se arma para que alguien pueda revisar: la IA propone, la persona decide.",
-      "nota": "La tecnología puede quitar tareas repetitivas; las decisiones, la atención importante y la responsabilidad siguen siendo de las personas."
+    "porque": {
+      "kicker": "Qué es Osppy",
+      "quienes": "Osppy es una consultoría de IA Corporativa: ponemos la inteligencia artificial a hacer trabajo dentro de la operación de tu empresa."
     },
     "como": {
       "kicker": "Cómo trabajamos",
@@ -110,13 +90,17 @@
       "p4Titulo": "Implementación",
       "p4Body": "Desarrollo del sistema y de su operación técnica (MLOps). Se cotiza por separado, con alcance y criterios de éxito por escrito: el impacto lo mides tú, con tus números.",
       "p5Titulo": "Soporte y monitoreo",
-      "p5Body": "Gobernanza y reentrenamiento: lo entregado queda bajo un plan de monitoreo y mantenimiento, y el sistema se ajusta conforme tu operación cambia."
+      "p5Body": "Gobernanza y reentrenamiento: lo entregado queda bajo un plan de monitoreo y mantenimiento, y el sistema se ajusta conforme tu operación cambia.",
+      "p1Cta": "Ver Capacitación",
+      "p2Cta": "Ver Asesoría",
+      "p3Cta": "Ver Implementación",
+      "p4Cta": "Ver Implementación",
+      "p5Cta": "Ver Implementación"
     },
     "areas": {
       "kicker": "Dónde",
-      "headline": "Dónde entra primero: el área, y la tarea con la que se empieza.",
-      "body": "La IA no entra “en la empresa”. Entra en un área, con una tarea. Estas son las dieciséis donde más seguido empieza la conversación, cada una con un ejemplo de por dónde.",
-      "nota": "Ninguna lista es la tuya. Si tu operación tiene un área que no está aquí, es la primera de la que queremos oír.",
+      "headline": "Áreas funcionales",
+      "nota": "Si tu operación tiene un área que no está aquí, es la primera de la que queremos oír.",
       "cardCta": "Ver si aplica en tu caso",
       "contabilidad": {
         "nombre": "Contabilidad",
@@ -185,114 +169,36 @@
     },
     "hacemos": {
       "kicker": "Qué hacemos",
-      "headline": "Tres maneras de entrar a tu operación. Empieza por la que te quede.",
+      "headline": "Tres maneras de entrar a tu operación.",
       "capacitacion": {
         "titulo": "Capacitación",
         "estado": "Disponible hoy",
-        "body": "Talleres prácticos para dueños y equipos: sales sabiendo aplicar algo hoy, con tareas reales de tu negocio. Primero enseñamos a usar bien las herramientas; después vemos qué problemas se repiten.",
-        "f1Label": "Formato",
-        "f1Value": "Taller práctico, en vivo y por grupo",
-        "f2Label": "Para quién",
-        "f2Value": "Dueños, gerentes y equipos",
-        "f3Label": "Estado",
-        "f3Value": "Se imparte hoy: se contrata y se agenda como la asesoría y la implementación",
-        "f4Label": "Precio",
-        "f4Value": "Se cotiza por grupo y por resultado"
+        "body": "Tu equipo sale sabiendo usar la IA en su propio trabajo.",
+        "cta": "Ver Capacitación"
       },
       "asesoria": {
         "titulo": "Asesoría",
         "estado": "Disponible hoy",
-        "body": "Sesiones sobre cómo aprovechar la IA en tu negocio. La primera casi siempre es un diagnóstico: entender tu operación e identificar dónde ayudar. A veces la respuesta es capacitar; a veces, ordenar un proceso; a veces, construir.",
-        "preguntasTitulo": "El diagnóstico empieza con preguntas como:",
-        "preguntas": [
-          "¿Dónde se va el tiempo de tu equipo?",
-          "¿Qué proceso se repite igual todas las semanas?",
-          "¿Qué información ya tienes que nadie está usando?",
-          "¿Qué conviene automatizar, y qué todavía no?"
-        ]
+        "body": "Antes de construir nada, entender dónde entra y dónde no.",
+        "cta": "Ver Asesoría"
       },
       "implementacion": {
         "titulo": "Implementación",
         "estado": "Disponible hoy",
-        "body": "Construimos sistemas que quedan funcionando dentro de tu operación (desde un cotizador hasta un agente que hace la tarea completa por su cuenta), con alcance y criterios de éxito por escrito. Se conectan con el ERP y el sistema de facturación que ya usas, con el alcance definido en el diagnóstico. Después de entregar, hay planes de hosting, monitoreo y mantenimiento.",
-        "tiposTitulo": "Lo que se ha construido:",
-        "tipos": [
-          "Adopción de Claude Enterprise",
-          "Agentes de IA",
-          "Modelos en tu infraestructura, con Amazon Bedrock",
-          "Estructuración de procesos",
-          "Automatización de procesos",
-          "Asistentes de IA",
-          "Cotizadores",
-          "Plantillas con los membretes de tu empresa",
-          "Sistema para manejar auditorías"
-        ]
+        "body": "Sistemas que quedan trabajando dentro de tu operación.",
+        "cta": "Ver Implementación"
       }
-    },
-    "cuanto": {
-      "kicker": "Cuánto",
-      "headline": "Sin paquetes. Cada propuesta, sobre tu caso.",
-      "body": "No publicamos precios porque no vendemos paquetes. Esto es lo que sí te podemos decir antes de hablar:",
-      "p1": "La capacitación se cotiza por grupo y por resultado, nunca por hora.",
-      "p2": "La asesoría y la implementación se cotizan por separado, cada una con alcance y criterios de éxito por escrito.",
-      "p3": "Lo que queda entregado puede seguir bajo un plan de operación: hosting, monitoreo y mantenimiento.",
-      "cierre": "Las cifras, en la primera conversación.",
-      "nota": "Y algo que no vas a leer aquí: un número de impacto. Ese sale de tus datos, no de nuestra propuesta."
     },
     "trayectoria": {
       "kicker": "Trayectoria",
-      "headline": "Lo que ya se hizo, sin nombres.",
+      "headline": "Lo que ya se hizo.",
       "c1Valor": "+100",
       "c1Label": "empresas asesoradas",
       "c2Valor": "+50",
       "c2Label": "soluciones construidas para empresas",
-      "c3Valor": "+10",
+      "c3Valor": "+20",
       "c3Label": "giros atendidos",
-      "c4Valor": "24/7",
-      "c4Label": "atención del asistente",
-      "agentes": "Además: agentes que hacen la tarea completa por su cuenta, de forma autónoma, operando hoy en sistemas en producción.",
-      "body": "Aquí no se nombra a ningún cliente sin permiso por escrito, y no se publica ninguna cifra medida por nosotros. Lo que sí se puede contar: cuánto, de qué tipo y en qué giros."
-    },
-    "casos": {
-      "t1Titulo": "Adopción de Claude Enterprise",
-      "t1Body": "Dejar a un equipo completo trabajando con una herramienta de IA de nivel empresarial, con orden y con reglas de uso.",
-      "t2Titulo": "Sesiones de asesoría",
-      "t2Body": "Diagnóstico de la operación e identificación de dónde la IA ayuda, y dónde no.",
-      "t3Titulo": "Agentes de IA",
-      "t3Body": "Hacen una tarea completa por su cuenta, de forma autónoma, dentro de un proceso definido y con reglas escritas.",
-      "t4Titulo": "Modelos en tu infraestructura",
-      "t4Body": "Cuando la información no puede salir de tu casa, el modelo se despliega dentro de tu propia infraestructura, con Amazon Bedrock.",
-      "t5Titulo": "Estructuración de procesos",
-      "t5Body": "El trabajo previo: dejar el proceso escrito antes de automatizar nada. Sin esto no construimos agentes.",
-      "t6Titulo": "Automatización de procesos",
-      "t6Body": "Una vez escrito, el proceso deja de hacerse a mano: el sistema lo ejecuta y una persona revisa el resultado.",
-      "t7Titulo": "Asistentes de IA",
-      "t7Body": "Responden y atienden con la información que el negocio carga. Si algo no está, lo dicen o preguntan, no inventan.",
-      "t8Titulo": "Cotizadores",
-      "t8Body": "Sistemas que arman una cotización con las reglas y los precios del negocio, para que no dependa de una sola persona.",
-      "t9Titulo": "Plantillas con los membretes de tu empresa",
-      "t9Body": "Los documentos que salen a un cliente se arman ya con tu formato, tu membrete y tus datos, sin rehacerlos cada vez.",
-      "t10Titulo": "Sistema para manejar auditorías",
-      "t10Body": "El expediente se arma conforme pasan las cosas, no la semana que llega el auditor, y cada documento queda donde se busca.",
-      "giros": "Industrias a las que ayudamos: tecnología y software, manufactura, electrónica, logística y transporte, construcción e infraestructura, comercio exterior, agricultura, farmacéutica, energética e inmobiliaria.",
-      "tiposTitulo": "De qué tipo:"
-    },
-    "productos": {
-      "kicker": "Productos",
-      "headline": "También construimos productos.",
-      "body": "Además de trabajar dentro de la operación de otras empresas, Osppy construye producto propio: un mismo asistente por WhatsApp, un giro a la vez.",
-      "hoteles": {
-        "nombre": "Diana Hoteles",
-        "estado": "En producción",
-        "body": "Diana responde a los huéspedes por WhatsApp con la información del hotel, y el equipo ve todo y opera desde un panel. Opera hoy en hoteles en producción.",
-        "cta": "Conoce el producto"
-      },
-      "citas": {
-        "nombre": "Diana Citas",
-        "estado": "En construcción",
-        "body": "Diana, para negocios que viven de citas: clínicas, consultorios, spas. Está en construcción, sin fecha comprometida; buscamos clínicas fundadoras.",
-        "cta": "Quiero ser clínica fundadora"
-      }
+      "giros": "Experiencia y conocimiento de la industria: tecnología y software, manufactura, electrónica, logística y transporte, construcción e infraestructura, comercio exterior, agricultura, farmacéutica, energética e inmobiliaria."
     },
     "voces": {
       "kicker": "Voces",
@@ -312,7 +218,7 @@
       "q3": "¿Y si mis procesos no están escritos en ningún lado?",
       "a3": "Es lo más común. Estructurar el proceso es parte del trabajo, y va antes que cualquier automatización. No construimos agentes sin procesos bien definidos.",
       "q4": "¿Qué no hace Osppy?",
-      "a4": "No promete ahorros, ventas ni horas: eso lo miden tus números. No entrega una herramienta y se va. Y sus sistemas no confirman precios, disponibilidad ni condiciones que nadie verificó: cuando no saben algo, lo dicen, preguntan o pasan la conversación a una persona.",
+      "a4": "No promete ahorros, ventas ni horas: eso lo miden tus números. No entrega una herramienta y se va. Y no construye sistemas que decidan por tu equipo: la inteligencia artificial propone, una persona revisa y decide.",
       "q5": "¿Qué pasa con la información de mi empresa?",
       "a5": "Se define por escrito qué información puede usarse, qué se anonimiza y qué se queda fuera. Y las herramientas de IA se equivocan a veces: por eso todo se arma para que una persona pueda revisar y decidir.",
       "q6": "¿Cómo se cotiza?",
@@ -323,8 +229,7 @@
     "cta": {
       "kicker": "El siguiente paso",
       "headline": "Cuéntanos con qué área quieres empezar.",
-      "body": "Nos escribes, te contesta una persona, y vemos si hay algo que valga la pena hacer. A veces la respuesta honesta es “todavía no”, y también te la vamos a dar.",
-      "button": "Escríbenos",
+      "button": "Contacta un asesor",
       "ctaMessage": "Hola, quiero platicar sobre la operación de mi empresa. El área por la que quiero empezar es…",
       "mailLabel": "hello@osppy.com",
       "microcopy": "Sin formularios: te contesta una persona."

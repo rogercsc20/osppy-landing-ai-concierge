@@ -1,5 +1,7 @@
 {
   "_": "Per-key figure allow list for scripts/check-copy.mjs (landing v2, slice V2). A key (or a prefix ending in *) lists the substrings whose digits are attested; every other digit on the site is a FALLA. Add a row only with its source. Keys starting with `//` are the sources, read by humans.",
-  "//home.trayectoria.c3Valor": "«+10 giros atendidos» — operator, 2026-09-03 (HQA-D70 and HQA-D77): twenty sectors attested in FDV §11.10, so «more than ten» is the conservative reading of a figure that is now well past it. Replaces the «9» that used to sit in the global whitelist.",
-  "home.trayectoria.c3Valor": ["+10"]
+  "//home.trayectoria.c3Valor": "«+20 giros atendidos» — operator, 2026-09-03 (HQA-D77): twenty sectors attested in FDV §11.10, listed one by one. It was «+10», the conservative reading of the same inventory when fifteen were attested; E3c raised it to the figure the operator actually gave. The entry is keyed by MESSAGE KEY, not by locale, so it covers es.json and en.json at once — which is why a test asserts the two files agree on the value.",
+  "home.trayectoria.c3Valor": [
+    "+20"
+  ]
 }
