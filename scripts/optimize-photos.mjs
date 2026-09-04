@@ -18,7 +18,7 @@
 //
 // NO CREDITS FILE. The Unsplash and Pexels licenses both ASK for attribution
 // and neither REQUIRES it; the operator ruled on 2026-09-03 that the site
-// carries none (HQA-D64). Author and photo id stay in the manifest's `file`,
+// carries none (HQA-D78). Author and photo id stay in the manifest's `file`,
 // which is where traceability belongs.
 //
 //   node scripts/optimize-photos.mjs [--src <dir>] [--only <slug,slug>]

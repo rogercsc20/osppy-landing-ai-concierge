@@ -101,7 +101,7 @@ function permitidosPara(llave) {
 // ── the copy ────────────────────────────────────────────────────────────────
 const NOMBRES = ["tlaquepaque", "aura", "lucero"];
 // The global whitelist shrank in tanda C: the home's tile row went from six
-// figures to four (HQA-D60), so «3 líneas de trabajo», «9 giros» and «2
+// figures to four (HQA-D72), so «3 líneas de trabajo», «9 giros» and «2
 // productos en producción» no longer exist and their digits stop being
 // waved through everywhere. «+10» is attested per key in copy-allow.json.
 const DIGITOS_OK = new Set(["24/7", "100", "50"]);

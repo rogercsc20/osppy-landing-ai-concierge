@@ -35,7 +35,7 @@ export async function Hacemos() {
                 {t("capacitacion.titulo")}
               </h3>
               {/* Same accent pill as advisory and implementation since
-                  2026-09-03: the operator answered «Ya se imparte» (HQA-D61),
+                  2026-09-03: the operator answered «Ya se imparte» (HQA-D73),
                   so training is ✅ like the other two and a muted outline
                   chip would keep saying «not yet» in colour after the words
                   stopped saying it. */}

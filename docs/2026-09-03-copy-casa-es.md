@@ -142,7 +142,7 @@ forma: pasa a ser el capítulo fijado (§3 del plan), con el diagrama avanzando 
 | 15 | Legal y cumplimiento | Comparar el contrato contra tu machote y señalar lo que se salió de la línea. |
 | 16 | Dirección | Reunir en un solo lugar lo que hoy está en cinco reportes distintos. |
 
-> **Ocho más, y la insignia se va.** Operador, 2026-09-03 (HQA-D64, supera HQA-D44): *«las 8,
+> **Ocho más, y la insignia se va.** Operador, 2026-09-03 (HQA-D76, supera HQA-D44): *«las 8,
 > mas aparte todas las de piso y sistemas, operaciones y produccion, logistica y almacen,
 > calidad, mantenimiento, sistemas y TI, servicio al cliente, nomina, legal y cumplimiento, y
 > no tienes que poner que se ofrecen, implícitamente decimos que ya las hacemos, por eso estan
@@ -172,7 +172,7 @@ seis tipos de construcción. **Un solo cambio de texto**, en el titular:
 
 > **Tres cambios de la tanda C, todos por respuesta del operador del 2026-09-03.**
 > **(1) Capacitación deja de decir «Próximos grupos» y dice «Disponible hoy»**, con la misma
-> píldora de acento que asesoría e implementación: *«Ya se imparte»* (HQA-D61). La ficha de
+> píldora de acento que asesoría e implementación: *«Ya se imparte»* (HQA-D73). La ficha de
 > estado deja de decir «los primeros grupos están por abrirse» y dice que se contrata y se
 > agenda como las otras dos. **La cifra —más de diez sesiones— NO se publica**: *«no hay que
 > mencionar esto, solo que ya lo hacemos»*. Y las fichas numeradas del catálogo conservan su
@@ -182,7 +182,7 @@ seis tipos de construcción. **Un solo cambio de texto**, en el titular:
 > defecto, no una variante. Ahora son las mismas nueve entradas de implementación (las «sesiones
 > de asesoría» viven en su propia tarjeta y no se repiten aquí).
 > **(3) Implementación afirma la conexión con ERP y facturación**, en genérico y sin nombrar
-> marcas (HQA-D59); nombrar un sistema concreto sigue exigiendo una instancia entregada, y la
+> marcas (HQA-D71); nombrar un sistema concreto sigue exigiendo una instancia entregada, y la
 > pregunta 7 de la sección 13 dice lo mismo con más detalle.
 
 ## 9 · Cuánto cuesta · `home.cuanto.*`
@@ -221,7 +221,7 @@ agentes autónomos. **La nota de estimación se va, y no por estética.**
 > **(3)** Preguntado si la nota de estimación salía porque las cifras son firmes o solo porque
 > estorbaba: *«firmas las sostengo, no neesitas escribir cifras sosetenidas por operador, solo
 > las cifras y ya, ninguna frase ni disclaimer»*. Cambia su **estatus** en la fuente de verdad
-> §11.11, no nada más el sitio (HQA-D60). El «+10» entra a `scripts/copy-allow.json` con su
+> §11.11, no nada más el sitio (HQA-D72). El «+10» entra a `scripts/copy-allow.json` con su
 > fuente; la lista blanca global del verificador **perdió 3, 9 y 2** junto con los mosaicos que
 > los usaban.
 
@@ -230,7 +230,7 @@ de Claude Enterprise · Sesiones de asesoría · Agentes de IA · Modelos en tu 
 Estructuración de procesos · **Automatización de procesos** · Asistentes de IA · Cotizadores ·
 **Plantillas con los membretes de tu empresa** · **Sistema para manejar auditorías**. Los tres
 en negrita son nuevos y **los tres están atestiguados** (2026-09-03, «Los tres, entregados»,
-HQA-D62): ninguno aparecía en el repo antes de esa respuesta, que es exactamente por qué se
+HQA-D74): ninguno aparecía en el repo antes de esa respuesta, que es exactamente por qué se
 preguntó en vez de suponerse.
 
 La línea de industrias cierra la sección, **una sola vez en toda la página**:
@@ -239,7 +239,7 @@ La línea de industrias cierra la sección, **una sola vez en toda la página**:
 |---|---|
 | `casos.giros` | Industrias a las que ayudamos: tecnología y software, manufactura, electrónica, logística y transporte, construcción e infraestructura, comercio exterior, agricultura, farmacéutica, energética e inmobiliaria. |
 
-> **Por qué son diez y por qué no dicen «entregado».** Operador, 2026-09-03 (HQA-D65, supera
+> **Por qué son diez y por qué no dicen «entregado».** Operador, 2026-09-03 (HQA-D77, supera
 > HQA-D32): *«quiero que sean 10, agrega inmobiliaria, todas entregadas pero NO MENCIONES
 > ENTREAGDO, mejor algo asi como industrias a las que ayudamos y ya la lista algo asi, no
 > necesitamos poner entregado ni disponible»*. Tres cosas a la vez: el tope de la guía §7.4
@@ -290,7 +290,7 @@ una fecha que no existe.)*
 > La segunda mitad **no se hizo**: las seis citas —tres aquí y tres en `/hoteles`— las escribió
 > una sesión anterior, y presentarlas como testimonios de clientes es fabricar reseñas
 > (LFPC art. 32 / PROFECO; fuente de verdad §1 regla 2, §9, §10; guía §5.7, §7.3). Se le
-> ofrecieron tres caminos y eligió el **rediseño con descargo discreto** (HQA-D63, sostiene
+> ofrecieron tres caminos y eligió el **rediseño con descargo discreto** (HQA-D75, sostiene
 > HQA-D40).
 >
 > **Qué cambió:** se va la etiqueta «Ilustrativo» por tarjeta (aquí no había; en `/hoteles`

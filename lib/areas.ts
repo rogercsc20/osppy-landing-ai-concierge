@@ -11,7 +11,7 @@ import type { PhotoSlug } from "@/lib/photos.generated";
  * **All sixteen are `hecho`, and none of them shows a badge.** The operator,
  * asked which to add: «las 8, mas aparte todas las de piso y sistemas … y no
  * tienes que poner que se ofrecen, implícitamente decimos que ya las hacemos,
- * por eso estan en la pagina» (2026-09-03, HQA-D64). That is an attestation,
+ * por eso estan en la pagina» (2026-09-03, HQA-D76). That is an attestation,
  * so `estado` says `hecho` with the ledger row as its `fuente` — which is
  * what `scripts/check-copy.mjs` demands and would FAIL without. The badge
  * itself is gone from the UI: sixteen identical chips said nothing, and the

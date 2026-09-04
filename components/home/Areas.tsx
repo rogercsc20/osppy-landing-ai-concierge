@@ -12,7 +12,7 @@ import { AREAS } from "@/lib/areas";
 import { DUR, EASE_EXPO } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
-/* WHAT, first beat — the sixteen areas (HQA-D37, HQA-D64): the section that
+/* WHAT, first beat — the sixteen areas (HQA-D37, HQA-D76): the section that
    answers "¿en qué áreas?".
 
    It stopped being a grid of equal cards in tanda C (C4). At eight the grid

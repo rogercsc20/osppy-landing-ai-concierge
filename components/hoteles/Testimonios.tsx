@@ -7,7 +7,7 @@ import { SplitText } from "@/components/fx/SplitText";
 import { Marquee } from "@/components/fx/Marquee";
 import { useReducedMotion } from "@/components/fx/motion-hooks";
 
-/* Illustrative voices (HQA-D28, HQA-D63): the three quotes, anonymized — no
+/* Illustrative voices (HQA-D28, HQA-D75): the three quotes, anonymized — no
    name, no property, no stars. The per-card «Ilustrativo» chip is GONE as of
    2026-09-03: the operator's complaint was that it labelled every card like
    evidence in a trial, and one caption-sized line under the headline says the

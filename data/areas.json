@@ -3,112 +3,112 @@
     "slug": "contabilidad",
     "key": "contabilidad",
     "estado": "hecho",
-    "fuente": "HQA-D64",
+    "fuente": "HQA-D76",
     "foto": "contabilidad"
   },
   {
     "slug": "compras",
     "key": "compras",
     "estado": "hecho",
-    "fuente": "HQA-D64",
+    "fuente": "HQA-D76",
     "foto": "compras"
   },
   {
     "slug": "ventas",
     "key": "ventas",
     "estado": "hecho",
-    "fuente": "HQA-D64",
+    "fuente": "HQA-D76",
     "foto": "ventas"
   },
   {
     "slug": "facturacion",
     "key": "facturacion",
     "estado": "hecho",
-    "fuente": "HQA-D64",
+    "fuente": "HQA-D76",
     "foto": "facturacion"
   },
   {
     "slug": "rh",
     "key": "rh",
     "estado": "hecho",
-    "fuente": "HQA-D64",
+    "fuente": "HQA-D76",
     "foto": "rh"
   },
   {
     "slug": "nomina",
     "key": "nomina",
     "estado": "hecho",
-    "fuente": "HQA-D64",
+    "fuente": "HQA-D76",
     "foto": "nomina"
   },
   {
     "slug": "marketing",
     "key": "marketing",
     "estado": "hecho",
-    "fuente": "HQA-D64",
+    "fuente": "HQA-D76",
     "foto": "marketing"
   },
   {
     "slug": "comercio-exterior",
     "key": "comercioExterior",
     "estado": "hecho",
-    "fuente": "HQA-D64",
+    "fuente": "HQA-D76",
     "foto": "comercio-exterior"
   },
   {
     "slug": "operaciones",
     "key": "operaciones",
     "estado": "hecho",
-    "fuente": "HQA-D64",
+    "fuente": "HQA-D76",
     "foto": "operaciones"
   },
   {
     "slug": "logistica",
     "key": "logistica",
     "estado": "hecho",
-    "fuente": "HQA-D64",
+    "fuente": "HQA-D76",
     "foto": "logistica"
   },
   {
     "slug": "calidad",
     "key": "calidad",
     "estado": "hecho",
-    "fuente": "HQA-D64",
+    "fuente": "HQA-D76",
     "foto": "calidad"
   },
   {
     "slug": "mantenimiento",
     "key": "mantenimiento",
     "estado": "hecho",
-    "fuente": "HQA-D64",
+    "fuente": "HQA-D76",
     "foto": "mantenimiento"
   },
   {
     "slug": "sistemas",
     "key": "sistemas",
     "estado": "hecho",
-    "fuente": "HQA-D64",
+    "fuente": "HQA-D76",
     "foto": "sistemas"
   },
   {
     "slug": "servicio",
     "key": "servicio",
     "estado": "hecho",
-    "fuente": "HQA-D64",
+    "fuente": "HQA-D76",
     "foto": "servicio"
   },
   {
     "slug": "legal",
     "key": "legal",
     "estado": "hecho",
-    "fuente": "HQA-D64",
+    "fuente": "HQA-D76",
     "foto": "legal"
   },
   {
     "slug": "direccion",
     "key": "direccion",
     "estado": "hecho",
-    "fuente": "HQA-D64",
+    "fuente": "HQA-D76",
     "foto": "direccion"
   }
 ]

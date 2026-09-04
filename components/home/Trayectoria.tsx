@@ -10,7 +10,7 @@ import { GlowCard } from "@/components/ui/GlowCard";
    they were saying the same thing twice, one with numbers and one with
    kinds of work.
 
-   **Four figures, and no note under them** (tanda C, HQA-D60). It was six.
+   **Four figures, and no note under them** (tanda C, HQA-D72). It was six.
    «2 productos en producción» came out because the operator asked for that
    tile to change, «+20 soluciones implementadas» did not go in because it
    would have sat next to «+50» saying almost the same thing with a different

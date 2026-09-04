@@ -8,7 +8,7 @@ import { SplitText } from "@/components/fx/SplitText";
    The three quotes were written by us. Presenting them as real testimonials
    would be misleading advertising (LFPC art. 32 / PROFECO; source of truth
    §1 rule 2 and §9). Offered three paths on 2026-09-03, the operator chose
-   the redesign with a discreet disclosure (HQA-D63): no names, no companies,
+   the redesign with a discreet disclosure (HQA-D75): no names, no companies,
    no stars, no per-card chip, and ONE caption-sized line under the headline
    — the size of a photo credit, not of a legal notice, which is the whole
    difference between honest and apologetic. The quotes are set in italics
