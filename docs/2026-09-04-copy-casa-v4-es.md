@@ -10,6 +10,13 @@
 > **Cómo se lee:** cada sección trae su llave y su texto exacto. Tachar, reescribir encima o
 > decir "esta sección sobra" es la forma de aprobarla. Los renglones marcados **DECISIÓN** son
 > los que no puedo cerrar yo.
+>
+> **Actualizado el 2026-09-04 con las respuestas del operador.** Cerradas: la **3** (la frase de
+> la sección 4) y, de paso, una que no estaba en la lista: **E0-3 se ratificó** cuando el
+> operador dijo que el héroe llevaba "una imagen de fondo" y, al ponerle enfrente la
+> contradicción con su propia respuesta del 2026-09-03, eligió **abstracto en código**. La **1**
+> quedó acotada a un registro y sus candidatas se reescribieron. Siguen abiertas la **2**, la
+> **4**, la **5** y la **6**.
 
 ## Qué cambió respecto de la casa de hoy, en una tabla
 
@@ -25,7 +32,7 @@
 
 | Regla | Fuente | Cómo se ve aquí |
 |---|---|---|
-| Posicionamiento: **IA corporativa** | HQA-D89 (2026-09-04) | La primera pantalla es literalmente esa frase |
+| Posicionamiento: **IA Corporativa** | HQA-D89 (2026-09-04) | La primera pantalla es literalmente esa frase |
 | Público: **empresas medianas y grandes** | HQA-D37, vigente | El posicionamiento cambió, el público no |
 | **Sin raya larga** en nada que lea un cliente | HQA-D79 | Cero en todo el documento; `check-copy.mjs` reprueba una sola |
 | **Sin guillemets** en texto nuevo | HQA-D59 | Comillas curvas donde ya existían, rectas donde hay que citar |
@@ -47,18 +54,41 @@ diagrama, sin cifras. Lo que tiene que producir es **alivio**.
 
 | Llave | Texto |
 |---|---|
-| `headline` | **IA corporativa** |
-| `apoyo` | La inteligencia artificial trabajando dentro de tu operación, con tus reglas y tu gente al mando. |
+| `headline` | **IA Corporativa** |
+| `apoyo` | **(a)** El futuro es hoy. |
 | `scroll` | Baja |
 
-> **DECISIÓN 1 · La línea de apoyo.** La de arriba es la candidata del plan §4.2. Dos
-> alternativas, por si la primera se siente larga:
-> **(b)** Inteligencia artificial que hace trabajo real dentro de tu empresa, con tus reglas.
-> **(c)** Tu operación, trabajando. Tus reglas, tu gente, tus decisiones.
+> **DECISIÓN 1 · La línea de apoyo, acotada por el operador el 2026-09-04.** Pidió, textual,
+> "algo así como, bienvenido al futuro, o, el futuro es hoy". Las dos primeras son sus palabras;
+> la tercera es el mismo registro y además es verdad:
+> **(a)** El futuro es hoy.
+> **(b)** Bienvenido al futuro.
+> **(c)** El futuro ya está trabajando.
+>
+> **Por qué existe la (c).** La guía §5.3 define la promesa de la marca como "deliberadamente
+> modesta y verificable", lo contrario de "transformamos tu empresa", y el pilar 4 del §5.6 es
+> "criterio, no humo". "Bienvenido al futuro" no está prohibido en el banco y la decisión es
+> del operador, pero es una frase que no afirma nada. **"El futuro ya está trabajando" dice lo
+> mismo en el mismo tono y se apoya en una afirmación autorizada**: "Los sistemas de Osppy
+> operan hoy en negocios reales" (fuente de verdad §2, operador 2026-09-01).
+>
+> **Y una consecuencia que hay que ver antes de elegir.** Con una línea de sentimiento en vez de
+> la del plan, **la primera pantalla completa no dice qué hace Osppy**. Eso es exactamente lo
+> que el operador pidió (abrir con un sentimiento, no con un argumento) y el significado llega
+> una pantalla después, en la sección 2, con "Tu empresa ya sabe que necesita IA". No es un
+> problema; es el trato, y conviene verlo escrito.
 
-> **DECISIÓN 2 · ¿El héroe lleva botón?** (pregunta 3 del plan §9). **La recomendación es que
-> no**: la primera pantalla es una promesa y el indicador de scroll es la única acción. Si lo
-> quieres, las llaves serían `home.hero.cta` = "Contacta un asesor" y `home.hero.ctaMessage`.
+> **DECISIÓN 2 · ¿El héroe lleva botón?** (pregunta 3 del plan §9). **Sigue abierta.** La
+> recomendación es que no: la primera pantalla es una promesa y el indicador de scroll es la
+> única acción. Si lo quieres, las llaves serían `home.hero.cta` = "Contacta un asesor" y
+> `home.hero.ctaMessage`.
+
+> **CERRADA · El fondo del héroe.** El operador dijo el 2026-09-04 que el héroe era la frase
+> "con una imagen de fondo", lo que contradecía su propia respuesta de la compuerta E0-3 del
+> 2026-09-03 (diseño abstracto en código, sin foto). Puesta la contradicción enfrente, eligió
+> **el abstracto en código**. E0-3 queda ratificada y §4.2 del plan no se toca. Se anota aquí en
+> vez de dejarlo pasar porque la próxima sesión que lea "imagen de fondo" en un mensaje va a
+> volver a dudar.
 
 **Lo que sale del héroe:** el kicker, el subtítulo, el panel y el diagrama de cuatro nodos. El
 kicker, el titular y el subtítulo bajan a la sección 2; el diagrama se va a `/implementacion`.
@@ -111,13 +141,31 @@ Una sola frase. Se van el paréntesis y los cuatro párrafos. La foto se queda.
 | Llave | Texto |
 |---|---|
 | `kicker` | **Qué es Osppy** *(era "Por qué")* |
-| `quienes` | **Osppy pone la inteligencia artificial a hacer trabajo dentro de la operación de empresas medianas y grandes.** |
+| `quienes` | **Osppy es una consultoría de IA Corporativa: ponemos la inteligencia artificial a hacer trabajo dentro de la operación de tu empresa.** |
 
-> **DECISIÓN 3 · Esta frase pierde o conserva al público.** El plan §3.2 la escribió así:
-> "Osppy pone la inteligencia artificial a hacer trabajo dentro de la operación **en empresas**."
-> La de arriba dice **"de empresas medianas y grandes"**, tres palabras más, y es la que
-> recomiendo: es la única frase de la casa que define qué es Osppy, y HQA-D37 sigue vigente. Si
-> prefieres la versión corta del plan, se cambia en un renglón.
+> **DECISIÓN 3 · CERRADA por el operador el 2026-09-04.** Textual: "no menciones empresas
+> medianas y grandes, simplemente para empresas, o corporaciones o algo así, pero sí menciona el
+> público y categoría, somos consultoría". La frase de arriba hace las tres cosas: **categoría**
+> (una consultoría de IA Corporativa), **público** (tu empresa) y **qué hace**, sin la
+> segmentación por tamaño.
+>
+> **Variante, por si prefieres la palabra más corporativa:** "Osppy es una consultoría de IA
+> Corporativa para corporaciones: ponemos la inteligencia artificial a hacer trabajo dentro de
+> tu operación." Se cambia en un renglón.
+>
+> **Tres notas que esta decisión deja escritas, para que nadie las relea como error:**
+>
+> 1. **"Una consultoría", nunca "la consultoría".** Reclamar la categoría es un superlativo sin
+>    ganar y la guía los prohíbe (§12, punto 5; kit §3.3 cita la misma regla para la bio).
+> 2. **La empresa se nombra consultoría; el servicio se sigue llamando asesoría.** La cabecera de
+>    la guía ya dice "capacitación, consultoría e implementación", y `oferta.md` §2 nombra la
+>    línea "Asesoría". No es incoherencia, son dos niveles: qué es la casa y cómo se llama uno
+>    de sus tres servicios.
+> 3. **Sacar "medianas y grandes" del sitio no mueve HQA-D37.** Esa fila define a quién se le
+>    vende y sigue vigente en `oferta.md`, en la fuente de verdad y en la guía; lo que cambia es
+>    que el sitio no lo dice en voz alta. "Empresas" contiene a "empresas medianas y grandes",
+>    así que la casa no afirma nada que la verdad no respalde. **Esto sí merece fila de ledger**
+>    y la pido al cerrar la compuerta.
 
 **Lo que muere aquí:** `p1`, `p2`, `p3`. **Lo que no muere, se muda:** `cierre` ("A veces la
 respuesta es: todavía no. Y también te lo decimos.") se va a `/asesoria`, que es donde el plan
@@ -305,16 +353,39 @@ No es copy, pero si nadie lo escribe se descubre cuando la compuerta esté en ro
 
 ---
 
-# Las seis decisiones, juntas
+# Una decisión que no estaba en la lista y la levanto yo
 
-| # | Qué | Recomendación |
+> **DECISIÓN 7 · ¿Se escribe "IA Corporativa" o "IA corporativa"?** En tus dos mensajes del
+> 2026-09-04 la escribiste **dos veces con C mayúscula**, mientras el resto de tu texto iba en
+> minúscula y sin acentos. Eso se lee como que la tratas como **nombre**, no como categoría. Yo
+> la escribí en **minúscula** en todo lo que ya está commiteado, y este documento la pasó a
+> mayúscula siguiéndote a ti. No la doy por decidida, porque no es cosmética:
+>
+> | Si es nombre propio (IA Corporativa) | Si es categoría (IA corporativa) |
+> |---|---|
+> | Es coherente con "Osppy IA Empresarial", que la guía §4.3 escribe así porque es un descriptor de línea | Es coherente con el español, donde una categoría va en minúscula |
+> | Hay que reparchar cinco documentos de hq (guía, fuente de verdad, oferta, catálogo, kit), el `<title>` del sitio, la tarjeta social y el pie | No hay que tocar nada de lo commiteado |
+> | La guía §4.3 prohíbe usar el descriptor de línea "sin Osppy como si fuera marca propia": si es nombre, hay que decidir si vive solo en el héroe o siempre pegado a Osppy | El héroe puede seguir diciéndola sola sin ninguna regla nueva |
+>
+> **Mi recomendación: minúscula.** El posicionamiento describe lo que la empresa vende; el nombre
+> de la línea sigue siendo Osppy IA Empresarial y ya está capitalizado. En el héroe, además, el
+> texto va en display y a ese tamaño la mayúscula la pone la tipografía, no la ortografía. Si
+> dices mayúscula, el reparche es de una sesión y lo hago completo, no a medias.
+
+---
+
+# Las siete decisiones, juntas
+
+| # | Qué | Estado |
 |---|---|---|
-| **1** | La línea de apoyo del héroe | La candidata (a) |
-| **2** | ¿El héroe lleva botón? | No |
-| **3** | "en empresas" o "de empresas medianas y grandes" | La segunda |
-| **4** | La cuarta tarjeta de Trayectoria | Tres tarjetas hasta que la des |
-| **5** | ¿Se queda la línea de industrias? | Sí, mudada a `home.trayectoria.giros` |
-| **6** | La respuesta 4 de la FAQ | Cambiarla |
+| **1** | La línea de apoyo del héroe | **Acotada.** Falta elegir entre (a) El futuro es hoy · (b) Bienvenido al futuro · (c) El futuro ya está trabajando. Recomiendo la (c) |
+| **2** | ¿El héroe lleva botón? | **Abierta.** Recomiendo que no |
+| **3** | La frase que define a Osppy | ✅ **CERRADA 2026-09-04:** consultoría de IA Corporativa, con público y sin tamaño |
+| **4** | La cuarta tarjeta de Trayectoria | **Abierta.** Tres tarjetas hasta que la des |
+| **5** | ¿Se queda la línea de industrias? | **Abierta.** Recomiendo que sí, mudada a `home.trayectoria.giros` |
+| **6** | La respuesta 4 de la FAQ | **Abierta.** Recomiendo cambiarla |
+| **7** | Mayúscula: IA Corporativa o IA corporativa | **Abierta, y la levanté yo.** Ver abajo |
+| · | El fondo del héroe | ✅ **RATIFICADA 2026-09-04:** abstracto en código (E0-3 en pie) |
 
 *Documento de copy · tanda E3a · 2026-09-04 · Español (MX) · El inglés (E3b) se escribe contra la
 versión aprobada de este documento, no contra este.*
