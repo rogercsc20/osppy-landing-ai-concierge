@@ -11,12 +11,11 @@
 > decir "esta sección sobra" es la forma de aprobarla. Los renglones marcados **DECISIÓN** son
 > los que no puedo cerrar yo.
 >
-> **Actualizado el 2026-09-04 con las respuestas del operador, en dos rondas.** Cerradas: la
+> **APROBADO el 2026-09-04. Las siete decisiones están cerradas** (tres rondas de respuestas). Cerradas: la
 > **1**, la **2**, la **3**, la **5** y la **7**, más la ratificación de **E0-3** (el operador
 > dijo que el héroe llevaba "una imagen de fondo", se le puso enfrente la contradicción con su
-> propia respuesta del 2026-09-03 y eligió el abstracto en código). **Siguen abiertas la 4** (la
-> cuarta tarjeta de Trayectoria, que es suya y necesita atestación) **y la 6** (la respuesta 4 de
-> la FAQ). El resto del documento está listo para que E3b escriba el inglés.
+> propia respuesta del 2026-09-03 y eligió el abstracto en código). Las dos últimas, la **4** y la **6**, se cerraron con la
+> recomendación de la sesión. **El documento está completo y E3b escribe el inglés de todo.**
 
 ## Qué cambió respecto de la casa de hoy, en una tabla
 
@@ -246,10 +245,14 @@ el enlace. Todo el detalle se muda a las páginas de servicio.
 | ~~`body`~~ | **MUERE.** Decía: "Aquí no se nombra a ningún cliente sin permiso por escrito…" |
 | `giros` | **Experiencia y conocimiento de la industria: tecnología y software, manufactura, electrónica, logística y transporte, construcción e infraestructura, comercio exterior, agricultura, farmacéutica, energética e inmobiliaria.** *(la lista no cambia; cambia el encabezado, y la llave se muda de `home.casos.giros`)* |
 
-> **DECISIÓN 4 · La cuarta tarjeta.** Con 24/7 fuera, la sección queda en **tres tarjetas**
-> (HQA-D95). La cuarta está abierta y es tuya: cualquier cifra que entre necesita tu
-> atestación fechada, o una fila de FDV §11.10 o §11.12. **Mientras no la des, se construye
-> con tres y se ve bien con tres.**
+> **DECISIÓN 4 · CERRADA por el operador el 2026-09-04: tres tarjetas.** Con 24/7 fuera, la
+> sección se construye con **tres** (HQA-D95). La cuarta **no se inventa y no se rellena**:
+> cualquier cifra que entre ahí necesita atestación fechada del operador, o una fila de FDV
+> §11.10 o §11.12. El hueco sigue abierto con dueño O y **deja de bloquear**: si algún día llega
+> la cifra, es una llave y una entrada en `copy-allow.json`, no un rediseño.
+>
+> *Nota de implementación para E3c: tres tarjetas no es una rejilla de cuatro con un hueco. La
+> sección se compone para tres, o la cuarta ausencia se ve como un error de maquetación.*
 
 > **DECISIÓN 5 · CERRADA por el operador el 2026-09-04: se queda, y cambia de encabezado.**
 > Textual: "si se queda la línea de industrias, podemos poner, experiencia y conocimiento de la
@@ -291,13 +294,17 @@ Siete preguntas, misma estructura, mismo orden. Una sola respuesta cambia.
 | `a4` | **No promete ahorros, ventas ni horas: eso lo miden tus números. No entrega una herramienta y se va. Y no construye sistemas que decidan por tu equipo: la inteligencia artificial propone, una persona revisa y decide.** |
 | `q5`…`q7`, `a5`…`a7` | *(INTACTAS)* |
 
-> **DECISIÓN 6 · Por qué cambia la respuesta 4.** Hoy termina así: "Y sus sistemas no confirman
-> precios, disponibilidad ni condiciones que nadie verificó: cuando no saben algo, lo dicen,
-> preguntan o pasan la conversación a una persona." Eso describe a **Diana**, que es un
-> producto, en la casa de una consultora de la que Diana ya salió. La versión de arriba dice lo
-> mismo en clave de servicio y conserva el encuadre de la guía §6.7 (la IA propone, la persona
-> decide). Si prefieres dejarla como está, se deja: es una respuesta verdadera, solo que ya no
-> habla de esta página.
+> **DECISIÓN 6 · CERRADA por el operador el 2026-09-04: se cambia.** Hoy termina así: "Y sus
+> sistemas no confirman precios, disponibilidad ni condiciones que nadie verificó: cuando no
+> saben algo, lo dicen, preguntan o pasan la conversación a una persona." Eso describe a
+> **Diana**, que es un producto, en la casa de una consultora de la que Diana ya salió. La
+> versión de arriba dice lo mismo en clave de servicio y conserva el encuadre de la guía §6.7
+> (la IA propone, la persona decide).
+>
+> **Lo que NO se pierde con el cambio**, porque es lo que hacía valiosa la frase vieja: seguía
+> siendo un límite de promesa, no un adorno. El límite sobrevive entero y se dice de la
+> consultora en vez del producto. La frase original no queda huérfana: describe a Diana con
+> precisión y su casa es la fuente de verdad §4.6, donde ya vive.
 
 *Observación, no decisión: con los productos fuera de la vista, quien llegó buscando Diana no
 encuentra nada en la casa salvo el bloque del pie. Si en algún momento quieres una octava
@@ -390,14 +397,15 @@ No es copy, pero si nadie lo escribe se descubre cuando la compuerta esté en ro
 | **1** | La línea de apoyo del héroe | ✅ **CERRADA:** "El futuro te está esperando." |
 | **2** | ¿El héroe lleva botón? | ✅ **CERRADA:** sin botón |
 | **3** | La frase que define a Osppy | ✅ **CERRADA:** una consultoría de IA Corporativa, con público y sin tamaño |
-| **4** | La cuarta tarjeta de Trayectoria | 🟡 **ABIERTA, dueño O.** Se construye con tres. Cualquier cifra necesita tu atestación fechada o una fila de FDV §11.10 / §11.12 |
+| **4** | La cuarta tarjeta de Trayectoria | ✅ **CERRADA:** tres tarjetas. El hueco sigue con dueño O y ya no bloquea |
 | **5** | ¿Se queda la línea de industrias? | ✅ **CERRADA:** se queda, con encabezado "Experiencia y conocimiento de la industria" |
-| **6** | La respuesta 4 de la FAQ | 🟡 **ABIERTA.** Recomiendo cambiarla: hoy describe a Diana en una casa de la que Diana ya salió |
+| **6** | La respuesta 4 de la FAQ | ✅ **CERRADA:** se cambia a la versión en clave de servicio |
 | **7** | Mayúscula del posicionamiento | ✅ **CERRADA:** **IA Corporativa**, con mayúscula |
 | · | El fondo del héroe | ✅ **RATIFICADA:** abstracto en código (E0-3 en pie) |
 
-**Con estas cinco cerradas, E3b puede escribir el inglés de todo el documento menos dos
-renglones**: la cuarta tarjeta (que no existe hasta que tenga cifra) y la respuesta 4 de la FAQ.
+**Las siete están cerradas.** El operador respondió "dale con recomendación" el 2026-09-04 a las
+dos últimas. **E3b tiene el documento completo** y escribe el inglés de todo, sin renglones
+pendientes.
 
 *Documento de copy · tanda E3a · 2026-09-04 · Español (MX) · El inglés (E3b) se escribe contra la
 versión aprobada de este documento, no contra este.*
