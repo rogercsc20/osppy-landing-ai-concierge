@@ -1,11 +1,10 @@
 {
   "nav": {
     "inicio": "Home",
-    "hacemos": "What we do",
     "areas": "Areas",
-    "como": "How we work",
-    "hoteles": "Hotels",
-    "citas": "Appointments",
+    "capacitacion": "Training",
+    "asesoria": "Advisory",
+    "implementacion": "Implementation",
     "cta": "Contact us",
     "ctaMessage": "Hi, I'd like to talk about my company's operation.",
     "login": "Log in",
@@ -42,11 +41,26 @@
           "revision": "Review"
         },
         "rows": [
-          { "area": "Sales and quotes", "tarea": "Quote: supply and installation, site in Zapopan" },
-          { "area": "Accounting", "tarea": "Reconcile movements against their documents" },
-          { "area": "Purchasing", "tarea": "Purchase order from the requisition" },
-          { "area": "Foreign trade", "tarea": "Electronic file for an import" },
-          { "area": "Human resources", "tarea": "The staff's frequently asked questions" }
+          {
+            "area": "Sales and quotes",
+            "tarea": "Quote: supply and installation, site in Zapopan"
+          },
+          {
+            "area": "Accounting",
+            "tarea": "Reconcile movements against their documents"
+          },
+          {
+            "area": "Purchasing",
+            "tarea": "Purchase order from the requisition"
+          },
+          {
+            "area": "Foreign trade",
+            "tarea": "Electronic file for an import"
+          },
+          {
+            "area": "Human resources",
+            "tarea": "The staff's frequently asked questions"
+          }
         ],
         "pie": "A person reviews it. Then it goes out.",
         "chartTitle": "Tasks completed",
@@ -596,12 +610,45 @@
       "microcopy": "No forms: a person answers."
     }
   },
+  "servicios": {
+    "capacitacion": {
+      "kicker": "Training",
+      "headline": "Your team leaves knowing how to use it in their own work.",
+      "body": "Hands-on workshops, live and by group, with real tasks from your business.",
+      "cta": "Talk to an advisor",
+      "ctaMessage": "Hello, I would like to talk about AI training for my team.",
+      "metaTitle": "Training · Osppy",
+      "metaDescription": "Hands-on artificial intelligence workshops for owners, managers and teams at medium and large companies."
+    },
+    "asesoria": {
+      "kicker": "Advisory",
+      "headline": "Before building anything, understanding where.",
+      "body": "A first session to diagnose the operation, to identify where artificial intelligence helps and where it is not needed.",
+      "cta": "Talk to an advisor",
+      "ctaMessage": "Hello, I would like to talk about an advisory session for my company's operation.",
+      "metaTitle": "Advisory · Osppy",
+      "metaDescription": "A diagnosis of the operation to identify where artificial intelligence fits, and where it does not yet."
+    },
+    "implementacion": {
+      "kicker": "Implementation",
+      "headline": "Systems that stay working inside your operation.",
+      "body": "Agents, assistants and process automation that stay running, with scope and success criteria in writing.",
+      "cta": "Talk to an advisor",
+      "ctaMessage": "Hello, I would like to talk about implementing artificial intelligence in my operation.",
+      "metaTitle": "Implementation · Osppy",
+      "metaDescription": "Agents, assistants and process automation that stay running inside the company, with scope in writing."
+    }
+  },
   "footer": {
-    "about": "Applied artificial intelligence for business operations.",
-    "lineas": "Solutions",
-    "hoteles": "Hotels",
-    "citas": "Appointments",
-    "empresarial": "Enterprise AI",
+    "about": "Corporate AI: artificial intelligence doing work inside your company's operation.",
+    "servicios": "Services",
+    "capacitacion": "Training",
+    "asesoria": "Advisory",
+    "implementacion": "Implementation",
+    "productos": "Products",
+    "productosBody": "We have specialized products for the industries we work in.",
+    "productosCta": "Ask about our products",
+    "productosMessage": "Hello, I would like to know about your industry products.",
     "contacto": "Contact",
     "whatsapp": "WhatsApp",
     "legalTitle": "Legal",

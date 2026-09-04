@@ -24,7 +24,7 @@ const arg = (name, fallback) => {
   return i === -1 ? fallback : process.argv[i + 1];
 };
 const BASE = arg("base", "http://localhost:3000");
-const ROUTES = arg("routes", "/es,/en,/es/hoteles,/en/hotels,/es/citas,/en/appointments").split(",");
+const ROUTES = arg("routes", "/es,/en,/es/capacitacion,/en/training,/es/asesoria,/en/advisory,/es/implementacion,/en/implementation,/es/hoteles,/en/hotels,/es/citas,/en/appointments").split(",");
 const WIDTHS = arg("widths", "360,390,768,1024,1280,1440,1920").split(",").map(Number);
 const THEMES = arg("themes", "light,dark").split(",");
 const OUT = arg("out", "captures");

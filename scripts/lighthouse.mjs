@@ -16,7 +16,7 @@ const arg = (name, fallback) => {
   return i === -1 ? fallback : process.argv[i + 1];
 };
 const BASE = arg("base", "http://localhost:3000");
-const ROUTES = arg("routes", "/es,/es/hoteles,/es/citas").split(",");
+const ROUTES = arg("routes", "/es,/es/capacitacion,/es/asesoria,/es/implementacion,/es/hoteles,/es/citas").split(",");
 const TARGET = Number(arg("target", "90"));
 const NO_FAIL = process.argv.includes("--no-fail");
 const OUT = join("captures", "lh");

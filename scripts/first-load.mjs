@@ -25,7 +25,7 @@ const arg = (name, fallback) => {
   return i === -1 ? fallback : process.argv[i + 1];
 };
 const BASE = arg("base", "http://localhost:3000");
-const ROUTES = arg("routes", "/es,/en,/es/hoteles,/es/citas").split(",");
+const ROUTES = arg("routes", "/es,/en,/es/capacitacion,/es/asesoria,/es/implementacion,/es/hoteles,/es/citas").split(",");
 const BUDGET_KB = Number(arg("budget", "200"));
 
 const browser = await chromium.launch();

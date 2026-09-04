@@ -155,3 +155,94 @@ test("English hotels page renders on its localized slug", async ({ page }) => {
     page.getByRole("heading", { level: 1, name: en.hoteles.hero.headline }),
   ).toBeVisible();
 });
+
+// ── tanda E2: three service routes, products out of the nav (HQA-D88) ──────
+
+test.describe("service routes render on their localized slug", () => {
+  // Both locales, because the English slug is a routing.ts rewrite and a typo
+  // there 404s only in English — the half a Spanish-only check never sees.
+  for (const [route, headline] of [
+    ["/es/capacitacion", es.servicios.capacitacion.headline],
+    ["/en/training", en.servicios.capacitacion.headline],
+    ["/es/asesoria", es.servicios.asesoria.headline],
+    ["/en/advisory", en.servicios.asesoria.headline],
+    ["/es/implementacion", es.servicios.implementacion.headline],
+    ["/en/implementation", en.servicios.implementacion.headline],
+  ] as const) {
+    test(`${route} renders its h1 and one CTA`, async ({ page }) => {
+      const response = await page.goto(route);
+      expect(response?.status(), route).toBe(200);
+      await expect(page.getByRole("heading", { level: 1, name: headline })).toBeVisible();
+      await expect(
+        page.locator("main").getByRole("link", {
+          name: route.startsWith("/en") ? en.servicios.capacitacion.cta : es.servicios.capacitacion.cta,
+        }),
+      ).toHaveAttribute("href", /^(https:\/\/wa\.me\/|mailto:hello@osppy\.com)/);
+    });
+  }
+});
+
+test("the nav leads with the three services and links no product", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto("/es");
+  const nav = page.getByRole("banner").getByRole("navigation", { name: "principal" });
+
+  for (const [name, href] of [
+    [es.nav.capacitacion, "/es/capacitacion"],
+    [es.nav.asesoria, "/es/asesoria"],
+    [es.nav.implementacion, "/es/implementacion"],
+  ] as const) {
+    await expect(nav.getByRole("link", { name })).toHaveAttribute("href", href);
+  }
+  // The point of HQA-D88 is the absence, so the absence is what is asserted:
+  // no link anywhere in the header or the footer walks to Diana.
+  await expect(page.locator('header a[href*="/hoteles"], header a[href*="/citas"]')).toHaveCount(0);
+  await expect(
+    page.locator('footer a[href*="/hoteles"], footer a[href*="/citas"]'),
+  ).toHaveCount(0);
+});
+
+test("the footer asks for products instead of linking them (gate E0-1)", async ({ page }) => {
+  await page.goto("/es");
+  await expect(
+    page.locator("footer").getByRole("link", { name: es.footer.productosCta }),
+  ).toHaveAttribute("href", /^(https:\/\/wa\.me\/|mailto:hello@osppy\.com)/);
+});
+
+test("Diana's routes stay alive, unindexed and out of the sitemap (gate E0-7)", async ({
+  page,
+  request,
+}) => {
+  // Both halves in one test on purpose: a noindex page still listed in the
+  // sitemap is a site contradicting itself, and each half alone passes while
+  // the pair is broken.
+  const sitemap = await (await request.get("/sitemap.xml")).text();
+  expect(sitemap).toContain("/es/capacitacion");
+  expect(sitemap).not.toContain("/hoteles");
+  expect(sitemap).not.toContain("/citas");
+
+  for (const route of ["/es/hoteles", "/es/citas"]) {
+    const response = await page.goto(route);
+    expect(response?.status(), route).toBe(200);
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
+      "content",
+      /noindex/,
+    );
+  }
+});
+
+test("the title and description stopped selling hotels (HQA-D96, closing D85)", async ({
+  page,
+}) => {
+  for (const [route, title] of [
+    ["/es", "Osppy · IA corporativa"],
+    ["/en", "Osppy · Corporate AI"],
+  ] as const) {
+    await page.goto(route);
+    await expect(page).toHaveTitle(title);
+    const description = await page
+      .locator('meta[name="description"]')
+      .getAttribute("content");
+    expect(description, route).not.toMatch(/recepci|front desk|hu[ée]sped|guest/i);
+  }
+});

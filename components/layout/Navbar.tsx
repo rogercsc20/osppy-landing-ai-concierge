@@ -12,19 +12,22 @@ import { APP_LOGIN_URL, whatsappHref } from "@/lib/site";
 import { DUR, EASE_EXPO, EASE_LUXE, STAGGER } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
-// Home section anchors the observer tracks. `/industrias` and `/diagnostico`
-// join this list when they exist (V5, V7): a nav link to a 404 is worse than
-// a nav that waits.
-const HOME_SECTIONS = ["areas", "hacemos", "como"] as const;
+// Home section anchors the observer tracks. Only the sections the bar still
+// links to: `#como` and `#hacemos` left the nav in E2 because the method and
+// the three ways in now NAVIGATE to the service pages, and a bar carrying an
+// anchor and a route to the same destination says two things (HQA-D88, D92).
+const HOME_SECTIONS = ["areas"] as const;
 type SectionId = (typeof HOME_SECTIONS)[number];
 
+// Three services, not two products (HQA-D88). `/industrias` and
+// `/diagnostico` are out of scope with no date (HQA-D93), and Diana's two
+// routes stay alive without a link into them (gate E0-7).
 const LINKS = [
   { key: "inicio", pathname: "/", hash: undefined },
   { key: "areas", pathname: "/", hash: "#areas" },
-  { key: "como", pathname: "/", hash: "#como" },
-  { key: "hacemos", pathname: "/", hash: "#hacemos" },
-  { key: "hoteles", pathname: "/hoteles", hash: undefined },
-  { key: "citas", pathname: "/citas", hash: undefined },
+  { key: "capacitacion", pathname: "/capacitacion", hash: undefined },
+  { key: "asesoria", pathname: "/asesoria", hash: undefined },
+  { key: "implementacion", pathname: "/implementacion", hash: undefined },
 ] as const;
 
 // Routes that carry an accent override. The attribute goes on <html> so the

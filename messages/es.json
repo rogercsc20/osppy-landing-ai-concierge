@@ -1,11 +1,10 @@
 {
   "nav": {
     "inicio": "Inicio",
-    "hacemos": "Qué hacemos",
     "areas": "Áreas",
-    "como": "Cómo trabajamos",
-    "hoteles": "Hoteles",
-    "citas": "Citas",
+    "capacitacion": "Capacitación",
+    "asesoria": "Asesoría",
+    "implementacion": "Implementación",
     "cta": "Escríbenos",
     "ctaMessage": "Hola, quiero platicar sobre la operación de mi empresa.",
     "login": "Iniciar sesión",
@@ -42,11 +41,26 @@
           "revision": "Revisión"
         },
         "rows": [
-          { "area": "Ventas y cotizaciones", "tarea": "Cotización: suministro y montaje, obra en Zapopan" },
-          { "area": "Contabilidad", "tarea": "Conciliar movimientos contra sus documentos" },
-          { "area": "Compras", "tarea": "Orden de compra desde la requisición" },
-          { "area": "Comercio exterior", "tarea": "Expediente electrónico de una importación" },
-          { "area": "Recursos humanos", "tarea": "Preguntas frecuentes del personal" }
+          {
+            "area": "Ventas y cotizaciones",
+            "tarea": "Cotización: suministro y montaje, obra en Zapopan"
+          },
+          {
+            "area": "Contabilidad",
+            "tarea": "Conciliar movimientos contra sus documentos"
+          },
+          {
+            "area": "Compras",
+            "tarea": "Orden de compra desde la requisición"
+          },
+          {
+            "area": "Comercio exterior",
+            "tarea": "Expediente electrónico de una importación"
+          },
+          {
+            "area": "Recursos humanos",
+            "tarea": "Preguntas frecuentes del personal"
+          }
         ],
         "pie": "Revisa una persona. Después sale.",
         "chartTitle": "Tareas completadas",
@@ -596,12 +610,45 @@
       "microcopy": "Sin formularios: te contesta una persona."
     }
   },
+  "servicios": {
+    "capacitacion": {
+      "kicker": "Capacitación",
+      "headline": "Tu equipo sale sabiendo usarla en su propio trabajo.",
+      "body": "Talleres prácticos, en vivo y por grupo, con tareas reales de tu negocio.",
+      "cta": "Contacta un asesor",
+      "ctaMessage": "Hola, quiero platicar sobre capacitación de IA para mi equipo.",
+      "metaTitle": "Capacitación · Osppy",
+      "metaDescription": "Talleres prácticos de inteligencia artificial para dueños, gerentes y equipos de empresas medianas y grandes."
+    },
+    "asesoria": {
+      "kicker": "Asesoría",
+      "headline": "Antes de construir nada, entender dónde.",
+      "body": "Una primera sesión de diagnóstico de la operación, para identificar dónde la inteligencia artificial ayuda y dónde no hace falta.",
+      "cta": "Contacta un asesor",
+      "ctaMessage": "Hola, quiero platicar sobre una asesoría para la operación de mi empresa.",
+      "metaTitle": "Asesoría · Osppy",
+      "metaDescription": "Diagnóstico de la operación para identificar dónde entra la inteligencia artificial, y dónde todavía no."
+    },
+    "implementacion": {
+      "kicker": "Implementación",
+      "headline": "Sistemas que quedan trabajando dentro de tu operación.",
+      "body": "Agentes, asistentes y automatización de procesos que se quedan operando, con alcance y criterios de éxito por escrito.",
+      "cta": "Contacta un asesor",
+      "ctaMessage": "Hola, quiero platicar sobre implementar inteligencia artificial en mi operación.",
+      "metaTitle": "Implementación · Osppy",
+      "metaDescription": "Agentes, asistentes y automatización de procesos que quedan operando dentro de la empresa, con alcance por escrito."
+    }
+  },
   "footer": {
-    "about": "Inteligencia artificial aplicada a la operación de empresas.",
-    "lineas": "Líneas",
-    "hoteles": "Hoteles",
-    "citas": "Citas",
-    "empresarial": "IA Empresarial",
+    "about": "IA corporativa: inteligencia artificial haciendo trabajo dentro de la operación de tu empresa.",
+    "servicios": "Servicios",
+    "capacitacion": "Capacitación",
+    "asesoria": "Asesoría",
+    "implementacion": "Implementación",
+    "productos": "Productos",
+    "productosBody": "Tenemos productos especializados para las industrias que operamos.",
+    "productosCta": "Pregunta por nuestros productos",
+    "productosMessage": "Hola, quiero saber de sus productos especializados por industria.",
     "contacto": "Contacto",
     "whatsapp": "WhatsApp",
     "legalTitle": "Legal",

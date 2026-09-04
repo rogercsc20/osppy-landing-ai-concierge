@@ -4,7 +4,20 @@ import { test, expect } from "@playwright/test";
 // (seven widths, both themes, screenshots) is scripts/capture.mjs; here the
 // three widths that break most often, on every localized route, must render
 // without horizontal overflow and without a console error.
-const ROUTES = ["/es", "/en", "/es/hoteles", "/en/hotels", "/es/citas", "/en/appointments"];
+const ROUTES = [
+  "/es",
+  "/en",
+  "/es/capacitacion",
+  "/en/training",
+  "/es/asesoria",
+  "/en/advisory",
+  "/es/implementacion",
+  "/en/implementation",
+  "/es/hoteles",
+  "/en/hotels",
+  "/es/citas",
+  "/en/appointments",
+];
 const WIDTHS = [360, 768, 1280];
 
 for (const width of WIDTHS) {

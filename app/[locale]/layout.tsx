@@ -64,13 +64,17 @@ export async function generateMetadata({
   const { locale } = await params;
   const isES = locale === "es";
 
+  // HQA-D96 (tanda E2), which closes the question HQA-D85 left open on
+  // 2026-09-03: these strings still sold hotels on a page that had sold
+  // services since the v2 rebuild. D2 changed only their punctuation because
+  // WHAT they should say was a positioning question; HQA-D89 answered it.
+  // The separator is the house middle dot, never an em dash (HQA-D79), and
+  // check-copy.mjs reads this file for exactly that.
   return {
-    title: isES
-      ? "Osppy · Tu recepción nunca duerme"
-      : "Osppy · Your front desk never sleeps",
+    title: isES ? "Osppy · IA corporativa" : "Osppy · Corporate AI",
     description: isES
-      ? "Osppy responde a tus huéspedes por WhatsApp en segundos: precios, check-in, disponibilidad, 24/7. Sin contratar a nadie."
-      : "Osppy answers your guests on WhatsApp in seconds: pricing, check-in, availability, 24/7. No extra staff required.",
+      ? "Osppy pone la inteligencia artificial a hacer trabajo dentro de la operación de empresas medianas y grandes: capacitación, asesoría e implementación."
+      : "Osppy puts artificial intelligence to work inside the operation of medium and large companies: training, advisory and implementation.",
     metadataBase: new URL("https://osppy.com"),
     alternates: {
       canonical: `/${locale}`,
@@ -84,14 +88,14 @@ export async function generateMetadata({
       type: "website",
       locale: isES ? "es_MX" : "en_US",
       siteName: "Osppy",
-      title: isES ? "Osppy · Tu recepción nunca duerme" : "Osppy · Your front desk never sleeps",
+      title: isES ? "Osppy · IA corporativa" : "Osppy · Corporate AI",
       description: isES
-        ? "El asistente de WhatsApp para hoteles boutique en México."
-        : "The WhatsApp assistant for boutique hotels in Mexico.",
+        ? "Capacitación, asesoría e implementación de inteligencia artificial para empresas medianas y grandes."
+        : "Artificial intelligence training, advisory and implementation for medium and large companies.",
     },
     twitter: {
       card: "summary_large_image",
-      title: isES ? "Osppy · Tu recepción nunca duerme" : "Osppy · Your front desk never sleeps",
+      title: isES ? "Osppy · IA corporativa" : "Osppy · Corporate AI",
     },
     // Meta Business Manager domain verification (osppy.com). Rendered server-side
     // into <head> on every locale page — Meta's crawler ignores JS-injected tags.

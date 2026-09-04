@@ -4,14 +4,17 @@ export const alt = "Osppy";
 export const size = OG_SIZE;
 export const contentType = "image/png";
 
+// The social card carries the positioning phrase, so HQA-D89 reaches it too:
+// leaving "IA aplicada" here while the <title> says "IA corporativa" would
+// make the shared link contradict the page it opens.
 const COPY = {
   es: {
-    title: "IA aplicada para empresas",
-    sub: "Inteligencia artificial en la operación de tu negocio",
+    title: "IA corporativa",
+    sub: "Inteligencia artificial haciendo trabajo dentro de tu operación",
   },
   en: {
-    title: "Applied AI for businesses",
-    sub: "Artificial intelligence inside your operation",
+    title: "Corporate AI",
+    sub: "Artificial intelligence doing work inside your operation",
   },
 } as const;
 

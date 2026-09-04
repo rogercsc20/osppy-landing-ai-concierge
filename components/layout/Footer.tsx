@@ -20,9 +20,9 @@ export function Footer() {
       </span>
 
       <div className="relative mx-auto max-w-6xl">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-6">
           {/* Osppy */}
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-3 lg:col-span-2">
             <div className="flex items-center gap-2">
               <Logomark className="h-7 w-7 rounded-md" />
               <span className="font-semibold text-text">Osppy</span>
@@ -30,24 +30,38 @@ export function Footer() {
             <p className="text-sm leading-relaxed text-text-2">{t("footer.about")}</p>
           </div>
 
-          {/* Líneas */}
-          <nav className="flex flex-col gap-2 text-sm" aria-label={t("footer.lineas")}>
+          {/* Servicios: the three lines the site now leads with (HQA-D88) */}
+          <nav className="flex flex-col gap-2 text-sm" aria-label={t("footer.servicios")}>
             <h2 className="mb-1 text-xs font-semibold tracking-wide text-text uppercase">
-              {t("footer.lineas")}
+              {t("footer.servicios")}
             </h2>
-            <Link href="/hoteles" className="text-text-2 transition-colors hover:text-text">
-              {t("footer.hoteles")}
+            <Link href="/capacitacion" className="text-text-2 transition-colors hover:text-text">
+              {t("footer.capacitacion")}
             </Link>
-            <Link href="/citas" className="text-text-2 transition-colors hover:text-text">
-              {t("footer.citas")}
+            <Link href="/asesoria" className="text-text-2 transition-colors hover:text-text">
+              {t("footer.asesoria")}
             </Link>
-            <Link
-              href={{ pathname: "/", hash: "#hacemos" } as never}
-              className="text-text-2 transition-colors hover:text-text"
-            >
-              {t("footer.empresarial")}
+            <Link href="/implementacion" className="text-text-2 transition-colors hover:text-text">
+              {t("footer.implementacion")}
             </Link>
           </nav>
+
+          {/* Productos: the operator's own instruction (gate E0-1) — Diana is
+              no longer a page in the nav, it is a question you ask. The link
+              goes to whatsappHref, which falls back to a prefilled email
+              while WHATSAPP_NUMBER is empty (HQA-D29, owner O). */}
+          <div className="flex flex-col gap-2 text-sm">
+            <h2 className="mb-1 text-xs font-semibold tracking-wide text-text uppercase">
+              {t("footer.productos")}
+            </h2>
+            <p className="text-text-2">{t("footer.productosBody")}</p>
+            <a
+              href={whatsappHref(t("footer.productosMessage"))}
+              className="w-fit font-medium text-accent-text transition-opacity hover:opacity-80"
+            >
+              {t("footer.productosCta")}
+            </a>
+          </div>
 
           {/* Contacto */}
           <div className="flex flex-col gap-2 text-sm">
