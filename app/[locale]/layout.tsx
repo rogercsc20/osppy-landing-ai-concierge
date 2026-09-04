@@ -71,7 +71,7 @@ export async function generateMetadata({
   // The separator is the house middle dot, never an em dash (HQA-D79), and
   // check-copy.mjs reads this file for exactly that.
   return {
-    title: isES ? "Osppy · IA corporativa" : "Osppy · Corporate AI",
+    title: isES ? "Osppy · IA Corporativa" : "Osppy · Corporate AI",
     description: isES
       ? "Osppy pone la inteligencia artificial a hacer trabajo dentro de la operación de empresas medianas y grandes: capacitación, asesoría e implementación."
       : "Osppy puts artificial intelligence to work inside the operation of medium and large companies: training, advisory and implementation.",
@@ -88,14 +88,14 @@ export async function generateMetadata({
       type: "website",
       locale: isES ? "es_MX" : "en_US",
       siteName: "Osppy",
-      title: isES ? "Osppy · IA corporativa" : "Osppy · Corporate AI",
+      title: isES ? "Osppy · IA Corporativa" : "Osppy · Corporate AI",
       description: isES
         ? "Capacitación, asesoría e implementación de inteligencia artificial para empresas medianas y grandes."
         : "Artificial intelligence training, advisory and implementation for medium and large companies.",
     },
     twitter: {
       card: "summary_large_image",
-      title: isES ? "Osppy · IA corporativa" : "Osppy · Corporate AI",
+      title: isES ? "Osppy · IA Corporativa" : "Osppy · Corporate AI",
     },
     // Meta Business Manager domain verification (osppy.com). Rendered server-side
     // into <head> on every locale page — Meta's crawler ignores JS-injected tags.

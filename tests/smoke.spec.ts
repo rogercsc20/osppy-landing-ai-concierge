@@ -235,7 +235,7 @@ test("the title and description stopped selling hotels (HQA-D96, closing D85)", 
   page,
 }) => {
   for (const [route, title] of [
-    ["/es", "Osppy · IA corporativa"],
+    ["/es", "Osppy · IA Corporativa"],
     ["/en", "Osppy · Corporate AI"],
   ] as const) {
     await page.goto(route);
