@@ -3,5 +3,30 @@
   "//home.trayectoria.c3Valor": "«+20 giros atendidos» — operator, 2026-09-03 (HQA-D77): twenty sectors attested in FDV §11.10, listed one by one. It was «+10», the conservative reading of the same inventory when fifteen were attested; E3c raised it to the figure the operator actually gave. The entry is keyed by MESSAGE KEY, not by locale, so it covers es.json and en.json at once — which is why a test asserts the two files agree on the value.",
   "home.trayectoria.c3Valor": [
     "+20"
+  ],
+  "//home.aplicada.panel.kpis": "Demonstration figures for the operation panel (E4, HQA-D91). They are INVENTED for the demo and the panel's chip says so on the panel itself, which is what source of truth §9/§10 requires of a mock: it must never present itself as a client screenshot. Listed ONE KEY AT A TIME rather than as a `kpis.*` prefix on purpose — a prefix would wave through every future digit under this subtree without anyone reading it, and the gate exists precisely so a new figure is a failure until somebody attests it. Each value is descriptive of VOLUME or STATE and never of benefit (guide §5.8): documents processed, quotes assembled, tasks in review, exceptions flagged. The deltas are period-over-period counts, not savings. NOTE: the weekly bar values live in components/home/PanelKPI.tsx and this list only reads messages/*.json, so the gate does not see them; what covers them is the demonstration chip, not this file.",
+  "home.aplicada.panel.kpis.k1.valor": [
+    "12480"
+  ],
+  "home.aplicada.panel.kpis.k1.delta": [
+    "+8"
+  ],
+  "home.aplicada.panel.kpis.k2.valor": [
+    "3916"
+  ],
+  "home.aplicada.panel.kpis.k2.delta": [
+    "+5"
+  ],
+  "home.aplicada.panel.kpis.k3.valor": [
+    "214"
+  ],
+  "home.aplicada.panel.kpis.k3.delta": [
+    "0"
+  ],
+  "home.aplicada.panel.kpis.k4.valor": [
+    "37"
+  ],
+  "home.aplicada.panel.kpis.k4.delta": [
+    "-4"
   ]
 }

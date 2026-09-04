@@ -347,3 +347,77 @@ test("the +20 figure says the same thing in both locales", async () => {
   expect(es.home.trayectoria.c3Valor).toBe("+20");
   expect(en.home.trayectoria.c3Valor).toBe(es.home.trayectoria.c3Valor);
 });
+
+// ── tanda E4: the panel becomes a board, and it inverts ───────────────────
+
+test.describe("the operation panel inverts against the page (HQA-D91)", () => {
+  for (const [theme, expectDarkPanel] of [
+    ["dark", false],
+    ["light", true],
+  ] as const) {
+    test(`page ${theme}: the panel wears the opposite surface`, async ({ page }) => {
+      await page.setViewportSize({ width: 1280, height: 900 });
+      await page.addInitScript((t) => {
+        try {
+          localStorage.setItem("theme", t);
+        } catch {}
+      }, theme);
+      await page.goto("/es");
+      const panel = page.locator('[data-panel="invert"]');
+      await expect(panel).toHaveCount(1);
+
+      // Read the RESOLVED variable inside the subtree and compare it with the
+      // page's own. Asserting a literal colour would pin the palette; what
+      // this guards is the RELATIONSHIP the operator asked for — panel and
+      // page on opposite sides — which survives a repaint of either.
+      const [panelSurface, pageSurface] = await Promise.all([
+        panel.evaluate((el) =>
+          getComputedStyle(el).getPropertyValue("--surface").trim(),
+        ),
+        page.evaluate(() =>
+          getComputedStyle(document.documentElement)
+            .getPropertyValue("--surface")
+            .trim(),
+        ),
+      ]);
+      expect(panelSurface).not.toBe(pageSurface);
+
+      // getComputedStyle hands back the SHORTHAND the stylesheet used, so
+      // #ffffff comes out as "#fff". Expanding it is not a nicety: parsed as
+      // six digits, "fff" is 0x000fff, whose channels average 90 and which
+      // therefore reads as DARK — the helper called the ivory panel dark and
+      // failed a passing implementation.
+      const isDark = (hex: string) => {
+        const h = hex.replace("#", "");
+        const full = h.length === 3 ? h.replace(/./g, (c) => c + c) : h;
+        const n = parseInt(full, 16);
+        return ((n >> 16) + ((n >> 8) & 255) + (n & 255)) / 3 < 128;
+      };
+      expect(isDark(panelSurface)).toBe(expectDarkPanel);
+
+      // And data-theme is untouched: the inversion must never reach for the
+      // toggle, or the theme button and the pre-paint script both break.
+      await expect(page.locator("html")).toHaveAttribute("data-theme", theme);
+    });
+  }
+});
+
+test("the board shows four KPI tiles and no benefit metric", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto("/es");
+  const panel = page.locator('[data-panel="invert"]');
+  for (const k of ["k1", "k2", "k3", "k4"] as const) {
+    await expect(panel.getByText(es.home.aplicada.panel.kpis[k].label)).toBeVisible();
+  }
+  // Rule 1 of the board, asserted on the copy and not on the component: the
+  // KPIs describe volume and state, never benefit. check-copy.mjs catches
+  // these stems across the whole file; this catches them where they would be
+  // most tempting to add.
+  const words = Object.values(es.home.aplicada.panel.kpis)
+    .map((k) => k.label)
+    .join(" ")
+    .toLowerCase();
+  for (const banned of ["ahorr", "reemplaz", "hora", "costo"]) {
+    expect(words, `KPI label contains "${banned}"`).not.toContain(banned);
+  }
+});

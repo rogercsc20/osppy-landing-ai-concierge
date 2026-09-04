@@ -16,18 +16,21 @@ import { PanelSkeleton } from "./PanelSkeleton";
 
    What this section lost when it came down: the four-node diagram, which
    went to /implementacion (gate E0-2), and the two CTAs, which merged into
-   the single close (gate E0-6). The panel STAYS as it is: E4 turns it into
-   a KPI board and inverts it (HQA-D91), and doing that here would have
-   bundled two gates into one commit.
+   the single close (gate E0-6). The panel became a KPI board in E4 and now
+   carries `data-panel="invert"`, so it wears the OTHER mode: ivory over
+   Obsidian, ink over Alba (HQA-D91). The attribute goes on the AppWindow and
+   nowhere higher — it re-points variables inside its own subtree and never
+   touches `data-theme`, which is the only way to get the inversion without
+   breaking the toggle.
 
    Below md the panel is not rendered (the D4 rule) and the diagram is gone,
    so on a phone this section is typography. That is question 10 of the plan
    §9 and it is a design question, not a copy one; typography is the answer
    until the operator says otherwise. */
-const PanelEmpresa = dynamic(
-  () => import("./PanelEmpresa").then((m) => m.PanelEmpresa),
-  { ssr: false, loading: () => <PanelSkeleton /> },
-);
+const PanelKPI = dynamic(() => import("./PanelKPI").then((m) => m.PanelKPI), {
+  ssr: false,
+  loading: () => <PanelSkeleton />,
+});
 
 export function Aplicada() {
   const t = useTranslations("home.aplicada");
@@ -59,8 +62,8 @@ export function Aplicada() {
             role="img"
             aria-label={t("panel.alt")}
           >
-            <AppWindow>
-              <PanelEmpresa />
+            <AppWindow invert>
+              <PanelKPI />
             </AppWindow>
           </div>
         </div>

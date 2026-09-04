@@ -28,47 +28,47 @@
       "headline": "Your company already knows it needs AI",
       "subtitulo": "What they don't tell you is <u>where</u>",
       "panel": {
-        "titulo": "Operations panel",
+        "titulo": "Operations dashboard",
         "empresa": "Demonstration company",
         "etiqueta": "Demonstration data",
-        "enCurso": "Tasks in motion",
-        "enCursoSub": "moving on their own",
-        "revision": "Awaiting review",
-        "revisionSub": "a person decides",
-        "cola": "Work queue",
-        "etapas": {
-          "recibido": "Received",
-          "proceso": "Process",
-          "agente": "Agent",
-          "revision": "Review"
-        },
-        "rows": [
-          {
-            "area": "Sales and quotes",
-            "tarea": "Quote: supply and installation, site in Zapopan"
+        "kpis": {
+          "k1": {
+            "valor": "12480",
+            "label": "documents processed",
+            "delta": "+8",
+            "periodo": "vs. previous week"
           },
-          {
-            "area": "Accounting",
-            "tarea": "Reconcile movements against their documents"
+          "k2": {
+            "valor": "3916",
+            "label": "quotes assembled",
+            "delta": "+5",
+            "periodo": "vs. previous week"
           },
-          {
-            "area": "Purchasing",
-            "tarea": "Purchase order from the requisition"
+          "k3": {
+            "valor": "214",
+            "label": "tasks in review",
+            "delta": "0",
+            "periodo": "vs. previous week"
           },
-          {
-            "area": "Foreign trade",
-            "tarea": "Electronic file for an import"
-          },
-          {
-            "area": "Human resources",
-            "tarea": "The staff's frequently asked questions"
+          "k4": {
+            "valor": "37",
+            "label": "exceptions flagged",
+            "delta": "-4",
+            "periodo": "vs. previous week"
           }
-        ],
-        "pie": "A person reviews it. Then it goes out.",
-        "chartTitle": "Tasks completed",
-        "chartNota": "Demonstration week",
-        "chartSerie": "tasks",
-        "alt": "Operations panel with a work queue advancing through stages and a chart of the week"
+        },
+        "volumenTitulo": "Volume processed per week",
+        "volumenNota": "Demonstration week",
+        "volumenSerie": "documents",
+        "areasTitulo": "By area",
+        "areas": {
+          "a1": "Accounting",
+          "a2": "Purchasing",
+          "a3": "Sales",
+          "a4": "Invoicing"
+        },
+        "pie": "Every figure on this panel is demonstration data. A person reviews what comes out.",
+        "alt": "Operations dashboard with four indicators, a weekly volume chart and a breakdown by area"
       }
     },
     "silencio": {

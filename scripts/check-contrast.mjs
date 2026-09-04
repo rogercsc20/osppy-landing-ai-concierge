@@ -1,7 +1,7 @@
 // check-contrast.mjs — WCAG contrast of the role tokens, both modes and the
 // hotel accent override (landing v2, slices V2 and V3).
 //
-// Reads app/globals.css and builds four palettes: `:root` (light), the first
+// Reads app/globals.css and builds SIX palettes: `:root` (light), the first
 // `[data-theme="dark"]` block (dark) and, when they exist, the two halves of
 // the hotel accent override — `[data-accent="hotel"]` (its light values) and
 // `[data-theme="dark"][data-accent="hotel"]` (the values it re-points in dark
@@ -20,16 +20,49 @@ import { dirname, join } from "node:path";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const css = readFileSync(join(root, "app", "globals.css"), "utf8");
 
-function block(selector) {
-  const i = css.indexOf(selector + " {");
-  if (i === -1) return null;
-  const start = css.indexOf("{", i);
-  let depth = 0;
-  for (let j = start; j < css.length; j++) {
-    if (css[j] === "{") depth++;
-    else if (css[j] === "}" && --depth === 0) return css.slice(start + 1, j);
+/**
+ * Every block whose selector starts a LINE, merged in source order so later
+ * declarations win, exactly as the cascade would resolve them.
+ *
+ * Both halves of that sentence are load-bearing, and both were bugs.
+ *
+ * **Merged**, because globals.css has TWO `:root` blocks: one that only
+ * declares custom-property transitions, and the real palette after it. The
+ * old `indexOf` took the FIRST and therefore found no colours at all, so
+ * every light-mode pair printed "token ausente o no parseable" and the
+ * script exited 0 — 15 of its 32 pairs, all of light and light+hotel, were
+ * never measured, silently, for as long as that first block has existed. A
+ * guard that reports a token it cannot read and then passes is worse than no
+ * guard: it produces a green line that means nothing. They are counted now.
+ *
+ * **Starting a line**, because `[data-accent="hotel"]` is a substring of
+ * `[data-theme="dark"][data-accent="hotel"]` and `[data-panel="invert"]` is a
+ * substring of `[data-theme="dark"] [data-panel="invert"]`. Inside a compound
+ * the selector is preceded by `]` or a space and never by a newline, so the
+ * line-start rule separates them without a hand-written exception per
+ * selector — which is what the previous `"\n[data-accent=..."` hack was.
+ */
+function blocks(selector) {
+  const found = [];
+  const needle = selector + " {";
+  for (let i = css.indexOf(needle); i !== -1; i = css.indexOf(needle, i + 1)) {
+    if (i !== 0 && css[i - 1] !== "\n") continue;
+    const start = css.indexOf("{", i);
+    let depth = 0;
+    for (let j = start; j < css.length; j++) {
+      if (css[j] === "{") depth++;
+      else if (css[j] === "}" && --depth === 0) {
+        found.push(css.slice(start + 1, j));
+        break;
+      }
+    }
   }
-  return null;
+  return found;
+}
+
+/** All declarations of a selector, merged; later wins. */
+function paletteOf(selector) {
+  return blocks(selector).reduce((acc, b) => ({ ...acc, ...vars(b) }), {});
 }
 
 function vars(text) {
@@ -68,18 +101,28 @@ const ratio = (fg, bg) => {
   return (hi + 0.05) / (lo + 0.05);
 };
 
-const light = vars(block(":root"));
-const dark = vars(block('[data-theme="dark"]'));
-// `[data-accent="hotel"]` is a substring of the dark compound selector, so the
-// light half is matched at the start of its own line (the leading newline) —
-// otherwise a file that declared the compound first would hand back its block.
-const hotelDark = vars(block('[data-theme="dark"][data-accent="hotel"]'));
-const hotelLight = vars(block('\n[data-accent="hotel"]'));
+const light = paletteOf(":root");
+const dark = paletteOf('[data-theme="dark"]');
+const hotelDark = paletteOf('[data-theme="dark"][data-accent="hotel"]');
+const hotelLight = paletteOf('[data-accent="hotel"]');
+// The inverted operation panel (E4, HQA-D91): it re-points the surface
+// palette inside its own subtree, so it is a fifth and sixth palette and not
+// a variation of an existing one. Layered exactly as the cascade applies it.
+const panelOnLight = paletteOf('[data-panel="invert"]');
+const panelOnDark = paletteOf('[data-theme="dark"] [data-panel="invert"]');
 
 const modes = { light, dark };
 if (Object.keys(hotelLight).length) {
   modes["light+hotel"] = { ...light, ...hotelLight };
   modes["dark+hotel"] = { ...dark, ...hotelLight, ...hotelDark };
+}
+if (Object.keys(panelOnLight).length) {
+  // The panel sits ON `--surface`, not on `--bg`: it is a window over the
+  // page, so its own bg role IS its surface. Re-pointing `bg` here is what
+  // makes the shared PAIRS list measure the right thing without a second
+  // list that could drift from the first.
+  modes["panel sobre Alba"] = { ...light, ...panelOnLight, bg: panelOnLight.surface };
+  modes["panel sobre Obsidian"] = { ...dark, ...panelOnDark, bg: panelOnDark.surface };
 }
 
 const PAIRS = [
@@ -100,7 +143,11 @@ for (const [name, t] of Object.entries(modes)) {
     const fg = parse(t[fgName] ?? "");
     const bg = parse(t[bgName] ?? "");
     if (!fg || !bg) {
-      console.log(`   ?  ${fgName} / ${bgName}: token ausente o no parseable (${t[fgName] ?? "—"} / ${t[bgName] ?? "—"})`);
+      // A pair that cannot be read is a FAILURE, not a shrug. The old "?"
+      // printed a warning and exited 0, which is how fifteen unmeasured
+      // pairs stayed green for weeks.
+      console.log(`   ✗ ${fgName} / ${bgName}: token ausente o no parseable (${t[fgName] ?? "—"} / ${t[bgName] ?? "—"})`);
+      fails++;
       continue;
     }
     const r = ratio(fg, bg);

@@ -31,44 +31,44 @@
         "titulo": "Panel de operación",
         "empresa": "Empresa de demostración",
         "etiqueta": "Datos de demostración",
-        "enCurso": "Tareas en curso",
-        "enCursoSub": "avanzan solas",
-        "revision": "Esperan revisión",
-        "revisionSub": "la persona decide",
-        "cola": "Cola de trabajo",
-        "etapas": {
-          "recibido": "Recibido",
-          "proceso": "Proceso",
-          "agente": "Agente",
-          "revision": "Revisión"
-        },
-        "rows": [
-          {
-            "area": "Ventas y cotizaciones",
-            "tarea": "Cotización: suministro y montaje, obra en Zapopan"
+        "kpis": {
+          "k1": {
+            "valor": "12480",
+            "label": "documentos procesados",
+            "delta": "+8",
+            "periodo": "vs. semana anterior"
           },
-          {
-            "area": "Contabilidad",
-            "tarea": "Conciliar movimientos contra sus documentos"
+          "k2": {
+            "valor": "3916",
+            "label": "cotizaciones armadas",
+            "delta": "+5",
+            "periodo": "vs. semana anterior"
           },
-          {
-            "area": "Compras",
-            "tarea": "Orden de compra desde la requisición"
+          "k3": {
+            "valor": "214",
+            "label": "tareas en revisión",
+            "delta": "0",
+            "periodo": "vs. semana anterior"
           },
-          {
-            "area": "Comercio exterior",
-            "tarea": "Expediente electrónico de una importación"
-          },
-          {
-            "area": "Recursos humanos",
-            "tarea": "Preguntas frecuentes del personal"
+          "k4": {
+            "valor": "37",
+            "label": "excepciones marcadas",
+            "delta": "-4",
+            "periodo": "vs. semana anterior"
           }
-        ],
-        "pie": "Revisa una persona. Después sale.",
-        "chartTitle": "Tareas completadas",
-        "chartNota": "Semana de demostración",
-        "chartSerie": "tareas",
-        "alt": "Panel de operación con una cola de trabajo avanzando por etapas y una gráfica de la semana"
+        },
+        "volumenTitulo": "Volumen procesado por semana",
+        "volumenNota": "Semana de demostración",
+        "volumenSerie": "documentos",
+        "areasTitulo": "Por área",
+        "areas": {
+          "a1": "Contabilidad",
+          "a2": "Compras",
+          "a3": "Ventas",
+          "a4": "Facturación"
+        },
+        "pie": "Cada cifra de este panel es de demostración. Una persona revisa lo que sale.",
+        "alt": "Panel de operación con cuatro indicadores, una gráfica de volumen por semana y un desglose por área"
       }
     },
     "silencio": {

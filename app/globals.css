@@ -719,6 +719,63 @@ html[data-vt="theme"]::view-transition-new(root) {
    THIS BLOCK MUST STAY LAST. The [data-theme="dark"] chart block above has
    the same specificity for the chart variables, so whichever comes last wins;
    put this before it and the hotel panel's charts go grey. */
+/* ── data-panel="invert" — the operation panel wears the other mode (HQA-D91)
+   ───────────────────────────────────────────────────────────────────────────
+   The operator asked for the panel inverted: light panel in dark mode, dark
+   panel in light mode. This is the whole mechanism, and it is deliberately
+   SCOPED: it re-points a handful of variables inside its own subtree and
+   touches nothing else. `data-theme` is never written — writing it would
+   break the toggle, the <meta name="theme-color"> and the layout's
+   pre-paint script — and the page ground, the atmosphere and every section
+   outside the panel are untouched.
+
+   **The accent inverts too, and the plan said it would not.** §4.4 listed
+   five variables and wrote "el acento no se invierta". Measured, that rule
+   makes the panel unreadable: in dark mode the panel is ivory, and Salvia
+   #74c0ac on #ffffff is **2.13:1**, copper #d99c71 is **2.35:1**, and in
+   light mode Petróleo on #111817 is **1.93:1** — all far under 4.5. Taking
+   the OTHER MODE'S VARIANT of the same accent gives 9.33, 6.65, 8.47 and
+   7.67:1. So what the rule protects is preserved and what it broke is
+   fixed: the panel keeps the HOUSE accent (Petróleo/Salvia) and never
+   borrows the hotel's teal, which is what "the accent does not invert"
+   is actually for. It uses the variant that belongs to the surface it sits
+   on, which is not a different accent — it is the same one, read correctly.
+
+   The two on-accent foregrounds flip with it, for the same reason: white on
+   Petróleo is 9.33:1 and Tinta on Salvia is 6.85:1, and keeping either one
+   fixed would fail on the other surface. */
+[data-panel="invert"] {
+  /* page is Alba → the panel is Obsidian */
+  --surface: #111817;
+  --glass: rgba(17, 24, 23, 0.62);
+  --text: #eef2f0;
+  --text-2: rgba(238, 242, 240, 0.65);
+  --line: rgba(255, 255, 255, 0.08);
+  --accent: #74c0ac;
+  --accent-text: #74c0ac;
+  --warm: #d99c71;
+  --warm-text: #d99c71;
+  --primary-foreground: #1c2b33;
+  --accent-foreground: #1c2b33;
+  color-scheme: dark;
+}
+
+[data-theme="dark"] [data-panel="invert"] {
+  /* page is Obsidian → the panel is Alba */
+  --surface: #ffffff;
+  --glass: rgba(255, 255, 255, 0.66);
+  --text: #1c2b33;
+  --text-2: #54646b;
+  --line: rgba(28, 43, 51, 0.1);
+  --accent: #0e4f4f;
+  --accent-text: #0e4f4f;
+  --warm: #b26a45;
+  --warm-text: #8c4b2c;
+  --primary-foreground: #ffffff;
+  --accent-foreground: #ffffff;
+  color-scheme: light;
+}
+
 [data-accent="hotel"] {
   --accent: #0d7f95; /* Teal profundo — blanco encima, 4.69:1 */
   --accent-text: #0b6b7e; /* Teal tinta — enlaces sobre Marfil, 5.57:1 */
