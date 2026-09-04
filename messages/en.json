@@ -518,12 +518,76 @@
   "servicios": {
     "capacitacion": {
       "kicker": "Training",
-      "headline": "Your team leaves knowing how to use it in their own work.",
-      "body": "Hands-on workshops, live and by group, with real tasks from your business.",
+      "headline": "Your team leaves knowing how to use AI in their own work.",
+      "body": "Live workshops, by group, using the tasks your team already does.",
       "cta": "Talk to an advisor",
       "ctaMessage": "Hello, I would like to talk about AI training for my team.",
       "metaTitle": "Training · Osppy",
-      "metaDescription": "Hands-on artificial intelligence workshops for owners, managers and teams at medium and large companies."
+      "metaDescription": "Hands-on artificial intelligence workshops for owners, managers and teams, with real tasks from your operation.",
+      "queEs": {
+        "titulo": "What it is",
+        "p1": "Live workshops, by group, with real tasks from your business. Artificial intelligence is not taught in the abstract: what gets taught is how to do one task of the job faster, more clearly and more safely.",
+        "p2": "First we teach people to use the tools well. Then we look at which problems keep coming back, and only then is it worth talking about leaving something running."
+      },
+      "paraQuien": {
+        "titulo": "Who it is for",
+        "q1Titulo": "Owners and leadership",
+        "q1Body": "Judgement to decide where AI is worth using, what to buy, and what not to delegate.",
+        "q2Titulo": "Managers and middle management",
+        "q2Body": "A method to standardise, supervise and sustain the use of AI inside their area.",
+        "q3Titulo": "Working teams",
+        "q3Body": "Concrete routines for doing the everyday tasks better."
+      },
+      "rutas": {
+        "titulo": "The routes",
+        "intro": "The routes run in parallel; they are not a ladder. You come in through yours.",
+        "r1Titulo": "Entry",
+        "r1Body": "A short talk for leadership and a starting workshop for the whole team, from zero.",
+        "r1Estado": "We are finishing the material.",
+        "r2Titulo": "Operational",
+        "r2Body": "Workshops by area and by role: documents, photos and voice notes; spreadsheets for sales, receivables and operations; sales and quotes; customer service; administration, invoicing and collections; purchasing and suppliers; field operations; human resources and internal knowledge.",
+        "r2Estado": "Prepared with your operation when you book it.",
+        "r3Titulo": "Leadership",
+        "r3Body": "For whoever decides and whoever sustains the use in their area: where AI is worth it and where it isn't, how to get it actually used, safe use and internal policy, and training an internal owner for it.",
+        "r3Estado": "Prepared with your operation when you book it.",
+        "r4Titulo": "Advanced",
+        "r4Body": "For people already using it every day: automating repetitive tasks without programming, and designing a knowledge assistant for their area.",
+        "r4Estado": "Prepared with your operation when you book it.",
+        "continuosTitulo": "And after the workshop",
+        "continuosBody": "A monthly clinic where you bring the work that eats your time, and a workshop built with examples from your own industry.",
+        "nota": "Training is delivered, booked and scheduled today. How finished the material is varies from one workshop to the next, and we tell you before booking, not after."
+      },
+      "hecho": {
+        "titulo": "What has been done",
+        "t1Titulo": "Claude Enterprise adoption",
+        "t1Body": "Getting a whole team working with an enterprise-grade AI tool, with order and rules of use."
+      },
+      "encaja": {
+        "titulo": "Where it fits",
+        "body": "Training is the Exploration phase of the method: we get to know your operation and identify where AI genuinely helps, and where it isn't needed. While the team learns to use it, the problems that really do repeat come into view.",
+        "enlaceTitulo": "The next phase is the diagnosis",
+        "enlaceCta": "See Advisory"
+      },
+      "precio": {
+        "titulo": "Pricing",
+        "body": "Training is priced per group and per result, never per hour.",
+        "cierre": "The figures come in the first conversation."
+      },
+      "faq": {
+        "titulo": "Questions",
+        "q1": "How long is a workshop?",
+        "a1": "The length follows the scope, not the other way around: it follows what the group has to leave knowing how to do. It is written into the proposal, along with the scope and what gets delivered.",
+        "q2": "Can we practise with the company's real information?",
+        "a2": "We practise with fictional, public or anonymised information. If you decide to use real data you need internal authorisation, and passwords, banking details, sensitive personal data and full customer databases stay out.",
+        "q3": "Does a workshop leave my process automated?",
+        "a3": "No. A workshop teaches capabilities. If a problem worth solving with a system shows up at the end, it is quoted separately, with written scope and success criteria.",
+        "q4": "Which tool do you practise with?",
+        "a4": "With Claude, which is Osppy's initial recommendation. The principles carry over to other tools, and that is said in every workshop."
+      },
+      "cierre": {
+        "titulo": "Tell us about your operation and we will find where to start.",
+        "cta": "Talk to an advisor"
+      }
     },
     "asesoria": {
       "kicker": "Advisory",
@@ -532,7 +596,68 @@
       "cta": "Talk to an advisor",
       "ctaMessage": "Hello, I would like to talk about an advisory session for my company's operation.",
       "metaTitle": "Advisory · Osppy",
-      "metaDescription": "A diagnosis of the operation to identify where artificial intelligence fits, and where it does not yet."
+      "metaDescription": "A diagnosis of the operation to identify where artificial intelligence fits, and where it does not yet.",
+      "creemos": {
+        "kicker": "What we believe",
+        "headline": "AI is worth it when it does a whole task, under written rules, with someone reviewing it.",
+        "c1Titulo": "A whole task, not a slice",
+        "c1Body": "Half an automated task leaves a person finishing it by hand and checking twice as much. If it can't be done end to end, it isn't time yet.",
+        "c2Titulo": "Written rules before code",
+        "c2Body": "The system does what the process says. If the process lives in one person's head, the first thing we deliver is the process, not the system.",
+        "c3Titulo": "A person reviews and decides",
+        "c3Body": "These tools get things wrong and sometimes make things up. That's why everything is built so someone can review it: the AI proposes, the person decides.",
+        "nota": "Technology can take away repetitive tasks; the decisions, the attention that matters and the responsibility stay with people."
+      },
+      "diagnostico": {
+        "titulo": "The diagnosis",
+        "body": "The first session looks at how you work today, area by area, and identifies where artificial intelligence helps and where it is not needed. It ends with the scope in writing, or it ends with a no.",
+        "preguntasTitulo": "The diagnostic starts with questions like:",
+        "preguntas": [
+          "Where does your team's time actually go?",
+          "Which process repeats the same way every week?",
+          "What information do you already have that nobody is using?",
+          "What's worth automating, and what isn't yet?"
+        ]
+      },
+      "salidas": {
+        "titulo": "A diagnosis has three outcomes",
+        "s1Titulo": "This is worth looking at",
+        "s1Body": "There is an area with one concrete task that repeats, that can be done end to end, and we know which one it is.",
+        "s2Titulo": "The process gets written first",
+        "s2Body": "The area is the right one and the process lives in one person's head. So the first thing delivered is the process, not the system.",
+        "s3Titulo": "Not yet",
+        "s3Body": "Sometimes the answer is: not yet. We tell you that too."
+      },
+      "estructuracion": {
+        "titulo": "Process structuring",
+        "body": "The groundwork: getting the process written down before automating anything. Without it, we don't build agents."
+      },
+      "encaja": {
+        "titulo": "Where it fits",
+        "body": "Advisory is the Diagnosis phase of the method: what information exists, where it lives and how ready it is for a system to work with it. Once the process is written and the scope defined, implementation follows.",
+        "enlaceTitulo": "The next phase is building",
+        "enlaceCta": "See Implementation"
+      },
+      "precio": {
+        "titulo": "Pricing",
+        "body": "Advisory is quoted separately, with written scope and success criteria.",
+        "cierre": "The figures come in the first conversation."
+      },
+      "faq": {
+        "titulo": "Questions",
+        "q1": "How long does a diagnosis take?",
+        "a1": "It follows the size of the operation and how many areas are in scope. It is written into the proposal before we start, along with what gets delivered.",
+        "q2": "And if it turns out not to be worth it?",
+        "a2": "Then that is the answer and you get it. A diagnosis that can only end in a project is not a diagnosis.",
+        "q3": "Does the advisory commit me to building with you?",
+        "a3": "No. What comes out of the diagnosis is delivered in writing and it is yours. If you decide to build, that is quoted separately.",
+        "q4": "What kind of company is it for?",
+        "a4": "For companies with separate areas, where the work already passes through several hands. There is no fixed list: it changes with the industry, the team, the size and the processes you already have."
+      },
+      "cierre": {
+        "titulo": "Tell us which area you want to start with.",
+        "cta": "Talk to an advisor"
+      }
     },
     "implementacion": {
       "kicker": "Implementation",
@@ -541,7 +666,79 @@
       "cta": "Talk to an advisor",
       "ctaMessage": "Hello, I would like to talk about implementing artificial intelligence in my operation.",
       "metaTitle": "Implementation · Osppy",
-      "metaDescription": "Agents, assistants and process automation that stay running inside the company, with scope in writing."
+      "metaDescription": "Agents, assistants and process automation that stay running inside the company, with scope in writing.",
+      "agentes": {
+        "titulo": "AI agents",
+        "body": "An agent does a whole task on its own, inside a defined process and under written rules. Whole means end to end: half an automated task leaves a person finishing it by hand and checking twice as much.",
+        "revision": "The AI proposes; a person reviews and decides. Everything is built so that review is possible.",
+        "diagrama": {
+          "tarea": "The task",
+          "proceso": "The process",
+          "procesoEtiqueta": "written by someone",
+          "agente": "The agent",
+          "resultado": "The result",
+          "pie": "The step almost nobody has written down is the second one.",
+          "alt": "Four-step diagram: the task goes through a process someone wrote down, an agent runs it, and it produces a result."
+        }
+      },
+      "construido": {
+        "titulo": "What has been built",
+        "f1Titulo": "They do the task",
+        "f1i1Titulo": "AI agents",
+        "f1i1Body": "They do a whole task on their own, autonomously, inside a defined process, with written rules.",
+        "f1i2Titulo": "AI assistants",
+        "f1i2Body": "They answer and attend with the information the business loads. If something isn't there, they say so or ask; they don't make things up.",
+        "f1i3Titulo": "Process automation",
+        "f1i3Body": "Once it is written, the process stops being done by hand: the system runs it and a person reviews the result.",
+        "f2Titulo": "They produce documents",
+        "f2i1Titulo": "Quoting tools",
+        "f2i1Body": "Systems that put a quote together using the business's own rules and prices, so it doesn't depend on one person.",
+        "f2i2Titulo": "Templates with your company's letterhead",
+        "f2i2Body": "Documents that go out to a client are built with your format, your letterhead and your details, without being redone each time.",
+        "f2i3Titulo": "A system for handling audits",
+        "f2i3Body": "The file is assembled as things happen, not the week the auditor arrives, and every document ends up where someone will look for it.",
+        "f3Titulo": "They live in your house",
+        "f3i1Titulo": "Models in your infrastructure",
+        "f3i1Body": "When the information can't leave your house, the model is deployed inside your own infrastructure, with Amazon Bedrock."
+      },
+      "conecta": {
+        "titulo": "How it connects",
+        "body": "What we build connects to the ERP and the invoicing system you already use. How far that connection goes is defined in the diagnosis and put in writing before it appears in any proposal.",
+        "nota": "We do not publish system brands. Naming one requires an instance already delivered, and that is a conversation, not a page."
+      },
+      "fases": {
+        "titulo": "The three phases",
+        "f1Titulo": "Solution design",
+        "f1Body": "The process gets written down and the solution is drawn on top of it, with a scoped proof of concept (PoC) before building at scale.",
+        "f2Titulo": "Implementation",
+        "f2Body": "Development of the system and of its technical operation (MLOps). Quoted separately, with written scope and success criteria: you measure the impact, with your own numbers.",
+        "f3Titulo": "Support and monitoring",
+        "f3Body": "Governance and retraining: what we deliver stays under a monitoring and maintenance plan, and the system adjusts as your operation changes."
+      },
+      "despues": {
+        "titulo": "After delivery",
+        "body": "What gets delivered can stay under an operation plan: hosting, monitoring and maintenance."
+      },
+      "precio": {
+        "titulo": "Pricing",
+        "body": "Implementation is quoted separately, with written scope and success criteria.",
+        "cierre": "The figures come in the first conversation."
+      },
+      "faq": {
+        "titulo": "Questions",
+        "q1": "What if my process isn't written down anywhere?",
+        "a1": "That's the most common case, and it is the first piece of work. Writing the process comes before any automation: we don't build agents on top of processes that only live in someone's head.",
+        "q2": "Does my company's information leave my infrastructure?",
+        "a2": "It depends on what we build, and it is defined in writing before we start: what information can be used, what gets anonymised and what stays out. When it can't leave, the model is deployed inside your own infrastructure.",
+        "q3": "Who operates the system afterwards?",
+        "a3": "What we deliver stays under a monitoring and maintenance plan, and it adjusts as your operation changes. We don't hand over a tool and walk away.",
+        "q4": "How long does it take?",
+        "a4": "It follows the scope, and the scope comes out of the diagnosis. Before that, any date would be invented, so we don't give one."
+      },
+      "cierre": {
+        "titulo": "Tell us which area you want to start with.",
+        "cta": "Talk to an advisor"
+      }
     }
   },
   "footer": {

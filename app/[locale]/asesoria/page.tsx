@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { PaginaServicio } from "@/components/servicios/PaginaServicio";
+import { PaginaAsesoria } from "@/components/servicios/PaginaAsesoria";
 
 export async function generateMetadata({
   params,
@@ -23,14 +23,14 @@ export async function generateMetadata({
   };
 }
 
-/* Tanda E2: the route exists so the nav never points at a 404 (HQA-D88).
-   The page itself is a hero and a CTA; its body is built in E5c, behind the
-   copy gate E5a. */
+/* Tanda E5c: the full page. E2 shipped the route as a hero and a CTA so the
+   nav would never point at a 404; the body landed here once the copy passed
+   its operator gate (E5a) and its English mirror was written (E5b). */
 export default async function Page({
   params,
 }: {
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  return <PaginaServicio slug="asesoria" locale={locale} />;
+  return <PaginaAsesoria locale={locale} />;
 }

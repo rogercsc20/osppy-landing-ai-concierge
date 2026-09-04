@@ -518,12 +518,76 @@
   "servicios": {
     "capacitacion": {
       "kicker": "Capacitación",
-      "headline": "Tu equipo sale sabiendo usarla en su propio trabajo.",
-      "body": "Talleres prácticos, en vivo y por grupo, con tareas reales de tu negocio.",
+      "headline": "Tu equipo sale sabiendo usar la IA en su propio trabajo.",
+      "body": "Talleres en vivo, por grupo, con las tareas que tu equipo ya hace.",
       "cta": "Contacta un asesor",
       "ctaMessage": "Hola, quiero platicar sobre capacitación de IA para mi equipo.",
       "metaTitle": "Capacitación · Osppy",
-      "metaDescription": "Talleres prácticos de inteligencia artificial para dueños, gerentes y equipos de empresas medianas y grandes."
+      "metaDescription": "Talleres prácticos de inteligencia artificial para dueños, gerentes y equipos, con tareas reales de tu operación.",
+      "queEs": {
+        "titulo": "Qué es",
+        "p1": "Talleres en vivo y por grupo, con tareas reales de tu negocio. No se enseña inteligencia artificial en abstracto: se enseña a hacer una tarea del puesto de forma más rápida, más clara y más segura.",
+        "p2": "Primero enseñamos a usar bien las herramientas. Después vemos qué problemas se repiten, y solo entonces vale la pena hablar de dejar algo funcionando."
+      },
+      "paraQuien": {
+        "titulo": "Para quién",
+        "q1Titulo": "Dueños y dirección",
+        "q1Body": "Criterio para decidir dónde usar IA, qué comprar y qué no delegar.",
+        "q2Titulo": "Gerentes y mandos medios",
+        "q2Body": "Método para estandarizar, supervisar y sostener el uso dentro de su área.",
+        "q3Titulo": "Equipos de trabajo",
+        "q3Body": "Rutinas concretas para hacer mejor las tareas de todos los días."
+      },
+      "rutas": {
+        "titulo": "Las rutas",
+        "intro": "Las rutas son paralelas, no una escalera. Cada quien entra por la suya.",
+        "r1Titulo": "Entrada",
+        "r1Body": "Una charla corta para dirección y un taller de arranque para todo el equipo, desde cero.",
+        "r1Estado": "Estamos terminando el material.",
+        "r2Titulo": "Operativa",
+        "r2Body": "Talleres por área y por puesto: documentos, fotos y notas de voz; hojas de cálculo para ventas, cartera y operación; ventas y cotizaciones; atención a clientes; administración, facturación y cobranza; compras y proveedores; operaciones en campo; recursos humanos y conocimiento interno.",
+        "r2Estado": "Se prepara con tu operación al contratarlo.",
+        "r3Titulo": "Dirección",
+        "r3Body": "Para quien decide y para quien sostiene el uso en su área: dónde conviene la IA y dónde no, cómo lograr que de verdad se use, uso seguro y política interna, y la formación de un responsable interno.",
+        "r3Estado": "Se prepara con tu operación al contratarlo.",
+        "r4Titulo": "Avanzada",
+        "r4Body": "Para quien ya la usa todos los días: automatizar tareas repetitivas sin programar, y diseñar un asistente de conocimiento para su área.",
+        "r4Estado": "Se prepara con tu operación al contratarlo.",
+        "continuosTitulo": "Y después del taller",
+        "continuosBody": "Una clínica mensual donde traes el trabajo que te quita tiempo, y un taller armado con los ejemplos de tu propia industria.",
+        "nota": "La capacitación se imparte, se contrata y se agenda hoy. Qué tan listo está el material cambia de un taller a otro, y te lo decimos antes de agendar, no después."
+      },
+      "hecho": {
+        "titulo": "Lo que se ha hecho",
+        "t1Titulo": "Adopción de Claude Enterprise",
+        "t1Body": "Dejar a un equipo completo trabajando con una herramienta de IA de nivel empresarial, con orden y con reglas de uso."
+      },
+      "encaja": {
+        "titulo": "Dónde encaja",
+        "body": "La capacitación es la fase de Exploración del método: entendemos tu operación e identificamos dónde la IA ayuda de verdad, y dónde no hace falta. Mientras el equipo aprende a usarla, salen a la luz los problemas que sí se repiten.",
+        "enlaceTitulo": "La fase siguiente es el diagnóstico",
+        "enlaceCta": "Ver Asesoría"
+      },
+      "precio": {
+        "titulo": "Precio",
+        "body": "La capacitación se cotiza por grupo y por resultado, nunca por hora.",
+        "cierre": "Las cifras, en la primera conversación."
+      },
+      "faq": {
+        "titulo": "Preguntas",
+        "q1": "¿Cuánto dura un taller?",
+        "a1": "La duración sale del alcance, no al revés: de lo que el grupo tiene que salir sabiendo hacer. Va escrita en la propuesta, junto con el alcance y con lo que se entrega.",
+        "q2": "¿Se puede practicar con información real de la empresa?",
+        "a2": "Se practica con información ficticia, pública o anonimizada. Si decides usar datos reales necesitas autorización interna, y quedan fuera contraseñas, datos bancarios, datos personales sensibles y bases completas de clientes.",
+        "q3": "¿Un taller deja mi proceso automatizado?",
+        "a3": "No. Un taller enseña capacidades. Si al terminar aparece un problema que valga la pena resolver con un sistema, se cotiza por separado, con alcance y criterios de éxito por escrito.",
+        "q4": "¿Con qué herramienta se practica?",
+        "a4": "Con Claude, que es la recomendación inicial de Osppy. Los principios son transferibles a otras herramientas, y eso se dice en cada taller."
+      },
+      "cierre": {
+        "titulo": "Platícanos tu operación y vemos por dónde empezar.",
+        "cta": "Contacta un asesor"
+      }
     },
     "asesoria": {
       "kicker": "Asesoría",
@@ -532,7 +596,68 @@
       "cta": "Contacta un asesor",
       "ctaMessage": "Hola, quiero platicar sobre una asesoría para la operación de mi empresa.",
       "metaTitle": "Asesoría · Osppy",
-      "metaDescription": "Diagnóstico de la operación para identificar dónde entra la inteligencia artificial, y dónde todavía no."
+      "metaDescription": "Diagnóstico de la operación para identificar dónde entra la inteligencia artificial, y dónde todavía no.",
+      "creemos": {
+        "kicker": "Lo que creemos",
+        "headline": "La IA vale la pena cuando hace una tarea completa, con reglas escritas, y alguien la revisa.",
+        "c1Titulo": "Una tarea completa, no un pedazo",
+        "c1Body": "Media tarea automatizada deja a una persona terminándola a mano y revisando el doble. Si no se puede hacer completa, todavía no toca.",
+        "c2Titulo": "Reglas escritas antes que código",
+        "c2Body": "El sistema hace lo que dice el proceso. Si el proceso vive en la cabeza de una persona, lo primero que entregamos es el proceso, no el sistema.",
+        "c3Titulo": "Una persona revisa y decide",
+        "c3Body": "Estas herramientas se equivocan y a veces inventan. Por eso todo se arma para que alguien pueda revisar: la IA propone, la persona decide.",
+        "nota": "La tecnología puede quitar tareas repetitivas; las decisiones, la atención importante y la responsabilidad siguen siendo de las personas."
+      },
+      "diagnostico": {
+        "titulo": "El diagnóstico",
+        "body": "La primera sesión mira cómo trabajas hoy, área por área, e identifica dónde la inteligencia artificial ayuda y dónde no hace falta. Termina con el alcance por escrito, o termina con un no.",
+        "preguntasTitulo": "El diagnóstico empieza con preguntas como:",
+        "preguntas": [
+          "¿Dónde se va el tiempo de tu equipo?",
+          "¿Qué proceso se repite igual todas las semanas?",
+          "¿Qué información ya tienes que nadie está usando?",
+          "¿Qué conviene automatizar, y qué todavía no?"
+        ]
+      },
+      "salidas": {
+        "titulo": "Un diagnóstico tiene tres salidas",
+        "s1Titulo": "Vale la pena mirar aquí",
+        "s1Body": "Hay un área con una tarea concreta que se repite, se puede hacer completa, y sabemos cuál es.",
+        "s2Titulo": "Primero, el proceso por escrito",
+        "s2Body": "El área es la correcta y el proceso vive en la cabeza de una persona. Entonces lo primero que se entrega es el proceso, no el sistema.",
+        "s3Titulo": "Todavía no",
+        "s3Body": "A veces la respuesta es: todavía no. Y también te lo decimos."
+      },
+      "estructuracion": {
+        "titulo": "Estructuración de procesos",
+        "body": "El trabajo previo: dejar el proceso escrito antes de automatizar nada. Sin esto no construimos agentes."
+      },
+      "encaja": {
+        "titulo": "Dónde encaja",
+        "body": "La asesoría es la fase de Diagnóstico del método: qué información existe, dónde vive y qué tan lista está para que un sistema trabaje con ella. Cuando el proceso ya está escrito y el alcance definido, sigue la implementación.",
+        "enlaceTitulo": "La fase siguiente es construir",
+        "enlaceCta": "Ver Implementación"
+      },
+      "precio": {
+        "titulo": "Precio",
+        "body": "La asesoría se cotiza por separado, con alcance y criterios de éxito por escrito.",
+        "cierre": "Las cifras, en la primera conversación."
+      },
+      "faq": {
+        "titulo": "Preguntas",
+        "q1": "¿Cuánto dura un diagnóstico?",
+        "a1": "Sale del tamaño de la operación y de cuántas áreas entran. Va escrito en la propuesta antes de empezar, junto con lo que se entrega.",
+        "q2": "¿Y si resulta que no conviene?",
+        "a2": "Entonces esa es la respuesta y te la damos. Un diagnóstico que solo puede terminar en un proyecto no es un diagnóstico.",
+        "q3": "¿La asesoría obliga a implementar con ustedes?",
+        "a3": "No. Lo que sale del diagnóstico se entrega por escrito y es tuyo. Si decides construir, eso se cotiza por separado.",
+        "q4": "¿Para qué tipo de empresa es?",
+        "a4": "Para empresas con áreas separadas, donde el trabajo ya pasa por varias manos. No hay una lista fija: cambia según la industria, el equipo, el tamaño y los procesos que ya tienes."
+      },
+      "cierre": {
+        "titulo": "Cuéntanos con qué área quieres empezar.",
+        "cta": "Contacta un asesor"
+      }
     },
     "implementacion": {
       "kicker": "Implementación",
@@ -541,7 +666,79 @@
       "cta": "Contacta un asesor",
       "ctaMessage": "Hola, quiero platicar sobre implementar inteligencia artificial en mi operación.",
       "metaTitle": "Implementación · Osppy",
-      "metaDescription": "Agentes, asistentes y automatización de procesos que quedan operando dentro de la empresa, con alcance por escrito."
+      "metaDescription": "Agentes, asistentes y automatización de procesos que quedan operando dentro de la empresa, con alcance por escrito.",
+      "agentes": {
+        "titulo": "Agentes de IA",
+        "body": "Un agente hace una tarea completa por su cuenta, dentro de un proceso definido y con reglas escritas. Completa quiere decir de principio a fin: media tarea automatizada deja a una persona terminándola a mano y revisando el doble.",
+        "revision": "La IA propone; una persona revisa y decide. Todo se arma para que esa revisión sea posible.",
+        "diagrama": {
+          "tarea": "La tarea",
+          "proceso": "El proceso",
+          "procesoEtiqueta": "escrito por alguien",
+          "agente": "El agente",
+          "resultado": "El resultado",
+          "pie": "El paso que casi nadie tiene escrito es el segundo.",
+          "alt": "Diagrama de cuatro pasos: la tarea pasa por un proceso escrito por alguien, un agente la ejecuta y produce un resultado."
+        }
+      },
+      "construido": {
+        "titulo": "Lo que se ha construido",
+        "f1Titulo": "Hacen la tarea",
+        "f1i1Titulo": "Agentes de IA",
+        "f1i1Body": "Hacen una tarea completa por su cuenta, de forma autónoma, dentro de un proceso definido y con reglas escritas.",
+        "f1i2Titulo": "Asistentes de IA",
+        "f1i2Body": "Responden y atienden con la información que el negocio carga. Si algo no está, lo dicen o preguntan, no inventan.",
+        "f1i3Titulo": "Automatización de procesos",
+        "f1i3Body": "Una vez escrito, el proceso deja de hacerse a mano: el sistema lo ejecuta y una persona revisa el resultado.",
+        "f2Titulo": "Producen documentos",
+        "f2i1Titulo": "Cotizadores",
+        "f2i1Body": "Sistemas que arman una cotización con las reglas y los precios del negocio, para que no dependa de una sola persona.",
+        "f2i2Titulo": "Plantillas con los membretes de tu empresa",
+        "f2i2Body": "Los documentos que salen a un cliente se arman ya con tu formato, tu membrete y tus datos, sin rehacerlos cada vez.",
+        "f2i3Titulo": "Sistema para manejar auditorías",
+        "f2i3Body": "El expediente se arma conforme pasan las cosas, no la semana que llega el auditor, y cada documento queda donde se busca.",
+        "f3Titulo": "Viven en tu casa",
+        "f3i1Titulo": "Modelos en tu infraestructura",
+        "f3i1Body": "Cuando la información no puede salir de tu casa, el modelo se despliega dentro de tu propia infraestructura, con Amazon Bedrock."
+      },
+      "conecta": {
+        "titulo": "Cómo se conecta",
+        "body": "Lo que se construye se conecta con el ERP y el sistema de facturación que ya usas. Hasta dónde llega esa conexión se define en el diagnóstico y queda por escrito antes de que aparezca en una propuesta.",
+        "nota": "No publicamos marcas de sistemas. Nombrar uno exige una instancia ya entregada, y eso es una conversación, no una página."
+      },
+      "fases": {
+        "titulo": "Las tres fases",
+        "f1Titulo": "Diseño de solución",
+        "f1Body": "El proceso queda por escrito y la solución se dibuja encima, con una prueba de concepto acotada (PoC) antes de construir en grande.",
+        "f2Titulo": "Implementación",
+        "f2Body": "Desarrollo del sistema y de su operación técnica (MLOps). Se cotiza por separado, con alcance y criterios de éxito por escrito: el impacto lo mides tú, con tus números.",
+        "f3Titulo": "Soporte y monitoreo",
+        "f3Body": "Gobernanza y reentrenamiento: lo entregado queda bajo un plan de monitoreo y mantenimiento, y el sistema se ajusta conforme tu operación cambia."
+      },
+      "despues": {
+        "titulo": "Después de entregar",
+        "body": "Lo que queda entregado puede seguir bajo un plan de operación: hosting, monitoreo y mantenimiento."
+      },
+      "precio": {
+        "titulo": "Precio",
+        "body": "La implementación se cotiza por separado, con alcance y criterios de éxito por escrito.",
+        "cierre": "Las cifras, en la primera conversación."
+      },
+      "faq": {
+        "titulo": "Preguntas",
+        "q1": "¿Qué pasa si mi proceso no está escrito?",
+        "a1": "Es lo más común, y es el primer trabajo. Escribir el proceso va antes que cualquier automatización: no construimos agentes sobre procesos que solo viven en la cabeza de alguien.",
+        "q2": "¿La información de mi empresa sale de mi infraestructura?",
+        "a2": "Depende de lo que construyamos, y se define por escrito antes de empezar: qué información puede usarse, qué se anonimiza y qué se queda fuera. Cuando no puede salir, el modelo se despliega dentro de tu propia infraestructura.",
+        "q3": "¿Quién opera el sistema después?",
+        "a3": "Lo entregado queda bajo un plan de monitoreo y mantenimiento, y se ajusta conforme tu operación cambia. No entregamos una herramienta y nos vamos.",
+        "q4": "¿Cuánto tarda?",
+        "a4": "Sale del alcance, y el alcance sale del diagnóstico. Antes de eso cualquier fecha sería inventada, así que no la damos."
+      },
+      "cierre": {
+        "titulo": "Cuéntanos con qué área quieres empezar.",
+        "cta": "Contacta un asesor"
+      }
     }
   },
   "footer": {

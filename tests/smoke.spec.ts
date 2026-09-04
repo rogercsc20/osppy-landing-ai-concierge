@@ -59,7 +59,9 @@ test.describe("section 2 subtitle underline (tanda D D3, moved by E3c)", () => {
     ["/es", "dónde"],
     ["/en", "where"],
   ] as const) {
-    test(`${route}: the underlined word is exactly «${word}»`, async ({ page }) => {
+    test(`${route}: the underlined word is exactly «${word}»`, async ({
+      page,
+    }) => {
       await page.goto(route);
       const u = page.locator("u.underline-thick");
       await expect(u).toHaveCount(1);
@@ -78,7 +80,9 @@ test.describe("section 2 operation panel (tanda D D4, moved by E3c)", () => {
     ["/es", "Datos de demostración"],
     ["/en", "Demonstration data"],
   ] as const) {
-    test(`${route}: the demo-data chip is present and says «${label}»`, async ({ page }) => {
+    test(`${route}: the demo-data chip is present and says «${label}»`, async ({
+      page,
+    }) => {
       await page.setViewportSize({ width: 1280, height: 900 });
       await page.goto(route);
       const chip = page.getByTestId("panel-demo-chip");
@@ -100,7 +104,12 @@ test("nav Log in points at the cockpit login (cross-origin — assert, don't nav
 test("legacy login/dashboard bookmarks redirect to the cockpit", async ({
   request,
 }) => {
-  for (const path of ["/es/login", "/login", "/es/dashboard", "/dashboard/stats"]) {
+  for (const path of [
+    "/es/login",
+    "/login",
+    "/es/dashboard",
+    "/dashboard/stats",
+  ]) {
     const response = await request.get(path, { maxRedirects: 0 });
     expect(response.status(), path).toBe(307);
     expect(response.headers()["location"], path).toBe(
@@ -169,23 +178,44 @@ test.describe("service routes render on their localized slug", () => {
     ["/es/implementacion", es.servicios.implementacion.headline],
     ["/en/implementation", en.servicios.implementacion.headline],
   ] as const) {
-    test(`${route} renders its h1 and one CTA`, async ({ page }) => {
+    test(`${route} renders its h1 and every CTA opens a conversation`, async ({
+      page,
+    }) => {
       const response = await page.goto(route);
       expect(response?.status(), route).toBe(200);
-      await expect(page.getByRole("heading", { level: 1, name: headline })).toBeVisible();
       await expect(
-        page.locator("main").getByRole("link", {
-          name: route.startsWith("/en") ? en.servicios.capacitacion.cta : es.servicios.capacitacion.cta,
-        }),
-      ).toHaveAttribute("href", /^(https:\/\/wa\.me\/|mailto:hello@osppy\.com)/);
+        page.getByRole("heading", { level: 1, name: headline }),
+      ).toBeVisible();
+      // Since E5c each page carries the SAME call twice, in block 1 and in
+      // block 9, so this asserts EVERY one of them rather than the first: a
+      // close whose button quietly stopped resolving would otherwise pass,
+      // and asserting only the first is what strict mode was complaining
+      // about the moment the second one landed.
+      const ctas = page.locator("main").getByRole("link", {
+        name: route.startsWith("/en")
+          ? en.servicios.capacitacion.cta
+          : es.servicios.capacitacion.cta,
+      });
+      const total = await ctas.count();
+      expect(total, `${route} has no CTA`).toBeGreaterThan(0);
+      for (let i = 0; i < total; i++) {
+        await expect(ctas.nth(i)).toHaveAttribute(
+          "href",
+          /^(https:\/\/wa\.me\/|mailto:hello@osppy\.com)/,
+        );
+      }
     });
   }
 });
 
-test("the nav leads with the three services and links no product", async ({ page }) => {
+test("the nav leads with the three services and links no product", async ({
+  page,
+}) => {
   await page.setViewportSize({ width: 1280, height: 900 });
   await page.goto("/es");
-  const nav = page.getByRole("banner").getByRole("navigation", { name: "principal" });
+  const nav = page
+    .getByRole("banner")
+    .getByRole("navigation", { name: "principal" });
 
   for (const [name, href] of [
     [es.nav.capacitacion, "/es/capacitacion"],
@@ -196,13 +226,17 @@ test("the nav leads with the three services and links no product", async ({ page
   }
   // The point of HQA-D88 is the absence, so the absence is what is asserted:
   // no link anywhere in the header or the footer walks to Diana.
-  await expect(page.locator('header a[href*="/hoteles"], header a[href*="/citas"]')).toHaveCount(0);
+  await expect(
+    page.locator('header a[href*="/hoteles"], header a[href*="/citas"]'),
+  ).toHaveCount(0);
   await expect(
     page.locator('footer a[href*="/hoteles"], footer a[href*="/citas"]'),
   ).toHaveCount(0);
 });
 
-test("the footer asks for products instead of linking them (gate E0-1)", async ({ page }) => {
+test("the footer asks for products instead of linking them (gate E0-1)", async ({
+  page,
+}) => {
   await page.goto("/es");
   await expect(
     page.locator("footer").getByRole("link", { name: es.footer.productosCta }),
@@ -243,7 +277,9 @@ test("the title and description stopped selling hotels (HQA-D96, closing D85)", 
     const description = await page
       .locator('meta[name="description"]')
       .getAttribute("content");
-    expect(description, route).not.toMatch(/recepci|front desk|hu[ée]sped|guest/i);
+    expect(description, route).not.toMatch(
+      /recepci|front desk|hu[ée]sped|guest/i,
+    );
   }
 });
 
@@ -269,7 +305,9 @@ test("the hero has no button, only the scroll indicator (decision 2)", async ({
   // ABSENCE of contact links rather than a link count, because the scroll
   // indicator is itself a link and a count would pass with a CTA swapped in
   // for it.
-  await expect(hero.locator('a[href^="mailto:"], a[href^="https://wa.me/"]')).toHaveCount(0);
+  await expect(
+    hero.locator('a[href^="mailto:"], a[href^="https://wa.me/"]'),
+  ).toHaveCount(0);
   await expect(hero.locator('a[href="#aplicada"]')).toHaveCount(1);
 });
 
@@ -355,7 +393,9 @@ test.describe("the operation panel inverts against the page (HQA-D91)", () => {
     ["dark", false],
     ["light", true],
   ] as const) {
-    test(`page ${theme}: the panel wears the opposite surface`, async ({ page }) => {
+    test(`page ${theme}: the panel wears the opposite surface`, async ({
+      page,
+    }) => {
       await page.setViewportSize({ width: 1280, height: 900 });
       await page.addInitScript((t) => {
         try {
@@ -402,12 +442,16 @@ test.describe("the operation panel inverts against the page (HQA-D91)", () => {
   }
 });
 
-test("the board shows four KPI tiles and no benefit metric", async ({ page }) => {
+test("the board shows four KPI tiles and no benefit metric", async ({
+  page,
+}) => {
   await page.setViewportSize({ width: 1280, height: 900 });
   await page.goto("/es");
   const panel = page.locator('[data-panel="invert"]');
   for (const k of ["k1", "k2", "k3", "k4"] as const) {
-    await expect(panel.getByText(es.home.aplicada.panel.kpis[k].label)).toBeVisible();
+    await expect(
+      panel.getByText(es.home.aplicada.panel.kpis[k].label),
+    ).toBeVisible();
   }
   // Rule 1 of the board, asserted on the copy and not on the component: the
   // KPIs describe volume and state, never benefit. check-copy.mjs catches
@@ -419,5 +463,150 @@ test("the board shows four KPI tiles and no benefit metric", async ({ page }) =>
     .toLowerCase();
   for (const banned of ["ahorr", "reemplaz", "hora", "costo"]) {
     expect(words, `KPI label contains "${banned}"`).not.toContain(banned);
+  }
+});
+
+// ── tanda E5c: the three service pages have bodies, and they differ ────────
+
+test.describe("each service page carries its own heavy block", () => {
+  // The rule these three tests exist for is the one the v3 plan named and the
+  // v4 plan repeated: three pages with the same skeleton and different words.
+  // Asserting each page's h1 (which the E2 tests already do) cannot see that
+  // failure — it passes just as well when all three render an identical body.
+  // So each test pins the block that ONLY that page has.
+
+  test("/capacitacion walks down the four routes, and marks no workshop as ready", async ({
+    page,
+  }) => {
+    await page.goto("/es/capacitacion");
+    const main = page.locator("main");
+
+    for (const k of ["r1", "r2", "r3", "r4"] as const) {
+      await expect(
+        main.getByRole("heading", {
+          name: es.servicios.capacitacion.rutas[`${k}Titulo`],
+          exact: true,
+        }),
+      ).toBeVisible();
+    }
+
+    // No route claims to be finished. The catalog marks FICHAS and never
+    // ROUTES (catalog §1.2), and no ficha may be marked ✅ until the operator
+    // says which — so the two status lines are derived, and neither of them
+    // may drift into the house's "Disponible hoy" pill.
+    const estados = ["r1", "r2", "r3", "r4"].map(
+      (k) => es.servicios.capacitacion.rutas[`${k}Estado` as "r1Estado"],
+    );
+    for (const estado of estados) {
+      expect(estado).not.toContain(es.home.hacemos.capacitacion.estado);
+    }
+    await expect(
+      main.getByText(es.home.hacemos.capacitacion.estado),
+    ).toHaveCount(0);
+  });
+
+  test("/asesoria argues three convictions and then three outcomes", async ({
+    page,
+  }) => {
+    await page.goto("/es/asesoria");
+    const main = page.locator("main");
+
+    for (const k of ["c1", "c2", "c3"] as const) {
+      await expect(
+        main.getByRole("heading", {
+          name: es.servicios.asesoria.creemos[`${k}Titulo`],
+          exact: true,
+        }),
+      ).toBeVisible();
+    }
+    // "Todavía no" is one of the three outcomes and is the sentence that used
+    // to be buried at the end of a five-paragraph block in the house. If it
+    // ever gets softened away, this fails.
+    await expect(
+      main.getByText(es.servicios.asesoria.salidas.s3Body),
+    ).toBeVisible();
+
+    // Process structuring lives HERE by E5a's decision 4, and the argument for
+    // it is that the convictions above already promise the deliverable. The
+    // two must therefore stay on the same page.
+    await expect(
+      main.getByRole("heading", {
+        name: es.servicios.asesoria.estructuracion.titulo,
+        exact: true,
+      }),
+    ).toBeVisible();
+  });
+
+  test("/implementacion groups its inventory in three families and draws the diagram", async ({
+    page,
+  }) => {
+    await page.goto("/es/implementacion");
+    const main = page.locator("main");
+
+    for (const k of ["f1", "f2", "f3"] as const) {
+      await expect(
+        main.getByRole("heading", {
+          name: es.servicios.implementacion.construido[`${k}Titulo`],
+          exact: true,
+        }),
+      ).toBeVisible();
+    }
+    // The diagram that came down from the house's hero (E0-2). It is an img
+    // role with the moved alt text, so this fails if the move is undone.
+    await expect(
+      main.getByRole("img", {
+        name: es.servicios.implementacion.agentes.diagrama.alt,
+      }),
+    ).toBeVisible();
+
+    // Process structuring is NOT here, by the same decision. Asserted as an
+    // absence because that is what the decision actually bought.
+    await expect(
+      main.getByRole("heading", {
+        name: es.servicios.asesoria.estructuracion.titulo,
+        exact: true,
+      }),
+    ).toHaveCount(0);
+  });
+});
+
+test("the service pages do not segment the audience by company size", async ({
+  page,
+}) => {
+  // E5a decision 2. Asserted on the rendered <meta>, not on the JSON, because
+  // the string travels through generateMetadata and a page that stopped
+  // reading the key would pass a JSON-only check.
+  for (const [route, forbidden] of [
+    ["/es/capacitacion", "medianas y grandes"],
+    ["/en/training", "medium and large"],
+  ] as const) {
+    await page.goto(route);
+    const description = await page
+      .locator('head meta[name="description"]')
+      .getAttribute("content");
+    expect(description, route).not.toContain(forbidden);
+    expect(description, route).toBeTruthy();
+  }
+});
+
+test("every service block sits inside the main landmark", async ({ page }) => {
+  // PaginaServicio renders a bare <section> and each page owns the <main>.
+  // If that ever inverts, the hero keeps working and blocks 2 onward fall
+  // outside the landmark, which no other gate can see.
+  for (const route of [
+    "/es/capacitacion",
+    "/es/asesoria",
+    "/es/implementacion",
+  ] as const) {
+    await page.goto(route);
+    await expect(page.locator("main")).toHaveCount(1);
+    await expect(page.locator("main h1")).toHaveCount(1);
+    // The close is the last block of all three, so its button being inside
+    // main means everything between the hero and it is too.
+    await expect(
+      page
+        .locator("main")
+        .getByRole("link", { name: es.servicios.capacitacion.cierre.cta }),
+    ).not.toHaveCount(0);
   }
 });
