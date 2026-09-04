@@ -490,6 +490,18 @@ h3 {
   padding-bottom: 0.12em;
 }
 
+/* The cursor that never writes («Por qué», tanda D, D5): the section's whole
+   concept is the silence after "sabemos que necesitamos IA", so it is drawn
+   instead of described — an empty answer line where a caret blinks and no
+   text ever arrives. Steps(1) because a caret blinks, it does not fade. */
+@keyframes caret-blink {
+  0%, 45% { opacity: 1; }
+  50%, 95% { opacity: 0; }
+}
+.caret-blink {
+  animation: caret-blink 1.1s steps(1) infinite;
+}
+
 /* WA dot pattern for chat background */
 .bg-wa-dots {
   background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
@@ -637,6 +649,7 @@ html[data-vt="theme"]::view-transition-new(root) {
   .animate-shine,
   .marquee-track,
   .atmos-blob,
+  .caret-blink,
   [class*="animate-["] {
     animation: none !important;
   }
