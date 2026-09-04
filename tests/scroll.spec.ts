@@ -17,7 +17,19 @@ test.describe("scroll engine", () => {
   }) => {
     await page.setViewportSize({ width: 1280, height: 900 });
     await page.goto("/es", { waitUntil: "networkidle" });
-    await page.waitForTimeout(1200);
+    // Wait until GSAP has WRITTEN the bar's transform (a matrix), not a fixed
+    // delay: under suite contention the fromTo can land seconds after
+    // networkidle, and reading before it exists yields NaN. No false pass
+    // hides here — with registration broken the tween plays immediately and
+    // the matrix reads 1, which the toBeLessThan(0.1) below still catches.
+    await page.waitForFunction(
+      () => {
+        const bar = document.querySelector(".fixed.inset-x-0.top-0");
+        return bar && getComputedStyle(bar).transform.startsWith("matrix");
+      },
+      undefined,
+      { timeout: 15_000 },
+    );
 
     // scaleX lives in the computed transform matrix's first component.
     const scaleX = () =>
@@ -42,7 +54,11 @@ test.describe("scroll engine", () => {
   test("the pinned chapter walks all four steps", async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 900 });
     await page.goto("/es", { waitUntil: "networkidle" });
-    await page.waitForTimeout(1200);
+    // Wait for the spacer ELEMENT, not a fixed delay: hydration + useGSAP +
+    // matchMedia + ScrollTrigger.create can take several seconds when the
+    // whole suite shares the dev server, and a timer that guesses wrong
+    // reads null and fails a working page.
+    await page.waitForSelector(".pin-spacer", { state: "attached", timeout: 15_000 });
 
     const band = await page.evaluate(() => {
       const s = document.querySelector(".pin-spacer");
@@ -57,13 +73,21 @@ test.describe("scroll engine", () => {
     // a 900px viewport, so the band has to be well over 2000px of scroll.
     expect(band!.height, "the pin band is percent-of-viewport, not pixels").toBeGreaterThan(2000);
 
-    // The step title inside the PIN SPACER, not the first h3 of #como: the
-    // lg:hidden stacked branch renders every step in order and its first
-    // heading never changes, so reading that one passes on a broken chapter.
-    // Wait for the scroll to LAND at each sample instead of sampling on a
-    // timer: under full-suite parallelism Lenis and React need longer than a
-    // fixed wait, and a sample taken mid-flight reads the previous step —
-    // the test flaked exactly that way against the dev server.
+    // Read the RAIL's lit label inside the PIN SPACER, for two reasons. The
+    // first h3 of #como belongs to the lg:hidden stacked branch, whose first
+    // heading never changes — reading that one passes on a broken chapter.
+    // And the step BODY is managed by AnimatePresence mode="wait", which
+    // unmounts the old heading before mounting the new one, so any read on a
+    // timer can land in the gap; the rail is a pure class swap with no gap.
+    // Wait for the scroll to LAND at each sample rather than sampling on a
+    // timer — under full-suite parallelism Lenis needs longer than a guess.
+    const litLabel = () =>
+      page.evaluate(
+        () =>
+          document
+            .querySelector(".pin-spacer ol li span.text-text")
+            ?.textContent?.trim() ?? "",
+      );
     const titles = new Set<string>();
     for (let f = 0; f <= 1.0001; f += 0.1) {
       const y = band!.top + f * band!.height;
@@ -73,10 +97,8 @@ test.describe("scroll engine", () => {
         y,
         { timeout: 5_000 },
       );
-      await page.waitForTimeout(350); // one React commit for the step state
-      const t = await page.evaluate(
-        () => document.querySelector(".pin-spacer h3")?.textContent?.trim() ?? "",
-      );
+      await page.waitForTimeout(220); // one React commit for the class swap
+      const t = await litLabel();
       if (t) titles.add(t);
     }
     expect(titles.size, `every step showed: ${[...titles].join(" · ")}`).toBe(4);
