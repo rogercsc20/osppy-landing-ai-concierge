@@ -7,6 +7,8 @@ import { useTranslations } from "next-intl";
 import { ArrowRight } from "lucide-react";
 import { ShineButton } from "@/components/ui/ShineButton";
 import { Spotlight } from "@/components/fx/Spotlight";
+import { Float } from "@/components/fx/Float";
+import { PathDraw } from "@/components/fx/PathDraw";
 import { whatsappHref } from "@/lib/site";
 import dynamic from "next/dynamic";
 import { AppWindow } from "@/components/device/AppWindow";
@@ -75,7 +77,16 @@ function PanelSkeleton() {
 const NODE_W = 181;
 const NODE_H = 72;
 const ARROW = 33;
-const STEP = NODE_W + ARROW; // 214 between node origins
+/* The ignition timing, exported as constants so the caption's delay is
+   DERIVED. It used to be a hand-computed `--rise-delay: 2.6s` (0.5 + 7*0.28,
+   for the last of 4 nodes + 3 arrows) and that rots the day the node count
+   changes. Under reduced motion .animate-fade-rise is animation: none, so
+   no second branch is needed. */
+const APPEAR_BASE = 0.5;
+const APPEAR_STEP = 0.28;
+const APPEAR_DUR = 0.45;
+const NODE_COUNT = 4;
+const CAPTION_DELAY = (APPEAR_BASE + (NODE_COUNT * 2 - 2) * APPEAR_STEP + APPEAR_DUR).toFixed(2);
 
 /** "La tarea" → ["La", "tarea"] — every node label is two words in both locales. */
 function splitLabel(label: string): [string, string] {
@@ -174,7 +185,7 @@ export function Hero() {
       : {
           initial: { opacity: 0, y: 8 },
           animate: { opacity: 1, y: 0 },
-          transition: { delay: 0.5 + i * 0.28, duration: 0.45 },
+          transition: { delay: APPEAR_BASE + i * APPEAR_STEP, duration: APPEAR_DUR },
         };
 
   return (
@@ -252,78 +263,59 @@ export function Hero() {
       </div>
       </div>
 
-      {/* The diagram — horizontal from sm up, vertical on phones (no
-          horizontal scroll). Both are the same four nodes and three arrows. */}
-      <div className="mt-20" role="img" aria-label={t("diagrama.alt")}>
-        {/* Horizontal */}
-        <svg
-          viewBox="0 0 824 132"
-          className="hidden w-full max-w-3xl sm:block"
-          aria-hidden="true"
-        >
-          {nodes.map((node, i) => (
-            <motion.g key={node.label} {...appear(i * 2)}>
-              <NodeBox label={node.label} x={i * STEP} y={8} kind={node.kind} />
-              {node.kind === "marked" && (
-                <text
-                  x={i * STEP + NODE_W / 2}
-                  y={NODE_H + 30}
-                  textAnchor="middle"
-                  fontSize={13}
-                  fill="var(--warm-text)"
-                >
-                  {t("diagrama.procesoEtiqueta")}
-                </text>
-              )}
-            </motion.g>
-          ))}
-          {[0, 1, 2].map((i) => (
-            <motion.g key={i} {...appear(i * 2 + 1)}>
-              <ArrowLine x={i * STEP + NODE_W} y={8 + NODE_H / 2} />
-            </motion.g>
-          ))}
-        </svg>
-        {/* Vertical */}
-        <svg
-          viewBox="0 0 220 428"
-          className="mx-auto block w-full max-w-[220px] sm:hidden"
-          aria-hidden="true"
-        >
-          {nodes.map((node, i) => (
-            <motion.g key={node.label} {...appear(i * 2)}>
-              <NodeBox
-                label={node.label}
-                x={20}
-                y={i * (NODE_H + ARROW)}
-                kind={node.kind}
-              />
-              {node.kind === "marked" && (
-                <text
-                  x={20 + NODE_W + 6}
-                  y={i * (NODE_H + ARROW) + NODE_H / 2}
-                  fontSize={12}
-                  fill="var(--warm-text)"
-                  transform={`rotate(90 ${20 + NODE_W + 6} ${i * (NODE_H + ARROW) + NODE_H / 2})`}
-                  textAnchor="middle"
-                >
-                  {t("diagrama.procesoEtiqueta")}
-                </text>
-              )}
-            </motion.g>
-          ))}
-          {[0, 1, 2].map((i) => (
-            <motion.g key={i} {...appear(i * 2 + 1)}>
-              <ArrowLine
-                x={20 + NODE_W / 2}
-                y={i * (NODE_H + ARROW) + NODE_H}
-                vertical
-              />
-            </motion.g>
-          ))}
-        </svg>
+      {/* The diagram, phone only (tanda D, D6). The horizontal SVG retired:
+          from md up the hero's object is the operation panel, and an 824px
+          diagram below it would refill exactly what the operator asked to
+          lighten — its content (the method's phases) lives in the pinned
+          chapter now, where it has a full column instead of a max-w-3xl
+          corset. Below md there is no panel (D4 rule 5), so the phone keeps
+          a hero object: the vertical four-node diagram, enriched — it
+          breathes inside a Float and its arrows draw themselves through
+          PathDraw when it arrives. */}
+      <div className="mt-16 md:hidden" role="img" aria-label={t("diagrama.alt")}>
+        <Float distance={6} duration={7}>
+          <svg
+            viewBox="0 0 220 428"
+            className="mx-auto block w-full max-w-[220px]"
+            aria-hidden="true"
+          >
+            {nodes.map((node, i) => (
+              <motion.g key={node.label} {...appear(i * 2)}>
+                <NodeBox
+                  label={node.label}
+                  x={20}
+                  y={i * (NODE_H + ARROW)}
+                  kind={node.kind}
+                />
+                {node.kind === "marked" && (
+                  <text
+                    x={20 + NODE_W + 6}
+                    y={i * (NODE_H + ARROW) + NODE_H / 2}
+                    fontSize={12}
+                    fill="var(--warm-text)"
+                    transform={`rotate(90 ${20 + NODE_W + 6} ${i * (NODE_H + ARROW) + NODE_H / 2})`}
+                    textAnchor="middle"
+                  >
+                    {t("diagrama.procesoEtiqueta")}
+                  </text>
+                )}
+              </motion.g>
+            ))}
+            <PathDraw stagger={0.24} delay={APPEAR_BASE}>
+              {[0, 1, 2].map((i) => (
+                <ArrowLine
+                  key={i}
+                  x={20 + NODE_W / 2}
+                  y={i * (NODE_H + ARROW) + NODE_H}
+                  vertical
+                />
+              ))}
+            </PathDraw>
+          </svg>
+        </Float>
         <p
-          className="animate-fade-rise mt-4 max-w-3xl text-sm text-text-2 max-sm:text-center"
-          style={{ "--rise-delay": "2.6s" } as CSSProperties}
+          className="animate-fade-rise mt-4 text-center text-sm text-text-2"
+          style={{ "--rise-delay": `${CAPTION_DELAY}s` } as CSSProperties}
         >
           {t("diagrama.pie")}
         </p>

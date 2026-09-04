@@ -51,7 +51,7 @@ test.describe("scroll engine", () => {
     expect(await scaleX(), "full at the bottom").toBeGreaterThan(0.9);
   });
 
-  test("the pinned chapter walks all four steps", async ({ page }) => {
+  test("the pinned chapter walks all five phases", async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 900 });
     await page.goto("/es", { waitUntil: "networkidle" });
     // Wait for the spacer ELEMENT, not a fixed delay: hydration + useGSAP +
@@ -60,17 +60,25 @@ test.describe("scroll engine", () => {
     // reads null and fails a working page.
     await page.waitForSelector(".pin-spacer", { state: "attached", timeout: 15_000 });
 
+    // The trigger's range is NOT the spacer's box: ScrollTrigger sizes the
+    // spacer as pinDistance + the pinned element's own height, so scrolling
+    // by fractions of the spacer overshoots the range and can skip a phase
+    // on a page that works — which is exactly how this test first failed.
+    // The scrollable distance is spacer − pinned child.
     const band = await page.evaluate(() => {
       const s = document.querySelector(".pin-spacer");
       if (!s) return null;
       const r = s.getBoundingClientRect();
-      return { top: r.top + window.scrollY, height: r.height };
+      const pinned = s.firstElementChild as HTMLElement | null;
+      const pinnedH = pinned ? pinned.getBoundingClientRect().height : 0;
+      return { top: r.top + window.scrollY, height: r.height, distance: r.height - pinnedH };
     });
     expect(band, "ScrollTrigger pinned the chapter and inserted its spacer").not.toBeNull();
 
-    // The defect: `+=288vh` read as 288px, so the band was one element tall
-    // and the chapter never left step one. Four steps at stepVh=72 is 288% of
-    // a 900px viewport, so the band has to be well over 2000px of scroll.
+    // The defect this pins: `+=Nvh` read as N PIXELS, so the band was one
+    // element tall and the chapter never left step one. Five phases at
+    // stepVh=60 is 300% of a 900px viewport, so the band has to be well
+    // over 2000px of scroll.
     expect(band!.height, "the pin band is percent-of-viewport, not pixels").toBeGreaterThan(2000);
 
     // Read the RAIL's lit label inside the PIN SPACER, for two reasons. The
@@ -85,23 +93,79 @@ test.describe("scroll engine", () => {
       page.evaluate(
         () =>
           document
-            .querySelector(".pin-spacer ol li span.text-text")
+            .querySelector('.pin-spacer [aria-current="step"]')
             ?.textContent?.trim() ?? "",
       );
+    // Sample the CENTRE of each phase's band, which is the same arithmetic
+    // goTo uses. An evenly spaced sweep lands on the boundaries between
+    // phases, where a sub-pixel difference decides which side you read, and
+    // a phase can be missed on a page that works.
     const titles = new Set<string>();
-    for (let f = 0; f <= 1.0001; f += 0.1) {
-      const y = band!.top + f * band!.height;
+    for (let i = 0; i < 5; i++) {
+      const f = (i + 0.5) / 5;
+      const y = band!.top + f * band!.distance;
       await page.evaluate((t) => window.scrollTo({ top: t, behavior: "instant" }), y);
+      // Land, then settle: Lenis keeps interpolating after window.scrollTo,
+      // so a read taken the moment scrollY first matches can catch the page
+      // still drifting into the NEXT phase. Poll until both the position
+      // and the lit label hold still across two consecutive reads.
       await page.waitForFunction(
         (t) => Math.abs(window.scrollY - t) < 2,
         y,
         { timeout: 5_000 },
       );
-      await page.waitForTimeout(220); // one React commit for the class swap
-      const t = await litLabel();
+      let prev = "";
+      let t = "";
+      for (let tries = 0; tries < 20; tries++) {
+        await page.waitForTimeout(150);
+        t = await litLabel();
+        if (t && t === prev) break;
+        prev = t;
+      }
       if (t) titles.add(t);
     }
-    expect(titles.size, `every step showed: ${[...titles].join(" · ")}`).toBe(4);
+    expect(titles.size, `every phase showed: ${[...titles].join(" · ")}`).toBe(5);
+  });
+
+  test("clicking the third phase in the bar scrolls the chapter there", async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 900 });
+    await page.goto("/es", { waitUntil: "networkidle" });
+    await page.waitForSelector(".pin-spacer", { state: "attached", timeout: 15_000 });
+
+    // enter the chapter so the rail is on screen and the trigger is active
+    const top = await page.evaluate(() => {
+      const s = document.querySelector(".pin-spacer");
+      return s!.getBoundingClientRect().top + window.scrollY;
+    });
+    await page.evaluate((t) => window.scrollTo({ top: t, behavior: "instant" }), top);
+    await page.waitForTimeout(400);
+
+    await page.locator(".pin-spacer ol button").nth(2).click();
+    // the click SCROLLS (a plain setStep would be overwritten next frame),
+    // so the assertion is on where aria-current lands once the page settles
+    await page.waitForFunction(
+      () => {
+        const lit = document.querySelector('.pin-spacer [aria-current="step"]');
+        const items = [...document.querySelectorAll(".pin-spacer ol button")];
+        return lit !== null && items.indexOf(lit as HTMLButtonElement) === 2;
+      },
+      undefined,
+      { timeout: 10_000 },
+    );
+  });
+
+  test("below lg the five phases are pill anchors to real ids", async ({ page }) => {
+    await page.setViewportSize({ width: 360, height: 780 });
+    await page.goto("/es", { waitUntil: "networkidle" });
+
+    const pills = page.locator('#como nav a[href^="#como-p"]');
+    await expect(pills).toHaveCount(5);
+    for (let i = 1; i <= 5; i++) {
+      // every pill points at an id that EXISTS in the stacked branch — a
+      // renamed id would leave a pill jumping nowhere, silently
+      await expect(page.locator(`#como nav a[href="#como-p${i}"]`)).toHaveCount(1);
+      await expect(page.locator(`#como-p${i}`)).toHaveCount(1);
+    }
   });
 
   test("under reduced motion nothing is ever left hidden, and nothing pins", async ({

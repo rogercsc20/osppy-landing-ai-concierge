@@ -145,7 +145,12 @@ export function Pinned({
         {reduce ? (
           stacked
         ) : (
-          <div ref={pinRef} className={cn("flex min-h-[68svh] items-center", stickyClassName)}>
+          // Full-viewport pin box with centred content: the CSS-sticky
+          // version floated at top-[16vh] with a 68svh block, which put the
+          // reading line at 50vh. ScrollTrigger pins flush to the top, so
+          // the same reading line comes from centring inside 100svh instead
+          // of from two magic offsets.
+          <div ref={pinRef} className={cn("flex min-h-svh items-center", stickyClassName)}>
             {children(step, false, goTo)}
           </div>
         )}

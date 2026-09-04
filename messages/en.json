@@ -87,14 +87,16 @@
     "como": {
       "kicker": "How we work",
       "headline": "Understand first. Building is the last step.",
-      "p1Titulo": "Diagnosis",
-      "p1Body": "We understand your operation and identify where AI genuinely helps, and where it isn't needed.",
-      "p2Titulo": "The process, in writing",
-      "p2Body": "Before anything is built, the process gets written down. It's the step almost nobody has done, and everything else depends on it.",
-      "p3Titulo": "Build",
-      "p3Body": "Quoted separately, with written scope and success criteria. No promises about savings, sales or hours: you measure the impact, with your own numbers.",
-      "p4Titulo": "Operation",
-      "p4Body": "What we deliver can stay under a hosting, monitoring and maintenance plan, depending on what your operation needs."
+      "p1Titulo": "Exploration",
+      "p1Body": "Discovery and viability: we get to know your operation and identify where AI genuinely helps, and where it isn't needed.",
+      "p2Titulo": "Diagnosis",
+      "p2Body": "Data evaluation and audit: what information exists, where it lives and how ready it is for a system to work with it.",
+      "p3Titulo": "Solution design",
+      "p3Body": "The process gets written down and the solution is drawn on top of it, with a scoped proof of concept (PoC) before building at scale.",
+      "p4Titulo": "Implementation",
+      "p4Body": "Development of the system and of its technical operation (MLOps). Quoted separately, with written scope and success criteria: you measure the impact, with your own numbers.",
+      "p5Titulo": "Support and monitoring",
+      "p5Body": "Governance and retraining: what we deliver stays under a monitoring and maintenance plan, and the system adjusts as your operation changes."
     },
     "areas": {
       "kicker": "Where",

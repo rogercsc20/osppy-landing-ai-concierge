@@ -87,14 +87,16 @@
     "como": {
       "kicker": "Cómo trabajamos",
       "headline": "Primero entender. Construir es el último paso.",
-      "p1Titulo": "Diagnóstico",
-      "p1Body": "Entendemos tu operación e identificamos dónde la IA ayuda de verdad, y dónde no hace falta.",
-      "p2Titulo": "El proceso, por escrito",
-      "p2Body": "Antes de construir, el proceso queda escrito. Es el paso que casi nadie tiene hecho, y es del que depende todo lo demás.",
-      "p3Titulo": "Construcción",
-      "p3Body": "Se cotiza por separado, con alcance y criterios de éxito por escrito. Sin promesas de ahorro, ventas ni horas: el impacto lo mides tú, con tus números.",
-      "p4Titulo": "Operación",
-      "p4Body": "Lo entregado puede quedar bajo un plan de hosting, monitoreo y mantenimiento, según lo que tu operación necesite."
+      "p1Titulo": "Exploración",
+      "p1Body": "Descubrimiento y viabilidad: entendemos tu operación e identificamos dónde la IA ayuda de verdad, y dónde no hace falta.",
+      "p2Titulo": "Diagnóstico",
+      "p2Body": "Evaluación de datos y auditoría: qué información existe, dónde vive y qué tan lista está para que un sistema trabaje con ella.",
+      "p3Titulo": "Diseño de solución",
+      "p3Body": "El proceso queda por escrito y la solución se dibuja encima, con una prueba de concepto acotada (PoC) antes de construir en grande.",
+      "p4Titulo": "Implementación",
+      "p4Body": "Desarrollo del sistema y de su operación técnica (MLOps). Se cotiza por separado, con alcance y criterios de éxito por escrito: el impacto lo mides tú, con tus números.",
+      "p5Titulo": "Soporte y monitoreo",
+      "p5Body": "Gobernanza y reentrenamiento: lo entregado queda bajo un plan de monitoreo y mantenimiento, y el sistema se ajusta conforme tu operación cambia."
     },
     "areas": {
       "kicker": "Dónde",

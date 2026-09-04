@@ -79,12 +79,38 @@ se queda tal cual, incluido el pie «El paso que casi nadie tiene escrito es el 
 
 # HOW — el cómo
 
-## 4 · El método · `home.como.*` — **sin cambios de texto**
+## 4 · El método · `home.como.*` — **REESCRITO el 2026-09-03 (tanda D, D6)**
 
-Kicker «Cómo trabajamos», titular «Primero entender. Construir es el último paso.» y los
-cuatro pasos —Diagnóstico · El proceso, por escrito · Construcción · Operación— se quedan
-exactamente como están hoy. Es el copy que mejor aguantó la revisión. Lo que cambia es la
-forma: pasa a ser el capítulo fijado (§3 del plan), con el diagrama avanzando por paso.
+> **De cuatro pasos a cinco fases.** El operador, en la compuerta D0-2, no eligió entre las
+> opciones que se le ofrecieron: reescribió la lista entera, textual: *«mejor hacerlo como si
+> fueran 4 fases en orden, Exporacion (descubtimiendo y viabilidad), Diagnostico (evaluacion de
+> datos y auditoria), Diseno de Solucion (PoC), Implementacion Desarrollo y MlOps, Soporte y
+> Monitoreo (gobernanza y reentrenamiento)»*. Son cinco, no cuatro (dijo «4» y enumeró cinco);
+> se construyeron las cinco que enumeró. Con eso **la compuerta D0-1 quedó sin objeto**: el paso
+> «Desarrollo a la medida» que reprobaba el linter ya no existe, se llama «Implementación».
+
+| Llave | Texto |
+|---|---|
+| `kicker` | Cómo trabajamos |
+| `headline` | **Primero entender. Construir es el último paso.** |
+| `p1Titulo` | Exploración |
+| `p1Body` | Descubrimiento y viabilidad: entendemos tu operación e identificamos dónde la IA ayuda de verdad, y dónde no hace falta. |
+| `p2Titulo` | Diagnóstico |
+| `p2Body` | Evaluación de datos y auditoría: qué información existe, dónde vive y qué tan lista está para que un sistema trabaje con ella. |
+| `p3Titulo` | Diseño de solución |
+| `p3Body` | El proceso queda por escrito y la solución se dibuja encima, con una prueba de concepto acotada (PoC) antes de construir en grande. |
+| `p4Titulo` | Implementación |
+| `p4Body` | Desarrollo del sistema y de su operación técnica (MLOps). Se cotiza por separado, con alcance y criterios de éxito por escrito: el impacto lo mides tú, con tus números. |
+| `p5Titulo` | Soporte y monitoreo |
+| `p5Body` | Gobernanza y reentrenamiento: lo entregado queda bajo un plan de monitoreo y mantenimiento, y el sistema se ajusta conforme tu operación cambia. |
+
+**Los paréntesis del operador son el concepto en claro, no una nota.** Cada uno abre el cuerpo
+de su fase (guía §6.6: el concepto antes que el término), y por eso «PoC» y «MLOps» pueden
+aparecer: van después de la frase que los explica.
+
+**Se conserva palabra por palabra** de la versión anterior lo único que sobrevivió al cambio de
+lista: la fórmula de precio de `p4Body` («se cotiza por separado, con alcance y criterios de
+éxito por escrito») y su negativa a prometer ahorros, que es la que el banco exige.
 
 ## 5 · Sin jerga · `home.jerga.*` — **ELIMINADA el 2026-09-03 (tanda C, C2)**
 
@@ -349,7 +375,7 @@ público de empresa pregunta primero.)*
 | Sujeto | «empresas de cualquier tamaño — también PyMEs» | empresas medianas y grandes con equipos por área |
 | Nuevas | — | El silencio (2) · Lo que creemos (3) · ~~Sin jerga (5)~~ · ~~Cómo se ve (6)~~ · **Dónde entra: las ocho áreas** (7) · Cuánto cuesta (9) |
 | Bajas | «Quiénes somos» y «A quién ayudamos» | su contenido se reparte entre el héroe, la 3 y la 10; **«Sin jerga» se dio de baja el 2026-09-03 (C2) y «Cómo se ve» el mismo día (D1)** |
-| Conservado palabra por palabra | — | el método (4), las tres maneras (8), los contadores y los siete tipos de trabajo (10), cinco de las siete preguntas (13) |
+| Conservado palabra por palabra | — | ~~el método (4)~~ *(reescrito a cinco fases en la tanda D)*, las tres maneras (8), los contadores y los siete tipos de trabajo (10), cinco de las siete preguntas (13) |
 
 ## Lo que hace falta antes de V4c
 
