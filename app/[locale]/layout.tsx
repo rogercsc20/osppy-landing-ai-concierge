@@ -3,6 +3,7 @@ import { Inter, Fraunces, Manrope, IBM_Plex_Serif } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { MotionProvider } from "@/components/providers/MotionProvider";
 import { Lenis } from "@/components/providers/Lenis";
+import { Gsap } from "@/components/providers/Gsap";
 import { Atmosphere } from "@/components/atmosphere/Atmosphere";
 import { ScrollProgress } from "@/components/fx/ScrollProgress";
 import { Navbar } from "@/components/layout/Navbar";
@@ -135,14 +136,22 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           <MotionProvider>
             <Lenis>
-              <ScrollProgress />
-              {/* One fixed atmosphere under everything; its children are the
-                  page, lifted to z-10 (landing v2 §2). */}
-              <Atmosphere>
-                <Navbar />
-                {children}
-                <Footer />
-              </Atmosphere>
+              {/* Gsap sits INSIDE Lenis, not outside: it bridges the two by
+                  calling ScrollTrigger.update on Lenis's scroll event, and
+                  useLenis() only sees a provider from below. Under reduced
+                  motion Lenis renders no provider at all, the hook answers
+                  undefined, and ScrollTrigger reads native scroll — which is
+                  correct, not a fallback. */}
+              <Gsap>
+                <ScrollProgress />
+                {/* One fixed atmosphere under everything; its children are the
+                    page, lifted to z-10 (landing v2 §2). */}
+                <Atmosphere>
+                  <Navbar />
+                  {children}
+                  <Footer />
+                </Atmosphere>
+              </Gsap>
             </Lenis>
           </MotionProvider>
         </NextIntlClientProvider>

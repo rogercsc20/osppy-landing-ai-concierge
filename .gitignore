@@ -53,3 +53,4 @@ next-env.d.ts
 /public/photos/*.jpg
 /public/photos/*.jpeg
 /public/photos/*.png
+/captures-reduced/

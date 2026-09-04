@@ -1,15 +1,20 @@
 "use client";
 
 import { useRef, type ReactNode } from "react";
-import { motion, useScroll, useSpring, useTransform } from "motion/react";
-import { useReducedMotion } from "./motion-hooks";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "@/lib/gsap-init";
 import { cn } from "@/lib/utils";
-import { SPRING } from "@/lib/motion";
+import { MOTION_OK } from "@/lib/gsap-motion";
 
 /**
  * Content that drifts against the page as it crosses the viewport.
  * `distance` is the total travel in pixels, centred on the crossing: 60 means
- * +30 on the way in and -30 on the way out. Static under reduced motion.
+ * +30 on the way in and -30 on the way out. Nothing runs under reduced
+ * motion, so the element sits where the layout put it.
+ *
+ * `ease: "none"` is not a style choice here: with `scrub`, the tween's
+ * progress IS the scroll position, so any other curve makes the element
+ * travel at a different rate than the finger and reads as lag.
  */
 export function Parallax({
   children,
@@ -20,22 +25,37 @@ export function Parallax({
   distance?: number;
   className?: string;
 }) {
-  const reduce = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  // function-form mapping: numeric ranges compile to native ScrollTimeline
-  // animations, which misbehave around sticky ancestors
-  const raw = useTransform(scrollYProgress, (v) =>
-    reduce ? 0 : (0.5 - v) * distance,
+
+  useGSAP(
+    () => {
+      const mm = gsap.matchMedia();
+      mm.add(MOTION_OK, () => {
+        gsap.fromTo(
+          ref.current,
+          { y: distance / 2 },
+          {
+            y: -distance / 2,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ref.current,
+              start: "top bottom",
+              end: "bottom top",
+              // a number, not `true`: half a second of catch-up is the same
+              // softness the old useSpring(SPRING.soft) gave this element
+              scrub: 0.5,
+            },
+          },
+        );
+      });
+      return () => mm.revert();
+    },
+    { dependencies: [distance], scope: ref },
   );
-  const y = useSpring(raw, SPRING.soft);
 
   return (
-    <motion.div ref={ref} style={{ y }} className={cn(className)}>
+    <div ref={ref} className={cn(className)}>
       {children}
-    </motion.div>
+    </div>
   );
 }
