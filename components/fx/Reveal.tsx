@@ -5,7 +5,8 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "@/lib/gsap-init";
 import { cn } from "@/lib/utils";
 import { DUR, STAGGER, VIEWPORT, VIEWPORT_WIDE } from "@/lib/motion";
-import { GSAP_EASE_LUXE, MOTION_OK, startAtAmount } from "@/lib/gsap-motion";
+import { GSAP_EASE_LUXE } from "@/lib/gsap-motion";
+import { enterOnce } from "./enter-once";
 
 export type RevealVariant = "fade-up" | "blur-in" | "clip-up" | "scale-in";
 
@@ -22,8 +23,10 @@ const FROM: Record<RevealVariant, gsap.TweenVars> = {
 };
 
 /**
- * The site's single entrance (landing v2 §3), on ScrollTrigger since
- * 2026-09-03.
+ * The site's single entrance (landing v2 §3). On ScrollTrigger from
+ * 2026-09-03 (HQA-D80) and back on IntersectionObserver since E6, which is
+ * what HQA-D87 measured as the cost: see components/fx/enter-once.ts. GSAP
+ * still animates it; only the "is it on screen yet" question moved.
  *
  * Under reduced motion nothing runs at all: `gsap.matchMedia` only invokes
  * the setup for the "no-preference" query, so the element keeps exactly the
@@ -32,8 +35,9 @@ const FROM: Record<RevealVariant, gsap.TweenVars> = {
  * for less motion to be left looking at an element stuck at opacity 0 —
  * the failure the capture gate exists to catch.
  *
- * `once: true` rather than toggleActions: an entrance is a one-time event,
- * and re-playing it when the reader scrolls back up reads as a glitch.
+ * One-shot rather than a toggle: an entrance is a one-time event, and
+ * re-playing it when the reader scrolls back up reads as a glitch. The
+ * observer disconnects itself the moment it fires.
  */
 export function Reveal({
   children,
@@ -54,23 +58,16 @@ export function Reveal({
   const ref = useRef<HTMLDivElement>(null);
 
   useGSAP(
-    () => {
-      const mm = gsap.matchMedia();
-      mm.add(MOTION_OK, () => {
+    () =>
+      enterOnce(ref.current, amount ?? VIEWPORT.amount, () =>
         gsap.from(ref.current, {
           ...FROM[variant],
           duration,
           delay,
           ease: GSAP_EASE_LUXE,
-          scrollTrigger: {
-            trigger: ref.current,
-            start: startAtAmount(amount ?? VIEWPORT.amount),
-            once: true,
-          },
-        });
-      });
-      return () => mm.revert();
-    },
+          paused: true,
+        }),
+      ),
     { dependencies: [variant, delay, duration, amount], scope: ref },
   );
 
@@ -86,10 +83,10 @@ export function Reveal({
  * wrapped in its own element, so `className` carries the grid and the
  * children keep their span classes.
  *
- * The stagger is one tween over all the items rather than one ScrollTrigger
- * per item: the whole group is a single arrival, and per-item triggers would
- * make the last card of a row wait for its own scroll position and break the
- * cascade the stagger exists to draw.
+ * The stagger is one tween over all the items rather than one observer per
+ * item: the whole group is a single arrival, and per-item triggers would make
+ * the last card of a row wait for its own position and break the cascade the
+ * stagger exists to draw.
  */
 export function Stagger({
   children,
@@ -109,24 +106,17 @@ export function Stagger({
   const ref = useRef<HTMLDivElement>(null);
 
   useGSAP(
-    () => {
-      const mm = gsap.matchMedia();
-      mm.add(MOTION_OK, () => {
+    () =>
+      enterOnce(ref.current, VIEWPORT_WIDE.amount, () =>
         gsap.from(gsap.utils.toArray<HTMLElement>("[data-stagger-item]"), {
           ...FROM[variant],
           duration: DUR.reveal,
           delay,
           stagger,
           ease: GSAP_EASE_LUXE,
-          scrollTrigger: {
-            trigger: ref.current,
-            start: startAtAmount(VIEWPORT_WIDE.amount),
-            once: true,
-          },
-        });
-      });
-      return () => mm.revert();
-    },
+          paused: true,
+        }),
+      ),
     { dependencies: [variant, stagger, delay], scope: ref },
   );
 

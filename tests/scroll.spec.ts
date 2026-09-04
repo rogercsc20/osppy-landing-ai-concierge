@@ -45,7 +45,10 @@ test.describe("scroll engine", () => {
     expect(await scaleX(), "empty at the top of the page").toBeLessThan(0.1);
 
     await page.evaluate(() =>
-      window.scrollTo({ top: document.documentElement.scrollHeight, behavior: "instant" }),
+      window.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: "instant",
+      }),
     );
     await page.waitForTimeout(700);
     expect(await scaleX(), "full at the bottom").toBeGreaterThan(0.9);
@@ -58,28 +61,66 @@ test.describe("scroll engine", () => {
     // matchMedia + ScrollTrigger.create can take several seconds when the
     // whole suite shares the dev server, and a timer that guesses wrong
     // reads null and fails a working page.
-    await page.waitForSelector(".pin-spacer", { state: "attached", timeout: 15_000 });
+    await page.waitForSelector(".pin-spacer", {
+      state: "attached",
+      timeout: 15_000,
+    });
 
     // The trigger's range is NOT the spacer's box: ScrollTrigger sizes the
     // spacer as pinDistance + the pinned element's own height, so scrolling
     // by fractions of the spacer overshoots the range and can skip a phase
     // on a page that works — which is exactly how this test first failed.
     // The scrollable distance is spacer − pinned child.
-    const band = await page.evaluate(() => {
-      const s = document.querySelector(".pin-spacer");
-      if (!s) return null;
-      const r = s.getBoundingClientRect();
-      const pinned = s.firstElementChild as HTMLElement | null;
-      const pinnedH = pinned ? pinned.getBoundingClientRect().height : 0;
-      return { top: r.top + window.scrollY, height: r.height, distance: r.height - pinnedH };
-    });
-    expect(band, "ScrollTrigger pinned the chapter and inserted its spacer").not.toBeNull();
+    // Read the band FRESH every time it is needed, and settle it before the
+    // first read. Computing it once at the top is what made this test flaky
+    // in roughly half of full-suite runs while passing every time in
+    // isolation: `.pin-spacer` attaches as soon as ScrollTrigger creates it,
+    // but fonts, the deferred panel and the entrance tweens keep changing
+    // layout for a while afterwards, so a band measured at that instant puts
+    // the five sample points off the phase centres and one phase is never
+    // read. The symptom was a page that works reporting four of five.
+    const readBand = () =>
+      page.evaluate(() => {
+        const s = document.querySelector(".pin-spacer");
+        if (!s) return null;
+        const r = s.getBoundingClientRect();
+        const pinned = s.firstElementChild as HTMLElement | null;
+        const pinnedH = pinned ? pinned.getBoundingClientRect().height : 0;
+        return {
+          top: r.top + window.scrollY,
+          height: r.height,
+          distance: r.height - pinnedH,
+        };
+      });
+
+    let band = await readBand();
+    for (let tries = 0; tries < 20; tries++) {
+      await page.waitForTimeout(150);
+      const again = await readBand();
+      if (
+        band &&
+        again &&
+        Math.abs(again.top - band.top) < 2 &&
+        Math.abs(again.distance - band.distance) < 2
+      ) {
+        band = again;
+        break;
+      }
+      band = again;
+    }
+    expect(
+      band,
+      "ScrollTrigger pinned the chapter and inserted its spacer",
+    ).not.toBeNull();
 
     // The defect this pins: `+=Nvh` read as N PIXELS, so the band was one
     // element tall and the chapter never left step one. Five phases at
     // stepVh=60 is 300% of a 900px viewport, so the band has to be well
     // over 2000px of scroll.
-    expect(band!.height, "the pin band is percent-of-viewport, not pixels").toBeGreaterThan(2000);
+    expect(
+      band!.height,
+      "the pin band is percent-of-viewport, not pixels",
+    ).toBeGreaterThan(2000);
 
     // Read the RAIL's lit label inside the PIN SPACER, for two reasons. The
     // first h3 of #como belongs to the lg:hidden stacked branch, whose first
@@ -103,17 +144,21 @@ test.describe("scroll engine", () => {
     const titles = new Set<string>();
     for (let i = 0; i < 5; i++) {
       const f = (i + 0.5) / 5;
-      const y = band!.top + f * band!.distance;
-      await page.evaluate((t) => window.scrollTo({ top: t, behavior: "instant" }), y);
+      // Re-read rather than reuse: scrolling itself can settle layout, so the
+      // band that was right for phase 1 need not still be right for phase 4.
+      const current = (await readBand()) ?? band!;
+      const y = current.top + f * current.distance;
+      await page.evaluate(
+        (t) => window.scrollTo({ top: t, behavior: "instant" }),
+        y,
+      );
       // Land, then settle: Lenis keeps interpolating after window.scrollTo,
       // so a read taken the moment scrollY first matches can catch the page
       // still drifting into the NEXT phase. Poll until both the position
       // and the lit label hold still across two consecutive reads.
-      await page.waitForFunction(
-        (t) => Math.abs(window.scrollY - t) < 2,
-        y,
-        { timeout: 5_000 },
-      );
+      await page.waitForFunction((t) => Math.abs(window.scrollY - t) < 2, y, {
+        timeout: 5_000,
+      });
       let prev = "";
       let t = "";
       for (let tries = 0; tries < 20; tries++) {
@@ -124,20 +169,30 @@ test.describe("scroll engine", () => {
       }
       if (t) titles.add(t);
     }
-    expect(titles.size, `every phase showed: ${[...titles].join(" · ")}`).toBe(5);
+    expect(titles.size, `every phase showed: ${[...titles].join(" · ")}`).toBe(
+      5,
+    );
   });
 
-  test("clicking the third phase in the bar scrolls the chapter there", async ({ page }) => {
+  test("clicking the third phase in the bar scrolls the chapter there", async ({
+    page,
+  }) => {
     await page.setViewportSize({ width: 1280, height: 900 });
     await page.goto("/es", { waitUntil: "networkidle" });
-    await page.waitForSelector(".pin-spacer", { state: "attached", timeout: 15_000 });
+    await page.waitForSelector(".pin-spacer", {
+      state: "attached",
+      timeout: 15_000,
+    });
 
     // enter the chapter so the rail is on screen and the trigger is active
     const top = await page.evaluate(() => {
       const s = document.querySelector(".pin-spacer");
       return s!.getBoundingClientRect().top + window.scrollY;
     });
-    await page.evaluate((t) => window.scrollTo({ top: t, behavior: "instant" }), top);
+    await page.evaluate(
+      (t) => window.scrollTo({ top: t, behavior: "instant" }),
+      top,
+    );
     await page.waitForTimeout(400);
 
     await page.locator(".pin-spacer ol button").nth(2).click();
@@ -154,7 +209,9 @@ test.describe("scroll engine", () => {
     );
   });
 
-  test("below lg the five phases are pill anchors to real ids", async ({ page }) => {
+  test("below lg the five phases are pill anchors to real ids", async ({
+    page,
+  }) => {
     await page.setViewportSize({ width: 360, height: 780 });
     await page.goto("/es", { waitUntil: "networkidle" });
 
@@ -163,7 +220,9 @@ test.describe("scroll engine", () => {
     for (let i = 1; i <= 5; i++) {
       // every pill points at an id that EXISTS in the stacked branch — a
       // renamed id would leave a pill jumping nowhere, silently
-      await expect(page.locator(`#como nav a[href="#como-p${i}"]`)).toHaveCount(1);
+      await expect(page.locator(`#como nav a[href="#como-p${i}"]`)).toHaveCount(
+        1,
+      );
       await expect(page.locator(`#como-p${i}`)).toHaveCount(1);
     }
   });
@@ -182,7 +241,9 @@ test.describe("scroll engine", () => {
       page.evaluate(
         () =>
           [...document.querySelectorAll("main *")].filter(
-            (e) => (e.textContent ?? "").trim().length > 12 && getComputedStyle(e).opacity === "0",
+            (e) =>
+              (e.textContent ?? "").trim().length > 12 &&
+              getComputedStyle(e).opacity === "0",
           ).length,
       );
 
@@ -195,13 +256,20 @@ test.describe("scroll engine", () => {
     expect(await hidden(), "nothing hidden at rest").toBe(0);
 
     expect(
-      await page.evaluate(() => document.querySelectorAll(".pin-spacer").length),
+      await page.evaluate(
+        () => document.querySelectorAll(".pin-spacer").length,
+      ),
       "no chapter pins under reduced motion",
     ).toBe(0);
 
-    const height = await page.evaluate(() => document.documentElement.scrollHeight);
+    const height = await page.evaluate(
+      () => document.documentElement.scrollHeight,
+    );
     for (let y = 0; y < height; y += 900) {
-      await page.evaluate((t) => window.scrollTo({ top: t, behavior: "instant" }), y);
+      await page.evaluate(
+        (t) => window.scrollTo({ top: t, behavior: "instant" }),
+        y,
+      );
       await page.waitForTimeout(80);
     }
     await page.waitForTimeout(800);
