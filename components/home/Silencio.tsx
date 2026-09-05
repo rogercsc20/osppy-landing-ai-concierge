@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { SplitText } from "@/components/fx/SplitText";
 import { gsap } from "@/lib/gsap-init";
 import { MOTION_OK } from "@/lib/gsap-motion";
+import { DUR, STAGGER } from "@/lib/motion";
 
 /* Section 3: the only section of the site that is an experience and not a
    text. The operator's words: "eso todo en un renglón junto, y después
@@ -42,18 +43,41 @@ import { MOTION_OK } from "@/lib/gsap-motion";
    correct: the reduced-motion reader gets the dark section and the readable
    sentence, just without the breathing. */
 /** The veil never fully lifts while the section is on screen: below this the
-    fixed light headline would be sitting on Marfil in light mode. The number
-    is MEASURED, not chosen by eye. Compositing #040807 at this alpha over
-    Alba's #f7f5f0 puts the headline at 5.10:1, against the 3:1 WCAG floor
-    for text at 24px or more; 0.55 would have been 3.70:1, which passes and
-    leaves no margin for a lighter ground later. In Obsidian every value is
-    above 16:1 and the floor is irrelevant. */
-const VEIL_FLOOR = 0.65;
+    fixed light text would be sitting on Marfil in light mode. The number is
+    MEASURED, not chosen by eye, and it moved once.
+
+    E3c set 0.65 by compositing #040807 at the ellipse's centre stop (alpha
+    0.94) over Alba's #f7f5f0: 5.10:1 for the headline against the 3:1 WCAG
+    floor for text at 24px or more. v5 T2 halved the section, added a SMALL
+    line of text (the AI's greeting over the caret, which needs 4.5:1) and
+    measured the ground on a full-page capture instead of computing it. The
+    5.10:1 turned out to be the exact centre of the ellipse and nothing else:
+    the radial's radius is 80% of a box that spans the wrapper plus 100vw, so
+    the START of every line sits ~450px off the centre at 1280 (~175px at
+    360) and reads the stop between 0.94 and 0.82, not 0.94. Sampled left of
+    the text column, at the rows the text occupies, veil at its floor, light
+    mode, against #e8efec:
+
+      floor 0.65   headline 4.22:1 (top edge) to 4.54:1 (centre) · greeting
+                   4.39 to 4.41:1 — the greeting FAILS 4.5:1 at 1280 and 360
+      floor 0.70   headline 4.94:1 (360, top edge) to 5.42:1 · greeting
+                   5.12:1 (360, bottom edge) to 5.28:1 — both pass, with margin
+
+    So the floor is 0.70. In Obsidian every value is above 17:1 and the floor
+    is irrelevant. The breathing still goes floor → 1 → floor; it is a little
+    shallower and the eye cannot tell. */
+const VEIL_FLOOR = 0.7;
 
 export function Silencio() {
   const ref = useRef<HTMLDivElement>(null);
 
   const t = useTranslations("home.silencio");
+  const linea1 = t("linea1");
+  /* The second line is the second beat of the sentence, not the tail of the
+     first: it starts one fast beat after the LAST word of line 1 has begun,
+     so "y después, silencio" arrives after the client has finished speaking.
+     Computed from the text because the word count differs by language. */
+  const linea2Delay = linea1.split(" ").length * STAGGER.words + DUR.fast;
 
   useGSAP(
     () => {
@@ -89,9 +113,13 @@ export function Silencio() {
           swallows the atmosphere and the ground, and the copy keeps its
           contrast. Caught by looking at a capture, not by check-contrast,
           which measures tokens and never sees a layer stacked over text. */}
+      {/* Half a screen, not a full one (v5 T2, operator note 2.4): exactly half
+          of what E3c built, which was the viewport under the fixed 4rem nav.
+          The height lives HERE and never on the <section>, where
+          check-sections.mjs forbids min-h-screen. */}
       <div
         ref={ref}
-        className="relative mx-auto flex min-h-[calc(100svh-4rem)] max-w-4xl flex-col justify-center"
+        className="relative mx-auto flex min-h-[calc(50svh-2rem)] max-w-4xl flex-col justify-center"
       >
         <div
           aria-hidden="true"
@@ -102,17 +130,37 @@ export function Silencio() {
           }}
         />
 
-        <h2 className="font-display max-w-3xl text-h2 font-semibold text-balance text-[#e8efec]">
-          <SplitText text={t("headline")} />
+        {/* ONE heading in two lines (v5 T2): the client's words on the first,
+            in curly quotes because the quotes are what make it THEIR voice and
+            not Osppy's, and the silence on the second. Two blocks inside one
+            <h2>, never two headings. Each SplitText renders its intact string
+            in an sr-only span, so the literal space between the blocks is
+            what keeps the accessible name from reading "…IA.”Y después…".
+            On desktop each line is one line; below lg the text flows. */}
+        <h2 className="font-display max-w-4xl text-h2 font-semibold text-balance text-[#e8efec]">
+          <span className="block">
+            <SplitText text={linea1} />
+          </span>{" "}
+          <span className="block">
+            <SplitText text={t("linea2")} delay={linea2Delay} />
+          </span>
         </h2>
 
-        {/* The silence, drawn: an answer line that never gets its answer.
-            Decorative, so it is aria-hidden and adds no text — the headline
-            already says it out loud. */}
+        {/* The silence, drawn: what any AI says first, and then an answer line
+            that never gets its answer. Decorative, so the box is aria-hidden
+            and adds nothing to the reading order — the headline already says
+            it out loud, and the greeting is the machine's line in the scene,
+            not the page's. The greeting is small text and so needs 4.5:1, not
+            the headline's 3:1: it keeps the FULL #e8efec (no alpha — at /70
+            like the caret it would fail everywhere in light mode at the
+            veil's floor), and the floor itself was raised for it, 0.65 to
+            0.70. Measured on a capture, both modes; the numbers are next to
+            VEIL_FLOOR. */}
         <div
           aria-hidden="true"
-          className="mt-12 flex h-16 max-w-2xl items-center border-l-2 border-white/20 pl-6"
+          className="mt-12 flex max-w-2xl flex-col justify-center gap-3 border-l-2 border-white/20 py-1 pl-6"
         >
+          <p className="text-base leading-snug text-[#e8efec] sm:text-lg">{t("cursor")}</p>
           <span className="caret-blink h-6 w-[2px] bg-[#e8efec]/70" />
         </div>
       </div>

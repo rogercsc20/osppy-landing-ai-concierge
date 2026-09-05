@@ -71,7 +71,9 @@
       }
     },
     "silencio": {
-      "headline": "“We know we need AI.” And then, silence."
+      "linea1": "“We know we need AI.”",
+      "linea2": "And then, silence.",
+      "cursor": "How can I help you today?"
     },
     "porque": {
       "quienes": "Osppy is a Corporate AI consultancy: we put artificial intelligence to work inside your company's operation."

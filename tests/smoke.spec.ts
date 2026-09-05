@@ -676,3 +676,69 @@ test.describe("the mobile phase strip is a named landmark (v5 T1, plan C7)", () 
     });
   }
 });
+
+// ── v5 T2: the silence halves its height and its sentence breaks in two ────
+
+test.describe("the silence speaks in two lines under one heading (v5 T2)", () => {
+  // The operator asked for two lines, not two headings: the client's words
+  // and then the silence. So the assertion is on ONE level-2 heading whose
+  // accessible name is both lines joined by a space, in each language. Two
+  // SplitText copies inside one <h2> read "…IA.”Y después…" without the
+  // literal space between their blocks, and this is the test that hears it.
+  // The AI's greeting over the caret lives INSIDE the decorative answer line,
+  // which is aria-hidden on purpose, so it is asserted on the DOM text and
+  // the JSON key, never by role: a screen reader is not meant to hear it.
+  for (const [route, m] of [
+    ["/es", es],
+    ["/en", en],
+  ] as const) {
+    test(`${route}: one h2 named by both lines, and the greeting inside the drawn silence`, async ({
+      page,
+    }) => {
+      await page.goto(route);
+      const { linea1, linea2, cursor } = m.home.silencio;
+      const heading = page.getByRole("heading", {
+        level: 2,
+        name: `${linea1} ${linea2}`,
+        exact: true,
+      });
+      await expect(heading).toBeVisible();
+      await expect(heading.locator("h2, [role=heading]")).toHaveCount(0);
+
+      const greeting = page
+        .locator('main [aria-hidden="true"]')
+        .getByText(cursor, { exact: true });
+      await expect(greeting).toBeVisible();
+    });
+  }
+});
+
+test.describe("the silence stands half a screen tall (v5 T2)", () => {
+  // E3c built the section as one full screen under the fixed nav and nothing
+  // ever measured that height; the operator halved it. Pinned as a band, not
+  // a pixel: between 40% and 60% of the viewport at a desktop and a phone
+  // size, so a later change of padding does not fail it but a return to full
+  // height (or a collapse to content height) does.
+  for (const [width, height] of [
+    [1280, 900],
+    [360, 780],
+  ] as const) {
+    test(`${width}x${height}: the section is between 40% and 60% of the viewport`, async ({
+      page,
+    }) => {
+      await page.setViewportSize({ width, height });
+      await page.goto("/es");
+      const heading = page.getByRole("heading", {
+        level: 2,
+        name: `${es.home.silencio.linea1} ${es.home.silencio.linea2}`,
+        exact: true,
+      });
+      const section = page.locator("main > section", { has: heading });
+      const box = await section.boundingBox();
+      expect(box).not.toBeNull();
+      const ratio = box!.height / height;
+      expect(ratio, `section height ${box!.height}px of ${height}px`).toBeGreaterThan(0.4);
+      expect(ratio, `section height ${box!.height}px of ${height}px`).toBeLessThan(0.6);
+    });
+  }
+});

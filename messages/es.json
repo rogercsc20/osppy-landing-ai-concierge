@@ -71,7 +71,9 @@
       }
     },
     "silencio": {
-      "headline": "“Sabemos que necesitamos IA.” Y después, silencio."
+      "linea1": "“Sabemos que necesitamos IA.”",
+      "linea2": "Y después, silencio.",
+      "cursor": "¿Cómo puedo ayudarte hoy?"
     },
     "porque": {
       "quienes": "Osppy es una consultoría de IA Corporativa: ponemos la inteligencia artificial a hacer trabajo dentro de la operación de tu empresa."
