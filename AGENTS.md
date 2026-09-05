@@ -85,6 +85,52 @@ full map.
   screenshot shows the panel, and so does the browser. Do not chase it.
 - **`git checkout -- <file>` does not revert a mutation over uncommitted work;
   it deletes the work.** Copy the file somewhere outside git first.
+- **Playwright's `hover()` does not land while Lenis is running.** It scrolls
+  the element into view and then dispatches the move at the coordinates it
+  read BEFORE that scroll, and Lenis keeps transforming the page for the next
+  several frames. Measured in v5 T7 against `npm run dev` at 1280: after
+  `hover()` the anchor reported `matches(":hover") === false` and the target
+  had not moved, while the same test under `reducedMotion: "reduce"` — where
+  there is no Lenis provider — landed every time. It looks exactly like a
+  broken component. Drive the pointer instead: read the box, `mouse.move` to
+  its centre with `steps`, and poll `matches(":hover")` until it is true.
+- **Chromium ignores a mouse move to the coordinates the pointer already
+  occupies**, so a poll that keeps re-aiming at the same centre never
+  re-evaluates `:hover` and spins until it times out. Move away (a corner)
+  and back on each attempt.
+- **`browser.newContext()` does not inherit the project's `use` options.** A
+  hand-built context for one media emulation failed half its runs two ways —
+  a pointer that never landed and a `boundingBox()` of null. Prefer
+  `page.emulateMedia()` on the project's own `page`.
+- **For a claim about a CSS media query, force the pseudo-state instead of
+  driving the mouse.** `CSS.forcePseudoState` over `page.context()
+  .newCDPSession(page)` puts an element in `:hover` with no pointer, no Lenis
+  and no event coalescing. In v5 the reduced-motion hover test went from five
+  failures in eighteen runs to 24 of 24 that way, while the two tests beside
+  it kept a real pointer because what THEY check is what a reader does.
+- **Do not assert `documentElement.scrollHeight` across an interaction.**
+  ScrollTrigger re-measures the pinned chapter's spacer after fonts and
+  images settle and that number moves on its own — 110 px, mid-test, with the
+  pointer doing nothing. Assert the height of the SECTION the change lives
+  in.
+- **Compare box geometry with `toBeCloseTo(x, 0)`, never `toBe`.** Two reads
+  of an unchanged box differ in the eighth decimal
+  (`131.98440551757812` vs `131.984375`).
+- **`.glass` is declared OUTSIDE every `@layer` in `globals.css`, so it beats
+  any Tailwind utility** whatever the specificity. `hover:border-*` on an
+  element that also carries `.glass` paints nothing, and has painted nothing
+  since it was written. Drive the border through `--line`, which is what
+  `.glass` reads. `components/hoteles/Hace.tsx:56` still carries the dead
+  pairing.
+- **Tailwind v4's `scale-*` writes the standalone `scale` property, not
+  `transform`.** `getComputedStyle(el).transform` reads `none` on a scaled
+  element, and `transition-[transform,…]` on it names a property that never
+  changes — the change snaps with no easing and nothing tells you.
+- **`next/image` never upscales.** Ask for a width above the master's and it
+  returns the master, and the browser stretches it. Two of the twenty area
+  photos are PORTRAIT originals, so `LONG_EDGE = 1600` caps their HEIGHT and
+  they ship 1067 px wide: the bank's real ceiling for a landscape frame is
+  1067, not 1600.
 - `body { overflow-x: clip }` guards against stray horizontal overflow on
   mobile — keep `clip` (not `hidden`, which would break the sticky chapter).
 - **`content-visibility` must never wrap `<Como/>`.** It applies layout and
