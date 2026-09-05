@@ -30,7 +30,36 @@ import { cn } from "@/lib/utils";
    pagina».
 
    Below `lg`, and under reduced motion, the same data is an accordion: the
-   pointer is not the only way to ask a list a question. */
+   pointer is not the only way to ask a list a question.
+
+   **HOW BIG THE FRAME CAN BE, measured before it was chosen (v5 T6).** The
+   operator asked for much bigger photographs here. The size is capped by the
+   photo bank, and the cap is NOT the one the plan assumed.
+
+   `optimize-photos.mjs` writes every photo at a LONG EDGE of 1600, so the
+   plan reasoned that a 24rem frame already spends 768 of 1600 at DPR 2 and
+   that the bank would take roughly double — about 48rem. That holds for
+   eighteen of the twenty. It does not hold for `legal` (original 4000x6000)
+   and `mantenimiento` (5304x7952), which are PORTRAIT: capping their long
+   edge caps their HEIGHT, so they are delivered **1067 px wide**, two thirds
+   of what every other photo gets. This frame is `aspect-[4/3]` with
+   object-cover, so a portrait source binds on WIDTH. The bank's real ceiling
+   is 1067 px of frame width at DPR 1, not 1600.
+
+   Which makes the choice arithmetic rather than taste. next/image serves a
+   width from `deviceSizes`/`imageSizes` in next.config.ts, so at DPR 2 a
+   32rem frame (512 CSS px) asks for **1024**, and 1067 covers it with room.
+   The next step the config offers is **1280**, which those two cannot cover
+   and would upscale by 1.20x. 32rem is therefore the largest frame at which
+   EVERY photograph in the bank is still delivered at or above the size it is
+   painted at. The plan's own recommendation of 40rem sits past it, on a
+   premise measured false here.
+
+   Raising it further is a real option and it belongs to the operator: the two
+   portrait originals have enormous headroom (6000 and 7952 px on their long
+   edge), so re-running the optimizer with a larger `LONG_EDGE` would lift the
+   ceiling for all twenty. That is the "re-optimize the twenty photos" the
+   plan fences off, and until it happens 32rem is the honest maximum. */
 
 export function Areas() {
   const t = useTranslations("home.areas");
@@ -56,7 +85,12 @@ export function Areas() {
         </Reveal>
 
         {/* ── lg and up: the list, and one frame that follows it ───────── */}
-        <div className="mt-14 hidden gap-14 lg:grid lg:grid-cols-[1fr_minmax(0,24rem)]">
+        {/* v5 T6: the frame grows from 24rem to 32rem — +33 % across, +78 % in
+            area — and 32rem is not a taste, it is the ceiling. See the
+            docstring: two of the twenty masters are 1067 px wide, and
+            next/image asks for 1024 at this size and for 1280 at the next
+            step up. */}
+        <div className="mt-14 hidden gap-14 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,32rem)]">
           <ul
             className="flex flex-col"
             onMouseLeave={ok ? () => setActive(0) : undefined}
@@ -104,7 +138,7 @@ export function Areas() {
                     <Photo
                       slug={area.foto}
                       locale={locale}
-                      sizes="(min-width: 1024px) 24rem, 100vw"
+                      sizes="(min-width: 1024px) 32rem, 100vw"
                       className="h-full w-full"
                     />
                   </motion.div>
