@@ -5,7 +5,6 @@ import { AnimatePresence, motion } from "motion/react";
 import { useReducedMotion } from "@/components/fx/motion-hooks";
 import { Reveal } from "@/components/fx/Reveal";
 import { SplitText } from "@/components/fx/SplitText";
-import { Float } from "@/components/fx/Float";
 import { Pinned, type GoTo } from "@/components/fx/Pinned";
 import { DUR, EASE_EXPO } from "@/lib/motion";
 import { ArrowUpRight } from "lucide-react";
@@ -40,7 +39,13 @@ import { cn } from "@/lib/utils";
    no track (it is hidden, its geometry reads zero), so the stacked steps
    carry anchor ids and a strip of pill links does the jumping: Lenis
    (anchors: true) makes it smooth, and with JavaScript gone it degrades to
-   a native jump. */
+   a native jump.
+
+   **Since v5 T7 that clickable bar IS the diagram** (decisions D-4 output A
+   and 5b): the rail of names on the left is deleted and the nodes on the
+   right are the chapter's only control. See PhaseNav for why the
+   `aria-hidden` could come off, why the shape is an `<ol>` of `<button>`,
+   and why the active node stopped breathing. */
 
 const STEP_COUNT = 5;
 const STEP_IDS = Array.from({ length: STEP_COUNT }, (_, i) => `como-p${i + 1}`);
@@ -95,9 +100,47 @@ function StepBody({
   );
 }
 
-/** The rail: five buttons, the current one lit and grown. aria-current
-    names the active step for readers who cannot see the growth. */
-function Rail({
+/** The five phases, and the chapter's ONLY control (v5 T7, decisions D-4
+    output A and 5b).
+
+    There used to be two controls saying exactly the same five things: a rail
+    of names down the left (clickable since HQA-D92) and these nodes down the
+    right (`aria-hidden`, not clickable). The operator saw the duplication and
+    ruled that one survives — these. **The rail is deleted**, and with it the
+    16rem column it occupied.
+
+    That is why `aria-hidden="true"` could come off. It was there on purpose:
+    the rail and the body already said all five phases in text, so announcing
+    them a third time was noise. The moment the nodes take a click they must
+    leave the hidden subtree — focusable content inside `aria-hidden` is a
+    WCAG failure axe reports, and accessibility is the one number on this site
+    that is at its target. The duplication that removing it would have created
+    is gone by DESIGN rather than patched: there is no second list left to
+    duplicate.
+
+    **An `<ol>` of `<button>` with `aria-current="step"`, and the shape is not
+    incidental.** It is the shape the dead rail had, and the test
+    `clicking the third phase in the bar scrolls the chapter there` addresses
+    `.pin-spacer ol button` and asserts on `[aria-current="step"]` without
+    naming the rail — so it keeps biting, unedited, on a control it was never
+    written for. Built as `<div onClick>` instead, it would have needed
+    rewriting AND the chapter would have lost the keyboard.
+
+    **The click SCROLLS.** The step is a function of scroll position and is
+    recomputed on every trigger update, so a `setStep` is overwritten on the
+    next frame. `goTo` from Pinned already aims at the centre of the step's
+    band using ScrollTrigger's own geometry; it is inherited from the rail,
+    not reinvented.
+
+    **The active node no longer breathes.** It carried `Float distance={4}
+    duration={5}` forever. The operator's instruction was "suave, o quitarla
+    por completo", and 5b decides between those two halves on its own: the
+    node is now a CLICK TARGET, and a target that drifts under the pointer is
+    a target you aim at while it moves. Softening keeps that. The connector
+    fill stays — it is transform-only, it runs once per step, and it is
+    information rather than decoration. The active node is still unmistakable
+    without motion: its own border, its tint and `aria-current`. */
+function PhaseNav({
   step,
   labels,
   goTo,
@@ -107,71 +150,37 @@ function Rail({
   goTo: GoTo;
 }) {
   return (
-    <ol className="flex flex-col gap-4">
-      {labels.map((label, i) => (
-        // keyed by index, not label: titles are copy and copy may repeat
-        <li key={i}>
-          <button
-            type="button"
-            onClick={() => goTo(i)}
-            aria-current={i === step ? "step" : undefined}
-            className="group flex cursor-pointer items-center gap-4 text-left"
-          >
-            <span
-              aria-hidden="true"
-              className={cn(
-                "h-px transition-all duration-500",
-                i === step ? "w-12 bg-accent-text" : "w-6 bg-line group-hover:w-9",
-              )}
-            />
-            <span
-              className={cn(
-                "text-sm transition-colors duration-500",
-                i === step ? "font-medium text-text" : "text-text-2 group-hover:text-text",
-              )}
-            >
-              {label}
-            </span>
-          </button>
-        </li>
-      ))}
-    </ol>
-  );
-}
-
-/** The phase diagram the hero gave up, rebuilt in HTML: five nodes down the
-    right column, the connector filling as the reader advances, the active
-    node breathing. Aria-hidden — the rail and the body already carry the
-    same information as text. */
-function PhaseDiagram({ step, labels }: { step: number; labels: string[] }) {
-  const reduce = useReducedMotion();
-  return (
-    <div aria-hidden="true" className="flex flex-col">
+    <ol className="flex flex-col">
       {labels.map((label, i) => {
+        // keyed by index, not label: titles are copy and copy may repeat
         const active = i === step;
         const done = i < step;
-        const node = (
-          <div
-            className={cn(
-              "rounded-xl border px-4 py-3 text-sm transition-colors duration-500",
-              active
-                ? "border-accent-text bg-accent-text/10 font-medium text-text"
-                : done
-                  ? "border-line bg-surface text-text-2"
-                  : "border-line/60 text-text-2/70",
-            )}
-          >
-            <span className="font-display mr-2 text-xs font-semibold tabular-nums text-accent-text">
-              {`0${i + 1}`}
-            </span>
-            {label}
-          </div>
-        );
         return (
-          <div key={i} className="flex flex-col">
-            {active && !reduce ? <Float distance={4} duration={5}>{node}</Float> : node}
+          <li key={i} className="flex flex-col">
+            <button
+              type="button"
+              onClick={() => goTo(i)}
+              aria-current={active ? "step" : undefined}
+              className={cn(
+                "cursor-pointer rounded-xl border px-4 py-3 text-left text-sm transition-colors duration-500",
+                "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-text",
+                active
+                  ? "border-accent-text bg-accent-text/10 font-medium text-text"
+                  : done
+                    ? "border-line bg-surface text-text-2 hover:border-accent-text/60 hover:text-text"
+                    : "border-line/60 text-text-2/70 hover:border-accent-text/60 hover:text-text",
+              )}
+            >
+              <span className="font-display mr-2 text-xs font-semibold tabular-nums text-accent-text">
+                {`0${i + 1}`}
+              </span>
+              {label}
+            </button>
             {i < labels.length - 1 && (
-              <div className="mx-auto h-6 w-[2px] overflow-hidden bg-line/50">
+              <div
+                aria-hidden="true"
+                className="mx-auto h-6 w-[2px] overflow-hidden bg-line/50"
+              >
                 {/* the connector fills top-down once its step is behind the
                     reader — transform only, per the motion budget */}
                 <div
@@ -182,10 +191,10 @@ function PhaseDiagram({ step, labels }: { step: number; labels: string[] }) {
                 />
               </div>
             )}
-          </div>
+          </li>
         );
       })}
-    </div>
+    </ol>
   );
 }
 
@@ -239,8 +248,14 @@ export function Como() {
                 <StepBody {...steps[step]} index={step} />
               </div>
             ) : (
-              <div className="grid w-full grid-cols-[16rem_minmax(0,1fr)_minmax(0,15rem)] gap-10 xl:gap-16">
-                <Rail step={step} labels={labels} goTo={goTo} />
+              /* Two columns since v5 T7, not three. The 16rem the rail held
+                 belongs to the five step IMAGES the operator still owes
+                 (plan O-1, open since tanda D): when they arrive, a third
+                 column goes back in FIRST here and the body returns to the
+                 measure it had. It is not drawn now — an empty bordered
+                 frame reads as a mistake, and a wide empty gutter reads as
+                 one too, so the body takes the width in the meantime. */
+              <div className="grid w-full grid-cols-[minmax(0,1fr)_minmax(0,15rem)] gap-10 xl:gap-16">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={step}
@@ -252,7 +267,7 @@ export function Como() {
                     <StepBody {...steps[step]} index={step} />
                   </motion.div>
                 </AnimatePresence>
-                <PhaseDiagram step={step} labels={labels} />
+                <PhaseNav step={step} labels={labels} goTo={goTo} />
               </div>
             )
           }
