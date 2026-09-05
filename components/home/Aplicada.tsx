@@ -25,6 +25,15 @@ import { PanelSkeleton } from "./PanelSkeleton";
    touches `data-theme`, which is the only way to get the inversion without
    breaking the toggle.
 
+   **The `ssr: false` below is the repo's only deferred boundary, and until
+   v5 T5 nothing tested it on purpose.** Two tests asserted the panel's
+   demonstration chip and, by waiting for it, proved the chunk resolved; D-2
+   deleted the chip. The guarantee is now its own test, per language, in
+   `tests/smoke.spec.ts`: the panel's title and its four KPI labels have to
+   appear, and PanelSkeleton renders no text at all, so finding any of them
+   is proof the chunk arrived. Delete that test and the panel can fail
+   silently behind a skeleton that looks deliberate.
+
    Below md the panel is not rendered (the D4 rule) and the diagram is gone,
    so on a phone this section is typography. That is question 10 of the plan
    §9 and it is a design question, not a copy one; typography is the answer

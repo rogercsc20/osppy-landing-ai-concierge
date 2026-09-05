@@ -27,46 +27,49 @@
       "subtitulo": "Lo que no te dicen, es <u>¿dónde?</u>",
       "panel": {
         "titulo": "Panel de operación",
-        "empresa": "Empresa de demostración",
-        "etiqueta": "Datos de demostración",
         "kpis": {
           "k1": {
-            "valor": "12480",
-            "label": "documentos procesados",
-            "delta": "+8",
-            "periodo": "vs. semana anterior"
+            "valor": "8.48",
+            "unidad": " M MXN",
+            "label": "ingresos del periodo",
+            "delta": "+6",
+            "deltaUnidad": "%"
           },
           "k2": {
-            "valor": "3916",
-            "label": "cotizaciones armadas",
-            "delta": "+5",
-            "periodo": "vs. semana anterior"
+            "valor": "18.4",
+            "unidad": "%",
+            "label": "margen operativo",
+            "delta": "+2",
+            "deltaUnidad": " pts"
           },
           "k3": {
-            "valor": "214",
-            "label": "tareas en revisión",
-            "delta": "0",
-            "periodo": "vs. semana anterior"
+            "valor": "41",
+            "unidad": " días",
+            "label": "ciclo de cobro",
+            "delta": "-5",
+            "deltaUnidad": " días"
           },
           "k4": {
-            "valor": "37",
-            "label": "excepciones marcadas",
-            "delta": "-4",
-            "periodo": "vs. semana anterior"
+            "valor": "87",
+            "unidad": "%",
+            "label": "ocupación de capacidad",
+            "delta": "+3",
+            "deltaUnidad": " pts"
           }
         },
-        "volumenTitulo": "Volumen procesado por semana",
-        "volumenNota": "Semana de demostración",
-        "volumenSerie": "documentos",
-        "areasTitulo": "Por área",
+        "kpisNota": "Variación contra el periodo anterior",
+        "volumenTitulo": "Ingresos por día",
+        "volumenNota": "Semana en curso",
+        "volumenSerie": "ingresos (miles MXN)",
+        "areasTitulo": "Actividad por área",
         "areas": {
           "a1": "Contabilidad",
           "a2": "Compras",
           "a3": "Ventas",
           "a4": "Facturación"
         },
-        "pie": "Cada cifra de este panel es de demostración. Una persona revisa lo que sale.",
-        "alt": "Panel de operación con cuatro indicadores, una gráfica de volumen por semana y un desglose por área"
+        "pie": "Una persona revisa lo que sale.",
+        "alt": "Panel de operación con cuatro indicadores de negocio, una gráfica de ingresos por día y un desglose de actividad por área"
       }
     },
     "silencio": {

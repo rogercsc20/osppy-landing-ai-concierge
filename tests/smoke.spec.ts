@@ -91,25 +91,63 @@ test.describe("section 2 subtitle underline (tanda D D3, moved by E3c, marks ins
 });
 
 test.describe("section 2 operation panel (tanda D D4, moved by E3c)", () => {
-  // The demonstration-data chip is the truth label of section 2's one moving
-  // object (source of truth §9/§10): a mock never presents itself as a
-  // client screenshot. The panel body is behind the repo's first
-  // next/dynamic boundary with ssr:false, so the assertion waits for the
-  // chunk — and thereby also proves the boundary actually loads.
-  for (const [route, label] of [
-    ["/es", "Datos de demostración"],
-    ["/en", "Demonstration data"],
+  // The two tests that used to live here asserted the demonstration-data
+  // chip, which decision D-2 removed in v5 T5. They are not replaced in
+  // kind: the operator took output A knowingly, and a test cannot re-argue
+  // a decision. What IS replaced is the guarantee they gave BY ACCIDENT.
+  //
+  // Waiting for the chip meant waiting for the repo's ONLY next/dynamic
+  // boundary with `ssr: false` (Aplicada.tsx) to resolve, so those two tests
+  // were also the only thing proving that boundary loads at all. Deleting
+  // them without repaying that would have left the deferred panel able to
+  // fail silently, with the skeleton standing in for it forever.
+  //
+  // The skeleton renders NO text — every box in PanelSkeleton is empty and
+  // the whole thing is aria-hidden — so any panel string found in the DOM is
+  // proof the deferred chunk arrived AND hydrated. Per language, because the
+  // boundary is inside a client component that reads the locale.
+  for (const [route, tree] of [
+    ["/es", es],
+    ["/en", en],
   ] as const) {
-    test(`${route}: the demo-data chip is present and says «${label}»`, async ({
+    test(`${route}: the deferred panel really loads, and it is what says so`, async ({
       page,
     }) => {
       await page.setViewportSize({ width: 1280, height: 900 });
       await page.goto(route);
-      const chip = page.getByTestId("panel-demo-chip");
-      await expect(chip).toBeVisible();
-      await expect(chip).toHaveText(label);
+      const panel = page.locator('[data-panel="invert"]');
+      const copy = tree.home.aplicada.panel;
+      // the title: the skeleton draws this as an empty grey box
+      await expect(panel.getByText(copy.titulo, { exact: true })).toBeVisible();
+      for (const k of ["k1", "k2", "k3", "k4"] as const) {
+        await expect(panel.getByText(copy.kpis[k].label)).toBeVisible();
+      }
     });
   }
+
+  test("the demonstration label and the company name are gone from both trees (D-2)", () => {
+    // D-2 removed the chip AND the company slot, and the slot is left EMPTY
+    // rather than refilled with an invented trade name or with Osppy. Keys
+    // nothing renders are dead copy that check:parity would keep alive in
+    // both trees forever, so they are deleted, not blanked — the same move
+    // T3 made with home.hero.scroll. The four `periodo` keys go with them:
+    // they were never rendered by any version of the panel, and the basis
+    // for the deltas is now said once, in `kpisNota`.
+    for (const tree of [es, en]) {
+      const panel = tree.home.aplicada.panel as Record<string, unknown>;
+      expect(panel.etiqueta).toBeUndefined();
+      expect(panel.empresa).toBeUndefined();
+      expect(panel.kpisNota).toBeTruthy();
+      for (const k of ["k1", "k2", "k3", "k4"] as const) {
+        const kpi = (panel.kpis as Record<string, Record<string, unknown>>)[k];
+        expect(kpi.periodo).toBeUndefined();
+        // the unit never lives inside `valor`: Counter is handed Number(valor)
+        expect(Number.isNaN(Number(kpi.valor))).toBe(false);
+        expect(kpi.unidad).toBeDefined();
+        expect(kpi.deltaUnidad).toBeDefined();
+      }
+    }
+  });
 });
 
 test("nav Log in points at the cockpit login (cross-origin — assert, don't navigate)", async ({
