@@ -1,83 +1,96 @@
-"use client";
-
 import type { CSSProperties } from "react";
-import { useRef } from "react";
-import { useGSAP } from "@gsap/react";
-import { useTranslations } from "next-intl";
-import { ChevronDown } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
 import { FxLayer } from "@/components/fx/FxLayer";
-import { gsap } from "@/lib/gsap-init";
-import { MOTION_OK } from "@/lib/gsap-motion";
+import { Photo } from "@/components/media/Photo";
 
-/* Section 1 (HQA-D90): the house opens with a feeling, not an argument. One
-   phrase, enormous, and a background that has to produce RELIEF — corporate
-   and warm at once, explicitly not sombre futurism.
+/* Section 1 (HQA-D90, amended by v5 T3): the house opens with a feeling, not
+   an argument. One phrase, enormous, over a photograph — and the photograph is
+   the amendment. HQA-D90 opened the house on an abstract written in code and
+   said, in the same row, that "if the operator gets a photo later it enters
+   as a layer on top without redoing anything". That is what happened on
+   2026-09-04 (plan v5 D-1, salida A): the operator sent a generated image and
+   chose it knowingly, reopening HQA-D31 ("no model-generated images"), HQA-D41
+   ("never in a hero") and HQA-D90 ("sin foto") in one ledger row.
 
-   What it does NOT have, and each absence is a decision, not an omission:
-   no photo (gate E0-3, re-ratified 2026-09-04 against a contrary remark), no
-   panel, no diagram, no figures, and NO BUTTON (decision 2 of the E3a gate:
-   the first screen is a promise and the scroll indicator is the only action).
+   What the first screen does NOT have, and each absence is a decision:
+   no panel, no diagram, no figures, and NO ACTION AT ALL — no button, no
+   contact link, and since T3 no scroll indicator either (the operator:
+   "quitar el botón de Baja"). The first screen is a promise and nothing else.
 
-   The h1 is the LCP element, so it enters with `animate-rise-only` and never
-   starts at opacity 0 — the rule globals.css has carried since V3.
+   The photo is decoration, so it lives inside FxLayer (aria-hidden, -z-10):
+   no reader hears it before the <h1>, and its alt stays as traceability and
+   as the component's contract. The two auras and the breathing ring that
+   built the atmosphere before the photo are GONE, not hidden: the copper aura
+   fused into a golden sky, the sage one fought it, and a teal ring around the
+   sun read as a halo. With them went the hero's only GSAP tween and its
+   "use client": the first screen is now a server component with no JS motion,
+   which is also what keeps the ground under the headline STILL, so the
+   contrast floor below is one number and not a range.
 
-   The height lives on the inner wrapper and never on the <section>: the
-   plan asks for it there because check-sections.mjs fails on a section that
-   declares its own full-screen height, and that guard is from V2.
+   The photo ends at the section's bottom edge, and a full-bleed image ending
+   on a boundary is exactly the horizontal seam landing v2 §2 rule 1 forbids
+   (the reason the old aura bled 25% into section 2). So the photo AND its
+   veil sit in one wrapper that carries a mask fading to transparent over the
+   bottom 38%: the page ground shows through and section 2 starts with no
+   line. Both layers share the wrapper on purpose — a veil that outlived the
+   photo would paint its own band.
 
-   The breathing object is ONE tween on transform and opacity, configured
-   only under `prefers-reduced-motion: no-preference` via matchMedia, so
-   under reduced motion it is never set up at all — not merely paused
-   (HQA-D80). It is not scroll-linked: the house already publishes at
-   Lighthouse 51 with 28 ScrollTrigger instances as the measured cause
-   (HQA-D87), and the first screen is the last place to add a 29th. */
+   THE CONTRAST FLOOR. check-contrast.mjs measures tokens and cannot see text
+   over an image; the ground here changes pixel by pixel, and the sun (the
+   brightest zone, at x≈50% y≈55% of the frame) sits behind the centred
+   headline. The veil is `--hero-veil` in globals.css, a wash of the page's
+   own ground at a measured alpha per theme: Marfil over the photo in light
+   mode so Tinta stays readable (the two `--veil` values are both dark, and
+   dark ink on a dark veil is the defect E3c caught in Silencio), Obsidian in
+   dark mode. It was measured on a viewport capture against `next start`, a
+   grid sampled INSIDE the boxes of the <h1> and the <p> with the letters
+   hidden, in both modes, at 1280x900 and 360x780, reduced motion and not;
+   the table lives next to the token in globals.css. The minimum is the
+   number that rules: <h1> (44px+, extrabold) needs 3:1 everywhere, <p>
+   (21.2px at 360, weight 500) needs 4.5:1 everywhere. The <p> reads
+   `text-text` and not `text-text-2` for that reason: Grafito needs an alpha
+   near 0.9 to pass over the silhouettes, which would erase the photo the
+   operator asked to see.
+
+   The h1 is or was the LCP element, so it enters with `animate-rise-only`
+   and never starts at opacity 0 — the rule globals.css has carried since V3.
+   The photo has no entrance: a `priority` image starting at opacity 0 would
+   move the LCP back and gain nothing.
+
+   The height lives on the inner wrapper and never on the <section>:
+   check-sections.mjs fails on a section that declares its own full-screen
+   height, and that guard is from V2. */
+
+/** Bottom fade of the photo+veil wrapper: opaque to 62%, gone at 100%. */
+const HERO_FADE = "linear-gradient(to bottom, #000 62%, transparent 100%)";
+
 export function HeroCorporativo() {
   const t = useTranslations("home.hero");
-  const ref = useRef<HTMLDivElement>(null);
-
-  useGSAP(
-    () => {
-      const mm = gsap.matchMedia();
-      mm.add(MOTION_OK, () => {
-        gsap.to(".hero-breath", {
-          scale: 1.08,
-          opacity: 0.75,
-          duration: 9,
-          ease: "sine.inOut",
-          repeat: -1,
-          yoyo: true,
-        });
-      });
-      return () => mm.revert();
-    },
-    { scope: ref },
-  );
+  const locale = useLocale();
 
   return (
-    <section ref={ref} className="relative px-4 sm:px-6">
+    <section className="relative px-4 sm:px-6">
       <FxLayer>
-        {/* Two auras of the atmosphere that already exists, raised here:
-            sage above, copper below. No new engine, no new file. */}
-        {/* bottom is NEGATIVE on purpose: a glow that ends exactly on the
-            section boundary draws a visible horizontal seam, which is the
-            one thing landing v2 §2 rule 1 forbids by name. It bleeds into
-            section 2 instead, and FxLayer is overflow-visible so it can. */}
         <div
-          className="absolute inset-x-0 -top-16 bottom-[-25%]"
-          style={{
-            background:
-              "radial-gradient(70% 55% at 50% 8%, color-mix(in srgb, var(--glow-2) 34%, transparent), transparent 62%), radial-gradient(55% 45% at 50% 96%, color-mix(in srgb, var(--glow-4) 26%, transparent), transparent 60%)",
-          }}
-        />
-        {/* The object that breathes: one very large soft ring, animated on
-            transform and opacity only. */}
-        <div
-          className="hero-breath absolute left-1/2 top-1/2 aspect-square w-[min(120vw,68rem)] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-100"
-          style={{
-            background:
-              "radial-gradient(closest-side, transparent 62%, color-mix(in srgb, var(--accent) 22%, transparent) 74%, transparent 84%)",
-          }}
-        />
+          className="absolute inset-0"
+          style={{ maskImage: HERO_FADE, WebkitMaskImage: HERO_FADE }}
+        >
+          {/* `absolute inset-0` wins over Photo's own `relative` through
+              twMerge. `veil={false}`: the house veil is dark in both modes and
+              this ground needs to follow the theme (see the docstring). */}
+          <Photo
+            slug="hero"
+            locale={locale}
+            priority
+            sizes="100vw"
+            veil={false}
+            className="absolute inset-0"
+          />
+          <div
+            className="absolute inset-0"
+            style={{ backgroundColor: "var(--hero-veil)" }}
+          />
+        </div>
       </FxLayer>
 
       <div className="mx-auto flex min-h-[calc(100svh-4rem)] max-w-5xl flex-col items-center justify-center pt-16 pb-24 text-center">
@@ -88,23 +101,11 @@ export function HeroCorporativo() {
           {t("headline")}
         </h1>
         <p
-          className="font-display animate-fade-rise mt-8 max-w-2xl text-h3 font-medium text-text-2"
+          className="font-display animate-fade-rise mt-8 max-w-2xl text-h3 font-medium text-text"
           style={{ "--rise-delay": "0.25s" } as CSSProperties}
         >
           {t("apoyo")}
         </p>
-
-        {/* The only action on the first screen. A link, not a button: it
-            takes the reader to the next section, which is what the arrow
-            promises. */}
-        <a
-          href="#aplicada"
-          className="animate-fade-rise mt-16 inline-flex flex-col items-center gap-2 text-xs font-medium tracking-[0.2em] text-text-2 uppercase transition-colors hover:text-text"
-          style={{ "--rise-delay": "0.45s" } as CSSProperties}
-        >
-          {t("scroll")}
-          <ChevronDown className="h-4 w-4" aria-hidden="true" />
-        </a>
       </div>
     </section>
   );

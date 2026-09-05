@@ -8,9 +8,13 @@
 //   lib/photos.generated.ts        slug -> { src, width, height, blurDataURL, altEs, altEn }
 //
 // One size per photo on purpose: next/image derives the rest, and AVIF on
-// Vercel. 1600 is twice the widest box any photo is rendered in (the areas
-// frame is ~600 CSS px), so a 2400 master would be bytes nobody downloads
-// and megabytes everybody clones.
+// Vercel. 1600 was sized as twice the widest box a photo was rendered in
+// (the areas frame is ~600 CSS px), so a 2400 master would be bytes nobody
+// downloads and megabytes everybody clones. Since v5 T3 one photo (`hero`)
+// is rendered full-bleed, where 1600 is NOT twice the box: that original is
+// 1376x768 and `withoutEnlargement` keeps it there, so it sits BELOW this
+// ceiling, not above it. Raising LONG_EDGE cannot help it; only a wider
+// original can (plan v5 O-8, contingent on how it looks on a phone).
 //
 // The blur placeholder is a 16 px WebP inlined as a data URI — the same
 // trick next/image's static import does, done by hand because these images

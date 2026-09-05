@@ -190,6 +190,15 @@ export const PHOTOS = {
     altEs: "Una oficina grande con equipos trabajando en sus escritorios",
     altEn: "A large office with teams working at their desks",
   },
+  "hero": {
+    src: "/photos/hero.webp",
+    width: 1376,
+    height: 768,
+    blurDataURL:
+      "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADwAQCdASoQAAkAA4BaJbACdADLve3WsgAA/PImNuUH8rCZYqysysj5RvzA4GWhLeT4KYyoMXSyX1a8tcvIOF7xhM9ve/g0Prrexgpvd7LxnNwYAAA=",
+    altEs: "Dos excursionistas en una cresta al atardecer; uno le tiende la mano al otro para ayudarlo a subir",
+    altEn: "Two hikers on a ridge at sunset; one reaches down to help the other up",
+  },
 } as const satisfies Record<string, SitePhoto>;
 
 export type PhotoSlug = keyof typeof PHOTOS;

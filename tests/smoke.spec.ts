@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
 import es from "../messages/es.json";
 import en from "../messages/en.json";
+import { PHOTOS } from "../lib/photos.generated";
 
 test("i18n: es and en message key trees are identical", () => {
   const keyTree = (obj: unknown, prefix = ""): string[] =>
@@ -315,19 +316,63 @@ test("the house opens with one phrase and exactly one h1", async ({ page }) => {
   await expect(page.getByText(es.home.hero.apoyo)).toBeVisible();
 });
 
-test("the hero has no button, only the scroll indicator (decision 2)", async ({
+test("the hero has no action at all: no CTA, no button, no scroll indicator (decision 2, v5 T3)", async ({
   page,
 }) => {
   await page.goto("/es");
   const hero = page.locator("section").first();
-  // The operator closed this one: "no boton en el heroe". Asserting the
-  // ABSENCE of contact links rather than a link count, because the scroll
-  // indicator is itself a link and a count would pass with a CTA swapped in
-  // for it.
+  // The operator closed the first half on the E3a gate: "no boton en el
+  // heroe". Asserting the ABSENCE of contact links is the half that guards
+  // the dictation and it does not move. The second half INVERTED in v5 T3:
+  // the scroll indicator ("Baja") was the one action left and the operator
+  // removed it, so the honest assertion is now stronger than a count of one
+  // anchor — nothing clickable at all on the first screen.
   await expect(
     hero.locator('a[href^="mailto:"], a[href^="https://wa.me/"]'),
   ).toHaveCount(0);
-  await expect(hero.locator('a[href="#aplicada"]')).toHaveCount(1);
+  await expect(hero.locator('a[href="#aplicada"]')).toHaveCount(0);
+  await expect(hero.locator("a, button")).toHaveCount(0);
+});
+
+// ── v5 T3: the hero takes a photograph ─────────────────────────────────────
+
+test.describe("the hero carries the photograph from the channel (v5 T3)", () => {
+  for (const [route, alt] of [
+    ["/es", PHOTOS.hero.altEs],
+    ["/en", PHOTOS.hero.altEn],
+  ] as const) {
+    test(`${route}: one priority next/image of the hero slug, decorative, with the manifest alt`, async ({
+      page,
+    }) => {
+      await page.goto(route);
+      const hero = page.locator("section").first();
+      // By DOM, not by role: the photo is decoration and lives inside FxLayer
+      // (aria-hidden), so no reader hears it before the h1. getByRole("img")
+      // would not find it, and that is the point.
+      const img = hero.locator('[aria-hidden="true"] img');
+      await expect(img).toHaveCount(1);
+      // The URL next/image writes is /_next/image?url=%2Fphotos%2Fhero.webp&w=…
+      await expect(img).toHaveAttribute("src", /photos%2Fhero/);
+      await expect(img).toHaveAttribute("srcset", /photos%2Fhero/);
+      await expect(img).toHaveAttribute("alt", alt);
+      // What Photo's `priority` produces (next/image `preload` + explicit
+      // `fetchPriority`, because Next 16 deprecated `priority` and never wrote
+      // the attribute), and what the LCP depends on: the hint on the <img>,
+      // no lazy loading, and the preload link in the head.
+      await expect(img).toHaveAttribute("fetchpriority", "high");
+      await expect(img).not.toHaveAttribute("loading", "lazy");
+      await expect(
+        page.locator('head link[rel="preload"][as="image"][imagesrcset*="photos%2Fhero"]'),
+      ).toHaveCount(1);
+    });
+  }
+
+  test("home.hero.scroll no longer exists in either JSON", () => {
+    // The indicator is gone, not hidden: a key nothing renders is dead copy
+    // that check:parity would keep alive in both trees forever.
+    expect((es.home.hero as Record<string, unknown>).scroll).toBeUndefined();
+    expect((en.home.hero as Record<string, unknown>).scroll).toBeUndefined();
+  });
 });
 
 test("the three cards are the links, and the whole card is the target", async ({

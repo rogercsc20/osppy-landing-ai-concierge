@@ -69,6 +69,29 @@
   --glow-4: #d99c71;
   --glow-4-a: 12%;
   --veil: rgba(28, 43, 51, 0.58); /* velo sobre fotos */
+  /* The wash over the hero photograph (v5 T3): the page's own ground at a
+     MEASURED alpha per theme, so the theme's ink stays readable over an image
+     whose ground changes pixel by pixel (the sun sits behind the headline).
+     check-contrast.mjs measures tokens and cannot see this; it was measured on
+     a viewport capture against `next start`, a grid every 3 px INSIDE the
+     boxes of the <h1> (44 px+, extrabold: floor 3:1) and the <p> (21.2 px at
+     360, weight 500: floor 4.5:1) with the letters hidden, /es, both modes,
+     1280x900 and 360x780, reduced motion and not (identical: nothing moves).
+     Minimum over all samples, the number that rules:
+
+       light (Marfil)  a=0.50  h1 4.53 · p 4.48 (1280)  FAILS the p
+                       a=0.55  h1 5.13 · p 5.08 (1280) / 5.32 · 5.41 (360)
+                       a=0.58  h1 5.51 · p 5.45 / 5.69 · 5.78
+                       a=0.62  h1 6.06 · p 6.05 / 6.26 · 6.35
+       dark (Obsidian) a=0.55  h1 4.55 · p 4.50 (360)   no margin at all
+                       a=0.58  h1 4.99 · p 4.93 (360)
+                       a=0.62  h1 5.72 · p 5.65 / 5.79 · 5.65
+
+     Light takes 0.55: the lowest alpha that keeps the margin T2 set for the
+     silence (p at 5.08 vs 4.5), and it shows the most photograph. Dark stays
+     at 0.62 (the same alpha as --veil there): the photograph already reads
+     under it, and 0.58 gave the p 4.93 with the sun behind it. */
+  --hero-veil: rgba(247, 245, 240, 0.55);
   --grain: 0.035;
   color-scheme: light;
   /* shadcn's structural variables follow the roles, so its components get
@@ -152,6 +175,7 @@
   --glow-4: #d99c71;
   --glow-4-a: 7%;
   --veil: rgba(10, 15, 14, 0.62);
+  --hero-veil: rgba(10, 15, 14, 0.62); /* hero photo veil; the measured table is in :root */
   --grain: 0.05;
   color-scheme: dark;
   /* On dark, the accent is light green: white on it fails contrast, Tinta

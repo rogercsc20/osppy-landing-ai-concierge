@@ -1,5 +1,5 @@
 {
-  "_": "The photo manifest (landing v2 §8, built in tanda C / C7). One row per photo that the site uses: slug (the name the code asks for), file (the original in --src), and alt text in both locales. The originals live OUTSIDE the repo — ~/Desktop/osppy-fotos by default — and .gitignore blocks *.jpg under public/photos so an 91 MB folder can never be committed by accident. Run: node scripts/optimize-photos.mjs [--src <dir>]. NO credits file: the Unsplash and Pexels licenses both ASK for attribution and neither requires it, and the operator ruled on 2026-09-03 that the site carries none (HQA-D78). The author slug and the photo id stay in `file` here, which is where traceability belongs.",
+  "_": "The photo manifest (landing v2 §8, built in tanda C / C7). One row per photo that the site uses: slug (the name the code asks for), file (the original in --src), and alt text in both locales. The originals live OUTSIDE the repo — ~/Desktop/osppy-fotos by default — and .gitignore blocks *.jpg under public/photos so an 91 MB folder can never be committed by accident. Run: node scripts/optimize-photos.mjs [--src <dir>]. NO credits file: the Unsplash and Pexels licenses both ASK for attribution and neither requires it, and the operator ruled on 2026-09-03 that the site carries none (HQA-D78). The author slug and the photo id stay in `file` here, which is where traceability belongs. Since v5 T3 the bank also admits MODEL-GENERATED images (HQA-D31's 'no model-generated images' clause reopened for the whole site, ledger row of 2026-09-04): a generated file's name traces to nobody, so such a row carries an extra `origen` field saying so. optimize-photos.mjs reads only slug, file, altEs and altEn; `origen` is documentation and nothing reads it.",
   "photos": [
     {
       "slug": "contabilidad",
@@ -120,6 +120,13 @@
       "file": "alex-kotliarskyi-QBpZGqEMsKg-unsplash.jpg",
       "altEs": "Una oficina grande con equipos trabajando en sus escritorios",
       "altEn": "A large office with teams working at their desks"
+    },
+    {
+      "slug": "hero",
+      "file": "Gemini_Generated_Image_kig8xtkig8xtkig8.jpeg",
+      "origen": "Imagen generada con Gemini (Google), entregada por el operador el 2026-09-04. Sin autor ni licencia de banco: no traza a nadie. Entra al héroe de la casa por decisión del operador (D-1 del plan v5, salida A), revirtiendo HQA-D31, HQA-D41 y HQA-D90.",
+      "altEs": "Dos excursionistas en una cresta al atardecer; uno le tiende la mano al otro para ayudarlo a subir",
+      "altEn": "Two hikers on a ridge at sunset; one reaches down to help the other up"
     }
   ]
 }
