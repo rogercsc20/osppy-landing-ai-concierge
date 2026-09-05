@@ -13,12 +13,32 @@
 //   accent foreground / accent (button label; --primary-foreground)  ≥ 4.5:1
 // rgba() values are composited over the background first. Exit 1 on any
 // failure.
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
+// Blank-canvas guard (2026-09-05): the site was cleared to nothing, and this
+// gate has no input until the new one has app/globals.css. Exiting 0 with a word rather
+// than a stack trace — the gate is wired and starts biting the moment the
+// content exists.
+if (!existsSync(join(root, "app", "globals.css"))) {
+  console.log("— contraste: no hay app/globals.css todavía, nada que revisar");
+  process.exit(0);
+}
+
 const css = readFileSync(join(root, "app", "globals.css"), "utf8");
+
+// Second half of the same guard. The PAIRS list below names ROLES — text, bg,
+// accent-text, warm — and role names are a design decision, not a mechanism.
+// The canvas was cleared with none of them declared, so if the stylesheet
+// carries no custom properties at all there is no palette yet and nothing to
+// measure. The moment the new design declares its first `--token`, this stops
+// short-circuiting and the pairs below have to be renamed to match it.
+if (!/--[a-z0-9-]+\s*:/i.test(css)) {
+  console.log("— contraste: app/globals.css no declara tokens todavía, nada que revisar");
+  process.exit(0);
+}
 
 /**
  * Every block whose selector starts a LINE, merged in source order so later

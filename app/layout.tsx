@@ -1,6 +1,23 @@
-// Root layout — next-intl App Router pattern.
-// The actual <html> and <body> are in app/[locale]/layout.tsx.
-// This wrapper is required by Next.js but delegates to the locale layout.
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return children;
+import type { Metadata, Viewport } from "next";
+import "./globals.css";
+
+export const metadata: Metadata = {
+  title: "Osppy",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html>
+      <body>{children}</body>
+    </html>
+  );
 }

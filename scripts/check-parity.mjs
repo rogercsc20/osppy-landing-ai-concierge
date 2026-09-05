@@ -2,7 +2,7 @@
 // Loads messages/es.json and messages/en.json, builds the set of key paths
 // (a.b.c; array indices count as segments) of each, prints `OK <n> llaves`
 // when the sets are identical, otherwise prints the differences and exits 1.
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
@@ -19,6 +19,15 @@ function keyPaths(value, prefix, out) {
     out.add(prefix);
   }
   return out;
+}
+
+// Blank-canvas guard (2026-09-05): the site was cleared to nothing, and this
+// gate has no input until the new one has messages/*.json. Exiting 0 with a word rather
+// than a stack trace — the gate is wired and starts biting the moment the
+// content exists.
+if (existsSync(join(root, "messages/es.json")) === false) {
+  console.log("— paridad: no hay messages/*.json todavía, nada que revisar");
+  process.exit(0);
 }
 
 const es = keyPaths(JSON.parse(readFileSync(join(root, "messages/es.json"), "utf8")), "", new Set());

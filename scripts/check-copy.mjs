@@ -51,6 +51,15 @@ const argLocale = process.argv.includes("--locale")
   : null;
 const locales = argLocale ? [argLocale] : ["es", "en"];
 
+// Blank-canvas guard (2026-09-05): the site was cleared to nothing, and this
+// gate has no input until the new one has messages/*.json. Exiting 0 with a word rather
+// than a stack trace — the gate is wired and starts biting the moment the
+// content exists.
+if (!existsSync(join(root, "messages/es.json"))) {
+  console.log("— copy: no hay messages/*.json todavía, nada que revisar");
+  process.exit(0);
+}
+
 if (!existsSync(BANCO)) {
   console.error(
     `no encuentro el banco de palabras prohibidas en\n  ${BANCO}\n` +

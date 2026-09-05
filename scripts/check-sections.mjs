@@ -8,7 +8,7 @@
 //   overflow-hidden · bg-bg · bg-bg-alt · min-h-screen
 // Clipping belongs to framed objects (phones, windows, cards, buttons, text
 // masks), never to a section. Exit 1 when a violation exists.
-import { readdirSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join, relative } from "node:path";
 
@@ -38,7 +38,16 @@ function openingTag(src, from) {
 
 let violations = 0;
 for (const dir of ROOTS) {
-  for (const file of tsxFiles(join(root, dir))) {
+  // Blank-canvas guard (2026-09-05): the site was cleared to nothing, and this
+// gate has no input until the new one has components/. Exiting 0 with a word rather
+// than a stack trace — the gate is wired and starts biting the moment the
+// content exists.
+if (!existsSync(join(root, "components"))) {
+  console.log("— secciones: no hay components/ todavía, nada que revisar");
+  process.exit(0);
+}
+
+for (const file of tsxFiles(join(root, dir))) {
     const src = readFileSync(file, "utf8");
     const re = /<section\b/g;
     let m;

@@ -1,32 +1,3 @@
 {
-  "_": "Per-key figure allow list for scripts/check-copy.mjs (landing v2, slice V2). A key (or a prefix ending in *) lists the substrings whose digits are attested; every other digit on the site is a FALLA. Add a row only with its source. Keys starting with `//` are the sources, read by humans.",
-  "//home.trayectoria.c3Valor": "«+20 giros atendidos» — operator, 2026-09-03 (HQA-D77): twenty sectors attested in FDV §11.10, listed one by one. It was «+10», the conservative reading of the same inventory when fifteen were attested; E3c raised it to the figure the operator actually gave. The entry is keyed by MESSAGE KEY, not by locale, so it covers es.json and en.json at once — which is why a test asserts the two files agree on the value.",
-  "home.trayectoria.c3Valor": [
-    "+20"
-  ],
-  "//home.aplicada.panel.kpis": "Invented figures for the operation board (E4/HQA-D91, rewritten in v5 T5). READ THIS BEFORE ADDING ONE. Until v5 this note justified them by saying the panel carried a chip declaring the data a demonstration, which is what source of truth §9/§10 asks of a mock. Decision D-2, taken by the operator on 2026-09-04 knowingly and against the planning session's recommendation, REMOVED that chip and the company name. So the attestation's old reason no longer exists and this is the new one: the figures are invented, nothing on the panel says so, and the decision that covers them is D-2 and its ledger row. Nothing else changed about the rule. Listed ONE KEY AT A TIME rather than as a kpis.* prefix on purpose: a prefix would wave through every future digit under this subtree without anyone reading it, and the gate exists precisely so a new figure is a failure until somebody attests it. The four values describe MONEY, STATE and RATE and never a benefit (guide §5.8): period revenue, operating margin, collection cycle, capacity utilization; the deltas are movement against the previous period, not savings, and each carries its own unit because points and percent are not the same claim over a margin. TWO THINGS THIS FILE STILL CANNOT SEE, and neither is new: the seven weekly bar values and the four by-area shares are constants in components/home/PanelKPI.tsx, and this gate only reads messages/*.json. They used to be covered by the chip. They are now covered by D-2 and by nothing else.",
-  "home.aplicada.panel.kpis.k1.valor": [
-    "8.48"
-  ],
-  "home.aplicada.panel.kpis.k1.delta": [
-    "+6"
-  ],
-  "home.aplicada.panel.kpis.k2.valor": [
-    "18.4"
-  ],
-  "home.aplicada.panel.kpis.k2.delta": [
-    "+2"
-  ],
-  "home.aplicada.panel.kpis.k3.valor": [
-    "41"
-  ],
-  "home.aplicada.panel.kpis.k3.delta": [
-    "-5"
-  ],
-  "home.aplicada.panel.kpis.k4.valor": [
-    "87"
-  ],
-  "home.aplicada.panel.kpis.k4.delta": [
-    "+3"
-  ]
+  "_": "Per-key figure allow list for scripts/check-copy.mjs. EMPTY on purpose: the landing was cleared to a blank canvas on 2026-09-05 and inherits no attested figure. Every digit a client reads is a FAILURE until somebody adds it here with its source."
 }
