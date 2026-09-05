@@ -81,7 +81,9 @@ function StepBody({
       <span className="font-display text-sm font-semibold tabular-nums text-accent-text">
         {`0${index + 1}`}
       </span>
-      <h3 className="font-display mt-3 text-h2 font-semibold text-text">{titulo}</h3>
+      <h3 className="font-display mt-3 text-h2 font-semibold text-text">
+        {titulo}
+      </h3>
       <p className="mt-5 max-w-xl text-lead text-text-2">{body}</p>
       {/* The phase's own door. A real link, not the rail button: the rail
           SCROLLS within the chapter and this NAVIGATES away from it, and one
@@ -144,57 +146,69 @@ function PhaseNav({
   step,
   labels,
   goTo,
+  navLabel,
 }: {
   step: number;
   labels: string[];
   goTo: GoTo;
+  /** named apart from the map's `label` on purpose: one is the landmark's
+      name, the other is a phase title, and shadowing hid that. */
+  navLabel: string;
 }) {
   return (
-    <ol className="flex flex-col">
-      {labels.map((label, i) => {
-        // keyed by index, not label: titles are copy and copy may repeat
-        const active = i === step;
-        const done = i < step;
-        return (
-          <li key={i} className="flex flex-col">
-            <button
-              type="button"
-              onClick={() => goTo(i)}
-              aria-current={active ? "step" : undefined}
-              className={cn(
-                "cursor-pointer rounded-xl border px-4 py-3 text-left text-sm transition-colors duration-500",
-                "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-text",
-                active
-                  ? "border-accent-text bg-accent-text/10 font-medium text-text"
-                  : done
-                    ? "border-line bg-surface text-text-2 hover:border-accent-text/60 hover:text-text"
-                    : "border-line/60 text-text-2/70 hover:border-accent-text/60 hover:text-text",
-              )}
-            >
-              <span className="font-display mr-2 text-xs font-semibold tabular-nums text-accent-text">
-                {`0${i + 1}`}
-              </span>
-              {label}
-            </button>
-            {i < labels.length - 1 && (
-              <div
-                aria-hidden="true"
-                className="mx-auto h-6 w-[2px] overflow-hidden bg-line/50"
+    // A named landmark, on the SAME key as the mobile pill strip. The strip
+    // got `navLabel` in v5 T1 because killing the section kicker would have
+    // left it nameless; this control was `aria-hidden` then and had no name
+    // to lose. Now it is the chapter's only desktop control and it was the
+    // anonymous one — five buttons a screen reader could reach and not place.
+    // One key names both, because they ARE the same navigation at two widths.
+    <nav aria-label={navLabel}>
+      <ol className="flex flex-col">
+        {labels.map((label, i) => {
+          // keyed by index, not label: titles are copy and copy may repeat
+          const active = i === step;
+          const done = i < step;
+          return (
+            <li key={i} className="flex flex-col">
+              <button
+                type="button"
+                onClick={() => goTo(i)}
+                aria-current={active ? "step" : undefined}
+                className={cn(
+                  "cursor-pointer rounded-xl border px-4 py-3 text-left text-sm transition-colors duration-500",
+                  "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-text",
+                  active
+                    ? "border-accent-text bg-accent-text/10 font-medium text-text"
+                    : done
+                      ? "border-line bg-surface text-text-2 hover:border-accent-text/60 hover:text-text"
+                      : "border-line/60 text-text-2/70 hover:border-accent-text/60 hover:text-text",
+                )}
               >
-                {/* the connector fills top-down once its step is behind the
-                    reader — transform only, per the motion budget */}
+                <span className="font-display mr-2 text-xs font-semibold tabular-nums text-accent-text">
+                  {`0${i + 1}`}
+                </span>
+                {label}
+              </button>
+              {i < labels.length - 1 && (
                 <div
-                  className={cn(
-                    "h-full w-full origin-top bg-accent-text transition-transform duration-500",
-                    i < step ? "scale-y-100" : "scale-y-0",
-                  )}
-                />
-              </div>
-            )}
-          </li>
-        );
-      })}
-    </ol>
+                  aria-hidden="true"
+                  className="mx-auto h-6 w-[2px] overflow-hidden bg-line/50"
+                >
+                  {/* the connector fills top-down once its step is behind the
+                    reader — transform only, per the motion budget */}
+                  <div
+                    className={cn(
+                      "h-full w-full origin-top bg-accent-text transition-transform duration-500",
+                      i < step ? "scale-y-100" : "scale-y-0",
+                    )}
+                  />
+                </div>
+              )}
+            </li>
+          );
+        })}
+      </ol>
+    </nav>
   );
 }
 
@@ -259,15 +273,28 @@ export function Como() {
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={step}
-                    initial={reduce ? false : { opacity: 0, y: 24, filter: "blur(6px)" }}
+                    initial={
+                      reduce
+                        ? false
+                        : { opacity: 0, y: 24, filter: "blur(6px)" }
+                    }
                     animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                    exit={reduce ? undefined : { opacity: 0, y: -24, filter: "blur(6px)" }}
+                    exit={
+                      reduce
+                        ? undefined
+                        : { opacity: 0, y: -24, filter: "blur(6px)" }
+                    }
                     transition={{ duration: DUR.fast, ease: EASE_EXPO }}
                   >
                     <StepBody {...steps[step]} index={step} />
                   </motion.div>
                 </AnimatePresence>
-                <PhaseNav step={step} labels={labels} goTo={goTo} />
+                <PhaseNav
+                  step={step}
+                  labels={labels}
+                  goTo={goTo}
+                  navLabel={t("navLabel")}
+                />
               </div>
             )
           }

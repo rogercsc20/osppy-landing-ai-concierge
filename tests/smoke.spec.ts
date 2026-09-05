@@ -758,6 +758,28 @@ test.describe("the mobile phase strip is a named landmark (v5 T1, plan C7)", () 
       await expect(strip.getByRole("link")).toHaveCount(5);
     });
   }
+
+  // The desktop twin (v5 T7, found by T8's code review). When the rail died
+  // and PhaseNav lost `aria-hidden`, it became the chapter's ONLY control
+  // above lg — and the anonymous one: five buttons a screen reader can reach
+  // and cannot place, while its mobile twin had been given a name in this
+  // very plan. It now carries the SAME key, because they are the same
+  // navigation at two widths, and this test is what keeps the two from
+  // drifting onto two keys.
+  test(`above lg the phase nodes are a navigation landmark named "${es.home.como.navLabel}"`, async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1280, height: 900 });
+    await page.goto("/es");
+    const control = page
+      .locator("#como")
+      .getByRole("navigation", { name: es.home.como.navLabel, exact: true });
+    // exactly ONE: below lg the pill strip carries the same name, and if both
+    // branches were ever exposed at once a reader would meet the chapter's
+    // navigation twice
+    await expect(control).toHaveCount(1);
+    await expect(control.getByRole("button")).toHaveCount(5);
+  });
 });
 
 // ── v5 T2: the silence halves its height and its sentence breaks in two ────
@@ -980,13 +1002,15 @@ test.describe("the long rectangles grow without moving the page (v5 T4)", () => 
       // keep in sync — which is the whole reason the house spells it this
       // way rather than with a `motion-reduce:` override.
       //
-      // `emulateMedia` on the standard page, not a hand-built context. Built
-      // with `browser.newContext({ reducedMotion })` this failed half its
-      // runs two different ways — a pointer that never landed, and a
-      // `boundingBox()` of null — because that context is NOT the one the
-      // project configures and inherits none of its settling. The page
-      // fixture takes the same path the two tests above now take, and they
-      // pass sixteen runs out of sixteen.
+      // The hover is FORCED through CDP rather than driven with the mouse,
+      // and that is a deliberate split. The two tests above use a real
+      // pointer because what they check is the real thing a reader does; the
+      // claim HERE is about a CSS media query, and driving it with a pointer
+      // made it the only flaky test in the suite — it failed five runs in
+      // eighteen on nothing but pointer delivery, while the two real-pointer
+      // tests beside it passed twelve of twelve. `CSS.forcePseudoState` puts
+      // the element in `:hover` with no mouse, no Lenis and no event
+      // coalescing, so what is left to fail is the assertion.
       await page.emulateMedia({ reducedMotion: "reduce" });
       await page.setViewportSize({ width: 1280, height: 900 });
       await page.goto("/es");
@@ -994,26 +1018,44 @@ test.describe("the long rectangles grow without moving the page (v5 T4)", () => 
 
       const card = page.locator("#hacemos a").first();
       const surface = card.locator("span[aria-hidden]").first();
-      const borderOf = () =>
-        surface.evaluate((el) => getComputedStyle(el).borderTopColor);
+      const read = () =>
+        surface.evaluate((el) => ({
+          border: getComputedStyle(el).borderTopColor,
+          height: el.getBoundingClientRect().height,
+        }));
 
-      const borderBefore = await borderOf();
-      const heightBefore = (await surface.boundingBox())!.height;
+      const before = await read();
 
-      await hoverCard(page, card);
-      // the border is the VISIBLE proof, on top of `:hover` being true: under
-      // reduce it is the card's only answer to a pointer, and if it ever
-      // stopped answering, this test would be asserting that nothing happens
-      // while nothing is happening.
+      const client = await page.context().newCDPSession(page);
+      await client.send("DOM.enable");
+      await client.send("CSS.enable");
+      const { root } = await client.send("DOM.getDocument");
+      const { nodeId } = await client.send("DOM.querySelector", {
+        nodeId: root.nodeId,
+        selector: "#hacemos a",
+      });
+      await client.send("CSS.forcePseudoState", {
+        nodeId,
+        forcedPseudoClasses: ["hover"],
+      });
+
+      // The border is what keeps this from being vacuous: if the hover never
+      // took, nothing would grow either and the test would pass for the wrong
+      // reason forever. Under `reduce` the border is the card's ONLY answer
+      // to a pointer, so it has to move before the unchanged height means
+      // anything.
       await expect
-        .poll(borderOf, { timeout: 8_000, message: "the border must answer" })
-        .not.toBe(borderBefore);
+        .poll(async () => (await read()).border, {
+          timeout: 8_000,
+          message: "the hover must take, and the border must answer it",
+        })
+        .not.toBe(before.border);
 
-      const heightAfter = (await surface.boundingBox())!.height;
+      const after = await read();
       expect(
-        heightAfter,
-        `surface ${heightBefore} -> ${heightAfter}px under reduce`,
-      ).toBeCloseTo(heightBefore, 0);
+        after.height,
+        `surface ${before.height} -> ${after.height}px under reduce`,
+      ).toBeCloseTo(before.height, 0);
     });
   });
 });
