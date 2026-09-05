@@ -787,3 +787,88 @@ test.describe("the silence stands half a screen tall (v5 T2)", () => {
     });
   }
 });
+
+test.describe("the long rectangles grow without moving the page (v5 T4)", () => {
+  // The whole T4 design rests on one invariant: the thing that grows is a
+  // surface layer, so the anchor's box in flow never changes and nothing
+  // below the section moves when a pointer crosses a card. A growth built
+  // with `height` — or with `grid-template-rows`, which is the same layout
+  // change wearing a different name — passes every other test in this file
+  // while reflowing the document from here down on every hover.
+  //
+  // Measured, not asserted loosely: the surface must actually GROW (or this
+  // would pass against a card that stopped growing at all), the anchor must
+  // NOT, and the document height must be the same number before and after.
+  //
+  // HARNESS: the wait after `scrollIntoViewIfNeeded` is load-bearing. Lenis
+  // animates that scroll, and a `hover()` issued before it settles lands on
+  // a point the card has already left — measured against `next start`, the
+  // card read 132 px unchanged after `hover()` and 155.7 px after a mouse
+  // move to the same centre a moment later.
+  const settleScroll = 1200;
+
+  for (const width of [1280, 360] as const) {
+    test(`${width}px: the surface grows, the box and the page do not`, async ({
+      page,
+    }) => {
+      await page.setViewportSize({ width, height: 900 });
+      await page.goto("/es");
+      const card = page.locator("#hacemos a").first();
+      await card.scrollIntoViewIfNeeded();
+      await page.waitForTimeout(settleScroll);
+      const surface = card.locator("span[aria-hidden]").first();
+
+      const pageBefore = await page.evaluate(
+        () => document.documentElement.scrollHeight,
+      );
+      const boxBefore = (await card.boundingBox())!.height;
+      const surfaceBefore = (await surface.boundingBox())!.height;
+
+      await card.hover();
+      await page.waitForTimeout(600); // the 300 ms transition, twice over
+
+      const surfaceAfter = (await surface.boundingBox())!.height;
+      const boxAfter = (await card.boundingBox())!.height;
+      const pageAfter = await page.evaluate(
+        () => document.documentElement.scrollHeight,
+      );
+
+      expect(
+        surfaceAfter,
+        `surface ${surfaceBefore} -> ${surfaceAfter}px: the rectangle must visibly grow`,
+      ).toBeGreaterThan(surfaceBefore + 8);
+      expect(boxAfter, "the anchor's box in flow must not change").toBe(boxBefore);
+      expect(pageAfter, "the document must not reflow on hover").toBe(pageBefore);
+    });
+  }
+
+  test.describe("under reduced motion", () => {
+    test("the rectangle does not grow at all", async ({ browser }) => {
+      const context = await browser.newContext({
+        reducedMotion: "reduce",
+        viewport: { width: 1280, height: 900 },
+      });
+      const page = await context.newPage();
+      // Honoured by NOT RUNNING: the growth lives behind `motion-safe:`, so
+      // under `reduce` the rule does not exist and the rectangle keeps the
+      // geometry the server sent. There is no second, still code path to
+      // keep in sync — which is the whole reason the house spells it this
+      // way rather than with a `motion-reduce:` override.
+      await page.goto("/es");
+      await page.waitForLoadState("networkidle");
+      const card = page.locator("#hacemos a").first();
+      await expect(card).toBeVisible();
+      await card.scrollIntoViewIfNeeded();
+      await page.waitForTimeout(settleScroll);
+      const surface = card.locator("span[aria-hidden]").first();
+
+      const before = (await surface.boundingBox())!.height;
+      await card.hover();
+      await page.waitForTimeout(600);
+      const after = (await surface.boundingBox())!.height;
+
+      expect(after, `surface ${before} -> ${after}px under reduce`).toBe(before);
+      await context.close();
+    });
+  });
+});
