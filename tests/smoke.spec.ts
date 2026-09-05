@@ -50,24 +50,43 @@ test("English landing renders", async ({ page }) => {
   ).toBeVisible();
 });
 
-test.describe("section 2 subtitle underline (tanda D D3, moved by E3c)", () => {
+test.describe("section 2 subtitle underline (tanda D D3, moved by E3c, marks inside since v5 T1)", () => {
   // One assertion per language, on the rendered element and not the JSON:
   // it catches a broken <u> tag in the message (t.rich silently drops
   // unbalanced markup), a lost .underline-thick class, and the wrong word
-  // underlined — each language picks its own.
-  for (const [route, word] of [
-    ["/es", "dónde"],
-    ["/en", "where"],
+  // underlined — each language picks its own. The expected word is READ
+  // from the JSON rather than pinned here: v5 T1 found the two literal pins
+  // ("dónde", "where") failing on the very change the plan said they would
+  // follow, and a pin that has to be edited alongside every copy change
+  // guards nothing. What D-6 actually decided is asserted separately below.
+  const underlined = (subtitulo: string) => {
+    const m = subtitulo.match(/<u>([^<]+)<\/u>/);
+    expect(m, `no single balanced <u> in "${subtitulo}"`).not.toBeNull();
+    return m![1];
+  };
+
+  for (const [route, subtitulo] of [
+    ["/es", es.home.aplicada.subtitulo],
+    ["/en", en.home.aplicada.subtitulo],
   ] as const) {
-    test(`${route}: the underlined word is exactly «${word}»`, async ({
+    test(`${route}: the underlined word is exactly what the JSON underlines`, async ({
       page,
     }) => {
       await page.goto(route);
       const u = page.locator("u.underline-thick");
       await expect(u).toHaveCount(1);
-      await expect(u).toHaveText(word);
+      await expect(u).toHaveText(underlined(subtitulo));
     });
   }
+
+  test("the question marks sit INSIDE the underline in both languages (v5 D-6)", () => {
+    // D-6 is about the marks, not the word: the underline moved from the
+    // bare word onto the question itself. If the marks drift outside the
+    // <u> the sentence still reads and the render test above still passes;
+    // only this notices.
+    expect(underlined(es.home.aplicada.subtitulo)).toMatch(/^¿.+\?$/);
+    expect(underlined(en.home.aplicada.subtitulo)).toMatch(/^[^¿].+\?$/);
+  });
 });
 
 test.describe("section 2 operation panel (tanda D D4, moved by E3c)", () => {
@@ -608,5 +627,52 @@ test("every service block sits inside the main landmark", async ({ page }) => {
         .locator("main")
         .getByRole("link", { name: es.servicios.capacitacion.cierre.cta }),
     ).not.toHaveCount(0);
+  }
+});
+
+// ── v5 T1: the house drops its section kickers (D-5), and the underline takes
+// the question (D-6) ───────────────────────────────────────────────────────
+
+test("the house carries no section kicker, and no home key still names one (D-5)", async ({
+  page,
+}) => {
+  // Nine eyebrows died in one decision. Asserted twice on purpose: on the
+  // JSON, so a `kicker` key quietly re-added under home.* fails before any
+  // component reads it, and on the rendered page, so a kicker rendered from
+  // some other key fails too. Scoped to the house: the three service pages
+  // keep theirs, because there the kicker is the one thing that places the
+  // page inside the line.
+  const homeKickers = Object.entries(es.home)
+    .filter(([, section]) => "kicker" in section)
+    .map(([name]) => `home.${name}.kicker`);
+  expect(homeKickers).toEqual([]);
+
+  await page.goto("/es");
+  await expect(page.locator("main .eyebrow")).toHaveCount(0);
+});
+
+test.describe("the mobile phase strip is a named landmark (v5 T1, plan C7)", () => {
+  // Como.tsx used to name its <nav> of pills after the section kicker. When
+  // the nine kickers died the landmark would have been left without a name,
+  // and nothing in the suite was looking: `below lg the five phases are pill
+  // anchors to real ids` counts the pills and never asks what the <nav> is
+  // called. So the name is asserted through the accessibility tree, by ROLE
+  // and NAME rather than by attribute, in each language, at a width where
+  // the strip is the reader's only way into the chapter.
+  for (const [route, name] of [
+    ["/es", es.home.como.navLabel],
+    ["/en", en.home.como.navLabel],
+  ] as const) {
+    test(`${route}: the strip is a navigation landmark named "${name}"`, async ({
+      page,
+    }) => {
+      await page.setViewportSize({ width: 360, height: 780 });
+      await page.goto(route);
+      const strip = page
+        .locator("#como")
+        .getByRole("navigation", { name, exact: true });
+      await expect(strip).toBeVisible();
+      await expect(strip.getByRole("link")).toHaveCount(5);
+    });
   }
 });

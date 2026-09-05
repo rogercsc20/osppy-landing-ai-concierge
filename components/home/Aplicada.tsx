@@ -8,11 +8,13 @@ import { AppWindow } from "@/components/device/AppWindow";
 import { PanelSkeleton } from "./PanelSkeleton";
 
 /* Section 2 (HQA-D90 displaces HQA-D82 here): the hero of tanda D, demoted
-   to the second screen. The kicker, the headline and the subtitle are the
-   operator's own words and the last two are UNTOUCHED — the only thing that
-   changed is that they stopped being the page's h1, so they are an h2 and a
-   paragraph now. The `<u>` on one word survives the move and a test asserts
-   it in each language, because t.rich drops unbalanced markup in silence.
+   to the second screen. The headline and the subtitle are the operator's own
+   words and are UNTOUCHED — the only thing that changed is that they stopped
+   being the page's h1, so they are an h2 and a paragraph now. The kicker
+   that sat above them died with the house's other eight in v5 T1 (D-5), and
+   the underline moved onto the question itself, marks INSIDE the `<u>`
+   (D-6): `<u>¿dónde?</u>` / `<u>where?</u>`. A test asserts the underlined
+   word in each language, because t.rich drops unbalanced markup in silence.
 
    What this section lost when it came down: the four-node diagram, which
    went to /implementacion (gate E0-2), and the two CTAs, which merged into
@@ -40,13 +42,7 @@ export function Aplicada() {
       <Spotlight className="mx-auto w-full max-w-7xl">
         <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,34rem)] lg:gap-16">
           <div>
-            <p
-              className="eyebrow animate-fade-rise"
-              style={{ "--rise-delay": "0s" } as CSSProperties}
-            >
-              {t("kicker")}
-            </p>
-            <h2 className="font-display mt-6 max-w-4xl text-h1 font-extrabold text-text">
+            <h2 className="font-display max-w-4xl text-h1 font-extrabold text-text">
               {t("headline")}
             </h2>
             <p className="font-display mt-8 max-w-3xl text-h3 font-semibold text-text">

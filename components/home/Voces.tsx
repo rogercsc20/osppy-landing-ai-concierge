@@ -27,8 +27,7 @@ export function Voces() {
     <section className="relative border-y border-line px-4 py-section sm:px-6">
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <p className="eyebrow">{t("kicker")}</p>
-          <h2 className="font-display mt-5 max-w-3xl text-h2 font-semibold text-text">
+          <h2 className="font-display max-w-3xl text-h2 font-semibold text-text">
             <SplitText text={t("headline")} />
           </h2>
           <p className="mt-4 max-w-2xl text-xs leading-relaxed text-text-2/80">

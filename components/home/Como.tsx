@@ -205,17 +205,20 @@ export function Como() {
     <section id="como" className="relative px-4 pt-section sm:px-6">
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <p className="eyebrow">{t("kicker")}</p>
-          <h2 className="font-display mt-5 max-w-3xl text-h2 font-semibold text-text">
+          <h2 className="font-display max-w-3xl text-h2 font-semibold text-text">
             <SplitText text={t("headline")} />
           </h2>
         </Reveal>
 
         {/* Below lg there is no rail and no pinning: a draggable strip of
             pills, each one a plain anchor to a stacked step. Works with
-            JavaScript disabled; Lenis makes it smooth when it is enabled. */}
+            JavaScript disabled; Lenis makes it smooth when it is enabled.
+            The landmark's name is a key of its OWN. It used to borrow the
+            section kicker, and when the house's nine kickers died (v5 T1,
+            D-5) this <nav> would have been left nameless with no test
+            looking; now one does. */}
         <nav
-          aria-label={t("kicker")}
+          aria-label={t("navLabel")}
           className="mt-10 flex gap-2 overflow-x-auto pb-2 [scrollbar-width:none] lg:hidden [&::-webkit-scrollbar]:hidden"
         >
           {labels.map((label, i) => (

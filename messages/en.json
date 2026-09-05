@@ -24,9 +24,8 @@
       "scroll": "Scroll"
     },
     "aplicada": {
-      "kicker": "Corporate AI, applied",
       "headline": "Your company already knows it needs AI",
-      "subtitulo": "What they don't tell you is <u>where</u>",
+      "subtitulo": "What they don't tell you is <u>where?</u>",
       "panel": {
         "titulo": "Operations dashboard",
         "empresa": "Demonstration company",
@@ -75,11 +74,10 @@
       "headline": "“We know we need AI.” And then, silence."
     },
     "porque": {
-      "kicker": "What Osppy is",
       "quienes": "Osppy is a Corporate AI consultancy: we put artificial intelligence to work inside your company's operation."
     },
     "como": {
-      "kicker": "How we work",
+      "navLabel": "Method phases",
       "headline": "Understand first. Building is the last step.",
       "p1Titulo": "Exploration",
       "p1Body": "Discovery and viability: we get to know your operation and identify where AI genuinely helps, and where it isn't needed.",
@@ -98,7 +96,6 @@
       "p5Cta": "See Implementation"
     },
     "areas": {
-      "kicker": "Where",
       "headline": "Functional areas",
       "nota": "If your operation has an area that isn't here, that's the first one we want to hear about.",
       "cardCta": "See if it applies to you",
@@ -168,7 +165,6 @@
       }
     },
     "hacemos": {
-      "kicker": "What we do",
       "headline": "Three ways in.",
       "capacitacion": {
         "titulo": "Training",
@@ -190,7 +186,6 @@
       }
     },
     "trayectoria": {
-      "kicker": "Track record",
       "headline": "What's already been done.",
       "c1Valor": "+100",
       "c1Label": "companies advised",
@@ -201,7 +196,6 @@
       "giros": "Industry experience and knowledge: technology and software, manufacturing, electronics, logistics and transport, construction and infrastructure, foreign trade, agriculture, pharmaceuticals, energy and real estate."
     },
     "voces": {
-      "kicker": "Voices",
       "headline": "What it feels like to have a system doing the work.",
       "divulgacion": "Illustrative voices: not verified testimonials.",
       "q1": "What changed wasn't the tool. It was that we finally wrote down how a quote gets made, and then it could be automated.",
@@ -209,7 +203,6 @@
       "q3": "They told us one area wasn't worth it yet. That conversation is what made us trust them."
     },
     "faq": {
-      "kicker": "Questions",
       "headline": "What people usually ask us.",
       "q1": "Does this work at a company with many areas?",
       "a1": "Yes, and that's where it pays off most, but you don't go in through all of them at once. You start with one area and one task, leave it running, and that becomes the example the rest of the company understands it by.",
@@ -227,7 +220,6 @@
       "a7": "Yes: they connect to the ERP and the invoicing system you already use. Which ones exactly, and how far the connection goes, is settled in the diagnosis, by name, before it appears in a proposal. We don't promise an integration we haven't checked against your system."
     },
     "cta": {
-      "kicker": "The next step",
       "headline": "Tell us which area you want to start with.",
       "button": "Talk to an advisor",
       "ctaMessage": "Hi, I'd like to talk about my company's operation. The area I want to start with is…",

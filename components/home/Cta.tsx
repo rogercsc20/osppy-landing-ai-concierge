@@ -12,8 +12,9 @@ import { CONTACT_EMAIL, whatsappHref } from "@/lib/site";
    que area quieres empezar, y el boton de contacta un asesor".
 
    The headline survived that merge and the paragraph did not: "sin
-   párrafos". What is left is the eyebrow, the headline, one button, the mail
-   link and one line of microcopy. The price RULE did not die with the
+   párrafos". What is left is the headline, one button, the mail link and one
+   line of microcopy; the eyebrow above the headline went with the house's
+   other eight kickers in v5 T1 (D-5). The price RULE did not die with the
    section: no figure is published, structure only (pricing.md §6), and the
    sentences that carried it moved to the three service pages.
 
@@ -36,10 +37,7 @@ export function Cta() {
         />
       </FxLayer>
       <Band className="mx-auto max-w-4xl px-6 py-16 text-center sm:px-12 sm:py-20">
-        <p className="eyebrow">
-          {t("kicker")}
-        </p>
-        <h2 className="font-display mx-auto mt-5 max-w-2xl text-h2 font-semibold text-text">
+        <h2 className="font-display mx-auto max-w-2xl text-h2 font-semibold text-text">
           {t("headline")}
         </h2>
         <div className="mt-10 flex flex-col items-center gap-4">

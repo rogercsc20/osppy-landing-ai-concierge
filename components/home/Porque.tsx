@@ -38,11 +38,8 @@ export function Porque() {
       <div className="mx-auto max-w-6xl">
         <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)] lg:gap-16">
           <div>
-            <Reveal>
-              <p className="eyebrow">{t("kicker")}</p>
-            </Reveal>
-            <Reveal variant="blur-in" delay={0.1}>
-              <p className="font-display mt-6 max-w-2xl text-h2 font-semibold text-balance text-text">
+            <Reveal variant="blur-in">
+              <p className="font-display max-w-2xl text-h2 font-semibold text-balance text-text">
                 {t("quienes")}
               </p>
             </Reveal>

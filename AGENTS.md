@@ -76,6 +76,13 @@ full map.
 - **`capture.mjs` reports one console error on every local run**: a 404 for
   `/_vercel/insights/script.js`, which only exists on Vercel. It is not a
   defect and it does not appear in production.
+- **A full-page capture can show the section-2 panel blank or half-faded at
+  1280.** Chromium's full-page screenshot restarts the CSS `fade-rise`
+  entrance: measured in v5 T1 against `next start`, the panel's wrapper read
+  opacity 1 after load, **0.795 right after the `fullPage` screenshot**, and
+  1 again 1.5 s later. Whether `capture.mjs` catches it at 0 (inside its
+  0.35 s delay), mid-fade or at 1 is timing. It is not the page: a viewport
+  screenshot shows the panel, and so does the browser. Do not chase it.
 - **`git checkout -- <file>` does not revert a mutation over uncommitted work;
   it deletes the work.** Copy the file somewhere outside git first.
 - `body { overflow-x: clip }` guards against stray horizontal overflow on

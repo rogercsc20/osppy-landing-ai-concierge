@@ -46,12 +46,11 @@ export function Areas() {
     <section id="areas" className="relative px-4 py-section sm:px-6">
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <p className="eyebrow">{t("kicker")}</p>
           {/* E3c: the headline is now the two words the operator asked for
               and the paragraph under it is gone ("todo eso me lo quitas… y le
               pones una frase tipo Áreas Funcionales"). The scroll of sixteen
               below is untouched. */}
-          <h2 className="font-display mt-5 max-w-4xl text-h2 font-semibold text-text">
+          <h2 className="font-display max-w-4xl text-h2 font-semibold text-text">
             <SplitText text={t("headline")} />
           </h2>
         </Reveal>

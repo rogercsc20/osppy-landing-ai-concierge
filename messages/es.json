@@ -24,9 +24,8 @@
       "scroll": "Baja"
     },
     "aplicada": {
-      "kicker": "IA Corporativa Aplicada",
       "headline": "Tu empresa ya sabe que necesita IA",
-      "subtitulo": "Lo que no te dicen, es <u>dónde</u>",
+      "subtitulo": "Lo que no te dicen, es <u>¿dónde?</u>",
       "panel": {
         "titulo": "Panel de operación",
         "empresa": "Empresa de demostración",
@@ -75,11 +74,10 @@
       "headline": "“Sabemos que necesitamos IA.” Y después, silencio."
     },
     "porque": {
-      "kicker": "Qué es Osppy",
       "quienes": "Osppy es una consultoría de IA Corporativa: ponemos la inteligencia artificial a hacer trabajo dentro de la operación de tu empresa."
     },
     "como": {
-      "kicker": "Cómo trabajamos",
+      "navLabel": "Fases del método",
       "headline": "Primero entender. Construir es el último paso.",
       "p1Titulo": "Exploración",
       "p1Body": "Descubrimiento y viabilidad: entendemos tu operación e identificamos dónde la IA ayuda de verdad, y dónde no hace falta.",
@@ -98,7 +96,6 @@
       "p5Cta": "Ver Implementación"
     },
     "areas": {
-      "kicker": "Dónde",
       "headline": "Áreas funcionales",
       "nota": "Si tu operación tiene un área que no está aquí, es la primera de la que queremos oír.",
       "cardCta": "Ver si aplica en tu caso",
@@ -168,7 +165,6 @@
       }
     },
     "hacemos": {
-      "kicker": "Qué hacemos",
       "headline": "Tres maneras de entrar a tu operación.",
       "capacitacion": {
         "titulo": "Capacitación",
@@ -190,7 +186,6 @@
       }
     },
     "trayectoria": {
-      "kicker": "Trayectoria",
       "headline": "Lo que ya se hizo.",
       "c1Valor": "+100",
       "c1Label": "empresas asesoradas",
@@ -201,7 +196,6 @@
       "giros": "Experiencia y conocimiento de la industria: tecnología y software, manufactura, electrónica, logística y transporte, construcción e infraestructura, comercio exterior, agricultura, farmacéutica, energética e inmobiliaria."
     },
     "voces": {
-      "kicker": "Voces",
       "headline": "Cómo se siente tener un sistema trabajando.",
       "divulgacion": "Voces ilustrativas: no son testimonios verificados.",
       "q1": "Lo que cambió no fue la herramienta. Fue que por fin escribimos cómo se hace una cotización, y entonces sí se pudo automatizar.",
@@ -209,7 +203,6 @@
       "q3": "Nos dijeron que en un área todavía no convenía. Esa conversación fue la que nos hizo confiar."
     },
     "faq": {
-      "kicker": "Preguntas",
       "headline": "Lo que normalmente nos preguntan.",
       "q1": "¿Esto funciona en una empresa con muchas áreas?",
       "a1": "Sí, y de hecho es donde más rinde, pero no se entra por todas a la vez. Se empieza por un área y una tarea, se deja funcionando, y esa se vuelve el ejemplo con el que el resto de la empresa entiende de qué se trata.",
@@ -227,7 +220,6 @@
       "a7": "Sí: se conectan con el ERP y el sistema de facturación que ya usas. Con cuáles exactamente y hasta dónde llega la conexión se define en el diagnóstico, con nombre y apellido, antes de que aparezca en una propuesta. No prometemos una integración que no hayamos revisado contra tu sistema."
     },
     "cta": {
-      "kicker": "El siguiente paso",
       "headline": "Cuéntanos con qué área quieres empezar.",
       "button": "Contacta un asesor",
       "ctaMessage": "Hola, quiero platicar sobre la operación de mi empresa. El área por la que quiero empezar es…",

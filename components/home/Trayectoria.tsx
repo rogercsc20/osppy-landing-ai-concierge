@@ -50,8 +50,7 @@ export function Trayectoria() {
     <section className="relative px-4 py-section sm:px-6">
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <p className="eyebrow">{t("kicker")}</p>
-          <h2 className="font-display mt-5 max-w-3xl text-h2 font-semibold text-text">
+          <h2 className="font-display max-w-3xl text-h2 font-semibold text-text">
             <SplitText text={t("headline")} />
           </h2>
         </Reveal>
