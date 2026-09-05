@@ -838,12 +838,90 @@ test.describe("the long rectangles grow without moving the page (v5 T4)", () => 
   // would pass against a card that stopped growing at all), the anchor must
   // NOT, and the document height must be the same number before and after.
   //
-  // HARNESS: the wait after `scrollIntoViewIfNeeded` is load-bearing. Lenis
-  // animates that scroll, and a `hover()` issued before it settles lands on
-  // a point the card has already left — measured against `next start`, the
-  // card read 132 px unchanged after `hover()` and 155.7 px after a mouse
-  // move to the same centre a moment later.
-  const settleScroll = 1200;
+  // HARNESS, paid twice. Written first with `scrollIntoViewIfNeeded()` and a
+  // fixed wait, this pair failed about one run in three under a loaded dev
+  // server, two different ways and neither of them the page's fault:
+  //
+  //   1. `Element is not attached to the DOM` — hydration replaces the card's
+  //      subtree while the action holds a handle to it. So the scroll is done
+  //      by evaluating `window.scrollTo`, which holds no handle at all.
+  //   2. `surface 228.50 -> 228.80px` — a 0.3 px jitter, which is a hover
+  //      that never landed: Lenis is still animating the scroll and the card
+  //      slides out from under the pointer. So the scroll is waited out until
+  //      the card STOPS MOVING, rather than for a guessed number of
+  //      milliseconds, and the growth is polled for rather than slept on.
+  //
+  // Neither fix loosens an assertion. A hover that genuinely fails still
+  // times out and still fails.
+  /** Put the pointer on the card and PROVE it landed.
+   *
+   * `card.hover()` is not enough here and the reason is Lenis. Playwright's
+   * hover scrolls the element into view and then dispatches the move at the
+   * coordinates it read before that scroll; Lenis animates the page with a
+   * transform over the following frames, so the point it aims at is not the
+   * point the card ends up under. Measured against `npm run dev` at 1280:
+   * after `hover()` the anchor reported `matches(":hover") === false` and the
+   * surface had not moved, while the SAME test under `reducedMotion: "reduce"`
+   * — where the Lenis provider does not exist — landed every time. The
+   * failure looks exactly like a broken component and is not one.
+   *
+   * So: read the box, move the mouse to its centre, ask the DOM whether the
+   * anchor is hovered, and repeat until it says yes. Nothing is assumed and
+   * nothing is slept on; if the pointer genuinely cannot land, this throws. */
+  async function hoverCard(
+    page: import("@playwright/test").Page,
+    card: import("@playwright/test").Locator,
+  ) {
+    await expect
+      .poll(
+        async () => {
+          const box = await card.boundingBox();
+          if (!box) return false;
+          // Leave and re-enter, in steps. Chromium ignores a move to the
+          // coordinates the pointer is already at, so a poll that keeps
+          // re-aiming at the same centre never re-evaluates `:hover` and
+          // spins until it times out — which is how this helper failed
+          // before, under reduced motion too, where Lenis is not even
+          // running. The corner move guarantees a real transition and the
+          // steps generate the intermediate moves a hover needs.
+          await page.mouse.move(1, 1);
+          await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2, {
+            steps: 6,
+          });
+          await page.waitForTimeout(80);
+          return card.evaluate((el) => el.matches(":hover"));
+        },
+        { timeout: 10_000, message: "the pointer must actually land on the card" },
+      )
+      .toBe(true);
+  }
+
+  async function settleOnCard(page: import("@playwright/test").Page) {
+    await page.waitForLoadState("networkidle");
+    await page.evaluate(() => {
+      const s = document.getElementById("hacemos");
+      if (s) {
+        window.scrollTo({
+          top: s.getBoundingClientRect().top + window.scrollY - 120,
+          behavior: "instant",
+        });
+      }
+    });
+    // stop when two consecutive samples agree: Lenis has finished
+    await page.waitForFunction(
+      () => {
+        const el = document.querySelector("#hacemos a");
+        if (!el) return false;
+        const y = el.getBoundingClientRect().top;
+        const w = window as unknown as { __lastY?: number };
+        const prev = w.__lastY;
+        w.__lastY = y;
+        return prev !== undefined && Math.abs(prev - y) < 0.5;
+      },
+      undefined,
+      { timeout: 15_000, polling: 120 },
+    );
+  }
 
   for (const width of [1280, 360] as const) {
     test(`${width}px: the surface grows, the box and the page do not`, async ({
@@ -851,62 +929,91 @@ test.describe("the long rectangles grow without moving the page (v5 T4)", () => 
     }) => {
       await page.setViewportSize({ width, height: 900 });
       await page.goto("/es");
-      const card = page.locator("#hacemos a").first();
-      await card.scrollIntoViewIfNeeded();
-      await page.waitForTimeout(settleScroll);
-      const surface = card.locator("span[aria-hidden]").first();
+      await settleOnCard(page);
 
-      const pageBefore = await page.evaluate(
-        () => document.documentElement.scrollHeight,
-      );
+      const card = page.locator("#hacemos a").first();
+      const surface = card.locator("span[aria-hidden]").first();
+      const section = page.locator("#hacemos");
+      const sectionBefore = (await section.boundingBox())!.height;
       const boxBefore = (await card.boundingBox())!.height;
       const surfaceBefore = (await surface.boundingBox())!.height;
 
-      await card.hover();
-      await page.waitForTimeout(600); // the 300 ms transition, twice over
+      await hoverCard(page, card);
+      // wait for the growth itself, not for a guessed duration
+      await expect
+        .poll(async () => (await surface.boundingBox())!.height, {
+          timeout: 8_000,
+          message: `the rectangle must visibly grow from ${surfaceBefore}px`,
+        })
+        .toBeGreaterThan(surfaceBefore + 8);
 
-      const surfaceAfter = (await surface.boundingBox())!.height;
       const boxAfter = (await card.boundingBox())!.height;
-      const pageAfter = await page.evaluate(
-        () => document.documentElement.scrollHeight,
-      );
-
+      const sectionAfter = (await section.boundingBox())!.height;
+      // toBeCloseTo, not toBe: two reads of the same unchanged box differ in
+      // the eighth decimal (131.98440551757812 vs 131.984375 was one real
+      // failure), and the defect this guards against is a growth of TENS of
+      // pixels. Half a pixel is the right side of that line by a wide margin.
       expect(
-        surfaceAfter,
-        `surface ${surfaceBefore} -> ${surfaceAfter}px: the rectangle must visibly grow`,
-      ).toBeGreaterThan(surfaceBefore + 8);
-      expect(boxAfter, "the anchor's box in flow must not change").toBe(boxBefore);
-      expect(pageAfter, "the document must not reflow on hover").toBe(pageBefore);
+        boxAfter,
+        "the anchor's box in flow must not change",
+      ).toBeCloseTo(boxBefore, 0);
+      // The SECTION, not the document. Written first against
+      // documentElement.scrollHeight, this failed about one run in three
+      // with the page 110 px taller than a moment earlier — and not because
+      // of the hover: ScrollTrigger re-measures the pinned chapter's spacer
+      // after fonts and images settle, and that number moves on its own,
+      // whatever the pointer is doing. `#hacemos` is where the invariant
+      // actually lives: a card that grew by layout grows its section, and
+      // anything resizing further down the page cannot touch it.
+      expect(
+        sectionAfter,
+        "the section must not reflow on hover",
+      ).toBeCloseTo(sectionBefore, 0);
     });
   }
 
   test.describe("under reduced motion", () => {
-    test("the rectangle does not grow at all", async ({ browser }) => {
-      const context = await browser.newContext({
-        reducedMotion: "reduce",
-        viewport: { width: 1280, height: 900 },
-      });
-      const page = await context.newPage();
+    test("the rectangle does not grow at all", async ({ page }) => {
       // Honoured by NOT RUNNING: the growth lives behind `motion-safe:`, so
       // under `reduce` the rule does not exist and the rectangle keeps the
       // geometry the server sent. There is no second, still code path to
       // keep in sync — which is the whole reason the house spells it this
       // way rather than with a `motion-reduce:` override.
+      //
+      // `emulateMedia` on the standard page, not a hand-built context. Built
+      // with `browser.newContext({ reducedMotion })` this failed half its
+      // runs two different ways — a pointer that never landed, and a
+      // `boundingBox()` of null — because that context is NOT the one the
+      // project configures and inherits none of its settling. The page
+      // fixture takes the same path the two tests above now take, and they
+      // pass sixteen runs out of sixteen.
+      await page.emulateMedia({ reducedMotion: "reduce" });
+      await page.setViewportSize({ width: 1280, height: 900 });
       await page.goto("/es");
-      await page.waitForLoadState("networkidle");
+      await settleOnCard(page);
+
       const card = page.locator("#hacemos a").first();
-      await expect(card).toBeVisible();
-      await card.scrollIntoViewIfNeeded();
-      await page.waitForTimeout(settleScroll);
       const surface = card.locator("span[aria-hidden]").first();
+      const borderOf = () =>
+        surface.evaluate((el) => getComputedStyle(el).borderTopColor);
 
-      const before = (await surface.boundingBox())!.height;
-      await card.hover();
-      await page.waitForTimeout(600);
-      const after = (await surface.boundingBox())!.height;
+      const borderBefore = await borderOf();
+      const heightBefore = (await surface.boundingBox())!.height;
 
-      expect(after, `surface ${before} -> ${after}px under reduce`).toBe(before);
-      await context.close();
+      await hoverCard(page, card);
+      // the border is the VISIBLE proof, on top of `:hover` being true: under
+      // reduce it is the card's only answer to a pointer, and if it ever
+      // stopped answering, this test would be asserting that nothing happens
+      // while nothing is happening.
+      await expect
+        .poll(borderOf, { timeout: 8_000, message: "the border must answer" })
+        .not.toBe(borderBefore);
+
+      const heightAfter = (await surface.boundingBox())!.height;
+      expect(
+        heightAfter,
+        `surface ${heightBefore} -> ${heightAfter}px under reduce`,
+      ).toBeCloseTo(heightBefore, 0);
     });
   });
 });

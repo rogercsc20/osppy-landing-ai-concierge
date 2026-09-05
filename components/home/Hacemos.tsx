@@ -56,7 +56,24 @@ import type { AppPathname } from "@/i18n/routing";
    Reduced motion is honoured by NOT RUNNING: the growth is under
    `motion-safe:`, so under `reduce` the rule does not exist and the rectangle
    keeps exactly the geometry the server sent. The border still answers the
-   pointer, because a colour is not motion. */
+   pointer, because a colour is not motion — and under `reduce` it is the
+   ONLY answer, which is why the next paragraph exists.
+
+   **The hover border is set through `--line`, and that is not a flourish.**
+   The obvious spelling, `group-hover:border-accent-text/40`, is DEAD on this
+   element and was dead here before v5: `.glass` is declared outside every
+   `@layer` in globals.css, and unlayered CSS beats anything in a layer no
+   matter its specificity, so `.glass { border: 1px solid var(--line) }` wins
+   over a Tailwind utility every time. Measured against `next start`: the
+   computed `border-top-color` read `rgba(255, 255, 255, 0.08)` before AND
+   after the pointer arrived, in both motion modes. The card inherited that
+   dead class verbatim from the pre-v5 version, where the `-translate-y-1`
+   hid it; here the growth hid it, and under reduced motion nothing hid it
+   because there was nothing left. Setting `--line` on the element instead
+   makes `.glass` paint the border itself, with no specificity fight and no
+   `!important`: the element's own custom property beats the inherited one
+   whatever layer declares it. `components/hoteles/Hace.tsx:56` carries the
+   same dead pairing and is out of this batch's scope. */
 
 const SERVICIOS = [
   { key: "capacitacion", href: "/capacitacion" },
@@ -85,7 +102,7 @@ export async function Hacemos() {
             >
               <span
                 aria-hidden="true"
-                className="glass absolute inset-0 rounded-2xl transition-[scale,border-color] duration-300 ease-luxe group-hover:border-accent-text/40 group-focus-visible:border-accent-text/40 motion-safe:group-hover:scale-y-[1.09] motion-safe:group-focus-visible:scale-y-[1.09] lg:motion-safe:group-hover:scale-y-[1.18] lg:motion-safe:group-focus-visible:scale-y-[1.18]"
+                className="glass absolute inset-0 rounded-2xl transition-[scale,border-color] duration-300 ease-luxe group-hover:[--line:var(--accent-text)] group-focus-visible:[--line:var(--accent-text)] motion-safe:group-hover:scale-y-[1.09] motion-safe:group-focus-visible:scale-y-[1.09] lg:motion-safe:group-hover:scale-y-[1.18] lg:motion-safe:group-focus-visible:scale-y-[1.18]"
               />
 
               <div className="relative lg:grid lg:grid-cols-[15rem_minmax(0,1fr)_auto] lg:items-center lg:gap-x-8 xl:grid-cols-[18rem_minmax(0,1fr)_auto] xl:gap-x-14">
