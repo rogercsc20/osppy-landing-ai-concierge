@@ -1,12 +1,18 @@
 # Sitio v6 · 02 · Sistema visual
 
-> **Fecha: 2026-09-08.** Repo del sitio, `docs/`. Español (HQA-D3). **Estado: borrador para la compuerta 3.**
-> **Qué es:** el sentimiento como criterio, los cinco principios del fundamento §9 como reglas verificables,
-> el sistema (color, tipografía, espacio, movimiento, imagen, componentes), el prototipo con el copy real y
-> sus capturas, y dónde diverge de la guía §8 y de Instagram.
-> **Brief:** el fundamento §9 y nada más (prompt §6); persona y aire (HQA-D135); el fundador no aparece
-> (D136); muchas fotos reales, ninguna generada, slalom.com como referencia de proporción (D137); modo
-> claro; ni brillos, ni redes, ni robots, ni panel como héroe.
+> **Fecha: 2026-09-08.** Repo del sitio, `docs/`. Español (HQA-D3). **Estado: compuerta 3 abierta** (el operador
+> corrigió el prototipo ocho veces el 2026-09-08, HQA-D148 a D158; el sitio está en vivo en www.osppy.com desde
+> las 15:54 con su palabra, HQA-D156 y D157).
+> **Reescrito el 2026-09-08 a las 16:40 (prompt de industrias §3).** Hasta esa hora este documento describía la
+> paleta del primer prototipo (Lino, Tinta, Petróleo, cobre; luego el azul brillante como fondo), que ya no
+> existe: lo que manda es el sistema tal como quedó en el prototipo, y este documento lo describe. La primera
+> versión queda en el historial (`0cb7fee`, `f62ea2e`).
+> **Qué es:** el sentimiento como criterio, los cinco principios del fundamento §9 como reglas verificables, el
+> sistema (color, tipografía, espacio, movimiento, imagen, componentes), el prototipo y dónde diverge de la
+> guía §8 y de Instagram.
+> **Brief:** el fundamento §9 y nada más (prompt v6 §6); persona y aire (HQA-D135); el fundador no aparece
+> (D136); muchas fotos reales, ninguna generada, slalom.com como referencia de proporción (D137); el azul del
+> logo como color de la marca (D149); modo claro por defecto y el oscuro detrás de un botón (D153).
 > **Los tokens viven en `app/globals.css`**; este documento explica por qué son los que son.
 
 ---
@@ -16,9 +22,9 @@
 | Sentimiento | Qué lo produce en pantalla | Qué lo rompe |
 |---|---|---|
 | Seguridad | Un titular serif grande y quieto; una sola cosa por pantalla; el método en cuatro pasos numerados; cifras con fuente al pie | Efectos, contadores animados, más de un botón, un panel como héroe |
-| Confianza | Personas reales trabajando (fotos de banco con licencia, sin arquetipo); "los sistemas operan hoy" dicho sin adjetivos; el precio explicado sin cifra | Logos, testimonios, "expertos", superlativos, imagen generada |
-| Alivio | Fondo cálido casi blanco (Lino), márgenes anchos, frase corta arriba, nada que grite; el cambio de idioma a la vista | Urgencia, cifras que compiten, atmósfera oscura, texto denso |
-| Calidez | La serif con contraste suave (Newsreader), el cobre en pequeñas dosis, la foto de una persona sonriendo antes de cualquier texto | Frío corporativo (gris y azul), neón, iconos de plataforma |
+| Confianza | Personas reales trabajando (fotos de banco con licencia, sin arquetipo); "los sistemas operan hoy" dicho sin adjetivos; el precio explicado sin cifra | Logos, testimonios, superlativos, imagen generada |
+| Alivio | Fondo cálido casi blanco, márgenes anchos, frase corta arriba, nada que grite; el cambio de idioma a la vista | Urgencia, cifras que compiten, texto denso |
+| Calidez | La serif con contraste suave (Newsreader), fotos muy grandes de gente en su trabajo, la persona sonriendo antes de cualquier texto | Frío corporativo (gris y azul), neón, iconos de plataforma |
 | "En buenas manos" | Todo lo anterior junto, y el cierre: "Lo que sigue para tu empresa, lo construimos contigo" | Decirlo en vez de mostrarlo |
 
 El montañista es la referencia del sentimiento (alguien capaz te ayuda en un lugar difícil), no la imagen:
@@ -27,147 +33,178 @@ la persona sonriendo del recibimiento hace ese trabajo sin cresta ni atardecer.
 ## 2. Los cinco principios, como reglas que se pueden comprobar
 
 1. **Lo mostrado antes que lo dicho.** Lo que da seguridad es verificable a la vista: el método (cuatro
-   etapas con lo que pasa en cada una), lo construido (nueve tipos de trabajo atestiguados, FDV §11.12),
-   las cifras con su fuente y las dos del operador solas. Prueba: ningún adjetivo de calidad en toda la
-   casa (`grep` de "expertos", "líderes", "mejor", "vanguardia" en `messages/*.json` = 0).
-2. **Gente antes que abstracciones.** Seis fotografías, todas con personas trabajando (recibimiento,
-   quiénes somos, método, cómo ayudamos, lo que ya opera, hablemos); cero ilustraciones, cero iconos, cero
-   pantallas de software como imagen. Prueba: `grep -c "<svg"` en `components/` = 0.
+   etapas con lo que pasa en cada una), las cifras con su fuente y las dos del operador solas, y desde el
+   prompt de industrias las tendencias de cada industria con su fuente al pie. Prueba: ningún adjetivo de
+   calidad en toda la casa (`grep` de "expertos", "líderes", "mejor", "vanguardia" en `messages/*.json` = 0;
+   "un experto" solo dentro del botón, HQA-D148).
+2. **Gente antes que abstracciones.** Catorce fotografías en la casa, todas con personas trabajando
+   (recibimiento, quiénes somos, cómo trabajamos, las ocho áreas, lo que ya opera, hablemos); cero
+   ilustraciones, cero pantallas de software como imagen. Prueba: cada `Photo` de `components/` apunta a una
+   fila del manifiesto con persona.
 3. **Calidez sin perder autoridad.** Serif editorial para titulares (Newsreader) y una sans clara para el
-   cuerpo (Figtree); el negro y el azul del logo como únicos colores de marca (HQA-D149). Prueba: dos
-   familias, un solo acento, ningún degradado (el velo del recibimiento es el único).
+   cuerpo (Figtree); el negro y el azul del logo como únicos colores de marca (HQA-D149), el azul en dos
+   tonos (brillante y profundo). Prueba: dos familias, un solo matiz de acento, ningún degradado (el velo del
+   recibimiento es el único).
 4. **Alivio.** La primera pantalla tiene cuatro palabras, un botón y una foto; ninguna cifra; ningún
    movimiento. Prueba: en `hero.tsx` hay un `h1` y un `a`, nada más.
-5. **Nativa en IA sin parecerlo.** La palabra IA aparece en la frase del recibimiento y en la de la
-   empresa; ningún elemento gráfico la representa. Prueba: cero iconografía, cero "brillo", cero red de
-   nodos, cero robot, en código y en fotos.
+5. **Nativa en IA sin parecerlo.** La palabra IA aparece en la frase del recibimiento y en la de la empresa;
+   ningún elemento gráfico la representa. Prueba: cero iconografía en el contenido, cero brillo, cero red de
+   nodos, cero robot, en código y en fotos; la foto de "Inteligencia artificial" es una persona con una
+   herramienta de IA en pantalla (HQA-D158). **Los SVG en línea que sí existen y por qué:** el icono del logo
+   (`Logo`), su O como marca de agua (`LogoRing`), la línea y las formas de fondo (`Ribbon`, `Shapes`) y, desde
+   el 2026-09-08 (HQA-D158), el sol y la luna del botón de modo: es un control con `aria-label`, no
+   decoración ni iconografía de contenido, y la regla de "cero iconografía" no lo alcanza.
 
 ## 3. El sistema
 
 ### 3.1 Color
 
-**Corregido el 2026-09-08 (compuerta 3, HQA-D149).** El operador mandó el logo (negro `#0A0F0E`, azul `#2FC4D9`,
-`osppy-brand-export/osppy-icon-source.svg`) y pidió ese azul como color principal de casi toda la página. La
-primera paleta (Lino, Tinta, Petróleo, cobre) queda en el historial del commit `0cb7fee`. Modo claro, único;
-sin modo oscuro (fundamento §9; HQA-D135). Los roles son los que `check-contrast.mjs` mide.
+Los colores de la marca son los del logo (`osppy-brand-export/osppy-icon-source.svg`): negro `#0A0F0E` y azul
+`#2FC4D9` (HQA-D149). El azul brillante falla como texto sobre claro (2.0:1) y el blanco sobre él también
+(2.1:1), así que el azul brillante va como **fondo de botón con texto negro** (9.2:1) y como **cifra sobre el
+negro** (9.2:1) o sobre la banda (4.5:1, solo en tamaños grandes); el mismo matiz, profundo, es el texto de
+enlace sobre claro (`#0C6F7E`, 5.3:1); y las bandas son un petróleo profundo del mismo matiz con texto blanco
+(`#0F4C5C`, 9.5:1), no el azul brillante (D153, D154). El cobre salió (D149). Modo claro por defecto; el oscuro
+es una opción detrás del botón de modo (D152, D153). Los roles son los que `scripts/check-contrast.mjs` mide
+en los dos modos (medido el 2026-09-08 a las 16:35: todos por encima del mínimo).
 
-| Rol (`:root`) | Utilidad | Valor | Uso |
-|---|---|---|---|
-| `--bg` | `lino` | `#F8F7F4` | fondo de la casa |
-| `--surface` | `espuma` | `#E6F4F7` | el bloque de precio (azul muy claro) |
-| `--text` | `negro` | `#0A0F0E` | el negro del logo: titulares y texto |
-| `--text-2` | `niebla` | `#45585C` | texto secundario |
-| `--accent` | `azul` | `#2FC4D9` | el azul del logo: botones, la banda de "Quiénes somos", cifras sobre negro, puntos, foco |
-| `--accent-text` | `azul-texto` | `#0C6F7E` | el mismo azul, profundo, para enlaces y cifras sobre fondo claro |
-| `--primary-foreground` | `negro` | `#0A0F0E` | texto sobre el azul (botones y banda), como en el logo |
-| `--dark` | `negro` | `#0A0F0E` | fondo de "Lo que dicen los datos" y del pie |
-| `--on-dark`, `--on-dark-2` | `sobre-negro`, `sobre-negro-2` | `#FFFFFF`, `#B8C6C9` | texto sobre el negro |
-| `--line` | `linea` | `#DCE3E4` | reglas finas |
+| Rol (`:root`) | Utilidad | Claro | Oscuro | Uso |
+|---|---|---|---|---|
+| `--bg` | `lino` | `#F6F4EF` | `#0A0F0E` | fondo de la casa (17.6:1 y 19.3:1 con el texto) |
+| `--surface` | `espuma` | `#E8EFF0` | `#16211F` | el bloque de precio |
+| `--text` | `texto` | `#0A0F0E` | `#FFFFFF` | titulares y texto |
+| `--text-2` | `texto-2` | `#45585C` | `#B8C6C9` | texto secundario (6.8:1 y 11.0:1) |
+| `--accent` | `azul` | `#2FC4D9` | igual | botones, cifras sobre negro y sobre banda, puntos, foco |
+| `--accent-text` | `azul-texto` | `#0C6F7E` | `#2FC4D9` | enlaces y cifras sobre el fondo (5.3:1 y 9.2:1) |
+| `--primary-foreground` | `negro` | `#0A0F0E` | igual | texto sobre el azul (9.2:1) |
+| `--band`, `--on-band`, `--on-band-2` | `profundo`, `sobre-profundo`, `sobre-profundo-2` | `#0F4C5C`, `#FFFFFF`, `#CFE3E8` | iguales | "Reimaginemos tu empresa", "Cómo ayudamos", la banda de cierre de las páginas de área (9.5:1 y 7.2:1) |
+| `--dark`, `--on-dark`, `--on-dark-2` | `negro`, `sobre-negro`, `sobre-negro-2` | `#0A0F0E`, `#FFFFFF`, `#B8C6C9` | iguales | "Lo que dicen los datos" y el pie (19.3:1 y 11.0:1) |
+| `--tint`, `--tint-2` | `tinte`, `tinte-2` | `#DCEBEE`, `#EFE6D6` | `#12211F`, `#1A1F1B` | las formas suaves detrás de las secciones claras |
+| `--line` | `linea` | `#DCE3E4` | `#26312F` | reglas finas |
 
-Por qué el azul no es texto sobre claro: `#2FC4D9` sobre `#F8F7F4` da 2.0:1 y blanco sobre `#2FC4D9` da 2.1:1;
-los dos fallan. Por eso el azul va de fondo con texto negro (10.2:1), o como cifra sobre el negro (10.0:1), y
-su tono profundo `#0C6F7E` lleva los enlaces sobre claro (5.4:1). El resto, medido el 2026-09-08: negro sobre
-fondo 17.6:1 · niebla sobre fondo 7.0:1 · negro sobre espuma 16.1:1 · niebla sobre espuma 6.4:1 · blanco sobre
-negro 19.3:1 · gris sobre negro 11.0:1 · azul-texto sobre espuma 4.9:1. Todos por encima del mínimo.
+Las marcas de agua son la O del logo en el azul brillante a baja opacidad (0.35 en la banda, 0.22 y 0.16 en
+"Cómo ayudamos", 0.14 y 0.09 sobre el negro): siempre detrás del texto y a una opacidad que deja el contraste
+medido intacto (D150, D151, D157). El color de tema del navegador del teléfono es el negro de la marca (D157).
 
 ### 3.2 Tipografía
 
-- **Titulares:** Newsreader (Google Fonts, variable con eje óptico), servida por `next/font` desde el
-  propio sitio, respaldo Georgia y serif. Tamaños fluidos: `clamp(3rem, 7vw, 5.5rem)` el recibimiento,
-  `clamp(2.5rem, 5.5vw, 4.25rem)` las secciones, `clamp(2rem, 3.5vw, 2.75rem)` las cifras. Interlínea
-  1.02, espaciado -0.02em.
-- **Cuerpo:** Figtree (Google Fonts, variable), respaldo system-ui. 18 px el texto de las secciones,
-  21 a 27 px la frase de la empresa, 14 px las fuentes de las cifras y el pie.
+- **Titulares:** Newsreader (Google Fonts, variable con eje óptico), servida por `next/font` desde el propio
+  sitio, respaldo Georgia y serif. Tamaños fluidos: `clamp(3.25rem, 9vw, 7.5rem)` el recibimiento,
+  `clamp(2.75rem, 6.5vw, 5.25rem)` la banda, `clamp(2.5rem, 5.5vw, 4.25rem)` las secciones,
+  `clamp(2rem, 3.5vw, 2.75rem)` las cifras. Interlínea 1.02, espaciado -0.02em.
+- **Cuerpo:** Figtree (Google Fonts, variable), respaldo system-ui. 18 px el texto de las secciones, 23 a
+  30 px la frase de la empresa, 14 px las fuentes de las cifras y el pie.
 - **Medida:** ninguna columna de texto pasa de 56 caracteres; la frase, de 34.
-- Guía §12 don't 3 (Fraunces) respetado por no usarse.
 
-### 3.3 Espacio y retícula
+### 3.3 Espacio, bandas y fondos
 
 - Contenedor de 80rem con márgenes de 1.5rem (móvil) y 2.5rem (escritorio); retícula de doce columnas a
-  partir de 768 px; el recibimiento parte en 5 y 7 a partir de 1024 px, con la foto sangrando al borde
-  derecho.
-- Cada sección respira 6rem (móvil) a 9rem (escritorio) arriba y abajo. Es el "mucho espacio" de D135.
-- Reglas finas (`linea`) separan bloques dentro de una sección. Desde HQA-D149 tres secciones pintan su
-  propia banda ("Quiénes somos" en azul, "Lo que dicen los datos" y el pie en negro): la regla de la v2 en
-  `check-sections.mjs` ya no describe este sitio (ver §6).
+  partir de 1024 px. Cada sección respira 6rem (móvil) a 9rem (escritorio). Es el "mucho espacio" de D135.
+- **Bandas, por decisión del operador (D149, D153, D154):** "Reimaginemos tu empresa" y "Cómo ayudamos" en el
+  petróleo profundo con texto blanco y marcas de agua; "Lo que dicen los datos" y el pie en el negro de la
+  marca con cifras en azul; el resto sobre el lino. Las páginas de área cierran con la banda profunda.
+- **Fondos:** la línea gruesa (`Ribbon`) solo, tenue, detrás de los cuatro pasos (variante b, 0.22) y de
+  "Hablemos" (variante a, 0.2); las formas suaves (`Shapes`) detrás de los bloques de la historia y de "Lo que
+  ya opera". Nada de esto baja el contraste de un texto.
+- **Regla de construcción:** `min-h` y `overflow-hidden` nunca en un `<section>`; van en un `div` adentro
+  (lo que `check-sections.mjs` prohíbe). Desde HQA-D149 tres secciones pintan su propia banda: la regla de
+  la v2 en ese script ya no describe este sitio (§6).
 
 ### 3.4 Movimiento
 
-Casi ninguno, a propósito: transición de color en botones y enlaces (150 ms), desplazamiento suave en las
-anclas, y las dos cosas desaparecen con `prefers-reduced-motion`. Sin gsap, sin lenis, sin motion: nada en
-la casa se gana un efecto todavía; si una foto o una cifra lo justifica en la compuerta 3, se agrega con su
-razón.
+Casi ninguno, a propósito: transición de color en botones y enlaces (150 ms), la foto del área que aparece
+al pasar el cursor (opacidad, 500 ms), desplazamiento suave en las anclas; todo desaparece con
+`prefers-reduced-motion`. Sin gsap, sin lenis, sin motion: nada en la casa se gana un efecto.
 
 ### 3.5 Imagen
 
-- Solo fotografía real de banco con licencia (Unsplash, Pexels), personas en lugares de trabajo reales;
-  ninguna generada (el `hero.webp` de la v5 no se renderiza y sale del manifiesto en la FASE 4); ningún
-  arquetipo (apretón de manos, robot, cerebro, holograma).
-- Una foto por sección salvo "Lo que dicen los datos" (solo cifras). Radios de 1.25rem; la del
-  recibimiento sin radio y a sangre.
-- Pipeline: `scripts/photos.manifest.json` → `optimize-photos.mjs` → `public/photos/*.webp` (lado largo
-  1600) y `lib/photos.generated.ts` (con placeholder borroso). Alt en los dos idiomas desde el manifiesto.
-- El día que exista fotografía propia de Osppy trabajando, entra por el mismo pipeline y sustituye una
-  por una, empezando por el recibimiento.
+- Solo fotografía real de banco con licencia (Unsplash y Pexels; ninguna Unsplash+), personas en lugares de
+  trabajo reales; ninguna generada (el `hero.webp` de la v5 no se renderiza y sale del manifiesto en la FASE
+  4); ningún arquetipo (apretón de manos, robot, cerebro, holograma); nada de estética de IA (D158: la foto de
+  "Inteligencia artificial" es una persona real con una herramienta de IA en pantalla).
+- Las fotos son grandes y predominantes (D137, D151): el recibimiento a pantalla completa; "Nuestro
+  propósito" y "Cómo trabajamos" a todo lo ancho; las ocho de "Cómo ayudamos" llenan la mitad derecha al pasar
+  el cursor y abren su página de área a todo lo ancho. Radios de 1.25rem solo en las dos fotos enmarcadas
+  ("Lo que ya opera", "Hablemos").
+- Pipeline: `scripts/photos.manifest.json` (con `origen` por foto: banco, autor, id, licencia, fecha y
+  decisión) → `optimize-photos.mjs` → `public/photos/*.webp` y `lib/photos.generated.ts` (con placeholder
+  borroso). Lado largo 1600 para las enmarcadas y **2400 (`ladoLargo`) para las que van a sangre**. Alt en los
+  dos idiomas desde el manifiesto.
+- El día que exista fotografía propia de Osppy trabajando, entra por el mismo pipeline y sustituye una por
+  una, empezando por el recibimiento.
 
 ### 3.6 Componentes mínimos
 
-Header (marca, cuatro anclas, cambio de idioma) · Hero · Quienes · Metodo · Ayudamos · Datos · Real ·
-Hablemos · Footer · Photo (envoltura de `next/image` por slug) · Container. Un botón (relleno Petróleo,
-píldora), un estilo de enlace, un estilo de etiqueta. Sin biblioteca de componentes.
+`Header` (icono y marca, cuatro anclas, botón de modo, cambio de idioma) · `Hero` · `Quienes` · `Metodo` ·
+`Ayudamos` con `AreasHover` · `Datos` · `Real` · `Hablemos` · `Footer` · `Photo` (envoltura de `next/image`
+por slug) · `Logo` (variantes `tile` y `glyph`) y `LogoRing` (la marca de agua) · `Ribbon` y `Shapes` ·
+`ThemeToggle` (sol y luna, dos trazos en línea, `aria-label` y `aria-pressed`) · `Container`. Un botón (relleno
+azul, texto negro, píldora), un estilo de enlace. Sin biblioteca de componentes (`lucide-react` sigue huérfana
+y se decide en la FASE 4).
 
 ## 4. El prototipo
 
 Construido en `app/[locale]/` y `components/` con el copy real de `messages/es.json` y `messages/en.json`,
-los tokens de `app/globals.css` y seis fotos del manifiesto (recibimiento, quienes, asesoria, calidad,
-mantenimiento, hablemos). Compila (`npm run build`) y pasa `lint`; la compuerta de copy da cero fallas en
-los dos idiomas (las nueve que reporta hoy son archivos de la v5 en su lista de metadatos, FASE 4).
+los tokens de `app/globals.css` y las fotos del manifiesto; ocho páginas de área en `/es/<área>` y
+`/en/<area>` (D152). Compila, pasa `lint`, las cuatro compuertas y las siete pruebas. Capturas contra el
+servidor en `captures/v6/` (compuerta 3) y `captures/v6b/` (los tres arreglos de HQA-D158), carpetas ignoradas
+por git. La pregunta para cada una es la del fundamento: **¿se siente en buenas manos, o qué lo rompe?**
 
-Capturas contra `npm run start`, en `captures/v6/` (carpeta ignorada por git): `es-light-360.png`,
-`es-light-768.png`, `es-light-1024.png`, `es-light-1440.png` y las cuatro de `en`. La pregunta para cada
-una es la del fundamento: **¿se siente en buenas manos, o qué lo rompe?**
-
-Fotos que el operador aprueba una por una (D137), por sección:
+Fotos por sección (el operador aprueba una por una, D137):
 
 | Sección | Slug | Qué es | Fuente |
 |---|---|---|---|
-| Recibimiento | `recibimiento` | mujer sonriendo en su escritorio, pared de ladrillo claro | Mailchimp en Unsplash, M7HM8VgYxW4 |
+| Recibimiento | `recibimiento` | mujer sonriendo de pie en su oficina, su equipo detrás | Manuel Guillén Vega en Pexels, 15104303 (D148) |
 | Quiénes somos | `quienes` | dos colegas conversan sobre un documento | Vitaly Gariev en Unsplash, 0iTp1WNlMGc |
 | Cómo trabajamos | `asesoria` | cuatro personas frente a una laptop, riendo | Jud Mackrill en Unsplash, Of_m3hMsoAA |
-| Cómo ayudamos | `calidad` | ingeniera con laptop en una planta | ThisisEngineering en Unsplash, ZPeXrWxOjRQ |
+| Estrategia | `capacitacion` | una sesión en una sala de juntas | Campaign Creators en Unsplash, gMsnXqILjp4 |
+| Datos | `contabilidad` | una laptop con un panel de cifras | Carlos Muza en Unsplash, hpjSkU2UYSU |
+| Inteligencia artificial | `ia-asistente` (A) o `ia-mesa` (B) | una persona con un asistente de IA abierto en su laptop | Matheus Bertelli en Pexels, 16094042 y 16094048 (D158, pendiente O) |
+| Nube | `nube-racks` (A) o `nube-pasillo` (B) | una ingeniera con laptop en un centro de datos | Christina Morillo en Pexels, 1181341 y 1181316 (D158, pendiente O) |
+| Sistemas | `proceso-escrito` | un diagrama en una libreta junto a una laptop | ThisisEngineering en Unsplash, YcO98VqQlnA |
+| Experiencia | `ventas` | un equipo alrededor de una mesa con laptops | Annie Spratt en Unsplash, hCb3lIB8L8E |
+| Producto digital | `producto-pared` (A) o `producto-codigo` (B) | bocetos de pantallas en la pared; dos desarrolladoras con código | Christina Morillo en Pexels, 1181487 y 1181263 (D158, pendiente O) |
+| Planeación y entrega | `compras` | una persona con documentos frente a un tablero | Bluestonex en Unsplash, Li6MH3rfyPo |
 | Lo que ya opera | `mantenimiento` | tres personas con una laptop en una línea de producción | ThisisEngineering en Unsplash, WjOWazUPAss |
 | Hablemos | `hablemos` | dos mujeres conversan en un escritorio | Vitaly Gariev en Unsplash, aoweP90-XwM |
+
+Las que salen con D158: `sistemas` (persona con laptop y tableta), `implementacion` (oficina grande) y
+`calidad` (ingeniera en planta) dejan "Cómo ayudamos"; siguen en el manifiesto hasta la poda de la FASE 4.
 
 ## 5. Dónde diverge de la guía §8 y de Instagram
 
 Anotado para el operador; no se resuelve aquí (si la marca entera sigue al sitio, es otra fila).
 
-- **Fondo.** El feed de Instagram es claro sobre marfil; el sitio usa Lino (`#FAF7F1`), un marfil más
-  neutro. Misma familia de calidez; no es el mismo valor.
-- **La marca.** El sitio usa el icono del logo (negro y azul, `osppy-brand-export/osppy-icon-source.svg`)
-  junto a "Osppy" en Newsreader, en el encabezado, el pie y el favicon (`app/icon.svg`). El glifo Tinta de
-  Instagram (`../osppy-content/activos/osppy-glifo-tinta.svg`) es otro dibujo; el operador decide cuál
-  gobierna la marca entera.
-- **El azul.** El sitio usa el azul del logo (`#2FC4D9`) como color principal (HQA-D149); la guía lo tenía
-  como "teal firma" con la regla de no usarlo como texto sobre claro (§12 don't 1), que el sitio respeta.
-  El verde Petróleo de la guía no aparece en el sitio.
+- **Fondo.** El feed de Instagram es claro sobre marfil; el sitio usa un lino (`#F6F4EF`). Misma familia de
+  calidez; no es el mismo valor.
+- **La marca.** El sitio usa el icono del logo (el anillo y el punto en azul, sin su cuadro negro, D150) junto
+  a "Osppy" en Newsreader, en el encabezado y el pie; el cuadro negro es el favicon (`app/icon.svg`). El glifo
+  Tinta de Instagram (`../osppy-content/activos/osppy-glifo-tinta.svg`) es otro dibujo; el operador decide
+  cuál gobierna la marca entera.
+- **El azul.** El sitio usa el azul del logo como color de la marca (D149) en dos tonos, y un petróleo profundo
+  del mismo matiz para las bandas (D153); la guía tenía el azul como "teal firma" con la regla de no usarlo
+  como texto sobre claro (§12 don't 1), que el sitio respeta. El verde Petróleo de la guía y el cobre no
+  aparecen en el sitio.
 - **Tipografía.** Newsreader y Figtree son del sitio; Instagram y los decks siguen con lo que la guía §9
   dice. Fraunces no aparece en ningún lado.
-- **Cobre.** No aparece en el sitio desde HQA-D149; un solo acento.
+- **Modo oscuro.** Es una opción del sitio (D152, D153); Instagram y los decks no lo tienen.
 
-## 6. Lo que la FASE 4 decide sobre las compuertas (adelantado aquí)
+## 6. Las compuertas, con política (estado al 2026-09-08)
 
-- `check-contrast.mjs`: mide los roles de arriba; hoy exige también un `[data-theme="dark"]` que no existe
-  y fallaría por "token ausente". Decisión propuesta: quitar los modos oscuro, hotel y panel del script
-  con nota fechada, y dejar los pares de la luz.
-- `check-sections.mjs`: la regla "ninguna sección pinta su propia banda" era de la v2 y este sitio tiene
-  bandas por decisión del operador (HQA-D149); las clases que prohíbe (`bg-bg`, `bg-bg-alt`, `min-h-screen`,
-  `overflow-hidden` en `<section>`) no se usan, así que el script no dispara; decisión propuesta: retirarlo
-  con nota fechada, porque una regla que ya no describe el diseño no protege nada.
-- `check-copy.mjs`: `METADATA_FILES` a `app/[locale]/layout.tsx`, `page.tsx` y `opengraph-image.tsx`.
-- `playwright.config.ts`: `/es` existe otra vez; `tests/` se escribe.
+- `check-contrast.mjs`: **hecho** el 2026-09-08 (commit `4061752`): mide los roles de arriba en claro y en
+  oscuro (el claro fundido bajo el oscuro, como la cascada); los modos hotel y panel de la v2 salieron con nota
+  fechada.
+- `check-copy.mjs`: **hecho** (`4061752`): `METADATA_FILES` nombra `app/[locale]/layout.tsx`, `page.tsx`,
+  `opengraph-image.tsx` y `[area]/page.tsx`; las páginas de industria se agregan cuando existan.
+- `check-sections.mjs`: **pendiente, FASE 4.** La regla "ninguna sección pinta su propia banda" era de la v2 y
+  este sitio tiene bandas por decisión del operador (D149, D154); las clases que prohíbe no se usan, así que no
+  dispara. Decisión propuesta: retirarlo con nota fechada o reescribirlo como la regla de construcción del
+  §3.3 (`min-h` y `overflow-hidden` fuera del `<section>`), que sí describe este sitio.
+- `tests/casa.spec.ts`: siete pruebas (`4061752`); la del modo oscuro busca el botón por su `aria-label`
+  desde el sol y la luna.
+- `photos.manifest.json`: la poda a las fotos de la v6 y la salida de `hero` son de la FASE 4.
 
 ---
 
-*Sitio v6 · 02 · Sistema visual · 2026-09-08 · borrador para la compuerta 3 · el criterio de aceptación
-es el sentimiento, no un número.*
+*Sitio v6 · 02 · Sistema visual · 2026-09-08 · reescrito a las 16:40 con el sistema del prototipo en vivo ·
+compuerta 3 abierta · el criterio de aceptación es el sentimiento, no un número.*
