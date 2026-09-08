@@ -17,7 +17,7 @@ export function Hero({ locale, m }: { locale: Locale; m: Messages }) {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[50%_30%]"
+          className="object-cover object-[26%_22%] lg:object-[50%_30%]"
         />
         <div
           aria-hidden="true"
