@@ -2,14 +2,21 @@ import type { Locale, Messages } from "@/lib/i18n";
 import { AreasHover } from "./areas-hover";
 import { LogoRing } from "./logo";
 
-/** Cómo ayudamos (HQA-D152, D154): the band's format, deep teal with Osppy watermarks; the areas on the left, their photographs filling the right side on hover. */
+/**
+ * Cómo ayudamos (HQA-D152, D154): the band's format, deep teal with Osppy watermarks; the areas on
+ * the left, their photographs filling the right side on hover. The watermarks live in their own
+ * cropped layer (2026-09-08): an `overflow-hidden` ancestor turns `position: sticky` off, and the
+ * hover photograph is a sticky panel, so the crop cannot sit on the content wrapper.
+ */
 export function Ayudamos({ locale, m }: { locale: Locale; m: Messages }) {
   const areas = Object.values(m.ayudamos.areas);
   return (
     <section id="ayudamos" aria-labelledby="ayudamos-title" className="bg-profundo text-sobre-profundo">
-      <div className="relative overflow-hidden py-24 md:py-36">
-        <LogoRing className="pointer-events-none absolute -left-[14%] top-[6%] h-[70%] w-auto opacity-[0.22]" />
-        <LogoRing className="pointer-events-none absolute -bottom-[10%] right-[38%] h-[46%] w-auto opacity-[0.16]" />
+      <div className="relative py-24 md:py-36">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+          <LogoRing className="absolute -left-[14%] top-[6%] h-[70%] w-auto opacity-[0.22]" />
+          <LogoRing className="absolute -bottom-[10%] right-[38%] h-[46%] w-auto opacity-[0.16]" />
+        </div>
         <div className="relative mx-auto w-full max-w-[100rem] px-6 md:px-10 lg:pr-0">
           <h2
             id="ayudamos-title"
