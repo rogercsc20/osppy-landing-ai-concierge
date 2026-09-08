@@ -11,15 +11,15 @@ export function Ayudamos({ locale, m }: { locale: Locale; m: Messages }) {
           <div className="lg:col-span-8">
             <h2
               id="ayudamos-title"
-              className="font-display text-[clamp(2.5rem,5.5vw,4.25rem)] leading-[1.02] tracking-[-0.02em] text-tinta"
+              className="font-display text-[clamp(2.5rem,5.5vw,4.25rem)] leading-[1.02] tracking-[-0.02em] text-negro"
             >
               {m.ayudamos.encabezado}
             </h2>
             <ul className="mt-12 grid gap-x-12 gap-y-10 sm:grid-cols-2 md:mt-16">
               {areas.map((a) => (
                 <li key={a.nombre} className="max-w-[38ch] border-t border-linea pt-5">
-                  <h3 className="font-display text-2xl text-tinta">{a.nombre}</h3>
-                  <p className="mt-2 text-[1.05rem] leading-relaxed text-humo">{a.texto}</p>
+                  <h3 className="font-display text-2xl text-negro">{a.nombre}</h3>
+                  <p className="mt-2 text-[1.05rem] leading-relaxed text-niebla">{a.texto}</p>
                 </li>
               ))}
             </ul>
@@ -34,11 +34,11 @@ export function Ayudamos({ locale, m }: { locale: Locale; m: Messages }) {
           </div>
         </div>
         <div className="mt-20 md:mt-28">
-          <h3 className="font-display text-2xl text-tinta md:text-[1.75rem]">{m.construido.encabezado}</h3>
-          <ul className="mt-6 grid gap-x-12 gap-y-3 text-lg leading-relaxed text-humo md:grid-cols-2">
+          <h3 className="font-display text-2xl text-negro md:text-[1.75rem]">{m.construido.encabezado}</h3>
+          <ul className="mt-6 grid gap-x-12 gap-y-3 text-lg leading-relaxed text-niebla md:grid-cols-2">
             {m.construido.items.map((item) => (
               <li key={item} className="flex gap-3">
-                <span aria-hidden="true" className="mt-[0.85em] h-1.5 w-1.5 shrink-0 rounded-full bg-cobre" />
+                <span aria-hidden="true" className="mt-[0.85em] h-1.5 w-1.5 shrink-0 rounded-full bg-azul" />
                 <span>{item}</span>
               </li>
             ))}

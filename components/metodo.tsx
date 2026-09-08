@@ -8,7 +8,7 @@ export function Metodo({ locale, m }: { locale: Locale; m: Messages }) {
       <Container>
         <h2
           id="metodo-title"
-          className="font-display text-[clamp(2.5rem,5.5vw,4.25rem)] leading-[1.02] tracking-[-0.02em] text-tinta"
+          className="font-display text-[clamp(2.5rem,5.5vw,4.25rem)] leading-[1.02] tracking-[-0.02em] text-negro"
         >
           {m.metodo.encabezado}
         </h2>
@@ -24,11 +24,11 @@ export function Metodo({ locale, m }: { locale: Locale; m: Messages }) {
           <ol className="lg:col-span-7 grid gap-10 sm:grid-cols-2 md:gap-x-12 md:gap-y-14">
             {m.metodo.etapas.map((e, i) => (
               <li key={e.titulo} className="max-w-[40ch]">
-                <span aria-hidden="true" className="font-display text-sm tracking-[0.12em] text-cobre-texto">
+                <span aria-hidden="true" className="font-display text-sm tracking-[0.12em] text-azul-texto">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="mt-3 font-display text-2xl text-tinta md:text-[1.75rem]">{e.titulo}</h3>
-                <p className="mt-3 text-lg leading-relaxed text-humo">{e.texto}</p>
+                <h3 className="mt-3 font-display text-2xl text-negro md:text-[1.75rem]">{e.titulo}</h3>
+                <p className="mt-3 text-lg leading-relaxed text-niebla">{e.texto}</p>
               </li>
             ))}
           </ol>

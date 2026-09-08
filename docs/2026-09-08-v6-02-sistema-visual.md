@@ -34,9 +34,8 @@ la persona sonriendo del recibimiento hace ese trabajo sin cresta ni atardecer.
    quiénes somos, método, cómo ayudamos, lo que ya opera, hablemos); cero ilustraciones, cero iconos, cero
    pantallas de software como imagen. Prueba: `grep -c "<svg"` en `components/` = 0.
 3. **Calidez sin perder autoridad.** Serif editorial para titulares (Newsreader) y una sans clara para el
-   cuerpo (Figtree); Tinta (`#1C2B33`) como texto, no negro; el verde Petróleo como único color de acción;
-   cobre solo en etiquetas pequeñas y en los puntos de las listas. Prueba: dos familias, tres colores con
-   nombre además del texto, ningún degradado.
+   cuerpo (Figtree); el negro y el azul del logo como únicos colores de marca (HQA-D149). Prueba: dos
+   familias, un solo acento, ningún degradado (el velo del recibimiento es el único).
 4. **Alivio.** La primera pantalla tiene cuatro palabras, un botón y una foto; ninguna cifra; ningún
    movimiento. Prueba: en `hero.tsx` hay un `h1` y un `a`, nada más.
 5. **Nativa en IA sin parecerlo.** La palabra IA aparece en la frase del recibimiento y en la de la
@@ -47,27 +46,29 @@ la persona sonriendo del recibimiento hace ese trabajo sin cresta ni atardecer.
 
 ### 3.1 Color
 
-Modo claro, único. No hay modo oscuro: la atmósfera oscura es lo que tuvieron las cinco versiones
-anteriores (fundamento §9) y el brief pide aire y calidez. Los roles son los que `check-contrast.mjs` mide;
-los nombres de utilidad (Tailwind) son los de la casa.
+**Corregido el 2026-09-08 (compuerta 3, HQA-D149).** El operador mandó el logo (negro `#0A0F0E`, azul `#2FC4D9`,
+`osppy-brand-export/osppy-icon-source.svg`) y pidió ese azul como color principal de casi toda la página. La
+primera paleta (Lino, Tinta, Petróleo, cobre) queda en el historial del commit `0cb7fee`. Modo claro, único;
+sin modo oscuro (fundamento §9; HQA-D135). Los roles son los que `check-contrast.mjs` mide.
 
 | Rol (`:root`) | Utilidad | Valor | Uso |
 |---|---|---|---|
-| `--bg` | `lino` | `#FAF7F1` | fondo de toda la casa |
-| `--surface` | `arena` | `#F1EBE1` | el bloque de precio, y nada más |
-| `--text` | `tinta` | `#1C2B33` | titulares y texto principal (el mismo Tinta del glifo) |
-| `--text-2` | `humo` | `#4B5A62` | texto secundario |
-| `--accent` | `petroleo` | `#175E58` | el botón |
-| `--accent-text` | `petroleo-texto` | `#145550` | enlaces y cifras grandes |
-| `--primary-foreground` | `blanco` | `#FFFFFF` | texto sobre el botón |
-| `--warm` | `cobre` | `#C46A3E` | puntos de lista (decorativo) |
-| `--warm-text` | `cobre-texto` | `#9C4A22` | etiquetas pequeñas y números de etapa |
-| `--line` | `linea` | `#E3DBCD` | reglas finas |
+| `--bg` | `lino` | `#F8F7F4` | fondo de la casa |
+| `--surface` | `espuma` | `#E6F4F7` | el bloque de precio (azul muy claro) |
+| `--text` | `negro` | `#0A0F0E` | el negro del logo: titulares y texto |
+| `--text-2` | `niebla` | `#45585C` | texto secundario |
+| `--accent` | `azul` | `#2FC4D9` | el azul del logo: botones, la banda de "Quiénes somos", cifras sobre negro, puntos, foco |
+| `--accent-text` | `azul-texto` | `#0C6F7E` | el mismo azul, profundo, para enlaces y cifras sobre fondo claro |
+| `--primary-foreground` | `negro` | `#0A0F0E` | texto sobre el azul (botones y banda), como en el logo |
+| `--dark` | `negro` | `#0A0F0E` | fondo de "Lo que dicen los datos" y del pie |
+| `--on-dark`, `--on-dark-2` | `sobre-negro`, `sobre-negro-2` | `#FFFFFF`, `#B8C6C9` | texto sobre el negro |
+| `--line` | `linea` | `#DCE3E4` | reglas finas |
 
-Contraste medido (WCAG, el 2026-09-08): texto sobre fondo 13.61:1 · texto secundario sobre fondo 6.68:1 ·
-texto sobre arena 12.28:1 · secundario sobre arena 6.03:1 · enlace sobre fondo 8.03:1 · enlace sobre arena
-7.24:1 · cobre texto sobre fondo 5.75:1 · cobre decorativo sobre fondo 3.58:1 · blanco sobre el botón
-7.56:1. Todos por encima del mínimo (4.5:1 texto, 3:1 decorativo).
+Por qué el azul no es texto sobre claro: `#2FC4D9` sobre `#F8F7F4` da 2.0:1 y blanco sobre `#2FC4D9` da 2.1:1;
+los dos fallan. Por eso el azul va de fondo con texto negro (10.2:1), o como cifra sobre el negro (10.0:1), y
+su tono profundo `#0C6F7E` lleva los enlaces sobre claro (5.4:1). El resto, medido el 2026-09-08: negro sobre
+fondo 17.6:1 · niebla sobre fondo 7.0:1 · negro sobre espuma 16.1:1 · niebla sobre espuma 6.4:1 · blanco sobre
+negro 19.3:1 · gris sobre negro 11.0:1 · azul-texto sobre espuma 4.9:1. Todos por encima del mínimo.
 
 ### 3.2 Tipografía
 
@@ -86,8 +87,9 @@ texto sobre arena 12.28:1 · secundario sobre arena 6.03:1 · enlace sobre fondo
   partir de 768 px; el recibimiento parte en 5 y 7 a partir de 1024 px, con la foto sangrando al borde
   derecho.
 - Cada sección respira 6rem (móvil) a 9rem (escritorio) arriba y abajo. Es el "mucho espacio" de D135.
-- Reglas finas (`linea`) separan bloques dentro de una sección; ninguna sección pinta su propia banda
-  (eso deja `check-sections.mjs` en pie, ver §6).
+- Reglas finas (`linea`) separan bloques dentro de una sección. Desde HQA-D149 tres secciones pintan su
+  propia banda ("Quiénes somos" en azul, "Lo que dicen los datos" y el pie en negro): la regla de la v2 en
+  `check-sections.mjs` ya no describe este sitio (ver §6).
 
 ### 3.4 Movimiento
 
@@ -142,24 +144,26 @@ Anotado para el operador; no se resuelve aquí (si la marca entera sigue al siti
 
 - **Fondo.** El feed de Instagram es claro sobre marfil; el sitio usa Lino (`#FAF7F1`), un marfil más
   neutro. Misma familia de calidez; no es el mismo valor.
-- **La marca.** El sitio escribe "Osppy" en Newsreader; el glifo Tinta (`../osppy-content/activos/
-  osppy-glifo-tinta.svg`) no aparece todavía. Entra el día que el operador lo decida, como favicon y en
-  el pie.
-- **El verde.** El Petróleo del sitio (`#175E58`) es un verde azulado profundo elegido por contraste y
-  calidez; no es el hex de la guía (§8 no se leyó, por instrucción). Si el operador quiere un solo
-  Petróleo para todo, el token cambia en una línea.
+- **La marca.** El sitio usa el icono del logo (negro y azul, `osppy-brand-export/osppy-icon-source.svg`)
+  junto a "Osppy" en Newsreader, en el encabezado, el pie y el favicon (`app/icon.svg`). El glifo Tinta de
+  Instagram (`../osppy-content/activos/osppy-glifo-tinta.svg`) es otro dibujo; el operador decide cuál
+  gobierna la marca entera.
+- **El azul.** El sitio usa el azul del logo (`#2FC4D9`) como color principal (HQA-D149); la guía lo tenía
+  como "teal firma" con la regla de no usarlo como texto sobre claro (§12 don't 1), que el sitio respeta.
+  El verde Petróleo de la guía no aparece en el sitio.
 - **Tipografía.** Newsreader y Figtree son del sitio; Instagram y los decks siguen con lo que la guía §9
   dice. Fraunces no aparece en ningún lado.
-- **Cobre.** La guía lo dosifica "una vez por slide"; en el sitio es un color de etiqueta y de puntos de
-  lista, en pequeño, varias veces por pantalla.
+- **Cobre.** No aparece en el sitio desde HQA-D149; un solo acento.
 
 ## 6. Lo que la FASE 4 decide sobre las compuertas (adelantado aquí)
 
 - `check-contrast.mjs`: mide los roles de arriba; hoy exige también un `[data-theme="dark"]` que no existe
   y fallaría por "token ausente". Decisión propuesta: quitar los modos oscuro, hotel y panel del script
   con nota fechada, y dejar los pares de la luz.
-- `check-sections.mjs`: la regla "ninguna sección pinta su propia banda" coincide con este sistema; se
-  queda con nota fechada. El bloque de precio pinta arena, pero es un `div` dentro de la sección.
+- `check-sections.mjs`: la regla "ninguna sección pinta su propia banda" era de la v2 y este sitio tiene
+  bandas por decisión del operador (HQA-D149); las clases que prohíbe (`bg-bg`, `bg-bg-alt`, `min-h-screen`,
+  `overflow-hidden` en `<section>`) no se usan, así que el script no dispara; decisión propuesta: retirarlo
+  con nota fechada, porque una regla que ya no describe el diseño no protege nada.
 - `check-copy.mjs`: `METADATA_FILES` a `app/[locale]/layout.tsx`, `page.tsx` y `opengraph-image.tsx`.
 - `playwright.config.ts`: `/es` existe otra vez; `tests/` se escribe.
 

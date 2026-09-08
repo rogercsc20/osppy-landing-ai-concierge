@@ -1,36 +1,40 @@
 @import "tailwindcss";
 
 /*
- * Sitio v6 · tokens (2026-09-08, gate 3 prototype; docs/2026-09-08-v6-02-sistema-visual.md).
- * The role names below are what scripts/check-contrast.mjs measures: text, text-2, surface,
- * accent, accent-text, warm, warm-text, primary-foreground, bg. Light mode only, by design:
- * the site is warm and airy (foundation §9; HQA-D135), and a dark atmosphere is exactly what
- * the five previous versions had and the operator rejected (HQA-D104). No [data-theme].
+ * Sitio v6 · tokens (2026-09-08; docs/2026-09-08-v6-02-sistema-visual.md §3.1).
+ * The brand colours are the logo's (osppy-icon-source.svg): black #0A0F0E and teal #2FC4D9
+ * (HQA-D149: the teal is the site's main colour). The teal fails contrast as text on a light
+ * background (about 2:1) and white on it fails too, so it is used as BACKGROUND and as the
+ * button colour with dark text on it, exactly as the logo does; the same hue, deeper
+ * (#0C6F7E, 5.5:1 on the page), carries links and numerals on light; and where the numerals
+ * are the brand teal itself they sit on the brand black. Light mode only, by design (foundation
+ * §9; HQA-D135): no [data-theme]. The roles are what scripts/check-contrast.mjs measures.
  */
 :root {
-  --bg: #FAF7F1;
-  --surface: #F1EBE1;
-  --text: #1C2B33;
-  --text-2: #4B5A62;
-  --accent: #175E58;
-  --accent-text: #145550;
-  --primary-foreground: #FFFFFF;
-  --warm: #C46A3E;
-  --warm-text: #9C4A22;
-  --line: #E3DBCD;
+  --bg: #F8F7F4;
+  --surface: #E6F4F7;
+  --text: #0A0F0E;
+  --text-2: #45585C;
+  --accent: #2FC4D9;
+  --accent-text: #0C6F7E;
+  --primary-foreground: #0A0F0E;
+  --dark: #0A0F0E;
+  --on-dark: #FFFFFF;
+  --on-dark-2: #B8C6C9;
+  --line: #DCE3E4;
 }
 
 @theme inline {
   --color-lino: var(--bg);
-  --color-arena: var(--surface);
-  --color-tinta: var(--text);
-  --color-humo: var(--text-2);
-  --color-petroleo: var(--accent);
-  --color-petroleo-texto: var(--accent-text);
-  --color-cobre: var(--warm);
-  --color-cobre-texto: var(--warm-text);
+  --color-espuma: var(--surface);
+  --color-negro: var(--text);
+  --color-niebla: var(--text-2);
+  --color-azul: var(--accent);
+  --color-azul-texto: var(--accent-text);
+  --color-sobre-negro: var(--on-dark);
+  --color-sobre-negro-2: var(--on-dark-2);
   --color-linea: var(--line);
-  --color-blanco: var(--primary-foreground);
+  --color-blanco: #FFFFFF;
   --font-display: var(--font-newsreader), Georgia, "Times New Roman", serif;
   --font-body: var(--font-figtree), system-ui, -apple-system, "Segoe UI", sans-serif;
 }
@@ -67,5 +71,5 @@ body {
 
 ::selection {
   background: var(--accent);
-  color: var(--primary-foreground);
+  color: var(--text);
 }

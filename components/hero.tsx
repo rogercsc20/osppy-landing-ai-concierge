@@ -32,7 +32,7 @@ export function Hero({ locale, m }: { locale: Locale; m: Messages }) {
           </h1>
           <a
             href="#hablemos"
-            className="mt-10 inline-flex w-fit items-center rounded-full bg-blanco px-7 py-4 text-lg font-medium text-tinta transition-colors hover:bg-lino"
+            className="mt-10 inline-flex w-fit items-center rounded-full bg-azul px-7 py-4 text-lg font-medium text-negro transition-colors hover:bg-blanco"
           >
             {m.hero.cta}
           </a>

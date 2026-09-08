@@ -10,21 +10,21 @@ export function Real({ locale, m }: { locale: Locale; m: Messages }) {
           <div className="lg:col-span-7">
             <h2
               id="real-title"
-              className="max-w-[18ch] font-display text-[clamp(2.5rem,5.5vw,4.25rem)] leading-[1.02] tracking-[-0.02em] text-tinta"
+              className="max-w-[18ch] font-display text-[clamp(2.5rem,5.5vw,4.25rem)] leading-[1.02] tracking-[-0.02em] text-negro"
             >
               {m.real.encabezado}
             </h2>
             <dl className="mt-12 grid gap-10 sm:grid-cols-2 md:mt-16">
               {m.real.cifras.map((c) => (
                 <div key={c.texto} className="border-t border-linea pt-6">
-                  <dt className="font-display text-[clamp(2.5rem,4.5vw,3.5rem)] leading-none tracking-[-0.02em] text-petroleo-texto">
+                  <dt className="font-display text-[clamp(2.5rem,4.5vw,3.5rem)] leading-none tracking-[-0.02em] text-azul-texto">
                     {c.numero}
                   </dt>
-                  <dd className="mt-3 text-lg text-humo">{c.texto}</dd>
+                  <dd className="mt-3 text-lg text-niebla">{c.texto}</dd>
                 </div>
               ))}
             </dl>
-            <p className="mt-12 max-w-[52ch] text-lg leading-relaxed text-tinta">{m.real.giros}</p>
+            <p className="mt-12 max-w-[52ch] text-lg leading-relaxed text-negro">{m.real.giros}</p>
           </div>
           <div className="lg:col-span-5">
             <Photo
