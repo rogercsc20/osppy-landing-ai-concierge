@@ -13,8 +13,8 @@
     "idiomaLabel": "Leer este sitio en español",
     "etiqueta": "Main navigation",
     "tema": {
-      "oscuro": "Dark mode",
-      "claro": "Light mode"
+      "oscuro": "Switch to dark mode",
+      "claro": "Switch to light mode"
     }
   },
   "hero": {

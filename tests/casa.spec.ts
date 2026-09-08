@@ -57,7 +57,7 @@ test("reducción de movimiento: sin desplazamiento suave", async ({ browser }) =
 test("el modo oscuro es una opción y se recuerda", async ({ page }) => {
   await page.goto("/es");
   await expect(page.locator("html")).not.toHaveAttribute("data-theme", "dark");
-  await page.getByRole("button", { name: "Modo oscuro" }).click();
+  await page.getByRole("button", { name: "Cambiar al modo oscuro" }).click();
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
   await page.reload();
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
