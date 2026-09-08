@@ -18,11 +18,11 @@ export function Hablemos({ locale, m }: { locale: Locale; m: Messages }) {
           <div className="flex flex-col justify-center lg:col-span-6">
             <h2
               id="hablemos-title"
-              className="max-w-[16ch] font-display text-[clamp(2.5rem,5.5vw,4.25rem)] leading-[1.02] tracking-[-0.02em] text-negro"
+              className="max-w-[16ch] font-display text-[clamp(2.5rem,5.5vw,4.25rem)] leading-[1.02] tracking-[-0.02em] text-texto"
             >
               {m.hablemos.encabezado}
             </h2>
-            <p className="mt-8 max-w-[44ch] text-xl leading-relaxed text-niebla">{m.hablemos.texto}</p>
+            <p className="mt-8 max-w-[44ch] text-xl leading-relaxed text-texto-2">{m.hablemos.texto}</p>
             <div className="mt-10 flex flex-wrap items-center gap-6">
               <a
                 href={`mailto:${m.hablemos.correo}`}
@@ -37,13 +37,13 @@ export function Hablemos({ locale, m }: { locale: Locale; m: Messages }) {
           </div>
         </div>
         <div className="mt-20 rounded-[1.25rem] bg-espuma p-8 md:mt-28 md:p-12">
-          <h3 className="font-display text-2xl text-negro md:text-[1.75rem]">{m.precio.titulo}</h3>
-          <ul className="mt-6 grid gap-4 text-lg leading-relaxed text-niebla md:grid-cols-3 md:gap-10">
+          <h3 className="font-display text-2xl text-texto md:text-[1.75rem]">{m.precio.titulo}</h3>
+          <ul className="mt-6 grid gap-4 text-lg leading-relaxed text-texto-2 md:grid-cols-3 md:gap-10">
             {m.precio.lineas.map((l) => (
               <li key={l}>{l}</li>
             ))}
           </ul>
-          <p className="mt-8 font-display text-2xl text-negro">{m.precio.cierre}</p>
+          <p className="mt-8 font-display text-2xl text-texto">{m.precio.cierre}</p>
         </div>
       </Container>
     </section>

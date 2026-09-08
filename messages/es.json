@@ -11,7 +11,11 @@
     "hablemos": "Hablemos",
     "idioma": "EN",
     "idiomaLabel": "Read this site in English",
-    "etiqueta": "Navegación principal"
+    "etiqueta": "Navegación principal",
+    "tema": {
+      "oscuro": "Modo oscuro",
+      "claro": "Modo claro"
+    }
   },
   "hero": {
     "frase": "IA que ya trabaja.",
@@ -56,37 +60,95 @@
     "areas": {
       "estrategia": {
         "nombre": "Estrategia",
-        "texto": "Decidir qué tecnología necesita tu negocio, en qué orden y para qué, antes de comprar nada."
+        "texto": "Decidir qué tecnología necesita tu negocio, en qué orden y para qué, antes de comprar nada.",
+        "slug": "estrategia",
+        "foto": "capacitacion",
+        "subareas": [
+          "Estrategia de negocio",
+          "Estrategia de cliente",
+          "Estrategia de datos y tecnología"
+        ]
       },
       "datos": {
         "nombre": "Datos",
-        "texto": "Juntar la información que hoy está repartida, ordenarla y que tu gente sepa leerla."
+        "texto": "Juntar la información que hoy está repartida, ordenarla y que tu gente sepa leerla.",
+        "slug": "datos",
+        "foto": "contabilidad",
+        "subareas": [
+          "Ingeniería y arquitectura de datos",
+          "Gobierno de datos",
+          "Alfabetización de datos",
+          "Analítica"
+        ]
       },
       "ia": {
         "nombre": "Inteligencia artificial",
-        "texto": "Poner la inteligencia artificial a hacer trabajo dentro de tu operación (responder, clasificar, redactar, revisar), con una persona que decide."
+        "texto": "Poner la inteligencia artificial a hacer trabajo dentro de tu operación (responder, clasificar, redactar, revisar), con una persona que decide.",
+        "slug": "inteligencia-artificial",
+        "foto": "sistemas",
+        "subareas": [
+          "Aprendizaje automático",
+          "Inteligencia artificial generativa",
+          "Productos inteligentes"
+        ]
       },
       "nube": {
         "nombre": "Nube",
-        "texto": "Mover y modernizar tus sistemas, y operarlos con orden."
+        "texto": "Mover y modernizar tus sistemas, y operarlos con orden.",
+        "slug": "nube",
+        "foto": "implementacion",
+        "subareas": [
+          "Migración y modernización",
+          "Optimización",
+          "Infraestructura de nube"
+        ]
       },
       "sistemas": {
         "nombre": "Sistemas",
-        "texto": "Implementar y conectar las aplicaciones con las que trabajan tu equipo y tus clientes."
+        "texto": "Implementar y conectar las aplicaciones con las que trabajan tu equipo y tus clientes.",
+        "slug": "sistemas",
+        "foto": "proceso-escrito",
+        "subareas": [
+          "Aplicaciones de cliente",
+          "Aplicaciones de negocio",
+          "Integración"
+        ]
       },
       "experiencia": {
         "nombre": "Experiencia",
-        "texto": "Diseñar cómo tus clientes y tu gente viven cada proceso, del primer contacto al servicio."
+        "texto": "Diseñar cómo tus clientes y tu gente viven cada proceso, del primer contacto al servicio.",
+        "slug": "experiencia",
+        "foto": "ventas",
+        "subareas": [
+          "Experiencia de cliente y de empleado",
+          "Estrategia y diseño de producto",
+          "Marketing"
+        ]
       },
       "producto": {
         "nombre": "Producto digital",
-        "texto": "Construir el producto o la plataforma que tu negocio necesita, por dentro, no solo configurarlo."
+        "texto": "Construir el producto o la plataforma que tu negocio necesita, por dentro, no solo configurarlo.",
+        "slug": "producto-digital",
+        "foto": "calidad",
+        "subareas": [
+          "Ingeniería de producto",
+          "Ingeniería de plataforma",
+          "Ingeniería de datos y de aprendizaje automático"
+        ]
       },
       "entrega": {
         "nombre": "Planeación y entrega",
-        "texto": "Llevar el proyecto de principio a fin: alcance, prioridades, fechas y entregas."
+        "texto": "Llevar el proyecto de principio a fin: alcance, prioridades, fechas y entregas.",
+        "slug": "planeacion-y-entrega",
+        "foto": "compras",
+        "subareas": [
+          "Gestión de producto",
+          "Gestión de proyectos y programas",
+          "Gestión de portafolio"
+        ]
       }
-    }
+    },
+    "ver": "Ver cómo ayudamos"
   },
   "construido": {
     "encabezado": "Lo que ya se ha construido",
@@ -163,5 +225,12 @@
       "texto": "Osppy también desarrolla productos propios para las industrias en las que opera.",
       "cta": "Pregúntanos por ellos"
     }
+  },
+  "area": {
+    "eyebrow": "Cómo ayudamos en",
+    "subareasTitulo": "Lo que cubre",
+    "metodoTitulo": "Cómo trabajamos en esta área",
+    "volver": "Volver a la casa",
+    "ctaTexto": "Cuéntanos cómo opera tu empresa y te decimos dónde podemos ayudar y dónde no."
   }
 }

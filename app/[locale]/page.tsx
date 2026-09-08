@@ -1,6 +1,7 @@
 import { Ayudamos } from "@/components/ayudamos";
 import { Datos } from "@/components/datos";
 import { Hablemos } from "@/components/hablemos";
+import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
 import { Metodo } from "@/components/metodo";
 import { Quienes } from "@/components/quienes";
@@ -12,7 +13,9 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   const l = isLocale(locale) ? locale : "es";
   const m = getMessages(l);
   return (
-    <main>
+    <>
+      <Header locale={l} m={m} />
+      <main>
       <Hero locale={l} m={m} />
       <Quienes locale={l} m={m} />
       <Metodo locale={l} m={m} />
@@ -20,6 +23,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <Datos m={m} />
       <Real locale={l} m={m} />
       <Hablemos locale={l} m={m} />
-    </main>
+      </main>
+    </>
   );
 }

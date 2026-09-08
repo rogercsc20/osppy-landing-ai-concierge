@@ -11,7 +11,11 @@
     "hablemos": "Let's talk",
     "idioma": "ES",
     "idiomaLabel": "Leer este sitio en español",
-    "etiqueta": "Main navigation"
+    "etiqueta": "Main navigation",
+    "tema": {
+      "oscuro": "Dark mode",
+      "claro": "Light mode"
+    }
   },
   "hero": {
     "frase": "AI that already works.",
@@ -56,37 +60,95 @@
     "areas": {
       "estrategia": {
         "nombre": "Strategy",
-        "texto": "Deciding what technology your business needs, in what order and for what, before buying anything."
+        "texto": "Deciding what technology your business needs, in what order and for what, before buying anything.",
+        "slug": "strategy",
+        "foto": "capacitacion",
+        "subareas": [
+          "Business strategy",
+          "Customer strategy",
+          "Data and technology strategy"
+        ]
       },
       "datos": {
         "nombre": "Data",
-        "texto": "Bringing together the information that is scattered today, organizing it and making sure your people can read it."
+        "texto": "Bringing together the information that is scattered today, organizing it and making sure your people can read it.",
+        "slug": "data",
+        "foto": "contabilidad",
+        "subareas": [
+          "Data engineering and architecture",
+          "Data governance",
+          "Data literacy",
+          "Analytics"
+        ]
       },
       "ia": {
         "nombre": "Artificial intelligence",
-        "texto": "Putting artificial intelligence to work inside your operation (answering, classifying, drafting, reviewing), with a person who decides."
+        "texto": "Putting artificial intelligence to work inside your operation (answering, classifying, drafting, reviewing), with a person who decides.",
+        "slug": "artificial-intelligence",
+        "foto": "sistemas",
+        "subareas": [
+          "Machine learning",
+          "Generative artificial intelligence",
+          "Intelligent products"
+        ]
       },
       "nube": {
         "nombre": "Cloud",
-        "texto": "Moving and modernizing your systems, and operating them in an orderly way."
+        "texto": "Moving and modernizing your systems, and operating them in an orderly way.",
+        "slug": "cloud",
+        "foto": "implementacion",
+        "subareas": [
+          "Migration and modernization",
+          "Optimization",
+          "Cloud infrastructure"
+        ]
       },
       "sistemas": {
         "nombre": "Systems",
-        "texto": "Implementing and connecting the applications your team and your customers work with."
+        "texto": "Implementing and connecting the applications your team and your customers work with.",
+        "slug": "systems",
+        "foto": "proceso-escrito",
+        "subareas": [
+          "Customer applications",
+          "Business applications",
+          "Integration"
+        ]
       },
       "experiencia": {
         "nombre": "Experience",
-        "texto": "Designing how your customers and your people live each process, from first contact to service."
+        "texto": "Designing how your customers and your people live each process, from first contact to service.",
+        "slug": "experience",
+        "foto": "ventas",
+        "subareas": [
+          "Customer and employee experience",
+          "Product strategy and design",
+          "Marketing"
+        ]
       },
       "producto": {
         "nombre": "Digital product",
-        "texto": "Building the product or platform your business needs, from the inside, not just configuring it."
+        "texto": "Building the product or platform your business needs, from the inside, not just configuring it.",
+        "slug": "digital-product",
+        "foto": "calidad",
+        "subareas": [
+          "Product engineering",
+          "Platform engineering",
+          "Data and machine learning engineering"
+        ]
       },
       "entrega": {
         "nombre": "Planning and delivery",
-        "texto": "Taking the project from start to finish: scope, priorities, dates and deliveries."
+        "texto": "Taking the project from start to finish: scope, priorities, dates and deliveries.",
+        "slug": "planning-and-delivery",
+        "foto": "compras",
+        "subareas": [
+          "Product management",
+          "Project and program management",
+          "Portfolio management"
+        ]
       }
-    }
+    },
+    "ver": "See how we help"
   },
   "construido": {
     "encabezado": "What has already been built",
@@ -163,5 +225,12 @@
       "texto": "Osppy also develops its own products for the industries it operates in.",
       "cta": "Ask us about them"
     }
+  },
+  "area": {
+    "eyebrow": "How we help in",
+    "subareasTitulo": "What it covers",
+    "metodoTitulo": "How we work in this area",
+    "volver": "Back to the home",
+    "ctaTexto": "Tell us how your company operates and we will tell you where we can help and where we cannot."
   }
 }

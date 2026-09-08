@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Figtree, Newsreader } from "next/font/google";
 import { Footer } from "@/components/footer";
-import { Header } from "@/components/header";
 import { LOCALES, SITE_URL, getMessages, isLocale } from "@/lib/i18n";
 import "../globals.css";
 
@@ -66,9 +65,16 @@ export default async function LocaleLayout({
   const l = isLocale(locale) ? locale : "es";
   const m = getMessages(l);
   return (
-    <html lang={l} className={`${newsreader.variable} ${figtree.variable}`}>
+    <html lang={l} className={`${newsreader.variable} ${figtree.variable}`} suppressHydrationWarning>
+      <head>
+        <script
+          // Dark mode (HQA-D152): apply the stored choice before first paint; light by default.
+          dangerouslySetInnerHTML={{
+            __html: 'try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}',
+          }}
+        />
+      </head>
       <body>
-        <Header locale={l} m={m} />
         {children}
         <Footer locale={l} m={m} />
       </body>

@@ -31,8 +31,8 @@ export function Quienes({ locale, m }: { locale: Locale; m: Messages }) {
           <div className="grid gap-10 md:grid-cols-2 md:gap-16">
             {[m.quienes.proposito, m.quienes.creemos].map((b) => (
               <div key={b.titulo}>
-                <h3 className="font-display text-[1.75rem] text-negro md:text-[2.25rem]">{b.titulo}</h3>
-                <p className="mt-5 max-w-[48ch] text-lg leading-relaxed text-niebla md:text-xl">{b.texto}</p>
+                <h3 className="font-display text-[1.75rem] text-texto md:text-[2.25rem]">{b.titulo}</h3>
+                <p className="mt-5 max-w-[48ch] text-lg leading-relaxed text-texto-2 md:text-xl">{b.texto}</p>
               </div>
             ))}
           </div>

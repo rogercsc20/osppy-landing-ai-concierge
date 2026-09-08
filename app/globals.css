@@ -24,11 +24,26 @@
   --line: #DCE3E4;
 }
 
+/* Dark mode (HQA-D152): an option behind a switch, light by default. The brand black is the ground,
+ * the brand teal carries links and numerals directly (10:1 on black), the band and the buttons keep
+ * black text on teal. Contrast measured in docs/v6-02 §3.1. */
+[data-theme="dark"] {
+  --bg: #0A0F0E;
+  --surface: #16211F;
+  --text: #FFFFFF;
+  --text-2: #B8C6C9;
+  --accent: #2FC4D9;
+  --accent-text: #2FC4D9;
+  --primary-foreground: #0A0F0E;
+  --line: #26312F;
+}
+
 @theme inline {
   --color-lino: var(--bg);
   --color-espuma: var(--surface);
-  --color-negro: var(--text);
-  --color-niebla: var(--text-2);
+  --color-negro: var(--dark);
+  --color-texto: var(--text);
+  --color-texto-2: var(--text-2);
   --color-azul: var(--accent);
   --color-azul-texto: var(--accent-text);
   --color-sobre-negro: var(--on-dark);
@@ -71,5 +86,5 @@ body {
 
 ::selection {
   background: var(--accent);
-  color: var(--text);
+  color: var(--dark);
 }

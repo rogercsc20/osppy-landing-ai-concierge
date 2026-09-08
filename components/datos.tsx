@@ -4,7 +4,7 @@ import { Container } from "./container";
 /** Lo que dicen los datos: the brand black with the numerals in the brand teal, as the logo does (HQA-D149). */
 export function Datos({ m }: { m: Messages }) {
   return (
-    <section id="datos" aria-labelledby="datos-title" className="bg-negro text-sobre-negro">
+    <section id="datos" aria-labelledby="datos-title" className="border-y border-linea bg-negro text-sobre-negro">
       <Container className="py-24 md:py-36">
         <h2
           id="datos-title"
