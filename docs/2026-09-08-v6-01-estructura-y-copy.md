@@ -1,6 +1,7 @@
 # Sitio v6 · 01 · Estructura y copy
 
-> **Fecha: 2026-09-08.** Repo del sitio, `docs/`. Español (HQA-D3). **Estado: borrador para la compuerta 2.**
+> **Fecha: 2026-09-08.** Repo del sitio, `docs/`. Español (HQA-D3). **Estado: aprobado en la compuerta 2
+> (operador, 2026-09-08, 00:18; HQA-D147).**
 > **Qué es:** el mapa del sitio, las secciones de la casa en el orden aprobado, el copy final de cada una
 > con su prueba y su fuente, el pie, los metadatos y la forma de `messages/es.json`.
 > **De dónde sale:** la historia (`../../osppy-hq/business/marca/2026-09-07-historia-de-osppy.md`, HQA-D140 a
@@ -253,5 +254,5 @@ propuesta), los metadatos.
 
 ---
 
-*Sitio v6 · 01 · Estructura y copy · 2026-09-08 · borrador para la compuerta 2 · el copy de cada sección es
+*Sitio v6 · 01 · Estructura y copy · 2026-09-08 · aprobado en la compuerta 2 (HQA-D147) · el copy de cada sección es
 el de la historia aprobada, ajustado al lugar; nada se inventa aquí.*
