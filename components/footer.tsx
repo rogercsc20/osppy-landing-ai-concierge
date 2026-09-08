@@ -11,7 +11,7 @@ export function Footer({ locale, m }: { locale: Locale; m: Messages }) {
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-4">
             <div className="flex items-center gap-3">
-              <Logo className="h-9 w-9 rounded-[0.6rem] ring-1 ring-sobre-negro/15" />
+              <Logo variant="glyph" className="h-9 w-9" />
               <p className="font-display text-[1.75rem] leading-none">{m.footer.marca}</p>
             </div>
             <p className="mt-5 text-sm text-sobre-negro-2">{m.footer.lugar}</p>

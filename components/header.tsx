@@ -16,7 +16,7 @@ export function Header({ locale, m }: { locale: Locale; m: Messages }) {
       <Container>
         <nav aria-label={m.nav.etiqueta} className="flex items-center justify-between py-6 md:py-8">
           <a href={`/${locale}`} className="flex items-center gap-3">
-            <Logo className="h-9 w-9 md:h-10 md:w-10" />
+            <Logo variant="glyph" className="h-9 w-9 md:h-10 md:w-10" />
             <span className="font-display text-[1.75rem] leading-none tracking-[-0.01em] text-blanco">{m.nav.marca}</span>
           </a>
           <ul className="hidden items-center gap-9 text-[0.95rem] text-blanco/85 md:flex">
