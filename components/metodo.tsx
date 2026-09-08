@@ -1,6 +1,7 @@
 import type { Locale, Messages } from "@/lib/i18n";
 import { Container } from "./container";
 import { Photo } from "./photo";
+import { Ribbon } from "./ribbon";
 
 export function Metodo({ locale, m }: { locale: Locale; m: Messages }) {
   return (
@@ -16,7 +17,9 @@ export function Metodo({ locale, m }: { locale: Locale; m: Messages }) {
       <div className="relative mt-12 h-[60svh] min-h-[420px] md:mt-16 md:h-[78svh]">
         <Photo slug="asesoria" locale={locale} fill sizes="100vw" className="object-cover" />
       </div>
-      <Container className="pt-16 md:pt-24">
+      <div className="relative overflow-hidden">
+        <Ribbon variant="b" opacity={0.22} width={40} />
+        <Container className="relative pt-16 md:pt-24">
         <ol className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-10">
           {m.metodo.etapas.map((e, i) => (
             <li key={e.titulo} className="max-w-[40ch] border-t border-linea pt-6">
@@ -28,7 +31,8 @@ export function Metodo({ locale, m }: { locale: Locale; m: Messages }) {
             </li>
           ))}
         </ol>
-      </Container>
+        </Container>
+      </div>
     </section>
   );
 }

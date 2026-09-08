@@ -11,8 +11,13 @@
  * §9; HQA-D135): no [data-theme]. The roles are what scripts/check-contrast.mjs measures.
  */
 :root {
-  --bg: #F8F7F4;
-  --surface: #E6F4F7;
+  --bg: #F6F4EF;
+  --surface: #E8EFF0;
+  --band: #0F4C5C;
+  --on-band: #FFFFFF;
+  --on-band-2: #CFE3E8;
+  --tint: #DCEBEE;
+  --tint-2: #EFE6D6;
   --text: #0A0F0E;
   --text-2: #45585C;
   --accent: #2FC4D9;
@@ -30,6 +35,9 @@
 [data-theme="dark"] {
   --bg: #0A0F0E;
   --surface: #16211F;
+  --band: #0F4C5C;
+  --tint: #12211F;
+  --tint-2: #1A1F1B;
   --text: #FFFFFF;
   --text-2: #B8C6C9;
   --accent: #2FC4D9;
@@ -49,6 +57,11 @@
   --color-sobre-negro: var(--on-dark);
   --color-sobre-negro-2: var(--on-dark-2);
   --color-linea: var(--line);
+  --color-profundo: var(--band);
+  --color-sobre-profundo: var(--on-band);
+  --color-sobre-profundo-2: var(--on-band-2);
+  --color-tinte: var(--tint);
+  --color-tinte-2: var(--tint-2);
   --color-blanco: #FFFFFF;
   --font-display: var(--font-newsreader), Georgia, "Times New Roman", serif;
   --font-body: var(--font-figtree), system-ui, -apple-system, "Segoe UI", sans-serif;

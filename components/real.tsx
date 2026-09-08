@@ -1,11 +1,14 @@
 import type { Locale, Messages } from "@/lib/i18n";
 import { Container } from "./container";
 import { Photo } from "./photo";
+import { Shapes } from "./ribbon";
 
 export function Real({ locale, m }: { locale: Locale; m: Messages }) {
   return (
-    <section id="real" aria-labelledby="real-title" className="py-24 md:py-36">
-      <Container>
+    <section id="real" aria-labelledby="real-title">
+      <div className="relative overflow-hidden py-24 md:py-36">
+      <Shapes />
+      <Container className="relative">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-7">
             <h2
@@ -36,6 +39,7 @@ export function Real({ locale, m }: { locale: Locale; m: Messages }) {
           </div>
         </div>
       </Container>
+      </div>
     </section>
   );
 }

@@ -17,7 +17,7 @@ export function Logo({ className = "h-9 w-9", variant = "tile" }: { className?: 
 export function LogoRing({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false" className={className}>
-      <circle cx="32" cy="32" r="22" stroke="#0c6f7e" strokeWidth="12.4" fill="none" />
+      <circle cx="32" cy="32" r="22" stroke="#2fc4d9" strokeWidth="12.4" fill="none" />
     </svg>
   );
 }

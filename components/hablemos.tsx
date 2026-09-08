@@ -1,11 +1,14 @@
 import type { Locale, Messages } from "@/lib/i18n";
 import { Container } from "./container";
 import { Photo } from "./photo";
+import { Ribbon } from "./ribbon";
 
 export function Hablemos({ locale, m }: { locale: Locale; m: Messages }) {
   return (
-    <section id="hablemos" aria-labelledby="hablemos-title" className="py-24 md:py-36">
-      <Container>
+    <section id="hablemos" aria-labelledby="hablemos-title">
+      <div className="relative overflow-hidden py-24 md:py-36">
+      <Ribbon variant="a" opacity={0.2} width={40} />
+      <Container className="relative">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-6">
             <Photo
@@ -46,6 +49,7 @@ export function Hablemos({ locale, m }: { locale: Locale; m: Messages }) {
           <p className="mt-8 font-display text-2xl text-texto">{m.precio.cierre}</p>
         </div>
       </Container>
+      </div>
     </section>
   );
 }

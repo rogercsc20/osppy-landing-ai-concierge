@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Container } from "@/components/container";
 import { Header } from "@/components/header";
 import { Photo } from "@/components/photo";
+import { Ribbon } from "@/components/ribbon";
 import { LOCALES, SITE_URL, getMessages, isLocale, type Locale, type Messages } from "@/lib/i18n";
 import type { PhotoSlug } from "@/lib/photos.generated";
 
@@ -91,19 +92,22 @@ export default async function AreaPage({ params }: { params: Params }) {
             </div>
           </Container>
         </section>
-        <section aria-labelledby="area-cta" className="bg-azul text-negro">
-          <Container className="py-20 text-center md:py-28">
+        <section aria-labelledby="area-cta" className="bg-profundo text-sobre-profundo">
+          <div className="relative overflow-hidden">
+          <Ribbon variant="a" opacity={0.6} width={30} />
+          <Container className="relative py-20 text-center md:py-28">
             <h2 id="area-cta" className="mx-auto max-w-[18ch] font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.02] tracking-[-0.02em]">
               {m.hablemos.encabezado}
             </h2>
-            <p className="mx-auto mt-6 max-w-[44ch] text-lg leading-relaxed text-negro/80 md:text-xl">{m.area.ctaTexto}</p>
+            <p className="mx-auto mt-6 max-w-[44ch] text-lg leading-relaxed text-sobre-profundo-2 md:text-xl">{m.area.ctaTexto}</p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-6">
-              <a href={`mailto:${m.hablemos.correo}`} className="inline-flex items-center rounded-full bg-negro px-7 py-4 text-lg font-medium text-sobre-negro transition-colors hover:bg-texto hover:text-lino">
+              <a href={`mailto:${m.hablemos.correo}`} className="inline-flex items-center rounded-full bg-azul px-7 py-4 text-lg font-medium text-negro transition-colors hover:bg-blanco">
                 {m.hablemos.cta}
               </a>
-              <a href={`/${l}#ayudamos`} className="text-lg text-negro underline-offset-4 hover:underline">{m.area.volver}</a>
+              <a href={`/${l}#ayudamos`} className="text-lg text-sobre-profundo underline-offset-4 hover:underline">{m.area.volver}</a>
             </div>
           </Container>
+          </div>
         </section>
       </main>
     </>
