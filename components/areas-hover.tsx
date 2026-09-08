@@ -20,7 +20,7 @@ export function AreasHover({ locale, areas, ver }: { locale: Locale; areas: Area
           const p = PHOTOS[a.foto as PhotoSlug];
           const alt = locale === "en" ? p.altEn : p.altEs;
           return (
-            <li key={a.slug} className="border-t border-linea">
+            <li key={a.slug} className="border-t border-sobre-profundo/25">
               <a
                 href={`/${locale}/${a.slug}`}
                 onMouseEnter={() => setActive(i)}
@@ -31,11 +31,11 @@ export function AreasHover({ locale, areas, ver }: { locale: Locale; areas: Area
                 <div className="relative mb-4 aspect-[16/9] overflow-hidden rounded-[1rem] lg:hidden">
                   <Image src={p.src} alt={alt} fill sizes="100vw" placeholder="blur" blurDataURL={p.blurDataURL} className="object-cover" />
                 </div>
-                <h3 className="font-display text-2xl text-texto transition-colors group-hover:text-azul-texto md:text-[1.9rem]">
+                <h3 className="font-display text-2xl text-sobre-profundo transition-colors group-hover:text-azul md:text-[1.9rem]">
                   {a.nombre}
                 </h3>
-                <p className="mt-2 max-w-[44ch] text-[1.05rem] leading-relaxed text-texto-2">{a.texto}</p>
-                <span className="mt-3 inline-block text-sm font-medium text-azul-texto opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
+                <p className="mt-2 max-w-[44ch] text-[1.05rem] leading-relaxed text-sobre-profundo-2">{a.texto}</p>
+                <span className="mt-3 inline-block text-sm font-medium text-azul opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
                   {ver}
                 </span>
               </a>

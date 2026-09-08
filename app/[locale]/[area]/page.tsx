@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { Container } from "@/components/container";
 import { Header } from "@/components/header";
 import { Photo } from "@/components/photo";
-import { Ribbon } from "@/components/ribbon";
+import { LogoRing } from "@/components/logo";
 import { LOCALES, SITE_URL, getMessages, isLocale, type Locale, type Messages } from "@/lib/i18n";
 import type { PhotoSlug } from "@/lib/photos.generated";
 
@@ -94,7 +94,7 @@ export default async function AreaPage({ params }: { params: Params }) {
         </section>
         <section aria-labelledby="area-cta" className="bg-profundo text-sobre-profundo">
           <div className="relative overflow-hidden">
-          <Ribbon variant="c" opacity={0.7} width={32} />
+          <LogoRing className="pointer-events-none absolute -right-[14%] top-1/2 h-[170%] w-auto -translate-y-1/2 opacity-[0.3]" />
           <Container className="relative py-20 text-center md:py-28">
             <h2 id="area-cta" className="mx-auto max-w-[18ch] font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.02] tracking-[-0.02em]">
               {m.hablemos.encabezado}
