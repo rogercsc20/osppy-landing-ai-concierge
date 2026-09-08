@@ -121,39 +121,32 @@ const ratio = (fg, bg) => {
   return (hi + 0.05) / (lo + 0.05);
 };
 
+// v6 (2026-09-08, FASE 4; HQA-D149, D153): two modes, light (`:root`) and dark
+// (`[data-theme="dark"]`, which redefines only what changes, so it is merged
+// over light exactly as the cascade does). The hotel accent and the inverted
+// panel of v2 no longer exist and are not looked for.
 const light = paletteOf(":root");
-const dark = paletteOf('[data-theme="dark"]');
-const hotelDark = paletteOf('[data-theme="dark"][data-accent="hotel"]');
-const hotelLight = paletteOf('[data-accent="hotel"]');
-// The inverted operation panel (E4, HQA-D91): it re-points the surface
-// palette inside its own subtree, so it is a fifth and sixth palette and not
-// a variation of an existing one. Layered exactly as the cascade applies it.
-const panelOnLight = paletteOf('[data-panel="invert"]');
-const panelOnDark = paletteOf('[data-theme="dark"] [data-panel="invert"]');
-
+const dark = { ...light, ...paletteOf('[data-theme="dark"]') };
 const modes = { light, dark };
-if (Object.keys(hotelLight).length) {
-  modes["light+hotel"] = { ...light, ...hotelLight };
-  modes["dark+hotel"] = { ...dark, ...hotelLight, ...hotelDark };
-}
-if (Object.keys(panelOnLight).length) {
-  // The panel sits ON `--surface`, not on `--bg`: it is a window over the
-  // page, so its own bg role IS its surface. Re-pointing `bg` here is what
-  // makes the shared PAIRS list measure the right thing without a second
-  // list that could drift from the first.
-  modes["panel sobre Alba"] = { ...light, ...panelOnLight, bg: panelOnLight.surface };
-  modes["panel sobre Obsidian"] = { ...dark, ...panelOnDark, bg: panelOnDark.surface };
-}
 
+// The v6 roles (app/globals.css). `accent` is a background and a large-numeral
+// colour, never body text on the page ground: that is why the pair for it is
+// on `band` and on `dark` at 3:1 (large text), and the text-on-light pair uses
+// `accent-text`, the deeper shade.
 const PAIRS = [
   ["text", "bg", 4.5],
   ["text-2", "bg", 4.5],
   ["text", "surface", 4.5],
   ["text-2", "surface", 4.5],
   ["accent-text", "bg", 4.5],
-  ["warm-text", "bg", 4.5],
-  ["warm", "bg", 3],
+  ["accent-text", "surface", 4.5],
   ["primary-foreground", "accent", 4.5],
+  ["on-band", "band", 4.5],
+  ["on-band-2", "band", 4.5],
+  ["accent", "band", 3],
+  ["on-dark", "dark", 4.5],
+  ["on-dark-2", "dark", 4.5],
+  ["accent", "dark", 3],
 ];
 
 let fails = 0;

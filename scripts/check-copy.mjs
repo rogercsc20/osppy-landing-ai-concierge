@@ -213,18 +213,14 @@ for (const locale of locales) {
 // The <title>, description and OG/Twitter cards live in .tsx, not in
 // messages/, so the walk above never saw them. Listed explicitly rather than
 // globbed: a glob that stops matching is silent, a missing listed file is not.
+// v6 (2026-09-08, FASE 4): the list names the files that render metadata and
+// copy outside messages/*.json today; the eleven v5 files it named no longer
+// exist (HQA-D104) and a missing file is a failure by design.
 const METADATA_FILES = [
   "app/[locale]/layout.tsx",
-  "app/[locale]/privacidad/page.tsx",
-  "app/[locale]/terminos/page.tsx",
-  "app/[locale]/capacitacion/page.tsx",
-  "app/[locale]/asesoria/page.tsx",
-  "app/[locale]/implementacion/page.tsx",
-  "app/[locale]/hoteles/page.tsx",
-  "app/[locale]/citas/page.tsx",
+  "app/[locale]/page.tsx",
   "app/[locale]/opengraph-image.tsx",
-  "app/[locale]/hoteles/opengraph-image.tsx",
-  "app/[locale]/citas/opengraph-image.tsx",
+  "app/[locale]/[area]/page.tsx",
 ];
 // Only rows whose term is pure punctuation. A row of words in a .tsx would hit
 // identifiers and English prose in comments; a row of punctuation cannot.
