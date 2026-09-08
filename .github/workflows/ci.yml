@@ -14,6 +14,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # The copy gate reads hq's banned-word bank from the sibling repo
+      # (../osppy-hq/business/marca/banco-prohibido.md). Since the v6 has copy
+      # (2026-09-08) the gate no longer short-circuits, so hq must be checked out
+      # beside this repo. HQ_READ_TOKEN is a fine-grained token with read access to
+      # rogercsc20/osppy-hq, added by the operator in this repo's Actions secrets;
+      # until it exists this step fails and CI stays red (HQA-D156, owner O).
+      - uses: actions/checkout@v4
+        with:
+          repository: rogercsc20/osppy-hq
+          token: ${{ secrets.HQ_READ_TOKEN }}
+          path: ../osppy-hq
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
