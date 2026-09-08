@@ -1,0 +1,8 @@
+[
+  { "slug": "manufactura", "estado": "hecho", "fuente": "FDV §11.10 (operador, 2026-09-03)" },
+  { "slug": "automotriz", "estado": "hecho", "fuente": "FDV §11.10 (operador, 2026-09-03)" },
+  { "slug": "logistica", "estado": "hecho", "fuente": "FDV §11.10 (operador, 2026-09-02)" },
+  { "slug": "construccion", "estado": "hecho", "fuente": "FDV §11.10 (operador, 2026-09-02)" },
+  { "slug": "comercio-exterior", "estado": "hecho", "fuente": "FDV §11.10 (operador, 2026-09-03)" },
+  { "slug": "retail", "estado": "hecho", "fuente": "FDV §11.10 (operador, 2026-09-02)" }
+]

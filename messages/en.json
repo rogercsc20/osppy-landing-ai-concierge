@@ -1,0 +1,113 @@
+{
+  "meta": {
+    "title": "Osppy · Business and technology consulting",
+    "description": "Osppy is a business and technology consultancy, AI-native and deeply human. We help you reimagine your company from a digital perspective."
+  },
+  "nav": {
+    "marca": "Osppy",
+    "quienes": "About us",
+    "metodo": "How we work",
+    "ayudamos": "How we help",
+    "hablemos": "Let's talk",
+    "idioma": "ES",
+    "idiomaLabel": "Leer este sitio en español",
+    "etiqueta": "Main navigation"
+  },
+  "hero": {
+    "frase": "AI that already works.",
+    "cta": "Let's talk"
+  },
+  "quienes": {
+    "encabezado": "Let's reimagine your company.",
+    "frase": "Osppy is a business and technology consultancy, AI-native and deeply human. We help you reimagine your company from a digital perspective.",
+    "origen": "We came to consulting from building and operating systems that work in real businesses today. That is why we start with the business, not the tool.",
+    "proposito": {
+      "titulo": "Our purpose",
+      "texto": "That the companies we work with prosper and compete at the highest level. We believe technology is worth it when the people who run and operate a business understand it, use it and make it their own."
+    },
+    "creemos": {
+      "titulo": "What we believe",
+      "texto": "That people and the business come first, and technology second. That artificial intelligence is not a separate project, but a way of working. That the best solutions are built with the client's team and stay with it."
+    }
+  },
+  "metodo": {
+    "encabezado": "How we work.",
+    "etapas": [
+      { "titulo": "Diagnosis", "texto": "We understand your operation in depth: how your people work, where the information lives and what really hurts." },
+      { "titulo": "We plan by your side", "texto": "We turn what we find into a strategic plan: what comes first, what follows and what is not worth it yet, with scope and success criteria in writing." },
+      { "titulo": "Implementation", "texto": "We build hand in hand with you and leave it running. If your people can do it, we train them to do it." },
+      { "titulo": "Accompaniment", "texto": "We stay until your team walks on its own, and then we stay close: operation, maintenance and whatever comes next." }
+    ]
+  },
+  "ayudamos": {
+    "encabezado": "How we help.",
+    "areas": {
+      "estrategia": { "nombre": "Strategy", "texto": "Deciding what technology your business needs, in what order and for what, before buying anything." },
+      "datos": { "nombre": "Data", "texto": "Bringing together the information that is scattered today, organizing it and making sure your people can read it." },
+      "ia": { "nombre": "Artificial intelligence", "texto": "Putting artificial intelligence to work inside your operation (answering, classifying, drafting, reviewing), with a person who decides." },
+      "nube": { "nombre": "Cloud", "texto": "Moving and modernizing your systems, and operating them in an orderly way." },
+      "sistemas": { "nombre": "Systems", "texto": "Implementing and connecting the applications your team and your customers work with." },
+      "experiencia": { "nombre": "Experience", "texto": "Designing how your customers and your people live each process, from first contact to service." },
+      "producto": { "nombre": "Digital product", "texto": "Building the product or platform your business needs, from the inside, not just configuring it." },
+      "entrega": { "nombre": "Planning and delivery", "texto": "Taking the project from start to finish: scope, priorities, dates and deliveries." }
+    }
+  },
+  "construido": {
+    "encabezado": "What has already been built",
+    "items": [
+      "Quoting tools",
+      "Artificial intelligence assistants",
+      "Artificial intelligence agents: systems that complete a whole task on their own, with the business's information and the rules someone wrote",
+      "Claude Enterprise adoption",
+      "Models deployed in the client's own infrastructure, with Amazon Bedrock",
+      "Process structuring and automation",
+      "Templates with the company's letterhead",
+      "A system to manage audits"
+    ]
+  },
+  "datos": {
+    "encabezado": "What the data says.",
+    "items": [
+      { "cifra": "Two out of three", "texto": "organizations report productivity and efficiency gains from artificial intelligence.", "fuente": "Deloitte, State of AI in the Enterprise, 2026" },
+      { "cifra": "Only 5%", "texto": "of companies capture substantial value from artificial intelligence, and they achieve five times the revenue increases of the laggards in the areas where they apply it.", "fuente": "BCG, The Widening AI Value Gap, 2025" },
+      { "cifra": "In Mexico, 66%", "texto": "of large companies remain in isolated pilots; only 13.8% have taken artificial intelligence into the core of their business.", "fuente": "Accenture, IPADE and Empresas Globales, AI Adoption Study in Mexico, 2026" }
+    ],
+    "fuenteLabel": "Source"
+  },
+  "real": {
+    "encabezado": "Osppy's systems operate today in real businesses.",
+    "cifras": [
+      { "numero": "More than 100", "texto": "companies advised" },
+      { "numero": "More than 50", "texto": "solutions built" }
+    ],
+    "giros": "Systems operating in manufacturing, automotive, logistics, construction, foreign trade and retail."
+  },
+  "hablemos": {
+    "encabezado": "What comes next for your company, we build it with you.",
+    "texto": "Tell us how your company operates and we will tell you where we can help and where we cannot.",
+    "cta": "Let's talk",
+    "correo": "hello@osppy.com"
+  },
+  "precio": {
+    "titulo": "How we charge",
+    "lineas": [
+      "Training is quoted per group and per result, never per hour.",
+      "Advisory and implementations are quoted separately, each with scope and success criteria in writing.",
+      "After delivery, there are operation plans: hosting, monitoring and maintenance."
+    ],
+    "cierre": "The figures, in the first conversation."
+  },
+  "footer": {
+    "marca": "Osppy",
+    "legal": {
+      "nombre": "Osppy is a trade name.",
+      "copyright": "© 2026 Osppy"
+    },
+    "lugar": "Guadalajara, Mexico",
+    "contacto": "hello@osppy.com",
+    "productos": {
+      "texto": "Osppy also develops its own products for the industries it operates in.",
+      "cta": "Ask us about them"
+    }
+  }
+}

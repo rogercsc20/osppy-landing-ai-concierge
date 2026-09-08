@@ -1,1 +1,71 @@
 @import "tailwindcss";
+
+/*
+ * Sitio v6 · tokens (2026-09-08, gate 3 prototype; docs/2026-09-08-v6-02-sistema-visual.md).
+ * The role names below are what scripts/check-contrast.mjs measures: text, text-2, surface,
+ * accent, accent-text, warm, warm-text, primary-foreground, bg. Light mode only, by design:
+ * the site is warm and airy (foundation §9; HQA-D135), and a dark atmosphere is exactly what
+ * the five previous versions had and the operator rejected (HQA-D104). No [data-theme].
+ */
+:root {
+  --bg: #FAF7F1;
+  --surface: #F1EBE1;
+  --text: #1C2B33;
+  --text-2: #4B5A62;
+  --accent: #175E58;
+  --accent-text: #145550;
+  --primary-foreground: #FFFFFF;
+  --warm: #C46A3E;
+  --warm-text: #9C4A22;
+  --line: #E3DBCD;
+}
+
+@theme inline {
+  --color-lino: var(--bg);
+  --color-arena: var(--surface);
+  --color-tinta: var(--text);
+  --color-humo: var(--text-2);
+  --color-petroleo: var(--accent);
+  --color-petroleo-texto: var(--accent-text);
+  --color-cobre: var(--warm);
+  --color-cobre-texto: var(--warm-text);
+  --color-linea: var(--line);
+  --color-blanco: var(--primary-foreground);
+  --font-display: var(--font-newsreader), Georgia, "Times New Roman", serif;
+  --font-body: var(--font-figtree), system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--primary-foreground);
+}

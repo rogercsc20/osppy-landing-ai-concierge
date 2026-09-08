@@ -1,3 +1,15 @@
 {
-  "_": "Per-key figure allow list for scripts/check-copy.mjs. EMPTY on purpose: the landing was cleared to a blank canvas on 2026-09-05 and inherits no attested figure. Every digit a client reads is a FAILURE until somebody adds it here with its source."
+  "_": "Per-key figure allow list for scripts/check-copy.mjs. A value that is an array lists the substrings whose digits are attested for that key; any other value is a comment. Every figure the site prints is here with its source, even the two the global whitelist already waves through (100, 50): traceability is the point (site prompt §4.7).",
+  "// real.cifras": "FDV §11.11: the operator's two firm figures, published alone and without a note (HQA-D145, 2026-09-08).",
+  "real.cifras[0].numero": ["100"],
+  "real.cifras[1].numero": ["50"],
+  "// datos.items[0]": "Deloitte, State of AI in the Enterprise 2026 (3,235 leaders, 24 countries, Aug–Sep 2025): 'two-thirds (66%) of organizations reporting gains'. Verified 2026-09-08 at https://www.deloitte.com/global/en/issues/generative-ai/state-of-ai-in-enterprise.html (HQA-D146).",
+  "datos.items[0].fuente": ["2026"],
+  "// datos.items[1]": "BCG, Are You Generating Value from AI? The Widening Gap (Sept 2025): '5% of firms worldwide are in this camp'; 'five times the revenue increases'. Verified 2026-09-08 at https://www.bcg.com/publications/2025/are-you-generating-value-from-ai-the-widening-gap (HQA-D146).",
+  "datos.items[1].cifra": ["5%"],
+  "datos.items[1].fuente": ["2025"],
+  "// datos.items[2]": "Accenture, IPADE Business School y Empresas Globales, Estudio de Adopción de IA en México 2026 (2026-07-16): 'El 66% de las organizaciones consultadas permanece en pruebas aisladas o pilotos estructurados'; 'apenas 13.8% asegura haber incorporado esta tecnología al núcleo de su modelo de negocio'. Verified 2026-09-08 at https://www.ipade.mx/newsmedia/mexico-ocupa-el-lugar-45-mundial-en-preparacion-para-la-inteligencia-artificial/ (HQA-D146).",
+  "datos.items[2].cifra": ["66%"],
+  "datos.items[2].texto": ["13.8%"],
+  "datos.items[2].fuente": ["2026"]
 }

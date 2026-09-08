@@ -17,6 +17,13 @@ const nextConfig: NextConfig = {
   // the paths.
   async redirects() {
     return [
+      // v6 (2026-09-08, HQA-D132): one house per language, Spanish by default.
+      // The switch in the navigation goes to the other one; no detection, no cookie.
+      {
+        source: "/",
+        destination: "/es",
+        permanent: false,
+      },
       {
         source: "/aviso",
         destination:

@@ -1,5 +1,5 @@
 {
-  "_": "The photo manifest (landing v2 §8, built in tanda C / C7). One row per photo that the site uses: slug (the name the code asks for), file (the original in --src), and alt text in both locales. The originals live OUTSIDE the repo — ~/Desktop/osppy-fotos by default — and .gitignore blocks *.jpg under public/photos so an 91 MB folder can never be committed by accident. Run: node scripts/optimize-photos.mjs [--src <dir>]. NO credits file: the Unsplash and Pexels licenses both ASK for attribution and neither requires it, and the operator ruled on 2026-09-03 that the site carries none (HQA-D78). The author slug and the photo id stay in `file` here, which is where traceability belongs. Since v5 T3 the bank also admits MODEL-GENERATED images (HQA-D31's 'no model-generated images' clause reopened for the whole site, ledger row of 2026-09-04): a generated file's name traces to nobody, so such a row carries an extra `origen` field saying so. optimize-photos.mjs reads only slug, file, altEs and altEn; `origen` is documentation and nothing reads it.",
+  "_": "The photo manifest. One row per photo the site uses: slug (the name the code asks for), file (the original in --src), and alt text in both locales. The originals live OUTSIDE the repo (~/Desktop/osppy-fotos by default) and .gitignore blocks *.jpg under public/photos. Run: node scripts/optimize-photos.mjs [--src <dir>]. No credits file: the Unsplash and Pexels licenses ask for attribution and do not require it; the author slug and the photo id stay in `file`, which is where traceability belongs. v6 (2026-09-08, HQA-D137): the site is largely photographs, all of them licensed bank photos of real people in real work settings; NO model-generated image enters (foundation §9): the v5 `hero` row (a Gemini image) is kept here only until FASE 4 prunes this manifest to the v6 rows, and it is not rendered. Each v6 photo is approved by the operator one by one on the prototype (gate 3).",
   "photos": [
     {
       "slug": "contabilidad",
@@ -127,6 +127,24 @@
       "origen": "Imagen generada con Gemini (Google), entregada por el operador el 2026-09-04. Sin autor ni licencia de banco: no traza a nadie. Entra al héroe de la casa por decisión del operador (D-1 del plan v5, salida A), revirtiendo HQA-D31, HQA-D41 y HQA-D90.",
       "altEs": "Dos excursionistas en una cresta al atardecer; uno le tiende la mano al otro para ayudarlo a subir",
       "altEn": "Two hikers on a ridge at sunset; one reaches down to help the other up"
+    },
+    {
+      "slug": "recibimiento",
+      "file": "mailchimp-M7HM8VgYxW4-unsplash.jpg",
+      "altEs": "Una mujer sonríe mientras trabaja en su escritorio, frente a una pared de ladrillo claro",
+      "altEn": "A woman smiles while working at her desk, in front of a light brick wall"
+    },
+    {
+      "slug": "quienes",
+      "file": "vitaly-gariev-0iTp1WNlMGc-unsplash.jpg",
+      "altEs": "Dos colegas conversan sobre un documento en una oficina, con un pizarrón al fondo",
+      "altEn": "Two colleagues talk over a document in an office, with a chalkboard behind them"
+    },
+    {
+      "slug": "hablemos",
+      "file": "vitaly-gariev-aoweP90-XwM-unsplash.jpg",
+      "altEs": "Dos mujeres conversan en un escritorio de oficina, con una laptop entre ellas",
+      "altEn": "Two women talk at an office desk, with a laptop between them"
     }
   ]
 }

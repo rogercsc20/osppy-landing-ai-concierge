@@ -1,0 +1,113 @@
+{
+  "meta": {
+    "title": "Osppy · Consultora de tecnología y negocios",
+    "description": "Osppy es una consultora de tecnología y negocios, nativa en IA y profundamente humana. Te ayudamos a reimaginar tu empresa desde una perspectiva digital."
+  },
+  "nav": {
+    "marca": "Osppy",
+    "quienes": "Quiénes somos",
+    "metodo": "Cómo trabajamos",
+    "ayudamos": "Cómo ayudamos",
+    "hablemos": "Hablemos",
+    "idioma": "EN",
+    "idiomaLabel": "Read this site in English",
+    "etiqueta": "Navegación principal"
+  },
+  "hero": {
+    "frase": "IA que ya trabaja.",
+    "cta": "Hablemos"
+  },
+  "quienes": {
+    "encabezado": "Reimaginemos tu empresa.",
+    "frase": "Osppy es una consultora de tecnología y negocios, nativa en IA y profundamente humana. Te ayudamos a reimaginar tu empresa desde una perspectiva digital.",
+    "origen": "Llegamos a la consultoría desde construir y operar sistemas que hoy trabajan en negocios reales. Por eso empezamos por el negocio, no por la herramienta.",
+    "proposito": {
+      "titulo": "Nuestro propósito",
+      "texto": "Que las empresas con las que trabajamos prosperen y compitan al más alto nivel. Creemos que la tecnología vale cuando la gente que dirige y opera un negocio la entiende, la usa y la hace suya."
+    },
+    "creemos": {
+      "titulo": "Lo que creemos",
+      "texto": "Que las personas y el negocio van primero y la tecnología después. Que la inteligencia artificial no es un proyecto aparte, sino una forma de trabajar. Que las mejores soluciones se construyen con el equipo del cliente y se quedan con él."
+    }
+  },
+  "metodo": {
+    "encabezado": "Cómo trabajamos.",
+    "etapas": [
+      { "titulo": "Diagnóstico", "texto": "Entendemos tu operación a profundidad: cómo trabaja tu gente, dónde está la información y qué duele de verdad." },
+      { "titulo": "Planeamos a tu lado", "texto": "Convertimos lo que encontramos en un plan estratégico: qué va primero, qué sigue y qué no vale la pena todavía, con alcance y criterios de éxito por escrito." },
+      { "titulo": "Implementación", "texto": "Construimos de la mano contigo y lo dejamos funcionando. Si tu gente puede hacerlo, la capacitamos para que lo haga." },
+      { "titulo": "Acompañamiento", "texto": "Nos quedamos hasta que tu equipo camina solo, y después seguimos cerca: operación, mantenimiento y lo que venga." }
+    ]
+  },
+  "ayudamos": {
+    "encabezado": "Cómo ayudamos.",
+    "areas": {
+      "estrategia": { "nombre": "Estrategia", "texto": "Decidir qué tecnología necesita tu negocio, en qué orden y para qué, antes de comprar nada." },
+      "datos": { "nombre": "Datos", "texto": "Juntar la información que hoy está repartida, ordenarla y que tu gente sepa leerla." },
+      "ia": { "nombre": "Inteligencia artificial", "texto": "Poner la inteligencia artificial a hacer trabajo dentro de tu operación (responder, clasificar, redactar, revisar), con una persona que decide." },
+      "nube": { "nombre": "Nube", "texto": "Mover y modernizar tus sistemas, y operarlos con orden." },
+      "sistemas": { "nombre": "Sistemas", "texto": "Implementar y conectar las aplicaciones con las que trabajan tu equipo y tus clientes." },
+      "experiencia": { "nombre": "Experiencia", "texto": "Diseñar cómo tus clientes y tu gente viven cada proceso, del primer contacto al servicio." },
+      "producto": { "nombre": "Producto digital", "texto": "Construir el producto o la plataforma que tu negocio necesita, por dentro, no solo configurarlo." },
+      "entrega": { "nombre": "Planeación y entrega", "texto": "Llevar el proyecto de principio a fin: alcance, prioridades, fechas y entregas." }
+    }
+  },
+  "construido": {
+    "encabezado": "Lo que ya se ha construido",
+    "items": [
+      "Cotizadores",
+      "Asistentes de inteligencia artificial",
+      "Agentes de inteligencia artificial: sistemas que hacen una tarea completa por su cuenta, con la información del negocio y las reglas que alguien escribió",
+      "Adopción de Claude Enterprise",
+      "Modelos desplegados en la infraestructura del cliente, con Amazon Bedrock",
+      "Estructuración y automatización de procesos",
+      "Plantillas con los membretes de la empresa",
+      "Un sistema para manejar auditorías"
+    ]
+  },
+  "datos": {
+    "encabezado": "Lo que dicen los datos.",
+    "items": [
+      { "cifra": "Dos de cada tres", "texto": "organizaciones reportan mejoras de productividad y eficiencia con la inteligencia artificial.", "fuente": "Deloitte, State of AI in the Enterprise, 2026" },
+      { "cifra": "Solo el 5%", "texto": "de las empresas obtiene valor sustancial de la inteligencia artificial, y logra cinco veces más aumento de ingresos que las rezagadas en las áreas donde la aplica.", "fuente": "BCG, The Widening AI Value Gap, 2025" },
+      { "cifra": "En México, el 66%", "texto": "de las grandes empresas sigue en pilotos aislados; solo el 13.8% ha llevado la inteligencia artificial al núcleo de su negocio.", "fuente": "Accenture, IPADE y Empresas Globales, Estudio de Adopción de IA en México, 2026" }
+    ],
+    "fuenteLabel": "Fuente"
+  },
+  "real": {
+    "encabezado": "Los sistemas de Osppy operan hoy en negocios reales.",
+    "cifras": [
+      { "numero": "Más de 100", "texto": "empresas asesoradas" },
+      { "numero": "Más de 50", "texto": "soluciones construidas" }
+    ],
+    "giros": "Sistemas operando en manufactura, automotriz, logística, construcción, comercio exterior y retail."
+  },
+  "hablemos": {
+    "encabezado": "Lo que sigue para tu empresa, lo construimos contigo.",
+    "texto": "Cuéntanos cómo opera tu empresa y te decimos dónde podemos ayudar y dónde no.",
+    "cta": "Hablemos",
+    "correo": "hello@osppy.com"
+  },
+  "precio": {
+    "titulo": "Cómo cobramos",
+    "lineas": [
+      "La capacitación se cotiza por grupo y por resultado, nunca por hora.",
+      "La asesoría y las implementaciones se cotizan por separado, con alcance y criterios de éxito por escrito.",
+      "Después de entregar, hay planes de operación: alojamiento, monitoreo y mantenimiento."
+    ],
+    "cierre": "Las cifras, en la primera conversación."
+  },
+  "footer": {
+    "marca": "Osppy",
+    "legal": {
+      "nombre": "Osppy es un nombre comercial.",
+      "copyright": "© 2026 Osppy"
+    },
+    "lugar": "Guadalajara, México",
+    "contacto": "hello@osppy.com",
+    "productos": {
+      "texto": "Osppy también desarrolla productos propios para las industrias en las que opera.",
+      "cta": "Pregúntanos por ellos"
+    }
+  }
+}
