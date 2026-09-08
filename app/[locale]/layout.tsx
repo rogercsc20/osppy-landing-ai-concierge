@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Figtree, Newsreader } from "next/font/google";
 import { Footer } from "@/components/footer";
 import { LOCALES, SITE_URL, getMessages, isLocale } from "@/lib/i18n";
@@ -19,6 +19,17 @@ const figtree = Figtree({
 });
 
 export const dynamicParams = false;
+
+// The browser chrome on phones takes the page's colour: with the cream ground it
+// showed a light strip above the full-screen welcome (operator, 2026-09-08, on his
+// phone). The theme colour is the brand black behind the photo's scrim, and the
+// page may extend under the status bar.
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#0A0F0E",
+};
 
 export function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }));
