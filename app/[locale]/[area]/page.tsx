@@ -94,7 +94,7 @@ export default async function AreaPage({ params }: { params: Params }) {
         </section>
         <section aria-labelledby="area-cta" className="bg-profundo text-sobre-profundo">
           <div className="relative overflow-hidden">
-          <Ribbon variant="a" opacity={0.6} width={30} />
+          <Ribbon variant="c" opacity={0.7} width={32} />
           <Container className="relative py-20 text-center md:py-28">
             <h2 id="area-cta" className="mx-auto max-w-[18ch] font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.02] tracking-[-0.02em]">
               {m.hablemos.encabezado}

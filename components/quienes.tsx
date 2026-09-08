@@ -11,7 +11,7 @@ export function Quienes({ locale, m }: { locale: Locale; m: Messages }) {
       <section id="quienes" aria-labelledby="quienes-title" className="bg-profundo text-sobre-profundo">
         {/* The watermark (HQA-D150): the logo's O, large and translucent, cropped by this wrapper and never by the section. */}
         <div className="relative overflow-hidden">
-          <Ribbon variant="a" opacity={0.7} width={30} />
+          <Ribbon variant="c" opacity={0.8} width={34} />
           <LogoRing className="pointer-events-none absolute -right-[18%] top-1/2 h-[130%] w-auto -translate-y-1/2 opacity-[0.28] md:-right-[8%] md:h-[175%]" />
           <Container className="relative py-24 text-center md:py-36">
           <h2

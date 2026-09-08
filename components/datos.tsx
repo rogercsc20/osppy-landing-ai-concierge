@@ -7,7 +7,7 @@ export function Datos({ m }: { m: Messages }) {
   return (
     <section id="datos" aria-labelledby="datos-title" className="bg-profundo text-sobre-profundo">
       <div className="relative overflow-hidden">
-        <Ribbon variant="b" opacity={0.5} width={28} />
+        <Ribbon variant="c" opacity={0.45} width={30} />
         <Container className="relative py-24 md:py-36">
         <h2
           id="datos-title"
