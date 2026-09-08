@@ -4,5 +4,7 @@
   { "slug": "logistica", "estado": "hecho", "fuente": "FDV §11.10 (operador, 2026-09-02)" },
   { "slug": "construccion", "estado": "hecho", "fuente": "FDV §11.10 (operador, 2026-09-02)" },
   { "slug": "comercio-exterior", "estado": "hecho", "fuente": "FDV §11.10 (operador, 2026-09-03)" },
-  { "slug": "retail", "estado": "hecho", "fuente": "FDV §11.10 (operador, 2026-09-02)" }
+  { "slug": "retail", "estado": "hecho", "fuente": "FDV §11.10 (operador, 2026-09-02)" },
+  { "slug": "farmaceutica", "estado": "hecho", "fuente": "FDV §11.10 (operador, 2026-09-03, HQA-D77); eighth industry of the site, HQA-D160 and D161" },
+  { "slug": "agricultura", "estado": "hecho", "fuente": "FDV §11.10 (operador, 2026-09-03, HQA-D77); eighth industry of the site, HQA-D160 and D161" }
 ]
