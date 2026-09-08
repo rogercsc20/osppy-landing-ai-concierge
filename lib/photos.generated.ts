@@ -226,6 +226,33 @@ export const PHOTOS = {
     altEs: "Una mujer sonríe de pie en una oficina; detrás, su equipo trabaja en sus computadoras",
     altEn: "A woman smiles standing in an office; behind her, her team works at their computers",
   },
+  "ia-asistente": {
+    src: "/photos/ia-asistente.webp",
+    width: 2400,
+    height: 1600,
+    blurDataURL:
+      "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAQAgCdASoQAAsAA4BaJYwC7ADpJbrMFIhAAPvNKl03LSmeMe2SNrSThVt2RdnXhJnddlSPiK1BXv0la6IDYSCL6mM8ro8EeOq4wsd8IgRtHEQNMWQJsAAA",
+    altEs: "Una persona escribe en su laptop con un asistente de inteligencia artificial abierto en la pantalla",
+    altEn: "Someone types on a laptop with an artificial intelligence assistant open on the screen",
+  },
+  "nube-racks": {
+    src: "/photos/nube-racks.webp",
+    width: 2400,
+    height: 1602,
+    blurDataURL:
+      "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAQAgCdASoQAAsAA4BaJZgCdAELjlp5P93AAP7xbwRWpf+tgwFbkbObPsND9akJY5pzQVTkUC/3uSxc+k13T9pakS3OPgBH0bFFTMphjciz5jhyD9buDbeSLso+8AAA",
+    altEs: "Una ingeniera revisa una laptop junto a los racks de un centro de datos",
+    altEn: "An engineer checks a laptop beside the racks of a data center",
+  },
+  "producto-pared": {
+    src: "/photos/producto-pared.webp",
+    width: 2400,
+    height: 1602,
+    blurDataURL:
+      "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAQCdASoQAAsAA4BaJZwAD43vtxSBgAD+8f4TEcpbnoKEeuSWhQSC/CUBNvLMD7MEr1fauduR3y1Rtm47ZbtFkNShTtzbmT9MOAAA",
+    altEs: "Una diseñadora explica los bocetos de las pantallas de una aplicación pegados en la pared",
+    altEn: "A designer walks through sketches of an app's screens pinned to the wall",
+  },
 } as const satisfies Record<string, SitePhoto>;
 
 export type PhotoSlug = keyof typeof PHOTOS;

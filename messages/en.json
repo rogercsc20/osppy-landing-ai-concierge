@@ -85,7 +85,7 @@
         "nombre": "Artificial intelligence",
         "texto": "Putting artificial intelligence to work inside your operation (answering, classifying, drafting, reviewing), with a person who decides.",
         "slug": "artificial-intelligence",
-        "foto": "sistemas",
+        "foto": "ia-asistente",
         "subareas": [
           "Machine learning",
           "Generative artificial intelligence",
@@ -96,7 +96,7 @@
         "nombre": "Cloud",
         "texto": "Moving and modernizing your systems, and operating them in an orderly way.",
         "slug": "cloud",
-        "foto": "implementacion",
+        "foto": "nube-racks",
         "subareas": [
           "Migration and modernization",
           "Optimization",
@@ -129,7 +129,7 @@
         "nombre": "Digital product",
         "texto": "Building the product or platform your business needs, from the inside, not just configuring it.",
         "slug": "digital-product",
-        "foto": "calidad",
+        "foto": "producto-pared",
         "subareas": [
           "Product engineering",
           "Platform engineering",

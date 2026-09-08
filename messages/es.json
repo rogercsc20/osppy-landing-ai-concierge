@@ -85,7 +85,7 @@
         "nombre": "Inteligencia artificial",
         "texto": "Poner la inteligencia artificial a hacer trabajo dentro de tu operación (responder, clasificar, redactar, revisar), con una persona que decide.",
         "slug": "inteligencia-artificial",
-        "foto": "sistemas",
+        "foto": "ia-asistente",
         "subareas": [
           "Aprendizaje automático",
           "Inteligencia artificial generativa",
@@ -96,7 +96,7 @@
         "nombre": "Nube",
         "texto": "Mover y modernizar tus sistemas, y operarlos con orden.",
         "slug": "nube",
-        "foto": "implementacion",
+        "foto": "nube-racks",
         "subareas": [
           "Migración y modernización",
           "Optimización",
@@ -129,7 +129,7 @@
         "nombre": "Producto digital",
         "texto": "Construir el producto o la plataforma que tu negocio necesita, por dentro, no solo configurarlo.",
         "slug": "producto-digital",
-        "foto": "calidad",
+        "foto": "producto-pared",
         "subareas": [
           "Ingeniería de producto",
           "Ingeniería de plataforma",

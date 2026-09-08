@@ -149,6 +149,30 @@
       "altEs": "Una mujer sonríe de pie en una oficina; detrás, su equipo trabaja en sus computadoras",
       "altEn": "A woman smiles standing in an office; behind her, her team works at their computers",
       "origen": "Pexels, Manuel Guillén Vega, 15104303 (Managua). Licencia Pexels, libre. Elegida el 2026-09-08 tras HQA-D148 (persona latinoamericana, pantalla completa); sustituye a mailchimp-M7HM8VgYxW4, que el operador no aprobó."
+    },
+    {
+      "slug": "ia-asistente",
+      "file": "matheus-bertelli-16094042-pexels.jpg",
+      "ladoLargo": 2400,
+      "altEs": "Una persona escribe en su laptop con un asistente de inteligencia artificial abierto en la pantalla",
+      "altEn": "Someone types on a laptop with an artificial intelligence assistant open on the screen",
+      "origen": "Pexels, Matheus Bertelli, 16094042. Licencia Pexels, libre. Elegida por el operador el 2026-09-08 (HQA-D158, D159) para Inteligencia artificial: una persona real con una herramienta de IA en pantalla, sin robots ni brillos; sustituye a sistemas (priscilla-du-preez-OEdkPaxYMXU)."
+    },
+    {
+      "slug": "nube-racks",
+      "file": "christina-morillo-1181341-pexels.jpg",
+      "ladoLargo": 2400,
+      "altEs": "Una ingeniera revisa una laptop junto a los racks de un centro de datos",
+      "altEn": "An engineer checks a laptop beside the racks of a data center",
+      "origen": "Pexels, Christina Morillo, 1181341. Licencia Pexels, libre. Elegida por el operador el 2026-09-08 (HQA-D158, D159) para Nube: una persona operando infraestructura real; sustituye a implementacion (alex-kotliarskyi-QBpZGqEMsKg)."
+    },
+    {
+      "slug": "producto-pared",
+      "file": "christina-morillo-1181487-pexels.jpg",
+      "ladoLargo": 2400,
+      "altEs": "Una diseñadora explica los bocetos de las pantallas de una aplicación pegados en la pared",
+      "altEn": "A designer walks through sketches of an app's screens pinned to the wall",
+      "origen": "Pexels, Christina Morillo, 1181487. Licencia Pexels, libre. Elegida por el operador el 2026-09-08 (HQA-D158, D159) para Producto digital: un equipo diseñando el producto en la pared; sustituye a calidad (thisisengineering-ZPeXrWxOjRQ)."
     }
   ]
 }
