@@ -174,8 +174,8 @@ export const PHOTOS = {
   },
   "asesoria": {
     src: "/photos/asesoria.webp",
-    width: 1600,
-    height: 1067,
+    width: 2400,
+    height: 1600,
     blurDataURL:
       "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAwAgCdASoQAAsAA4BaJagCdAYvhRgp8hveAAD+ypon4e27wdHnd7ojHQdvk4q5dzDZCUrGifxGMUJLxjCNlw6TJDEGbSjlPEvqME1hwSxI/hzT6W6Mvj0ZmJ0uRSI3Lf1glIAA",
     altEs: "Cuatro personas conversando frente a una laptop",
@@ -201,10 +201,10 @@ export const PHOTOS = {
   },
   "quienes": {
     src: "/photos/quienes.webp",
-    width: 1600,
-    height: 900,
+    width: 2400,
+    height: 1350,
     blurDataURL:
-      "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAABQAgCdASoQAAkAA4BaJaACdH8AgoiBCdQoGgAA/k9M5scAmQwouxfC0OTCTgLrUaC6zF34XH/5n45UusxeVywFOS9wEXwUc/I4H5Nstn+AWyKGIExQAA==",
+      "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAwAgCdASoQAAkAA4BaJaACdAYtVOYlC1rp4AD+T0zmxwCZDCi7F7xz073EcDPWiuMCpyUZQRz8oELmMAfPRjGVbY7YYUQtGQSaowUPCH4bCcQHEAAAAA==",
     altEs: "Dos colegas conversan sobre un documento en una oficina, con un pizarrón al fondo",
     altEn: "Two colleagues talk over a document in an office, with a chalkboard behind them",
   },

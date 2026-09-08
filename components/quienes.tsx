@@ -10,7 +10,7 @@ export function Quienes({ locale, m }: { locale: Locale; m: Messages }) {
       <section id="quienes" aria-labelledby="quienes-title" className="bg-azul text-negro">
         {/* The watermark (HQA-D150): the logo's O, large and translucent, cropped by this wrapper and never by the section. */}
         <div className="relative overflow-hidden">
-          <LogoRing className="pointer-events-none absolute -right-[18%] top-1/2 h-[130%] w-auto -translate-y-1/2 opacity-[0.14] md:-right-[8%] md:h-[175%]" />
+          <LogoRing className="pointer-events-none absolute -right-[18%] top-1/2 h-[130%] w-auto -translate-y-1/2 opacity-[0.45] md:-right-[8%] md:h-[175%]" />
           <Container className="relative py-24 text-center md:py-36">
           <h2
             id="quienes-title"
@@ -23,25 +23,18 @@ export function Quienes({ locale, m }: { locale: Locale; m: Messages }) {
           </Container>
         </div>
       </section>
-      <section aria-label={m.nav.quienes} className="py-24 md:py-36">
-        <Container>
-          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-            <div className="lg:col-span-5">
-              <Photo
-                slug="quienes"
-                locale={locale}
-                sizes="(min-width: 1024px) 40vw, 100vw"
-                className="h-auto w-full rounded-[1.25rem] object-cover"
-              />
-            </div>
-            <div className="grid gap-10 lg:col-span-7 lg:grid-cols-2 lg:gap-12 lg:pt-6">
-              {[m.quienes.proposito, m.quienes.creemos].map((b) => (
-                <div key={b.titulo}>
-                  <h3 className="font-display text-2xl text-negro md:text-[1.75rem]">{b.titulo}</h3>
-                  <p className="mt-4 max-w-[48ch] text-lg leading-relaxed text-niebla">{b.texto}</p>
-                </div>
-              ))}
-            </div>
+      <section aria-label={m.nav.quienes}>
+        <div className="relative h-[60svh] min-h-[420px] md:h-[78svh]">
+          <Photo slug="quienes" locale={locale} fill sizes="100vw" className="object-cover" />
+        </div>
+        <Container className="py-20 md:py-28">
+          <div className="grid gap-10 md:grid-cols-2 md:gap-16">
+            {[m.quienes.proposito, m.quienes.creemos].map((b) => (
+              <div key={b.titulo}>
+                <h3 className="font-display text-[1.75rem] text-negro md:text-[2.25rem]">{b.titulo}</h3>
+                <p className="mt-5 max-w-[48ch] text-lg leading-relaxed text-niebla md:text-xl">{b.texto}</p>
+              </div>
+            ))}
           </div>
         </Container>
       </section>

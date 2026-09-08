@@ -113,7 +113,8 @@
       "slug": "asesoria",
       "file": "jud-mackrill-Of_m3hMsoAA-unsplash.jpg",
       "altEs": "Cuatro personas conversando frente a una laptop",
-      "altEn": "Four people talking around a laptop"
+      "altEn": "Four people talking around a laptop",
+      "ladoLargo": 2400
     },
     {
       "slug": "implementacion",
@@ -132,7 +133,8 @@
       "slug": "quienes",
       "file": "vitaly-gariev-0iTp1WNlMGc-unsplash.jpg",
       "altEs": "Dos colegas conversan sobre un documento en una oficina, con un pizarrón al fondo",
-      "altEn": "Two colleagues talk over a document in an office, with a chalkboard behind them"
+      "altEn": "Two colleagues talk over a document in an office, with a chalkboard behind them",
+      "ladoLargo": 2400
     },
     {
       "slug": "hablemos",
