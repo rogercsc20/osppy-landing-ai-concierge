@@ -129,12 +129,6 @@
       "altEn": "Two hikers on a ridge at sunset; one reaches down to help the other up"
     },
     {
-      "slug": "recibimiento",
-      "file": "mailchimp-M7HM8VgYxW4-unsplash.jpg",
-      "altEs": "Una mujer sonríe mientras trabaja en su escritorio, frente a una pared de ladrillo claro",
-      "altEn": "A woman smiles while working at her desk, in front of a light brick wall"
-    },
-    {
       "slug": "quienes",
       "file": "vitaly-gariev-0iTp1WNlMGc-unsplash.jpg",
       "altEs": "Dos colegas conversan sobre un documento en una oficina, con un pizarrón al fondo",
@@ -145,6 +139,14 @@
       "file": "vitaly-gariev-aoweP90-XwM-unsplash.jpg",
       "altEs": "Dos mujeres conversan en un escritorio de oficina, con una laptop entre ellas",
       "altEn": "Two women talk at an office desk, with a laptop between them"
+    },
+    {
+      "slug": "recibimiento",
+      "file": "manuel-guillen-vega-15104303-pexels.jpg",
+      "ladoLargo": 2400,
+      "altEs": "Una mujer sonríe de pie en una oficina; detrás, su equipo trabaja en sus computadoras",
+      "altEn": "A woman smiles standing in an office; behind her, her team works at their computers",
+      "origen": "Pexels, Manuel Guillén Vega, 15104303 (Managua). Licencia Pexels, libre. Elegida el 2026-09-08 tras HQA-D148 (persona latinoamericana, pantalla completa); sustituye a mailchimp-M7HM8VgYxW4, que el operador no aprobó."
     }
   ]
 }

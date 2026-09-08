@@ -199,15 +199,6 @@ export const PHOTOS = {
     altEs: "Dos excursionistas en una cresta al atardecer; uno le tiende la mano al otro para ayudarlo a subir",
     altEn: "Two hikers on a ridge at sunset; one reaches down to help the other up",
   },
-  "recibimiento": {
-    src: "/photos/recibimiento.webp",
-    width: 1600,
-    height: 1600,
-    blurDataURL:
-      "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADwAQCdASoQABAAA4BaJbACdAD0J8s1Y8wA/rgbKApSf4htnqUn4/d9w8+zjb7Sv5Jc6R0mCI3Z0eWu/0afATE8jDcogA2bDw9RpwNnBbyl6DE+vBVsvoNiN+jwTqQ4ezfHsnsl9cIAAA==",
-    altEs: "Una mujer sonríe mientras trabaja en su escritorio, frente a una pared de ladrillo claro",
-    altEn: "A woman smiles while working at her desk, in front of a light brick wall",
-  },
   "quienes": {
     src: "/photos/quienes.webp",
     width: 1600,
@@ -225,6 +216,15 @@ export const PHOTOS = {
       "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADQAQCdASoQAAkAA4BaJQBOgBuRGw9SAAD+QJNSwTqX/hk+u2Mx5NMf8VKnEkAKXAtLdeZ/0g1wHvhtkWaS/T9vd21IxZs1LnpF0YnnlXqjRY1paA0AAA==",
     altEs: "Dos mujeres conversan en un escritorio de oficina, con una laptop entre ellas",
     altEn: "Two women talk at an office desk, with a laptop between them",
+  },
+  "recibimiento": {
+    src: "/photos/recibimiento.webp",
+    width: 2400,
+    height: 1738,
+    blurDataURL:
+      "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADwAQCdASoQAAwAA4BaJYwCdAC9iDcFUAAA/I6jYOvS5pC2QzT41lNtdKdVZcpK50MeZFj/pPeHeeathJZPSOybQ3oEM0jOIawVO8NyERmN5aFqDDB+RmgAAAA=",
+    altEs: "Una mujer sonríe de pie en una oficina; detrás, su equipo trabaja en sus computadoras",
+    altEn: "A woman smiles standing in an office; behind her, her team works at their computers",
   },
 } as const satisfies Record<string, SitePhoto>;
 

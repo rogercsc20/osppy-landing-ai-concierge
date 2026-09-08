@@ -15,7 +15,7 @@
   },
   "hero": {
     "frase": "AI that already works.",
-    "cta": "Let's talk"
+    "cta": "Talk to an expert"
   },
   "quienes": {
     "encabezado": "Let's reimagine your company.",
@@ -33,23 +33,59 @@
   "metodo": {
     "encabezado": "How we work.",
     "etapas": [
-      { "titulo": "Diagnosis", "texto": "We understand your operation in depth: how your people work, where the information lives and what really hurts." },
-      { "titulo": "We plan by your side", "texto": "We turn what we find into a strategic plan: what comes first, what follows and what is not worth it yet, with scope and success criteria in writing." },
-      { "titulo": "Implementation", "texto": "We build hand in hand with you and leave it running. If your people can do it, we train them to do it." },
-      { "titulo": "Accompaniment", "texto": "We stay until your team walks on its own, and then we stay close: operation, maintenance and whatever comes next." }
+      {
+        "titulo": "Diagnosis",
+        "texto": "We understand your operation in depth: how your people work, where the information lives and what really hurts."
+      },
+      {
+        "titulo": "We plan by your side",
+        "texto": "We turn what we find into a strategic plan: what comes first, what follows and what is not worth it yet, with scope and success criteria in writing."
+      },
+      {
+        "titulo": "Implementation",
+        "texto": "We build hand in hand with you and leave it running. If your people can do it, we train them to do it."
+      },
+      {
+        "titulo": "Accompaniment",
+        "texto": "We stay until your team walks on its own, and then we stay close: operation, maintenance and whatever comes next."
+      }
     ]
   },
   "ayudamos": {
     "encabezado": "How we help.",
     "areas": {
-      "estrategia": { "nombre": "Strategy", "texto": "Deciding what technology your business needs, in what order and for what, before buying anything." },
-      "datos": { "nombre": "Data", "texto": "Bringing together the information that is scattered today, organizing it and making sure your people can read it." },
-      "ia": { "nombre": "Artificial intelligence", "texto": "Putting artificial intelligence to work inside your operation (answering, classifying, drafting, reviewing), with a person who decides." },
-      "nube": { "nombre": "Cloud", "texto": "Moving and modernizing your systems, and operating them in an orderly way." },
-      "sistemas": { "nombre": "Systems", "texto": "Implementing and connecting the applications your team and your customers work with." },
-      "experiencia": { "nombre": "Experience", "texto": "Designing how your customers and your people live each process, from first contact to service." },
-      "producto": { "nombre": "Digital product", "texto": "Building the product or platform your business needs, from the inside, not just configuring it." },
-      "entrega": { "nombre": "Planning and delivery", "texto": "Taking the project from start to finish: scope, priorities, dates and deliveries." }
+      "estrategia": {
+        "nombre": "Strategy",
+        "texto": "Deciding what technology your business needs, in what order and for what, before buying anything."
+      },
+      "datos": {
+        "nombre": "Data",
+        "texto": "Bringing together the information that is scattered today, organizing it and making sure your people can read it."
+      },
+      "ia": {
+        "nombre": "Artificial intelligence",
+        "texto": "Putting artificial intelligence to work inside your operation (answering, classifying, drafting, reviewing), with a person who decides."
+      },
+      "nube": {
+        "nombre": "Cloud",
+        "texto": "Moving and modernizing your systems, and operating them in an orderly way."
+      },
+      "sistemas": {
+        "nombre": "Systems",
+        "texto": "Implementing and connecting the applications your team and your customers work with."
+      },
+      "experiencia": {
+        "nombre": "Experience",
+        "texto": "Designing how your customers and your people live each process, from first contact to service."
+      },
+      "producto": {
+        "nombre": "Digital product",
+        "texto": "Building the product or platform your business needs, from the inside, not just configuring it."
+      },
+      "entrega": {
+        "nombre": "Planning and delivery",
+        "texto": "Taking the project from start to finish: scope, priorities, dates and deliveries."
+      }
     }
   },
   "construido": {
@@ -68,24 +104,42 @@
   "datos": {
     "encabezado": "What the data says.",
     "items": [
-      { "cifra": "Two out of three", "texto": "organizations report productivity and efficiency gains from artificial intelligence.", "fuente": "Deloitte, State of AI in the Enterprise, 2026" },
-      { "cifra": "Only 5%", "texto": "of companies capture substantial value from artificial intelligence, and they achieve five times the revenue increases of the laggards in the areas where they apply it.", "fuente": "BCG, The Widening AI Value Gap, 2025" },
-      { "cifra": "In Mexico, 66%", "texto": "of large companies remain in isolated pilots; only 13.8% have taken artificial intelligence into the core of their business.", "fuente": "Accenture, IPADE and Empresas Globales, AI Adoption Study in Mexico, 2026" }
+      {
+        "cifra": "Two out of three",
+        "texto": "organizations report productivity and efficiency gains from artificial intelligence.",
+        "fuente": "Deloitte, State of AI in the Enterprise, 2026"
+      },
+      {
+        "cifra": "Only 5%",
+        "texto": "of companies capture substantial value from artificial intelligence, and they achieve five times the revenue increases of the laggards in the areas where they apply it.",
+        "fuente": "BCG, The Widening AI Value Gap, 2025"
+      },
+      {
+        "cifra": "In Mexico, 66%",
+        "texto": "of large companies remain in isolated pilots; only 13.8% have taken artificial intelligence into the core of their business.",
+        "fuente": "Accenture, IPADE and Empresas Globales, AI Adoption Study in Mexico, 2026"
+      }
     ],
     "fuenteLabel": "Source"
   },
   "real": {
     "encabezado": "Osppy's systems operate today in real businesses.",
     "cifras": [
-      { "numero": "More than 100", "texto": "companies advised" },
-      { "numero": "More than 50", "texto": "solutions built" }
+      {
+        "numero": "More than 100",
+        "texto": "companies advised"
+      },
+      {
+        "numero": "More than 50",
+        "texto": "solutions built"
+      }
     ],
     "giros": "Systems operating in manufacturing, automotive, logistics, construction, foreign trade and retail."
   },
   "hablemos": {
     "encabezado": "What comes next for your company, we build it with you.",
     "texto": "Tell us how your company operates and we will tell you where we can help and where we cannot.",
-    "cta": "Let's talk",
+    "cta": "Talk to an expert",
     "correo": "hello@osppy.com"
   },
   "precio": {

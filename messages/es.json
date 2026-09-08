@@ -15,7 +15,7 @@
   },
   "hero": {
     "frase": "IA que ya trabaja.",
-    "cta": "Hablemos"
+    "cta": "Habla con un experto"
   },
   "quienes": {
     "encabezado": "Reimaginemos tu empresa.",
@@ -33,23 +33,59 @@
   "metodo": {
     "encabezado": "Cómo trabajamos.",
     "etapas": [
-      { "titulo": "Diagnóstico", "texto": "Entendemos tu operación a profundidad: cómo trabaja tu gente, dónde está la información y qué duele de verdad." },
-      { "titulo": "Planeamos a tu lado", "texto": "Convertimos lo que encontramos en un plan estratégico: qué va primero, qué sigue y qué no vale la pena todavía, con alcance y criterios de éxito por escrito." },
-      { "titulo": "Implementación", "texto": "Construimos de la mano contigo y lo dejamos funcionando. Si tu gente puede hacerlo, la capacitamos para que lo haga." },
-      { "titulo": "Acompañamiento", "texto": "Nos quedamos hasta que tu equipo camina solo, y después seguimos cerca: operación, mantenimiento y lo que venga." }
+      {
+        "titulo": "Diagnóstico",
+        "texto": "Entendemos tu operación a profundidad: cómo trabaja tu gente, dónde está la información y qué duele de verdad."
+      },
+      {
+        "titulo": "Planeamos a tu lado",
+        "texto": "Convertimos lo que encontramos en un plan estratégico: qué va primero, qué sigue y qué no vale la pena todavía, con alcance y criterios de éxito por escrito."
+      },
+      {
+        "titulo": "Implementación",
+        "texto": "Construimos de la mano contigo y lo dejamos funcionando. Si tu gente puede hacerlo, la capacitamos para que lo haga."
+      },
+      {
+        "titulo": "Acompañamiento",
+        "texto": "Nos quedamos hasta que tu equipo camina solo, y después seguimos cerca: operación, mantenimiento y lo que venga."
+      }
     ]
   },
   "ayudamos": {
     "encabezado": "Cómo ayudamos.",
     "areas": {
-      "estrategia": { "nombre": "Estrategia", "texto": "Decidir qué tecnología necesita tu negocio, en qué orden y para qué, antes de comprar nada." },
-      "datos": { "nombre": "Datos", "texto": "Juntar la información que hoy está repartida, ordenarla y que tu gente sepa leerla." },
-      "ia": { "nombre": "Inteligencia artificial", "texto": "Poner la inteligencia artificial a hacer trabajo dentro de tu operación (responder, clasificar, redactar, revisar), con una persona que decide." },
-      "nube": { "nombre": "Nube", "texto": "Mover y modernizar tus sistemas, y operarlos con orden." },
-      "sistemas": { "nombre": "Sistemas", "texto": "Implementar y conectar las aplicaciones con las que trabajan tu equipo y tus clientes." },
-      "experiencia": { "nombre": "Experiencia", "texto": "Diseñar cómo tus clientes y tu gente viven cada proceso, del primer contacto al servicio." },
-      "producto": { "nombre": "Producto digital", "texto": "Construir el producto o la plataforma que tu negocio necesita, por dentro, no solo configurarlo." },
-      "entrega": { "nombre": "Planeación y entrega", "texto": "Llevar el proyecto de principio a fin: alcance, prioridades, fechas y entregas." }
+      "estrategia": {
+        "nombre": "Estrategia",
+        "texto": "Decidir qué tecnología necesita tu negocio, en qué orden y para qué, antes de comprar nada."
+      },
+      "datos": {
+        "nombre": "Datos",
+        "texto": "Juntar la información que hoy está repartida, ordenarla y que tu gente sepa leerla."
+      },
+      "ia": {
+        "nombre": "Inteligencia artificial",
+        "texto": "Poner la inteligencia artificial a hacer trabajo dentro de tu operación (responder, clasificar, redactar, revisar), con una persona que decide."
+      },
+      "nube": {
+        "nombre": "Nube",
+        "texto": "Mover y modernizar tus sistemas, y operarlos con orden."
+      },
+      "sistemas": {
+        "nombre": "Sistemas",
+        "texto": "Implementar y conectar las aplicaciones con las que trabajan tu equipo y tus clientes."
+      },
+      "experiencia": {
+        "nombre": "Experiencia",
+        "texto": "Diseñar cómo tus clientes y tu gente viven cada proceso, del primer contacto al servicio."
+      },
+      "producto": {
+        "nombre": "Producto digital",
+        "texto": "Construir el producto o la plataforma que tu negocio necesita, por dentro, no solo configurarlo."
+      },
+      "entrega": {
+        "nombre": "Planeación y entrega",
+        "texto": "Llevar el proyecto de principio a fin: alcance, prioridades, fechas y entregas."
+      }
     }
   },
   "construido": {
@@ -68,24 +104,42 @@
   "datos": {
     "encabezado": "Lo que dicen los datos.",
     "items": [
-      { "cifra": "Dos de cada tres", "texto": "organizaciones reportan mejoras de productividad y eficiencia con la inteligencia artificial.", "fuente": "Deloitte, State of AI in the Enterprise, 2026" },
-      { "cifra": "Solo el 5%", "texto": "de las empresas obtiene valor sustancial de la inteligencia artificial, y logra cinco veces más aumento de ingresos que las rezagadas en las áreas donde la aplica.", "fuente": "BCG, The Widening AI Value Gap, 2025" },
-      { "cifra": "En México, el 66%", "texto": "de las grandes empresas sigue en pilotos aislados; solo el 13.8% ha llevado la inteligencia artificial al núcleo de su negocio.", "fuente": "Accenture, IPADE y Empresas Globales, Estudio de Adopción de IA en México, 2026" }
+      {
+        "cifra": "Dos de cada tres",
+        "texto": "organizaciones reportan mejoras de productividad y eficiencia con la inteligencia artificial.",
+        "fuente": "Deloitte, State of AI in the Enterprise, 2026"
+      },
+      {
+        "cifra": "Solo el 5%",
+        "texto": "de las empresas obtiene valor sustancial de la inteligencia artificial, y logra cinco veces más aumento de ingresos que las rezagadas en las áreas donde la aplica.",
+        "fuente": "BCG, The Widening AI Value Gap, 2025"
+      },
+      {
+        "cifra": "En México, el 66%",
+        "texto": "de las grandes empresas sigue en pilotos aislados; solo el 13.8% ha llevado la inteligencia artificial al núcleo de su negocio.",
+        "fuente": "Accenture, IPADE y Empresas Globales, Estudio de Adopción de IA en México, 2026"
+      }
     ],
     "fuenteLabel": "Fuente"
   },
   "real": {
     "encabezado": "Los sistemas de Osppy operan hoy en negocios reales.",
     "cifras": [
-      { "numero": "Más de 100", "texto": "empresas asesoradas" },
-      { "numero": "Más de 50", "texto": "soluciones construidas" }
+      {
+        "numero": "Más de 100",
+        "texto": "empresas asesoradas"
+      },
+      {
+        "numero": "Más de 50",
+        "texto": "soluciones construidas"
+      }
     ],
     "giros": "Sistemas operando en manufactura, automotriz, logística, construcción, comercio exterior y retail."
   },
   "hablemos": {
     "encabezado": "Lo que sigue para tu empresa, lo construimos contigo.",
     "texto": "Cuéntanos cómo opera tu empresa y te decimos dónde podemos ayudar y dónde no.",
-    "cta": "Hablemos",
+    "cta": "Habla con un experto",
     "correo": "hello@osppy.com"
   },
   "precio": {

@@ -1,33 +1,41 @@
 import type { Locale, Messages } from "@/lib/i18n";
 import { Photo } from "./photo";
 
+/**
+ * The welcome (HQA-D130, D148): the photograph fills the first screen, the phrase and the
+ * single call to action sit over a Tinta scrim. The scrim is at least 70% where the text
+ * is, so white text keeps 5.9:1 even over a bright pixel (docs/v6-02 §3.1). `min-h` lives
+ * on the inner div, not the section (check-sections.mjs).
+ */
 export function Hero({ locale, m }: { locale: Locale; m: Messages }) {
   return (
     <section id="inicio" aria-labelledby="hero-title">
-      <div className="grid lg:min-h-[82svh] lg:grid-cols-12">
-        <div className="order-2 flex flex-col justify-center px-6 py-14 md:px-10 md:py-20 lg:order-1 lg:col-span-5 lg:py-24 lg:pl-[max(2.5rem,calc((100vw-80rem)/2+2.5rem))] lg:pr-16">
+      <div className="relative min-h-[100svh] w-full">
+        <Photo
+          slug="recibimiento"
+          locale={locale}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[50%_30%]"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-[linear-gradient(to_top,rgb(28_43_51/0.84)_0%,rgb(28_43_51/0.72)_38%,rgb(28_43_51/0.12)_70%,rgb(28_43_51/0.40)_100%)]"
+        />
+        <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-7xl flex-col justify-end px-6 pb-16 pt-32 md:px-10 md:pb-24">
           <h1
             id="hero-title"
-            className="font-display text-balance text-[clamp(3rem,7vw,5.5rem)] leading-[0.98] tracking-[-0.02em] text-tinta"
+            className="max-w-[10ch] text-balance font-display text-[clamp(3.25rem,9vw,7.5rem)] leading-[0.96] tracking-[-0.02em] text-blanco"
           >
             {m.hero.frase}
           </h1>
           <a
             href="#hablemos"
-            className="mt-10 inline-flex w-fit items-center rounded-full bg-petroleo px-7 py-4 text-lg font-medium text-blanco transition-colors hover:bg-petroleo-texto"
+            className="mt-10 inline-flex w-fit items-center rounded-full bg-blanco px-7 py-4 text-lg font-medium text-tinta transition-colors hover:bg-lino"
           >
             {m.hero.cta}
           </a>
-        </div>
-        <div className="relative order-1 aspect-[4/5] md:aspect-[16/10] lg:order-2 lg:col-span-7 lg:aspect-auto">
-          <Photo
-            slug="recibimiento"
-            locale={locale}
-            fill
-            priority
-            sizes="(min-width: 1024px) 58vw, 100vw"
-            className="object-cover object-[50%_30%]"
-          />
         </div>
       </div>
     </section>

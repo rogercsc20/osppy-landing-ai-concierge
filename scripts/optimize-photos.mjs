@@ -67,9 +67,12 @@ for (const row of rows) {
     process.exit(1);
   }
 
+  // v6 (2026-09-08): a row may ask for a longer edge (`ladoLargo`) when it is rendered
+  // full-bleed, like the welcome; 1600 stays the default for framed photos.
+  const longEdge = row.ladoLargo ?? LONG_EDGE;
   const pipeline = sharp(from).rotate().resize({
-    width: LONG_EDGE,
-    height: LONG_EDGE,
+    width: longEdge,
+    height: longEdge,
     fit: "inside",
     withoutEnlargement: true,
   });
