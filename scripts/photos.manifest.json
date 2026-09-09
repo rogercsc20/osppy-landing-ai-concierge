@@ -9,16 +9,18 @@
       "origen": "Pexels, Yan Krukau, 7693745. Licencia Pexels, libre. Elegida por el operador el 2026-09-08 (HQA-D168) para el área Datos, entre tres candidatas, en reemplazo de la laptop con un panel de cifras (Carlos Muza, Unsplash, hpjSkU2UYSU): esa no tenía personas y era una pantalla de software como imagen, que el §2 del sistema visual prohíbe, y su original se quedaba en 2426 px. Descartadas: la pizarra con gráficas (Karola G, 7876388) porque traía la marca StockCharts.com a la vista, y las dos laptops con dashboards (Mikael Blomkvist, 6476261) por ser otra vez pantalla de software."
     },
     {
-      "slug": "compras",
-      "file": "bluestonex-Li6MH3rfyPo-unsplash.jpg",
-      "altEs": "Una persona revisando documentos frente a un tablero de trabajo",
-      "altEn": "Someone going through documents at a working board"
+      "slug": "entrega-tablero",
+      "file": "silverkblack-39219855-pexels.jpg",
+      "altEs": "Dos personas frente a una pared con notas de trabajo, ordenando las prioridades de un proyecto",
+      "altEn": "Two people at a wall of work notes, sorting out a project's priorities",
+      "origen": "Pexels, silverkblack, 39219855, 3840x2160. Licencia Pexels, libre. Elegida por el operador el 2026-09-08 (HQA-D182) para el área Planeación y entrega, entre tres candidatas renderizadas en las dos cajas reales (panel 656x900 y página de área 1440x648), en reemplazo de compras (Bluestonex, Unsplash Li6MH3rfyPo), que mostraba a una persona en el mostrador de un local con una tableta y leía como punto de venta y no como planeación. Descartadas: el tablero con columnas ICE BOX / In progress / Emergency / Testing / Complete (cottonbro, 6804077), porque ese inglés es el contenido de la imagen y la persona está de espaldas; y la pared de planeación con calendario (Anna Nekrashevich, 7550933), por su inglés impreso legible y por ser una foto muy blanca dentro de la banda verde. Sin logos ni marcas de empresa, verificado al 100% sobre el original. El original viene comprimido de origen (53 kB por megapíxel contra 208 del que reemplaza), medido antes de entrar."
     },
     {
-      "slug": "ventas",
-      "file": "annie-spratt-hCb3lIB8L8E-unsplash.jpg",
-      "altEs": "Un equipo reunido alrededor de una mesa con laptops",
-      "altEn": "A team gathered around a table with laptops"
+      "slug": "experiencia-mostrador",
+      "file": "cedric-fauntleroy-4266932-pexels.jpg",
+      "altEs": "En un mostrador de recepción, una persona atiende con una tableta a otra que llega, las dos de frente",
+      "altEn": "At a reception counter, someone with a tablet attends to a visitor, the two facing each other",
+      "origen": "Pexels, Cedric Fauntleroy, 4266932, 6000x4000. Licencia Pexels, libre. Elegida por el operador el 2026-09-08 (HQA-D182) para el área Experiencia, entre tres candidatas renderizadas en las dos cajas reales, en reemplazo de ventas (Annie Spratt, Unsplash hCb3lIB8L8E), que eran seis personas jóvenes con laptops alrededor de una mesa y leía como coworking y no como la experiencia de un cliente. Es la única de las catorce miradas donde se ven las dos partes de frente, sin logos y sin texto, y la menos comprimida de origen (105 kB por megapíxel). Descartadas: el asesor con su cliente y una calculadora (rdne, 7821671), que lee a trámite de banco; el mostrador de tienda (silverkblack, 36730430), donde la clienta está de espaldas; y dos composiciones mejores que quedaron fuera por traer un logo de empresa grande en la pared (Pavel Danilyuk, 6812433 y 6812443). Anotado: quien atiende trae filipina clínica y la escena puede leerse como consultorio."
     },
     {
       "slug": "mantenimiento",
@@ -64,18 +66,24 @@
       "origen": "Pexels, Manuel Guillén Vega, 15104303 (Managua). Licencia Pexels, libre. Elegida el 2026-09-08 tras HQA-D148 (persona latinoamericana, pantalla completa); sustituye a mailchimp-M7HM8VgYxW4, que el operador no aprobó."
     },
     {
-      "slug": "ia-asistente",
-      "file": "matheus-bertelli-16094042-pexels.jpg",
-      "altEs": "Una persona escribe en su laptop con un asistente de inteligencia artificial abierto en la pantalla",
-      "altEn": "Someone types on a laptop with an artificial intelligence assistant open on the screen",
-      "origen": "Pexels, Matheus Bertelli, 16094042. Licencia Pexels, libre. Elegida por el operador el 2026-09-08 (HQA-D158, D159) para Inteligencia artificial: una persona real con una herramienta de IA en pantalla, sin robots ni brillos; sustituye a sistemas (priscilla-du-preez-OEdkPaxYMXU)."
+      "slug": "ia-operacion",
+      "file": "thisisengineering-3862132-pexels.jpg",
+      "altEs": "Una persona sentada frente a un muro de pantallas en una sala de operación, vigilando el trabajo que corre",
+      "altEn": "Someone seated before a wall of screens in an operations room, watching the work as it runs",
+      "origen": "Pexels, This Is Engineering, 3862132, 6678x4452, 118 kB por megapíxel. Licencia Pexels, libre. Elegida por el operador el 2026-09-09 (HQA-D182) para el área Inteligencia artificial, entre tres candidatas renderizadas en las dos cajas reales, en reemplazo de ia-asistente (Matheus Bertelli, Pexels 16094042), la pantalla de bienvenida de ChatGPT: el operador pidió algo más agentic, y de paso sale de la imagen la marca de otra empresa. Reabre HQA-D158, que había escrito la foto anterior dentro del principio 5 del sistema visual; la nota fechada del §2 lo dice. Lo que se fotografía no es un agente, que no tiene fotografía honesta, sino una persona supervisando trabajo que ya corre solo, que es la frase del área. Descartadas: dos personas en una mesa de operación con las caras visibles (This Is Engineering, 3862149), que era la recomendación de la sesión; y una sala de vigilancia con una bandera nacional a la vista (Amorie Sam, 30481728). Descartadas antes de enseñarse, por marca legible: una sala de control con el logo НЛМК en el uniforme (Sergey Sergeev, 32845700), el mismo que HQA-D163 sacó de manufactura, y una sala de control de Lima con el logo sedapal en el muro de video (Fernando Narvaez, 32529341). Anotado por la sesión y decidido igual por el operador: no se le ve la cara a la persona, y la pantalla curva del fondo lleva formas abstractas que rozan la iconografía que el principio 5 prohíbe."
     },
     {
       "slug": "nube-racks",
       "file": "christina-morillo-1181341-pexels.jpg",
-      "altEs": "Una ingeniera revisa una laptop junto a los racks de un centro de datos",
-      "altEn": "An engineer checks a laptop beside the racks of a data center",
-      "origen": "Pexels, Christina Morillo, 1181341. Licencia Pexels, libre. Elegida por el operador el 2026-09-08 (HQA-D158, D159) para Nube: una persona operando infraestructura real; sustituye a implementacion (alex-kotliarskyi-QBpZGqEMsKg)."
+      "altEs": "Las manos de una persona sobre una laptop, de pie frente a los racks iluminados de un centro de datos",
+      "altEn": "A person's hands on a laptop, standing in front of the lit racks of a data centre",
+      "origen": "Pexels, Christina Morillo, 1181341. Licencia Pexels, libre. Elegida por el operador el 2026-09-08 (HQA-D158, D159) para Nube: una persona operando infraestructura real; sustituye a implementacion (alex-kotliarskyi-QBpZGqEMsKg). Recorte del 2026-09-08 (operador, HQA-D182): la foto se queda, pero se acerca. El operador pidió enfocar solo las manos y la computadora y que los servidores fueran mucho más presentes, que object-position no puede dar porque mueve el encuadre y no acerca; por eso la fila declara recorte { izquierda 0, arriba 0.40, ancho 0.69, alto 0.60 } en fracciones del original y el optimizador lo aplica con .extract() antes de reescalar. Elegido entre cuatro recortes renderizados en las dos cajas reales; el elegido es además el único que deja fuera el emblema del jinete de Ralph Lauren que la camisa lleva en el pecho, nítido al 100% y en el sitio desde que la foto se aprobó. Descartados: 0/0.35/0.90/0.65 (se ve mejor en el panel vertical pero conserva el emblema), 0/0.40/0.72/0.60 (conserva el emblema y más grande que hoy) y 0.04/0.46/0.60/0.54 (los racks dominan, pero son fondo desenfocado). Anotado una vez: un recorte sin cara sigue siendo gente, pero pesa menos que uno con cara.",
+      "recorte": {
+        "izquierda": 0,
+        "arriba": 0.4,
+        "ancho": 0.69,
+        "alto": 0.6
+      }
     },
     {
       "slug": "producto-pared",

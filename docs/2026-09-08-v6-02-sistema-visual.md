@@ -66,6 +66,17 @@ la persona sonriendo del recibimiento hace ese trabajo sin cresta ni atardecer.
    el 2026-09-08 (HQA-D158), el sol y la luna del botón de modo: es un control con `aria-label`, no
    decoración ni iconografía de contenido, y la regla de "cero iconografía" no lo alcanza.
 
+   > **Nota del 2026-09-09 (operador, HQA-D182).** La frase de arriba que dice que la foto de "Inteligencia
+   > artificial" es una persona con una herramienta de IA en pantalla ya no describe el sitio. El operador la
+   > cambió mirando el sitio vivo, pidiendo algo más agentic, y con eso **reabrió D158** a sabiendas. Lo que
+   > entró es `ia-operacion`, una persona frente a un muro de pantallas en una sala de operación: no existe
+   > fotografía honesta de un agente, así que lo que se fotografía es una persona supervisando trabajo que ya
+   > corre solo, que es la frase misma del área. **Lo demás del principio sigue en pie y no se tocó:** cero
+   > robot, cero red de nodos, cero brillo, cero iconografía de IA. La sesión dejó dicho, y el operador
+   > decidió igual, que a la foto elegida no se le ve la cara y que la pantalla curva del fondo lleva formas
+   > abstractas que rozan esa frontera. De paso sale de la imagen la marca ChatGPT, que era otra empresa en
+   > la pantalla.
+
 ## 3. El sistema
 
 ### 3.1 Color
@@ -185,6 +196,27 @@ Fotos por sección (el operador aprueba una por una, D137):
 
 Las que salen con D158: `sistemas` (persona con laptop y tableta), `implementacion` (oficina grande) y
 `calidad` (ingeniera en planta) dejan "Cómo ayudamos"; siguen en el manifiesto hasta la poda de la FASE 4.
+
+> **Nota del 2026-09-09 (operador, HQA-D182).** Cuatro filas de la tabla de arriba dejaron de ser ciertas el
+> mismo día, y la tabla se queda escrita como se aprobó:
+>
+> - **Planeación y entrega** ya no es `compras` sino **`entrega-tablero`**, dos personas frente a una pared de
+>   notas de trabajo (silverkblack en Pexels, 39219855). La anterior leía como punto de venta, y su alt
+>   describía una escena que la foto no tenía.
+> - **Experiencia** ya no es `ventas` sino **`experiencia-mostrador`**, un mostrador de recepción con alguien
+>   atendiendo y alguien siendo atendida (Cedric Fauntleroy en Pexels, 4266932). La anterior leía como
+>   coworking y no como la experiencia de un cliente.
+> - **Inteligencia artificial** ya no es `ia-asistente` sino **`ia-operacion`** (This Is Engineering en
+>   Pexels, 3862132), por la decisión que la nota del principio 5 recoge.
+> - **Nube** sigue siendo `nube-racks` y la misma fotografía, pero **recortada**: la fila declara
+>   `recorte { izquierda 0, arriba 0.40, ancho 0.69, alto 0.60 }` y el optimizador lo aplica antes de
+>   reescalar, porque el operador pidió acercar y `object-position` mueve el encuadre sin acercar. El recorte
+>   elegido es además el único de los cuatro que deja fuera el emblema de una marca de ropa que la camisa
+>   lleva en el pecho.
+>
+> Las cuatro traen `origen` completo en `scripts/photos.manifest.json`, con las descartadas y su razón. La
+> fila de **Datos** de la tabla tampoco es cierta desde HQA-D174, que reemplazó `contabilidad` por dos
+> colegas revisando un reporte impreso; queda anotado aquí porque nadie lo anotó entonces.
 
 ## 5. Dónde diverge de la guía §8 y de Instagram
 

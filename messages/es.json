@@ -62,7 +62,7 @@
         "nombre": "Inteligencia artificial",
         "texto": "Poner la inteligencia artificial a hacer trabajo dentro de tu operación (responder, clasificar, redactar, revisar), con una persona que decide.",
         "slug": "inteligencia-artificial",
-        "foto": "ia-asistente",
+        "foto": "ia-operacion",
         "subareas": [
           "Aprendizaje automático",
           "Inteligencia artificial generativa",
@@ -129,7 +129,7 @@
         "nombre": "Planeación y entrega",
         "texto": "Llevar el proyecto de principio a fin: alcance, prioridades, fechas y entregas.",
         "slug": "planeacion-y-entrega",
-        "foto": "compras",
+        "foto": "entrega-tablero",
         "subareas": [
           "Gestión de producto",
           "Gestión de proyectos y programas",
@@ -140,7 +140,7 @@
         "nombre": "Experiencia",
         "texto": "Diseñar cómo tus clientes y tu gente viven cada proceso, del primer contacto al servicio.",
         "slug": "experiencia",
-        "foto": "ventas",
+        "foto": "experiencia-mostrador",
         "subareas": [
           "Experiencia de cliente y de empleado",
           "Estrategia y diseño de producto",

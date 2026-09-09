@@ -62,7 +62,7 @@
         "nombre": "Artificial intelligence",
         "texto": "Putting artificial intelligence to work inside your operation (answering, classifying, drafting, reviewing), with a person who decides.",
         "slug": "artificial-intelligence",
-        "foto": "ia-asistente",
+        "foto": "ia-operacion",
         "subareas": [
           "Machine learning",
           "Generative artificial intelligence",
@@ -129,7 +129,7 @@
         "nombre": "Planning and delivery",
         "texto": "Taking the project from start to finish: scope, priorities, dates and deliveries.",
         "slug": "planning-and-delivery",
-        "foto": "compras",
+        "foto": "entrega-tablero",
         "subareas": [
           "Product management",
           "Project and program management",
@@ -140,7 +140,7 @@
         "nombre": "Experience",
         "texto": "Designing how your customers and your people live each process, from first contact to service.",
         "slug": "experience",
-        "foto": "ventas",
+        "foto": "experiencia-mostrador",
         "subareas": [
           "Customer and employee experience",
           "Product strategy and design",

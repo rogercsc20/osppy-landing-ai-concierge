@@ -19,23 +19,23 @@ export const PHOTOS = {
     altEs: "Dos colegas revisan juntos un reporte de gráficas impreso sobre la mesa",
     altEn: "Two colleagues going over a printed chart report together at the table",
   },
-  "compras": {
-    src: "/photos/compras.webp",
+  "entrega-tablero": {
+    src: "/photos/entrega-tablero.webp",
+    width: 3200,
+    height: 1800,
+    blurDataURL:
+      "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAACwAQCdASoQAAkAA4BaJYwCdACC5FJgAP7dGn3A2X984VP315EpyY0TKYswE8ybA8UPA7X4WfXaNT1jat9cAI8Ek6wNKAAA",
+    altEs: "Dos personas frente a una pared con notas de trabajo, ordenando las prioridades de un proyecto",
+    altEn: "Two people at a wall of work notes, sorting out a project's priorities",
+  },
+  "experiencia-mostrador": {
+    src: "/photos/experiencia-mostrador.webp",
     width: 3200,
     height: 2133,
     blurDataURL:
-      "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAABQAgCdASoQAAsAA4BaJYgCxJUABxAO4qOa+MAA/I4FVtePhPX5iuxsrMQ3IBHhc6vG1uGhToZawNSQIPmgvvLMqYvDkCqy1XOss3Jb7dvjHm7F1hMIAA==",
-    altEs: "Una persona revisando documentos frente a un tablero de trabajo",
-    altEn: "Someone going through documents at a working board",
-  },
-  "ventas": {
-    src: "/photos/ventas.webp",
-    width: 3200,
-    height: 2100,
-    blurDataURL:
-      "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAABQAgCdASoQAAoAA4BaJZQCdAYv/zitdRYFbfgA/DbpCvbBy8eqbqe8l8cFDOWkZnmGs696P6gUx0btSgux/pNvDTlFau4ABZ/N8MGz28hYxMS4oNFlk49C3mQwKMbTCBHZ06QtIAA=",
-    altEs: "Un equipo reunido alrededor de una mesa con laptops",
-    altEn: "A team gathered around a table with laptops",
+      "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADwAQCdASoQAAsAA4BaJYwAAvyzZG9wzgAA/kJqS5WqjBcRdVkXnXLzNV/z5E9+P2nzlD+d85WCsSzpXN/efQdoGq1SBIuqGA4lWN5HxwddQ5AgohAAAA==",
+    altEs: "En un mostrador de recepción, una persona atiende con una tableta a otra que llega, las dos de frente",
+    altEn: "At a reception counter, someone with a tablet attends to a visitor, the two facing each other",
   },
   "mantenimiento": {
     src: "/photos/mantenimiento.webp",
@@ -100,23 +100,23 @@ export const PHOTOS = {
     altEs: "Una mujer sonríe de pie en una oficina; detrás, su equipo trabaja en sus computadoras",
     altEn: "A woman smiles standing in an office; behind her, her team works at their computers",
   },
-  "ia-asistente": {
-    src: "/photos/ia-asistente.webp",
+  "ia-operacion": {
+    src: "/photos/ia-operacion.webp",
     width: 3200,
     height: 2133,
     blurDataURL:
-      "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAQAgCdASoQAAsAA4BaJYwC7ADpJbrMFIhAAPvNKl03LSmeMe2SNrSThVt2RdnXhJnddlSPiK1BXv0la6IDYSCL6mM8ro8EeOq4wsd8IgRtHEQNMWQJsAAA",
-    altEs: "Una persona escribe en su laptop con un asistente de inteligencia artificial abierto en la pantalla",
-    altEn: "Someone types on a laptop with an artificial intelligence assistant open on the screen",
+      "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAwAgCdASoQAAsAA4BaJZQAD5FO315jvblIAAD+9YQskNg8abkrdn8WVyqTOSZQ1VljaGsoBJwjbVm4AXL7cCr+SzUgAtaPw8DqjnBae871llrxzX+FfKmVC2TJphW6zqRBGyYjkDTAAA==",
+    altEs: "Una persona sentada frente a un muro de pantallas en una sala de operación, vigilando el trabajo que corre",
+    altEn: "Someone seated before a wall of screens in an operations room, watching the work as it runs",
   },
   "nube-racks": {
     src: "/photos/nube-racks.webp",
     width: 3200,
-    height: 2136,
+    height: 1858,
     blurDataURL:
       "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAQAgCdASoQAAsAA4BaJZgCdAELjlp5P93AAP7xbwRWpf+tgwFbkbObPsND9akJY5pzQVTkUC/3uSxc+k13T9pakS3OPgBH0bFFTMphjciz5jhyD9buDbeSLso+8AAA",
-    altEs: "Una ingeniera revisa una laptop junto a los racks de un centro de datos",
-    altEn: "An engineer checks a laptop beside the racks of a data center",
+    altEs: "Las manos de una persona sobre una laptop, de pie frente a los racks iluminados de un centro de datos",
+    altEn: "A person's hands on a laptop, standing in front of the lit racks of a data centre",
   },
   "producto-pared": {
     src: "/photos/producto-pared.webp",
