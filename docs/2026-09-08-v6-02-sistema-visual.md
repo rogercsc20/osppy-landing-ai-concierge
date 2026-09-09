@@ -37,6 +37,17 @@ la persona sonriendo del recibimiento hace ese trabajo sin cresta ni atardecer.
    prompt de industrias las tendencias de cada industria con su fuente al pie. Prueba: ningún adjetivo de
    calidad en toda la casa (`grep` de "expertos", "líderes", "mejor", "vanguardia" en `messages/*.json` = 0;
    "un experto" solo dentro del botón, HQA-D148).
+
+   > **Nota del 2026-09-08 (operador, HQA-D182).** El encabezado de la sección de las áreas dice "Áreas en
+   > las que nos especializamos." y en inglés "Our areas of expertise.". "Nos especializamos" y "expertise"
+   > dicen qué ES Osppy, que es la razón por la que el banco prohíbe "expertos" y "líderes" (*se dice qué se
+   > hizo, no qué se es*) y por la que este principio pide cero adjetivos de calidad. El operador lo decidió
+   > mirando el sitio vivo, con la objeción dicha antes de escribirlo, y eligió además "expertise" en inglés
+   > sabiendo que la sesión recomendaba "Areas we specialize in.". Es la segunda excepción con fila, después
+   > de "Habla con un experto" (D148), y no ensancha la regla: la prueba del `grep` sigue en cero para
+   > "expertos", "líderes", "mejor" y "vanguardia" en `messages/*.json`, y el linter no cambia. Su nota
+   > gemela vive en `../osppy-hq/business/marca/banco-prohibido.md`.
+
 2. **Gente antes que abstracciones.** Catorce fotografías en la casa, todas con personas trabajando
    (recibimiento, quiénes somos, cómo trabajamos, las ocho áreas, lo que ya opera, hablemos); cero
    ilustraciones, cero pantallas de software como imagen. Prueba: cada `Photo` de `components/` apunta a una

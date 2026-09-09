@@ -12,7 +12,7 @@ export function Header({ locale, m, sobre = "foto" }: { locale: Locale; m: Messa
   const links = [
     [`/${locale}#quienes`, m.nav.quienes],
     [`/${locale}#metodo`, m.nav.metodo],
-    [`/${locale}#ayudamos`, m.nav.ayudamos],
+    [`/${locale}#areas`, m.nav.ayudamos],
     [`/${locale}#hablemos`, m.nav.hablemos],
   ] as const;
   return (

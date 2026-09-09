@@ -7,7 +7,7 @@
     "marca": "Osppy",
     "quienes": "Quiénes somos",
     "metodo": "Cómo trabajamos",
-    "ayudamos": "Cómo ayudamos",
+    "ayudamos": "Áreas",
     "hablemos": "Hablemos",
     "idioma": "EN",
     "idiomaLabel": "Read this site in English",
@@ -56,7 +56,7 @@
     ]
   },
   "ayudamos": {
-    "encabezado": "Cómo ayudamos.",
+    "encabezado": "Áreas en las que nos especializamos.",
     "areas": {
       "estrategia": {
         "nombre": "Estrategia",

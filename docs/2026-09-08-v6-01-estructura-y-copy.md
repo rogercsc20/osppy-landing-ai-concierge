@@ -55,6 +55,11 @@ WhatsApp el día que exista el número, D133). La navegación no lleva botón.
 **Navegación mínima:** la marca ("Osppy", texto o glifo: FASE 3) · Quiénes somos · Cómo trabajamos · Cómo
 ayudamos · Hablemos · el cambio de idioma. Anclas dentro de la misma página.
 
+> **Nota del 2026-09-08 (operador, HQA-D182).** El enlace de la navegación dejó de decir "Cómo ayudamos" y
+> dice **"Áreas"** ("Areas" en inglés), y el ancla a la que apunta dejó de ser `#ayudamos` y es **`#areas`**,
+> para que la barra del navegador diga `/es#areas`. Sigue siendo un ancla de la misma página, como los
+> otros tres enlaces del menú; ninguna URL publicada cambia.
+
 ### 0 · El recibimiento
 
 - **Dice:** **IA que ya trabaja.** (frase corta, D130) y el botón **Hablemos**. Nada más.
@@ -104,6 +109,19 @@ ayudamos · Hablemos · el cambio de idioma. Anclas dentro de la misma página.
 - **No debe:** parecer una lista de servicios; prometer plazos; nombrar clientes.
 
 ### 3 · Cómo ayudamos
+
+> **Nota del 2026-09-08 (operador, HQA-D182).** El encabezado de esta sección ya no dice "Cómo ayudamos."
+> sino **"Áreas en las que nos especializamos."**, y en inglés **"Our areas of expertise."**. Lo de arriba
+> queda escrito como se aprobó el día que se aprobó. Las otras cuatro cadenas de "Cómo ayudamos" no cambian:
+> la pista del hover (`ayudamos.ver`), el eyebrow de cada página de área (`area.eyebrow`), el título dentro de
+> cada página de industria (`industria.ayudamosTitulo`) y los ocho `h1` de industria. **El ancla sí cambia**,
+> por decisión del operador el mismo día: `#ayudamos` pasa a `#areas` y `ayudamos-title` a `areas-title`,
+> en la sección, en el enlace del menú, en el "volver" de cada página de área y en la prueba que afirma el
+> orden de las secciones. Las llaves de `messages/*.json` siguen llamándose `ayudamos.*`: son llaves de
+> mensaje, no URLs, y renombrarlas no le enseñaría nada a nadie. La frase dice qué ES Osppy, que es
+> justo lo que el principio 1 del sistema visual y el banco evitan; es una excepción decidida por el operador
+> y anotada, no un descuido, y tiene su nota del mismo día en
+> `../osppy-hq/business/marca/banco-prohibido.md` y en el §2 del sistema visual.
 
 - **Dice:** encabezado **Cómo ayudamos.** y las ocho áreas (historia §5), sin insignia:
   - **Estrategia.** Decidir qué tecnología necesita tu negocio, en qué orden y para qué, antes de comprar nada.

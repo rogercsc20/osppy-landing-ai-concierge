@@ -115,7 +115,7 @@ export default async function AreaPage({ params }: { params: Params }) {
               <a href={RUTA_CONTACTO[l]} className="inline-flex items-center rounded-full bg-azul px-7 py-4 text-lg font-medium text-negro transition-colors hover:bg-blanco">
                 {m.hablemos.cta}
               </a>
-              <a href={`/${l}#ayudamos`} className="text-lg text-sobre-profundo underline-offset-4 hover:underline">{m.area.volver}</a>
+              <a href={`/${l}#areas`} className="text-lg text-sobre-profundo underline-offset-4 hover:underline">{m.area.volver}</a>
             </div>
           </Container>
           </div>
