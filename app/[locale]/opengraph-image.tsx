@@ -1,13 +1,15 @@
 import { ImageResponse } from "next/og";
-import { getMessages, isLocale } from "@/lib/i18n";
 
+// The link preview (Open Graph and Twitter card) is the dark logo (operator, 2026-09-08, HQA-D166):
+// the icon's own geometry from app/icon.svg, centred on the brand black, so the square crop the
+// messaging apps make (WhatsApp, iMessage) still shows the whole mark. No text, no font to fetch,
+// so the PNG stays small and the preview loads as a card. One image for every route and locale.
 export const alt = "Osppy";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export default async function OpenGraphImage({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = await params;
-  const m = getMessages(isLocale(locale) ? locale : "es");
+export default function OpenGraphImage() {
+  const tile = 460;
   return new ImageResponse(
     (
       <div
@@ -15,26 +17,16 @@ export default async function OpenGraphImage({ params }: { params: Promise<{ loc
           width: "100%",
           height: "100%",
           display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          padding: "72px 80px",
+          alignItems: "center",
+          justifyContent: "center",
           background: "#0A0F0E",
-          color: "#FFFFFF",
-          fontFamily: "Georgia, serif",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 18, fontSize: 44, letterSpacing: "-0.01em" }}>
-          <div style={{ width: 56, height: 56, borderRadius: 12, background: "#0A0F0E", border: "2px solid #2FC4D9", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <div style={{ width: 26, height: 26, borderRadius: 13, border: "7px solid #2FC4D9" }} />
-          </div>
-          <div>Osppy</div>
-        </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
-          <div style={{ fontSize: 60, lineHeight: 1.08, letterSpacing: "-0.02em", maxWidth: 1000 }}>
-            {m.quienes.frase}
-          </div>
-          <div style={{ fontSize: 26, color: "#2FC4D9" }}>www.osppy.com</div>
-        </div>
+        <svg viewBox="0 0 64 64" width={tile} height={tile}>
+          <rect width="64" height="64" rx="14" fill="#0a0f0e" />
+          <circle cx="29" cy="27" r="16" stroke="#2fc4d9" strokeWidth="9" fill="none" />
+          <circle cx="52" cy="52" r="7" fill="#2fc4d9" />
+        </svg>
       </div>
     ),
     size,
