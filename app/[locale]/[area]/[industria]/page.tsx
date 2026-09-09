@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { Cifra } from "@/components/cifra";
 import { Container } from "@/components/container";
 import { Header } from "@/components/header";
 import { GRUPO_INDUSTRIAS } from "@/components/industrias";
@@ -82,7 +83,7 @@ export default async function IndustriaPage({ params }: { params: Params }) {
             <ul className="mt-12 grid gap-12 md:mt-16 md:grid-cols-3 md:gap-10">
               {it.tendencias.map((t) => (
                 <li key={t.texto} className="border-t border-linea pt-6">
-                  <p className="font-display text-[clamp(1.9rem,3.2vw,2.5rem)] leading-[1.05] tracking-[-0.015em] text-azul-texto">{t.cifra}</p>
+                  <Cifra texto={t.cifra} className="font-display text-[clamp(1.9rem,3.2vw,2.5rem)] leading-[1.05] tracking-[-0.015em] text-azul-texto" />
                   <p className="mt-4 max-w-[36ch] text-lg leading-relaxed text-texto">{t.texto}</p>
                   <p className="mt-5 text-sm text-texto-2">
                     <span className="sr-only">{m.industria.fuenteLabel}: </span>

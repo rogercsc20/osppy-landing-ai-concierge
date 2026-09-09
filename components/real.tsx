@@ -1,4 +1,5 @@
 import type { Locale, Messages } from "@/lib/i18n";
+import { Cifra } from "./cifra";
 import { Container } from "./container";
 import { Photo } from "./photo";
 import { Shapes } from "./ribbon";
@@ -20,9 +21,7 @@ export function Real({ locale, m }: { locale: Locale; m: Messages }) {
             <dl className="mt-12 grid gap-10 sm:grid-cols-2 md:mt-16">
               {m.real.cifras.map((c) => (
                 <div key={c.texto} className="border-t border-linea pt-6">
-                  <dt className="font-display text-[clamp(2.5rem,4.5vw,3.5rem)] leading-none tracking-[-0.02em] text-azul-texto">
-                    {c.numero}
-                  </dt>
+                  <Cifra as="dt" texto={c.numero} className="font-display text-[clamp(2.5rem,4.5vw,3.5rem)] leading-none tracking-[-0.02em] text-azul-texto" />
                   <dd className="mt-3 text-lg text-texto-2">{c.texto}</dd>
                 </div>
               ))}

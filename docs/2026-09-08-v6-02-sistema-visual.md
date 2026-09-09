@@ -114,7 +114,10 @@ medido intacto (D150, D151, D157). El color de tema del navegador del teléfono 
 
 Casi ninguno, a propósito: transición de color en botones y enlaces (150 ms), la foto del área que aparece
 al pasar el cursor (opacidad, 500 ms), desplazamiento suave en las anclas; todo desaparece con
-`prefers-reduced-motion`. Sin gsap, sin lenis, sin motion: nada en la casa se gana un efecto.
+`prefers-reduced-motion`. Sin gsap, sin lenis, sin motion. **Excepción del 2026-09-08 (operador, HQA-D165):** las
+cifras grandes (tendencias de industria, "Lo que dicen los datos", "Lo que ya opera") cuentan de cero a su valor al
+entrar en pantalla (1.4 s, `components/cifra.tsx`, sin biblioteca); los años no cuentan; con reducción de movimiento
+no hay conteo.
 
 ### 3.5 Imagen
 

@@ -1,4 +1,5 @@
 import type { Messages } from "@/lib/i18n";
+import { Cifra } from "./cifra";
 import { Container } from "./container";
 import { LogoRing } from "./logo";
 
@@ -20,9 +21,7 @@ export function Datos({ m }: { m: Messages }) {
         <ul className="mt-12 grid gap-12 md:mt-16 md:grid-cols-3 md:gap-10">
           {m.datos.items.map((d) => (
             <li key={d.fuente} className="border-t border-sobre-negro/20 pt-6">
-              <p className="font-display text-[clamp(2rem,3.5vw,2.75rem)] leading-[1.05] tracking-[-0.015em] text-azul">
-                {d.cifra}
-              </p>
+              <Cifra texto={d.cifra} className="font-display text-[clamp(2rem,3.5vw,2.75rem)] leading-[1.05] tracking-[-0.015em] text-azul" />
               <p className="mt-4 max-w-[36ch] text-lg leading-relaxed">{d.texto}</p>
               <p className="mt-5 text-sm text-sobre-negro-2">
                 <span className="sr-only">{m.datos.fuenteLabel}: </span>
