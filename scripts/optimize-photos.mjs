@@ -138,8 +138,10 @@ for (const row of rows) {
     .toBuffer({ resolveWithObject: true });
   writeFileSync(join(OUT, `${row.slug}.webp`), data);
 
-  const blur = await sharp(from)
-    .rotate()
+  // The blur placeholder comes from the CROPPED image, not from the original:
+  // with `recorte` the two stopped being the same picture, and a placeholder
+  // that fades into a different frame is a flash of the wrong photograph.
+  const blur = await (row.recorte ? sharp(from).rotate().extract(await cajaDeRecorte(from, row)) : sharp(from).rotate())
     .resize({ width: 16 })
     .webp({ quality: 40 })
     .toBuffer();
@@ -190,7 +192,22 @@ ${generated
 export type PhotoSlug = keyof typeof PHOTOS;
 `;
 
-writeFileSync(join(root, "lib", "photos.generated.ts"), ts);
-console.log(
-  `\n${generated.length} fotos · ${(total / 1024 / 1024).toFixed(1)} MB en public/photos · lib/photos.generated.ts reescrito`,
-);
+// `lib/photos.generated.ts` is written ONLY on a full run. With --only the rows
+// that were filtered out never entered `generated`, so writing it here would
+// delete every other photograph from the map and take the site down with it —
+// which is exactly what happened on 2026-09-09 while testing a crop (HQA-D182):
+// 21 rows became 1 and 180 lines vanished. The webp files are still written for
+// the rows asked for, so --only keeps its purpose; only the map is left alone,
+// and the run says out loud that it is stale until a full run.
+if (ONLY) {
+  console.log(
+    `\n${generated.length} de ${manifest.photos.length} fotos regeneradas · ` +
+      `lib/photos.generated.ts NO se tocó (con --only quedaría con solo estas filas). ` +
+      `Corre sin --only antes de commitear.`,
+  );
+} else {
+  writeFileSync(join(root, "lib", "photos.generated.ts"), ts);
+  console.log(
+    `\n${generated.length} fotos · ${(total / 1024 / 1024).toFixed(1)} MB en public/photos · lib/photos.generated.ts reescrito`,
+  );
+}
