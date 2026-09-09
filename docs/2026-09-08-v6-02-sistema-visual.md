@@ -106,9 +106,10 @@ medido intacto (D150, D151, D157). El color de tema del navegador del teléfono 
 - **Fondos:** la línea gruesa (`Ribbon`) solo, tenue, detrás de los cuatro pasos (variante b, 0.22) y de
   "Hablemos" (variante a, 0.2); las formas suaves (`Shapes`) detrás de los bloques de la historia y de "Lo que
   ya opera". Nada de esto baja el contraste de un texto.
-- **Regla de construcción:** `min-h` y `overflow-hidden` nunca en un `<section>`; van en un `div` adentro
-  (lo que `check-sections.mjs` prohíbe). Desde HQA-D149 tres secciones pintan su propia banda: la regla de
-  la v2 en ese script ya no describe este sitio (§6).
+- **Regla de construcción:** `min-h` y `overflow-hidden` nunca en un `<section>`; van en un `div` adentro.
+  Desde HQA-D149 tres secciones pintan su propia banda, y eso ahora está permitido: `check-sections.mjs` se
+  reescribió a esta regla en la FASE 4 (§6). No es teoría: un `overflow-hidden` heredado apagó el panel
+  pegajoso de "Cómo ayudamos" (HQA-D159).
 
 ### 3.4 Movimiento
 
@@ -122,8 +123,8 @@ no hay conteo.
 ### 3.5 Imagen
 
 - Solo fotografía real de banco con licencia (Unsplash y Pexels; ninguna Unsplash+), personas en lugares de
-  trabajo reales; ninguna generada (el `hero.webp` de la v5 no se renderiza y sale del manifiesto en la FASE
-  4); ningún arquetipo (apretón de manos, robot, cerebro, holograma); nada de estética de IA (D158: la foto de
+  trabajo reales; ninguna generada (el `hero.webp` de la v5 salió del manifiesto y de `public/photos/` en la FASE 4, con
+  trece fotos más que ya no se renderizaban: el manifiesto tiene 21 filas y el sitio usa 21); ningún arquetipo (apretón de manos, robot, cerebro, holograma); nada de estética de IA (D158: la foto de
   "Inteligencia artificial" es una persona real con una herramienta de IA en pantalla).
 - Las fotos son grandes y predominantes (D137, D151): el recibimiento a pantalla completa; "Nuestro
   propósito" y "Cómo trabajamos" a todo lo ancho; las ocho de "Cómo ayudamos" llenan la mitad derecha al pasar
@@ -192,22 +193,31 @@ Anotado para el operador; no se resuelve aquí (si la marca entera sigue al siti
   dice. Fraunces no aparece en ningún lado.
 - **Modo oscuro.** Es una opción del sitio (D152, D153); Instagram y los decks no lo tienen.
 
-## 6. Las compuertas, con política (estado al 2026-09-08)
+## 6. Las compuertas, con política (estado al 2026-09-08, cerrada la FASE 4)
 
-- `check-contrast.mjs`: **hecho** el 2026-09-08 (commit `4061752`): mide los roles de arriba en claro y en
-  oscuro (el claro fundido bajo el oscuro, como la cascada); los modos hotel y panel de la v2 salieron con nota
-  fechada.
-- `check-copy.mjs`: **hecho** (`4061752`): `METADATA_FILES` nombra `app/[locale]/layout.tsx`, `page.tsx`,
-  `opengraph-image.tsx` y `[area]/page.tsx`; las páginas de industria se agregan cuando existan.
-- `check-sections.mjs`: **pendiente, FASE 4.** La regla "ninguna sección pinta su propia banda" era de la v2 y
-  este sitio tiene bandas por decisión del operador (D149, D154); las clases que prohíbe no se usan, así que no
-  dispara. Decisión propuesta: retirarlo con nota fechada o reescribirlo como la regla de construcción del
-  §3.3 (`min-h` y `overflow-hidden` fuera del `<section>`), que sí describe este sitio.
-- `tests/casa.spec.ts`: siete pruebas (`4061752`); la del modo oscuro busca el botón por su `aria-label`
-  desde el sol y la luna.
-- `photos.manifest.json`: la poda a las fotos de la v6 y la salida de `hero` son de la FASE 4.
+- `check-contrast.mjs`: **hecho** (`4061752`): mide los roles de arriba en claro y en oscuro (el claro fundido
+  bajo el oscuro, como la cascada); los modos hotel y panel de la v2 salieron con nota fechada.
+- `check-copy.mjs`: **hecho** (`4061752`, ampliado en `1e23ee2`): `METADATA_FILES` nombra
+  `app/[locale]/layout.tsx`, `page.tsx`, `opengraph-image.tsx`, `[area]/page.tsx` y
+  `[area]/[industria]/page.tsx`. Las 24 cifras de industria y las tres de la casa están en
+  `scripts/copy-allow.json` con su enlace y la fecha en que se leyeron.
+- `check-sections.mjs`: **decidido y reescrito** en la FASE 4. La regla de la v2 ("ninguna sección pinta su
+  propia banda") era falsa aquí desde D149 y D154, y no se obedeció a ciegas ni se borró en silencio: el
+  script comprueba ahora la regla del §3.3 (una `<section>` no recorta ni fija su altura), que es la que un
+  defecto real probó (D159). Se verificó que muerde: una sección con `overflow-hidden` o `min-h-*` lo hace
+  salir con código 1.
+- `capture.mjs`: **afinado** en la FASE 4, con nota fechada en la medición. Su conteo de elementos ocultos bajo
+  reducción de movimiento venía de los reveals de la v2; este sitio no tiene reveals, pero sí ocho pistas
+  ("Ver cómo ayudamos") que descansan en opacidad 0 y aparecen al pasar el cursor o al enfocar. Un elemento que
+  declara las dos revelaciones es una afordancia y no cuenta; el que solo declara la del cursor sigue contando,
+  porque un lector con teclado nunca lo vería. Sus rutas por defecto son las de la v6, no las borradas de la v5.
+- `tests/casa.spec.ts`: **ocho pruebas** (`4061752`, `e5729d2`): los tiempos en orden, un solo llamado a la
+  acción, las tres redirecciones, nada del banco en el HTML de los dos idiomas, el cambio de idioma, la
+  reducción de movimiento, el modo oscuro, y la tarjeta de industria que abre su página con el ratón.
+- `photos.manifest.json`: **podado** en la FASE 4 a las 21 fotos que la v6 renderiza; catorce filas salieron
+  con su `.webp`, entre ellas `hero`, la única generada con un modelo. El campo `_` ya no admite ninguna.
 
 ---
 
 *Sitio v6 · 02 · Sistema visual · 2026-09-08 · reescrito a las 16:40 con el sistema del prototipo en vivo ·
-compuerta 3 abierta · el criterio de aceptación es el sentimiento, no un número.*
+compuerta 3 cerrada esa noche · el criterio de aceptación fue el sentimiento, no un número.*
