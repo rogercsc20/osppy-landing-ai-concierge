@@ -32,25 +32,31 @@ export function IndustriasCarrusel({ locale, items, labels, grupo }: { locale: L
     const el = e.currentTarget;
     drag.current = { x: e.clientX, left: el.scrollLeft, moved: false };
     el.style.scrollSnapType = "none";
-    el.setPointerCapture(e.pointerId);
-  }
-  function move(e: React.PointerEvent<HTMLUListElement>) {
-    const d = drag.current;
-    if (!d) return;
-    const dx = e.clientX - d.x;
-    if (Math.abs(dx) > 4) d.moved = true;
-    e.currentTarget.scrollLeft = d.left - dx;
-  }
-  function up(e: React.PointerEvent<HTMLUListElement>) {
-    const d = drag.current;
-    if (!d) return;
-    const el = e.currentTarget;
-    el.releasePointerCapture(e.pointerId);
-    el.style.scrollSnapType = "";
-    // keep `moved` for the click that follows the release, then forget the drag
-    setTimeout(() => {
-      drag.current = null;
-    }, 0);
+    // No `setPointerCapture` here: capturing the pointer on the list retargets the click to the
+    // list, so the card's link never navigates with a mouse (2026-09-08, operator: on the phone
+    // the card opened, on the desktop it did not). The move and release are followed on the
+    // window instead, which also keeps the drag alive when the cursor leaves the track.
+    const move = (ev: PointerEvent) => {
+      const d = drag.current;
+      if (!d) return;
+      const dx = ev.clientX - d.x;
+      if (Math.abs(dx) > 4) d.moved = true;
+      el.scrollLeft = d.left - dx;
+      if (d.moved) ev.preventDefault();
+    };
+    const up = () => {
+      window.removeEventListener("pointermove", move);
+      window.removeEventListener("pointerup", up);
+      window.removeEventListener("pointercancel", up);
+      el.style.scrollSnapType = "";
+      // the click that follows the release still needs `moved`; forget the drag after it
+      setTimeout(() => {
+        drag.current = null;
+      }, 0);
+    };
+    window.addEventListener("pointermove", move);
+    window.addEventListener("pointerup", up);
+    window.addEventListener("pointercancel", up);
   }
   function click(e: React.MouseEvent<HTMLUListElement>) {
     if (drag.current?.moved) e.preventDefault();
@@ -76,9 +82,6 @@ export function IndustriasCarrusel({ locale, items, labels, grupo }: { locale: L
         ref={track}
         aria-label={labels.etiqueta}
         onPointerDown={down}
-        onPointerMove={move}
-        onPointerUp={up}
-        onPointerCancel={up}
         onClickCapture={click}
         className="-mx-6 mt-12 flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-4 [scrollbar-width:none] md:-mx-10 md:mt-16 md:px-10 [&::-webkit-scrollbar]:hidden"
       >

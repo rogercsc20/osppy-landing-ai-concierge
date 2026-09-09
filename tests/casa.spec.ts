@@ -62,3 +62,22 @@ test("el modo oscuro es una opción y se recuerda", async ({ page }) => {
   await page.reload();
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
 });
+
+test("una tarjeta de industria abre su página con el ratón, y arrastrar el carrusel no navega", async ({ page }) => {
+  await page.goto("/es");
+  await page.locator("#industrias").scrollIntoViewIfNeeded();
+  const pista = page.locator("#industrias ul");
+  // arrastrar mueve la pista y NO navega
+  const caja = await pista.boundingBox();
+  await page.mouse.move(caja!.x + caja!.width * 0.6, caja!.y + caja!.height / 2);
+  await page.mouse.down();
+  await page.mouse.move(caja!.x + caja!.width * 0.2, caja!.y + caja!.height / 2, { steps: 12 });
+  await page.mouse.up();
+  expect(await pista.evaluate((el) => el.scrollLeft)).toBeGreaterThan(0);
+  await expect(page).toHaveURL(/\/es$/);
+  // un clic sin arrastre sí abre la página de la industria (con el ratón, no solo con el dedo)
+  await pista.evaluate((el) => el.scrollTo({ left: 0, behavior: "instant" }));
+  await page.locator("#industrias a", { hasText: "Ver tendencias" }).first().click();
+  await expect(page).toHaveURL(/\/es\/industrias\/manufactura$/);
+  await expect(page.locator("h1")).toContainText("Cómo ayudamos a la manufactura");
+});
