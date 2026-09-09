@@ -253,6 +253,78 @@ export const PHOTOS = {
     altEs: "Una diseñadora explica los bocetos de las pantallas de una aplicación pegados en la pared",
     altEn: "A designer walks through sketches of an app's screens pinned to the wall",
   },
+  "manufactura-tableta": {
+    src: "/photos/manufactura-tableta.webp",
+    width: 2400,
+    height: 1597,
+    blurDataURL:
+      "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAABQAgCdASoQAAsAA4BaJbACdAYuvvr0BMVWIAAA/vEgFlTE5L8qVcZXWnGZBI69hwMe1/mOeiJ6ynNx9hGEVpm6q6EVSNQheQR2GyNmwJAo41IBv/IBRKM6ZuKrnUIAAAA=",
+    altEs: "Tres operarios revisan una tableta en una nave industrial",
+    altEn: "Three plant workers go over a tablet on the shop floor",
+  },
+  "automotriz-motor": {
+    src: "/photos/automotriz-motor.webp",
+    width: 2400,
+    height: 1600,
+    blurDataURL:
+      "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAAAQAgCdASoQAAsAA4BaJZQCdAEVwrc8PagAAP7vaLabuf5BmEyJbIyGe4uIcBvmZqByDH1IwqrM+LuYhqQrzhx2ZtZNZBeGa6aFtgAA",
+    altEs: "Una ingeniera con casco trabaja sobre una pieza de motor en un taller industrial",
+    altEn: "An engineer in a hard hat works on an engine part in an industrial workshop",
+  },
+  "logistica-escaner": {
+    src: "/photos/logistica-escaner.webp",
+    width: 2400,
+    height: 1600,
+    blurDataURL:
+      "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAADwAQCdASoQAAsAA4BaJYgCdADo7ASVTQAA/b8d1iVnjKxOMwZLojpsNHqqfT1FP9AqbxQLthTZB01ICLjLl/+iUu7ILBmcQGVp3/iCFDqsMkI5+lZtpnIv7nGAMZL7qXf4wm+NnNA+rlkAZw+zgAAA",
+    altEs: "Un trabajador de almacén escanea un tambo con un lector y una tableta",
+    altEn: "A warehouse worker scans a drum with a reader and a tablet",
+  },
+  "construccion-planos": {
+    src: "/photos/construccion-planos.webp",
+    width: 2400,
+    height: 1600,
+    blurDataURL:
+      "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAwAgCdASoQAAsAA4BaJYgCdH8AGJpzNX140AD+34lueO45dq+Ah+9yTJcUCii1mn8z3Iq2hvzWJypARrB9indR69h1Fgigpg4ZvoTEbC1FBk3eTHlnLRBbfUmDBdaCSxsr8QAA",
+    altEs: "Dos ingenieros revisan planos en una obra",
+    altEn: "Two engineers go over drawings on a building site",
+  },
+  "comercio-contenedores": {
+    src: "/photos/comercio-contenedores.webp",
+    width: 2400,
+    height: 1596,
+    blurDataURL:
+      "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAwAgCdASoQAAsAA4BaJbACdAYwTlVm4FPqYAD+I2sRotY2t4bl/sf1y+P0uAL2shz11wE80el8TIdcg5nP0+wshP4eg7rUMSK207jloNalpUZgO7YshU0GR1mPYszRKmZlYbIhTF9Nh6ffyAAAAA==",
+    altEs: "Un trabajador portuario asegura contenedores en un buque",
+    altEn: "A port worker secures containers on a ship",
+  },
+  "retail-tableta": {
+    src: "/photos/retail-tableta.webp",
+    width: 2400,
+    height: 1350,
+    blurDataURL:
+      "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADwAQCdASoQAAkAA4BaJQBOgCP0a174j8AAzizJWsOsrAnvPqv9005l9DA0oBPM9Nea+rtq/NbKRVKX3U1FA9vJQRoCLCx4oRTaIDI+m6Xn0nIJAAA=",
+    altEs: "Una empleada revisa una tableta entre los percheros de una tienda de ropa",
+    altEn: "A store employee checks a tablet between the racks of a clothing shop",
+  },
+  "farmaceutica-planta": {
+    src: "/photos/farmaceutica-planta.webp",
+    width: 2400,
+    height: 1600,
+    blurDataURL:
+      "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAQCdASoQAAsAA4BaJQBOgBh5JEj0AAD+7AX7tw8Aji6BMLo5/Ov46VB4CvRsegHnQChyYPh4Utmw+QqP3x4Po7Jwg2e+QD654wAA",
+    altEs: "Personal con traje estéril dentro de una planta farmacéutica",
+    altEn: "Staff in sterile suits inside a pharmaceutical plant",
+  },
+  "agricultura-cosecha": {
+    src: "/photos/agricultura-cosecha.webp",
+    width: 2400,
+    height: 1349,
+    blurDataURL:
+      "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAQCdASoQAAkAA4BaJYgCdAEU7znQoAD+W/zuFgCykCWjYwb9yszH/sxpY0DfeVgFNWg2XRp5/sZGSN3XB+B2sCzmvPNSuEH1gAAA",
+    altEs: "Cuadrillas cosechan en un campo abierto, con los camiones de carga al fondo",
+    altEn: "Crews harvest an open field, with the trucks in the background",
+  },
 } as const satisfies Record<string, SitePhoto>;
 
 export type PhotoSlug = keyof typeof PHOTOS;
