@@ -27,6 +27,11 @@
   --on-dark: #FFFFFF;
   --on-dark-2: #B8C6C9;
   --line: #DCE3E4;
+  /* Error (2026-09-08, contact route): the system had no colour for meaning-is-wrong.
+   * It is never the only signal — the message says what is wrong and is tied to the
+   * field with aria-describedby — but it has to be readable on the page ground and on
+   * the field's own surface. Measured by scripts/check-contrast.mjs in both modes. */
+  --error: #A4231A;
 }
 
 /* Dark mode (HQA-D152): an option behind a switch, light by default. The brand black is the ground,
@@ -44,6 +49,7 @@
   --accent-text: #2FC4D9;
   --primary-foreground: #0A0F0E;
   --line: #26312F;
+  --error: #FFB4AB;
 }
 
 @theme inline {
@@ -57,6 +63,7 @@
   --color-sobre-negro: var(--on-dark);
   --color-sobre-negro-2: var(--on-dark-2);
   --color-linea: var(--line);
+  --color-error: var(--error);
   --color-profundo: var(--band);
   --color-sobre-profundo: var(--on-band);
   --color-sobre-profundo-2: var(--on-band-2);

@@ -222,6 +222,15 @@ const METADATA_FILES = [
   "app/[locale]/opengraph-image.tsx",
   "app/[locale]/[area]/page.tsx",
   "app/[locale]/[area]/[industria]/page.tsx",
+  // The contact route and the privacy notice (2026-09-08, HQA-D175/D176). Their copy lives
+  // in messages/*.json, but their metadata and their route files are .tsx and no linter
+  // would look at them otherwise; a rename now fails this gate instead of shrinking it.
+  "app/[locale]/contacto/page.tsx",
+  "app/[locale]/contact/page.tsx",
+  "app/[locale]/privacidad/page.tsx",
+  "app/[locale]/privacy/page.tsx",
+  "components/contacto-pagina.tsx",
+  "components/aviso-pagina.tsx",
 ];
 // Only rows whose term is pure punctuation. A row of words in a .tsx would hit
 // identifiers and English prose in comments; a row of punctuation cannot.

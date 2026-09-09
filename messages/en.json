@@ -442,5 +442,184 @@
     "fuenteLabel": "Source",
     "volver": "See all industries",
     "ctaTexto": "Tell us how your company operates and we will tell you where we can help and where we cannot."
+  },
+  "contacto": {
+    "meta": {
+      "title": "Contact · Osppy",
+      "description": "Tell us how your company operates and we will tell you where we can help and where we cannot."
+    },
+    "encabezado": "Tell us how your company operates.",
+    "linea": "We will tell you where we can help and where we cannot. The more you tell us about your operation, the more concrete the answer.",
+    "correoPregunta": "Would you rather write an email?",
+    "correo": "hello@osppy.com",
+    "requerido": "(required)",
+    "opcional": "(optional)",
+    "campos": {
+      "nombre": {
+        "etiqueta": "Name",
+        "marcador": "First and last name",
+        "error": "Write your name."
+      },
+      "correo": {
+        "etiqueta": "Email",
+        "marcador": "name@company.com",
+        "error": "Write a valid email, like name@company.com."
+      },
+      "telefono": {
+        "etiqueta": "Phone",
+        "marcador": "Include your country code",
+        "error": "Write a phone number where we can reach you."
+      },
+      "empresa": {
+        "etiqueta": "Company",
+        "marcador": "Your company's name",
+        "error": "Write your company's name."
+      },
+      "puesto": {
+        "etiqueta": "Role",
+        "marcador": "Your role at the company",
+        "error": "Write your role."
+      },
+      "ciudad": {
+        "etiqueta": "City",
+        "marcador": "The city your company operates in",
+        "error": "Write your city."
+      },
+      "mensaje": {
+        "etiqueta": "Message",
+        "marcador": "Tell us how your company operates today and what you want to solve.",
+        "error": ""
+      }
+    },
+    "pais": {
+      "etiqueta": "Country",
+      "opciones": [
+        "Mexico",
+        "United States",
+        "Canada",
+        "Other"
+      ]
+    },
+    "aviso": {
+      "antes": "I accept that Osppy processes my personal data in accordance with the ",
+      "enlace": "privacy notice",
+      "despues": ".",
+      "error": "We need your acceptance in order to reply."
+    },
+    "correos": {
+      "texto": "I want to receive emails from Osppy. I can cancel them at any time by writing to hello@osppy.com."
+    },
+    "boton": "Send message",
+    "enviando": "Sending",
+    "revisa": "Check the fields marked below.",
+    "exito": "Thank you, we have it. We will reply to the email you gave us.",
+    "fallo": "We could not send your message. Try again or write to us at hello@osppy.com.",
+    "volver": "Back to the home"
+  },
+  "privacidad": {
+    "meta": {
+      "title": "Privacy notice · Osppy",
+      "description": "Osppy's privacy notice under the Mexican LFPDPPP."
+    },
+    "titulo": "Privacy notice",
+    "actualizado": "Last updated: September 2026.",
+    "intro": [
+      "This notice is issued under the Mexican Federal Law on Protection of Personal Data Held by Private Parties (LFPDPPP), its Regulations and the Privacy Notice Guidelines. The Spanish version is the legally operative one.",
+      "We recommend reading it in full before giving us any personal data."
+    ],
+    "secciones": [
+      {
+        "titulo": "Identity and address of the controller",
+        "parrafos": [
+          "Osppy is a trade name. The company is in the process of incorporation and this notice will be updated with its legal name and address as soon as it is incorporated.",
+          "For any matter related to your personal data, the contact channel is hello@osppy.com."
+        ]
+      },
+      {
+        "titulo": "Personal data we collect",
+        "parrafos": [
+          "Only what you write in this site's contact form: name, email, phone, company, role, country, city and whatever you tell us in the message.",
+          "In addition, our hosting provider records technical data about the connection, such as the IP address, to operate the site and protect it from abuse."
+        ]
+      },
+      {
+        "titulo": "Purposes of processing",
+        "parrafos": [
+          "Primary, necessary to answer you: reply to your message, understand whether we can help you and follow up on that conversation.",
+          "Secondary, not necessary: send you emails from Osppy, only if you checked that box. If you do not want the secondary purposes, simply leave it unchecked or write to us at hello@osppy.com; your refusal does not affect the reply to your message."
+        ]
+      },
+      {
+        "titulo": "Sensitive personal data",
+        "parrafos": [
+          "We neither request nor require it. If you provide it voluntarily in the message, its processing is strictly limited to the purposes described here."
+        ]
+      },
+      {
+        "titulo": "Transfers and remissions",
+        "parrafos": [
+          "Your message arrives as an email at hello@osppy.com. This site does not store it in any database.",
+          "Two providers act as processors so that it arrives: the site's hosting provider and the email delivery provider, both located in the United States, which process the data solely on our behalf and under our instructions, and for which we adopt measures aimed at an adequate level of protection.",
+          "We do not sell, rent or transfer your data to third parties for purposes other than those described, except in the cases provided for in article 37 of the LFPDPPP or when we have your consent."
+        ]
+      },
+      {
+        "titulo": "Cookies and tracking",
+        "parrafos": [
+          "This site uses no tracking cookies, no advertising and no analytics tools. The only thing stored in your browser is whether you choose light or dark mode, and that never leaves your device."
+        ]
+      },
+      {
+        "titulo": "The WhatsApp assistant has its own notice",
+        "parrafos": [
+          "If you arrived here from a conversation with an Osppy assistant on WhatsApp, the processing of those messages is governed by that service's notice, which is a document separate from this one."
+        ]
+      },
+      {
+        "titulo": "How to exercise your ARCO rights",
+        "parrafos": [
+          "You have the right to access your personal data, rectify it when inaccurate, cancel it when you consider it is not required for the stated purposes, and object to its processing.",
+          "To exercise them, send a request to hello@osppy.com stating: your name and a means to receive a reply; the documents proving your identity or, where applicable, legal representation; a clear description of the data over which you seek to exercise a right; and any element that helps locate it.",
+          "We answer within a maximum of twenty business days and, where the request is well founded, we make it effective within the following fifteen business days."
+        ]
+      },
+      {
+        "titulo": "Withdrawal of consent and limitation of use",
+        "parrafos": [
+          "You may withdraw your consent, as well as limit the use or disclosure of your data, by writing to hello@osppy.com. Legal obligations may require us to keep processing certain data for a set period."
+        ]
+      },
+      {
+        "titulo": "Retention",
+        "parrafos": [
+          "We keep your message and your contact data for up to twenty-four months, or until you ask us to delete it, whichever comes first."
+        ]
+      },
+      {
+        "titulo": "Security measures",
+        "parrafos": [
+          "We implement reasonable administrative, technical and physical measures to protect your personal data against damage, loss, alteration, destruction or unauthorized use, access or processing."
+        ]
+      },
+      {
+        "titulo": "Changes",
+        "parrafos": [
+          "We may update this notice. Any change is published on this same page, stating the date of the last update."
+        ]
+      },
+      {
+        "titulo": "Authority",
+        "parrafos": [
+          "If you consider that your right to the protection of personal data has been infringed, you may turn to the competent authority to file the corresponding complaint."
+        ]
+      },
+      {
+        "titulo": "Acceptance",
+        "parrafos": [
+          "By sending us the form you state that you have read, understood and accepted the terms of this notice."
+        ]
+      }
+    ],
+    "volver": "Back to the home"
   }
 }

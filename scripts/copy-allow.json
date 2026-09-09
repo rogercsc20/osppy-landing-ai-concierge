@@ -283,5 +283,9 @@
   "industrias.items[3].tendencias[1].texto": [
     "20%",
     "23%"
+  ],
+  "// privacidad": "Legal citation, not a figure about the business: article 37 of the Ley Federal de Proteccion de Datos Personales en Posesion de los Particulares lists the transfers that need no consent. Text recovered from the landing's own notice (commit f28d696) and adjusted to what the site does today (operator, 2026-09-08, HQA-D176). Source: https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf",
+  "privacidad.secciones[4].parrafos[2]": [
+    "37"
   ]
 }

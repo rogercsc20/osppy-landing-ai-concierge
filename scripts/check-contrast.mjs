@@ -147,6 +147,10 @@ const PAIRS = [
   ["on-dark", "dark", 4.5],
   ["on-dark-2", "dark", 4.5],
   ["accent", "dark", 3],
+  // Error text (2026-09-08, contact route): it appears under the field, on the page
+  // ground and beside the field's own surface, so both pairs are measured.
+  ["error", "bg", 4.5],
+  ["error", "surface", 4.5],
 ];
 
 let fails = 0;

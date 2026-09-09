@@ -442,5 +442,184 @@
     "fuenteLabel": "Fuente",
     "volver": "Ver todas las industrias",
     "ctaTexto": "Cuéntanos cómo opera tu empresa y te decimos dónde podemos ayudar y dónde no."
+  },
+  "contacto": {
+    "meta": {
+      "title": "Contacto · Osppy",
+      "description": "Cuéntanos cómo opera tu empresa y te decimos dónde podemos ayudar y dónde no."
+    },
+    "encabezado": "Cuéntanos cómo opera tu empresa.",
+    "linea": "Te decimos dónde podemos ayudar y dónde no. Entre más nos cuentes de tu operación, más concreta es la respuesta.",
+    "correoPregunta": "¿Prefieres escribir un correo?",
+    "correo": "hello@osppy.com",
+    "requerido": "(requerido)",
+    "opcional": "(opcional)",
+    "campos": {
+      "nombre": {
+        "etiqueta": "Nombre",
+        "marcador": "Nombre y apellido",
+        "error": "Escribe tu nombre."
+      },
+      "correo": {
+        "etiqueta": "Correo electrónico",
+        "marcador": "nombre@empresa.com",
+        "error": "Escribe un correo válido, como nombre@empresa.com."
+      },
+      "telefono": {
+        "etiqueta": "Teléfono",
+        "marcador": "Incluye la clave de tu país",
+        "error": "Escribe un teléfono donde podamos localizarte."
+      },
+      "empresa": {
+        "etiqueta": "Empresa",
+        "marcador": "Nombre de tu empresa",
+        "error": "Escribe el nombre de tu empresa."
+      },
+      "puesto": {
+        "etiqueta": "Puesto",
+        "marcador": "Tu cargo en la empresa",
+        "error": "Escribe tu puesto."
+      },
+      "ciudad": {
+        "etiqueta": "Ciudad",
+        "marcador": "Ciudad donde opera tu empresa",
+        "error": "Escribe tu ciudad."
+      },
+      "mensaje": {
+        "etiqueta": "Mensaje",
+        "marcador": "Cuéntanos cómo opera tu empresa hoy y qué quieres resolver.",
+        "error": ""
+      }
+    },
+    "pais": {
+      "etiqueta": "País",
+      "opciones": [
+        "México",
+        "Estados Unidos",
+        "Canadá",
+        "Otro"
+      ]
+    },
+    "aviso": {
+      "antes": "Acepto que Osppy trate mis datos personales conforme al ",
+      "enlace": "aviso de privacidad",
+      "despues": ".",
+      "error": "Necesitamos tu aceptación para poder contestarte."
+    },
+    "correos": {
+      "texto": "Quiero recibir correos de Osppy. Puedo cancelarlos cuando quiera escribiendo a hello@osppy.com."
+    },
+    "boton": "Enviar mensaje",
+    "enviando": "Enviando",
+    "revisa": "Revisa los campos marcados.",
+    "exito": "Gracias, ya lo recibimos. Te contestamos al correo que nos diste.",
+    "fallo": "No pudimos enviar tu mensaje. Vuelve a intentarlo o escríbenos a hello@osppy.com.",
+    "volver": "Volver a la casa"
+  },
+  "privacidad": {
+    "meta": {
+      "title": "Aviso de privacidad · Osppy",
+      "description": "Aviso de privacidad de Osppy conforme a la LFPDPPP."
+    },
+    "titulo": "Aviso de privacidad",
+    "actualizado": "Última actualización: septiembre de 2026.",
+    "intro": [
+      "En cumplimiento de la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP), su Reglamento y los Lineamientos del Aviso de Privacidad, ponemos a tu disposición el presente aviso.",
+      "Te recomendamos leerlo completo antes de darnos cualquier dato personal."
+    ],
+    "secciones": [
+      {
+        "titulo": "Identidad y domicilio del responsable",
+        "parrafos": [
+          "Osppy es un nombre comercial. La sociedad se encuentra en proceso de constitución y este aviso se actualizará con su razón social y su domicilio en cuanto quede constituida.",
+          "Para cualquier asunto relacionado con tus datos personales, el canal de contacto es hello@osppy.com."
+        ]
+      },
+      {
+        "titulo": "Datos personales que recabamos",
+        "parrafos": [
+          "Solo los que escribes en el formulario de contacto de este sitio: nombre, correo electrónico, teléfono, empresa, puesto, país, ciudad y lo que nos cuentes en el mensaje.",
+          "Además, nuestro proveedor de hospedaje registra datos técnicos de la conexión, como la dirección IP, para operar el sitio y protegerlo de abuso."
+        ]
+      },
+      {
+        "titulo": "Finalidades del tratamiento",
+        "parrafos": [
+          "Primarias, necesarias para atenderte: contestar tu mensaje, entender si podemos ayudarte y dar seguimiento a esa conversación.",
+          "Secundarias, no necesarias: enviarte correos de Osppy, únicamente si marcaste esa casilla. Si no quieres las secundarias, basta con no marcarla o escribirnos a hello@osppy.com; tu negativa no afecta la respuesta a tu mensaje."
+        ]
+      },
+      {
+        "titulo": "Datos personales sensibles",
+        "parrafos": [
+          "No los solicitamos ni los requerimos. Si llegas a proporcionarlos de manera voluntaria en el mensaje, su tratamiento se limita estrictamente a las finalidades aquí descritas."
+        ]
+      },
+      {
+        "titulo": "Transferencias y remisiones",
+        "parrafos": [
+          "Tu mensaje llega como correo electrónico a hello@osppy.com. Este sitio no lo guarda en ninguna base de datos.",
+          "Para que llegue intervienen dos proveedores que actúan como encargados: el de hospedaje del sitio y el de entrega de correo, ambos ubicados en los Estados Unidos, que tratan los datos únicamente por nuestra cuenta y bajo nuestras instrucciones, y para quienes adoptamos medidas dirigidas a un nivel de protección adecuado.",
+          "No vendemos, rentamos ni transferimos tus datos a terceros para finalidades distintas de las descritas, salvo en los casos previstos por el artículo 37 de la LFPDPPP o cuando contemos con tu consentimiento."
+        ]
+      },
+      {
+        "titulo": "Cookies y rastreo",
+        "parrafos": [
+          "Este sitio no usa cookies de rastreo, publicidad ni herramientas de analítica. Lo único que se guarda en tu navegador es si eliges el modo claro u oscuro, y eso nunca sale de tu dispositivo."
+        ]
+      },
+      {
+        "titulo": "El asistente de WhatsApp tiene su propio aviso",
+        "parrafos": [
+          "Si llegaste aquí desde una conversación con un asistente de Osppy en WhatsApp, el tratamiento de esos mensajes se rige por el aviso de ese servicio, que es un documento distinto de este."
+        ]
+      },
+      {
+        "titulo": "Medios para ejercer tus derechos ARCO",
+        "parrafos": [
+          "Tienes derecho a acceder a tus datos personales, rectificarlos cuando sean inexactos, cancelarlos cuando consideres que no se requieren para las finalidades señaladas y oponerte a su tratamiento.",
+          "Para ejercerlos, envía una solicitud a hello@osppy.com indicando: tu nombre y un medio para recibir respuesta; los documentos que acrediten tu identidad o, en su caso, la representación legal; la descripción clara de los datos sobre los que buscas ejercer algún derecho; y cualquier elemento que facilite su localización.",
+          "Damos respuesta en un plazo máximo de veinte días hábiles y, de resultar procedente, la hacemos efectiva dentro de los quince días hábiles siguientes."
+        ]
+      },
+      {
+        "titulo": "Revocación del consentimiento y limitación de uso",
+        "parrafos": [
+          "Puedes revocar tu consentimiento, así como limitar el uso o divulgación de tus datos, escribiendo a hello@osppy.com. Es posible que por obligaciones legales debamos seguir tratando ciertos datos por un tiempo determinado."
+        ]
+      },
+      {
+        "titulo": "Conservación",
+        "parrafos": [
+          "Conservamos tu mensaje y tus datos de contacto hasta por veinticuatro meses, o hasta que nos pidas eliminarlos, lo que ocurra primero."
+        ]
+      },
+      {
+        "titulo": "Medidas de seguridad",
+        "parrafos": [
+          "Implementamos medidas administrativas, técnicas y físicas razonables para proteger tus datos personales contra daño, pérdida, alteración, destrucción o uso, acceso o tratamiento no autorizados."
+        ]
+      },
+      {
+        "titulo": "Modificaciones",
+        "parrafos": [
+          "Podemos actualizar este aviso. Cualquier modificación se publica en esta misma página, indicando la fecha de la última actualización."
+        ]
+      },
+      {
+        "titulo": "Autoridad",
+        "parrafos": [
+          "Si consideras que tu derecho a la protección de datos personales ha sido vulnerado, puedes acudir ante la autoridad competente en la materia para presentar la queja o denuncia que corresponda."
+        ]
+      },
+      {
+        "titulo": "Aceptación",
+        "parrafos": [
+          "Al enviarnos el formulario manifiestas haber leído, entendido y aceptado los términos de este aviso."
+        ]
+      }
+    ],
+    "volver": "Volver a la casa"
   }
 }
