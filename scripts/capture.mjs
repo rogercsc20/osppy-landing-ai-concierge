@@ -10,7 +10,10 @@
 //                the Vercel insights script, which 404s off Vercel by design
 //   invisible  — with --reduced (prefers-reduced-motion emulated) the number
 //                of text-bearing elements still at computed opacity 0 two
-//                seconds after load: under reduced motion nothing may hide
+//                seconds after load: under reduced motion nothing may hide.
+//                An element that declares both a hover AND a focus reveal is
+//                an affordance, not a reveal, and is not counted (dated note
+//                at the measurement itself, 2026-09-08)
 // Exit 1 when any combination overflows, logs an error, or hides content.
 //
 //   node scripts/capture.mjs [--base URL] [--routes /es,/en,…] [--widths 360,768]
@@ -24,7 +27,13 @@ const arg = (name, fallback) => {
   return i === -1 ? fallback : process.argv[i + 1];
 };
 const BASE = arg("base", "http://localhost:3000");
-const ROUTES = arg("routes", "/es,/en,/es/capacitacion,/en/training,/es/asesoria,/en/advisory,/es/implementacion,/en/implementation,/es/hoteles,/en/hotels,/es/citas,/en/appointments").split(",");
+// v6 routes (2026-09-08, FASE 4): the defaults were the v5 pages, all of them
+// deleted, so a bare `node scripts/capture.mjs` captured six 404s. One house per
+// language, one area page and one industry page in each; pass --routes for more.
+const ROUTES = arg(
+  "routes",
+  "/es,/en,/es/estrategia,/en/strategy,/es/industrias/manufactura,/en/industries/manufacturing",
+).split(",");
 const WIDTHS = arg("widths", "360,390,768,1024,1280,1440,1920").split(",").map(Number);
 const THEMES = arg("themes", "light,dark").split(",");
 const OUT = arg("out", "captures");
@@ -80,7 +89,21 @@ for (const theme of THEMES) {
         for (const el of document.querySelectorAll("main *")) {
           if (!(el instanceof HTMLElement)) continue;
           if (!el.innerText || !el.innerText.trim()) continue;
-          if (getComputedStyle(el).opacity === "0") invisible++;
+          if (getComputedStyle(el).opacity !== "0") continue;
+          // 2026-09-08 (FASE 4): a hover affordance is not a motion reveal. This
+          // count was written for the v2's `whileInView` animations, where a
+          // hidden element only ever appeared through motion, so reduced motion
+          // left it hidden forever. The v6 has no scroll reveals; it does have
+          // eight hints ("Ver cómo ayudamos") that rest at opacity 0 and appear
+          // when the area is hovered OR focused, which is the same with motion
+          // on and off. An element that declares BOTH reveals is an affordance
+          // and does not count. One that declares only the hover reveal still
+          // counts: a keyboard reader would never see it.
+          const clases = el.className.toString();
+          const conHover = /(^|[\s:-])hover:opacity-100/.test(clases);
+          const conFoco = /(^|[\s:-])focus(-visible)?:opacity-100/.test(clases);
+          if (conHover && conFoco) continue;
+          invisible++;
         }
         return { sw, iw, invisible };
       });

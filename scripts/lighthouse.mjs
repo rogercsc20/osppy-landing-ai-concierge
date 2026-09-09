@@ -16,7 +16,8 @@ const arg = (name, fallback) => {
   return i === -1 ? fallback : process.argv[i + 1];
 };
 const BASE = arg("base", "http://localhost:3000");
-const ROUTES = arg("routes", "/es,/es/capacitacion,/es/asesoria,/es/implementacion,/es/hoteles,/es/citas").split(",");
+// v6 routes (2026-09-08, FASE 4): the v5 defaults pointed at deleted pages.
+const ROUTES = arg("routes", "/es,/en,/es/estrategia,/es/industrias/manufactura").split(",");
 const TARGET = Number(arg("target", "90"));
 const NO_FAIL = process.argv.includes("--no-fail");
 const OUT = join("captures", "lh");

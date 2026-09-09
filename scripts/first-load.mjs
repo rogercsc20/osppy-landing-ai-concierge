@@ -25,7 +25,9 @@ const arg = (name, fallback) => {
   return i === -1 ? fallback : process.argv[i + 1];
 };
 const BASE = arg("base", "http://localhost:3000");
-const ROUTES = arg("routes", "/es,/en,/es/capacitacion,/es/asesoria,/es/implementacion,/es/hoteles,/es/citas").split(",");
+// v6 routes (2026-09-08, FASE 4): the v5 defaults pointed at deleted pages, so
+// a bare run measured the not-found page and called it a home.
+const ROUTES = arg("routes", "/es,/en,/es/estrategia,/es/industrias/manufactura").split(",");
 const BUDGET_KB = Number(arg("budget", "200"));
 
 const browser = await chromium.launch();
