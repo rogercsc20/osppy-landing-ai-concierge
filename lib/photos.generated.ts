@@ -321,9 +321,9 @@ export const PHOTOS = {
     width: 2400,
     height: 1600,
     blurDataURL:
-      "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAADwAQCdASoQAAsAA4BaJZQAAmhaahXHW9AA/t093SJ81jspsq6RZ592NQ/nDbgUNs10703ChmQK2s0KnUcdRLLbMS5TKGJVj6CR6b0ef6V7HJUjIgAAWIAA",
-    altEs: "Un operario trabaja frente a una máquina grande en una planta de metal",
-    altEn: "A worker at a large machine in a metal plant",
+      "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAAAQAgCdASoQAAsAA4BaJZQAAxYYBNXdF3CAAP7lo8j47gVZelBrPpxDxLFVBmizl+WF6VF0rg8luOosEg648Gd7462XT48LgPyLvAgA",
+    altEs: "Un operario revisa una pieza grande montada en un torno, dentro de una planta",
+    altEn: "A worker checks a large part mounted on a lathe inside a plant",
   },
 } as const satisfies Record<string, SitePhoto>;
 
