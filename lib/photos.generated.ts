@@ -253,15 +253,6 @@ export const PHOTOS = {
     altEs: "Una diseñadora explica los bocetos de las pantallas de una aplicación pegados en la pared",
     altEn: "A designer walks through sketches of an app's screens pinned to the wall",
   },
-  "manufactura-tableta": {
-    src: "/photos/manufactura-tableta.webp",
-    width: 2400,
-    height: 1597,
-    blurDataURL:
-      "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAABQAgCdASoQAAsAA4BaJbACdAYuvvr0BMVWIAAA/vEgFlTE5L8qVcZXWnGZBI69hwMe1/mOeiJ6ynNx9hGEVpm6q6EVSNQheQR2GyNmwJAo41IBv/IBRKM6ZuKrnUIAAAA=",
-    altEs: "Tres operarios revisan una tableta en una nave industrial",
-    altEn: "Three plant workers go over a tablet on the shop floor",
-  },
   "automotriz-motor": {
     src: "/photos/automotriz-motor.webp",
     width: 2400,
@@ -324,6 +315,15 @@ export const PHOTOS = {
       "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAQCdASoQAAkAA4BaJYgCdAEU7znQoAD+W/zuFgCykCWjYwb9yszH/sxpY0DfeVgFNWg2XRp5/sZGSN3XB+B2sCzmvPNSuEH1gAAA",
     altEs: "Cuadrillas cosechan en un campo abierto, con los camiones de carga al fondo",
     altEn: "Crews harvest an open field, with the trucks in the background",
+  },
+  "manufactura-maquina": {
+    src: "/photos/manufactura-maquina.webp",
+    width: 2400,
+    height: 1600,
+    blurDataURL:
+      "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAADwAQCdASoQAAsAA4BaJZQAAmhaahXHW9AA/t093SJ81jspsq6RZ592NQ/nDbgUNs10703ChmQK2s0KnUcdRLLbMS5TKGJVj6CR6b0ef6V7HJUjIgAAWIAA",
+    altEs: "Un operario trabaja frente a una máquina grande en una planta de metal",
+    altEn: "A worker at a large machine in a metal plant",
   },
 } as const satisfies Record<string, SitePhoto>;
 

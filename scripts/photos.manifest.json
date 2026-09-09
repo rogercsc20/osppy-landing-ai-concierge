@@ -175,14 +175,6 @@
       "origen": "Pexels, Christina Morillo, 1181487. Licencia Pexels, libre. Elegida por el operador el 2026-09-08 (HQA-D158, D159) para Producto digital: un equipo diseñando el producto en la pared; sustituye a calidad (thisisengineering-ZPeXrWxOjRQ)."
     },
     {
-      "slug": "manufactura-tableta",
-      "file": "sergey-sergeev-32845690-pexels.jpg",
-      "ladoLargo": 2400,
-      "altEs": "Tres operarios revisan una tableta en una nave industrial",
-      "altEn": "Three plant workers go over a tablet on the shop floor",
-      "origen": "Pexels, Sergey Sergeev, 32845690. Licencia Pexels, libre. Elegida por el operador el 2026-09-08 (HQA-D162) para la industria manufactura, entre dos candidatas."
-    },
-    {
       "slug": "automotriz-motor",
       "file": "chevanon-1108101-pexels.jpg",
       "ladoLargo": 2400,
@@ -237,6 +229,14 @@
       "altEs": "Cuadrillas cosechan en un campo abierto, con los camiones de carga al fondo",
       "altEn": "Crews harvest an open field, with the trucks in the background",
       "origen": "Pexels, Mark Stebnicki, 9798992. Licencia Pexels, libre. Elegida por la sesión el 2026-09-08 tras HQA-D162 (el operador pidió una foto que se lea como agricultura en lugar del campo de agave)."
+    },
+    {
+      "slug": "manufactura-maquina",
+      "file": "rolled-alloys-8973132-pexels.jpg",
+      "ladoLargo": 2400,
+      "altEs": "Un operario trabaja frente a una máquina grande en una planta de metal",
+      "altEn": "A worker at a large machine in a metal plant",
+      "origen": "Pexels, Rolled Alloys Specialty Metal Supplier, 8973132. Licencia Pexels, libre. Elegida por el operador el 2026-09-08 (HQA-D163) para la industria manufactura, en lugar de la de los tres operarios con tableta (Sergey Sergeev, 32845690), cuyos cascos llevaban el logo de una acerera rusa."
     }
   ]
 }
