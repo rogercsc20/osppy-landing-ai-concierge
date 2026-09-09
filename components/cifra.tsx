@@ -7,8 +7,13 @@ import { useCallback, useEffect, useRef, useState } from "react";
  * counter effect of the earlier site on every figure). Every number inside the text
  * counts from zero to its value over 1.4 s with an ease-out; the words stay still; years
  * (19xx, 20xx) stay still. Under `prefers-reduced-motion` nothing moves. The server
- * renders the final text, so the page reads right without JavaScript, and the accessible
- * name is always the final text.
+ * renders the final text, so the page reads right without JavaScript.
+ *
+ * ACCESSIBILITY (2026-09-08, FASE 4): the final text was carried in an `aria-label` on the
+ * <p> / <dt>. That is a naming attribute on an element with no role that supports naming,
+ * so Chrome ignores it and the accessibility tree read "Solo el 0%" while the figure was
+ * still out of view. The final text now lives in a visually hidden span, and the animated
+ * one is hidden from assistive technology: what is announced is always the real figure.
  */
 type Part = { text: string } | { num: number; decimals: number; grouped: boolean; suffix: string };
 const TOKEN = /\d{1,3}(?:,\d{3})+(?:\.\d+)?|\d+(?:\.\d+)?/g;
@@ -83,16 +88,22 @@ export function Cifra({ texto, className, as = "p" }: { texto: string; className
       cancelAnimationFrame(raf);
     };
   }, [texto]);
+  const contenido = (
+    <>
+      <span aria-hidden="true">{shown}</span>
+      <span className="sr-only">{texto}</span>
+    </>
+  );
   if (as === "dt") {
     return (
-      <dt ref={setNode} className={className} aria-label={texto}>
-        {shown}
+      <dt ref={setNode} className={className}>
+        {contenido}
       </dt>
     );
   }
   return (
-    <p ref={setNode} className={className} aria-label={texto}>
-      {shown}
+    <p ref={setNode} className={className}>
+      {contenido}
     </p>
   );
 }
