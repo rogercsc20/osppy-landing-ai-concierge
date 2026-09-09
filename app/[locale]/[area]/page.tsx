@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   };
 }
 
-/** One page per area (HQA-D152): capability, never a catalogue entry (HQA-D112). Only sourced content: the area's line, its sub-areas (foundation §4), the four stages, the call to action. */
+/** One page per area (HQA-D152): capability, never a catalogue entry (HQA-D112). Only sourced content: the area's line, its sub-areas (foundation §4), the four stages, the attested work list (FDV §11.12; it left the home with HQA-D155 and lives here so the proof of capability is not lost), the call to action. */
 export default async function AreaPage({ params }: { params: Params }) {
   const { locale, area } = await params;
   const l = isLocale(locale) ? locale : "es";
@@ -89,6 +89,17 @@ export default async function AreaPage({ params }: { params: Params }) {
                   ))}
                 </ol>
               </div>
+            </div>
+            <div className="mt-16 md:mt-20">
+              <h2 className="font-display text-[1.75rem] text-texto md:text-[2.25rem]">{m.construido.encabezado}</h2>
+              <ul className="mt-6 grid gap-x-12 gap-y-3 text-lg leading-relaxed text-texto-2 md:grid-cols-2">
+                {m.construido.items.map((item) => (
+                  <li key={item} className="flex gap-3">
+                    <span aria-hidden="true" className="mt-[0.85em] h-1.5 w-1.5 shrink-0 rounded-full bg-azul" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </Container>
         </section>

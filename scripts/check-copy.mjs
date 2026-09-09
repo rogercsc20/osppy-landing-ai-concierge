@@ -221,6 +221,7 @@ const METADATA_FILES = [
   "app/[locale]/page.tsx",
   "app/[locale]/opengraph-image.tsx",
   "app/[locale]/[area]/page.tsx",
+  "app/[locale]/[area]/[industria]/page.tsx",
 ];
 // Only rows whose term is pure punctuation. A row of words in a .tsx would hit
 // identifiers and English prose in comments; a row of punctuation cannot.

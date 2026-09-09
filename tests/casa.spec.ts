@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 
 // v6 smoke tests (2026-09-08; site prompt §11.3): few and real.
 
-const ORDEN = ["#inicio", "#quienes", "#metodo", "#ayudamos", "#datos", "#real", "#hablemos"];
+const ORDEN = ["#inicio", "#quienes", "#metodo", "#ayudamos", "#industrias", "#datos", "#real", "#hablemos"];
 const BANCO = ["expertos", "lideres", "a la medida", "transformacion digital", "de vanguardia", "garantiza", "sin riesgo", "\u2014"];
 
 const plano = (s: string) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();

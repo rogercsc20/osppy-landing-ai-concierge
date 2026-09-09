@@ -3,6 +3,7 @@ import { Datos } from "@/components/datos";
 import { Hablemos } from "@/components/hablemos";
 import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
+import { Industrias } from "@/components/industrias";
 import { Metodo } from "@/components/metodo";
 import { Quienes } from "@/components/quienes";
 import { Real } from "@/components/real";
@@ -20,6 +21,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <Quienes locale={l} m={m} />
       <Metodo locale={l} m={m} />
       <Ayudamos locale={l} m={m} />
+      <Industrias locale={l} m={m} />
       <Datos m={m} />
       <Real locale={l} m={m} />
       <Hablemos locale={l} m={m} />

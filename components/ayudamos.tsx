@@ -4,7 +4,8 @@ import { LogoRing } from "./logo";
 
 /**
  * Cómo ayudamos (HQA-D152, D154): the band's format, deep teal with Osppy watermarks; the areas on
- * the left, their photographs filling the right side on hover. The watermarks live in their own
+ * the left, their photographs filling the right side on hover. "Lo que ya se ha construido" left this
+ * section for the area pages (HQA-D155, industries prompt §4). The watermarks live in their own
  * cropped layer (2026-09-08): an `overflow-hidden` ancestor turns `position: sticky` off, and the
  * hover photograph is a sticky panel, so the crop cannot sit on the content wrapper.
  */
@@ -26,17 +27,6 @@ export function Ayudamos({ locale, m }: { locale: Locale; m: Messages }) {
           </h2>
           <div className="mt-12 md:mt-16 lg:pl-[max(0px,calc((100vw-80rem)/2-2.5rem))]">
             <AreasHover locale={locale} areas={areas} ver={m.ayudamos.ver} />
-          </div>
-          <div className="mt-20 max-w-7xl md:mt-28 lg:pl-[max(0px,calc((100vw-80rem)/2-2.5rem))]">
-            <h3 className="font-display text-2xl md:text-[1.75rem]">{m.construido.encabezado}</h3>
-            <ul className="mt-6 grid gap-x-12 gap-y-3 text-lg leading-relaxed text-sobre-profundo-2 md:grid-cols-2">
-              {m.construido.items.map((item) => (
-                <li key={item} className="flex gap-3">
-                  <span aria-hidden="true" className="mt-[0.85em] h-1.5 w-1.5 shrink-0 rounded-full bg-azul" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </div>
