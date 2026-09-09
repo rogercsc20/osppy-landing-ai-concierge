@@ -1,5 +1,5 @@
 {
-  "_": "The photo manifest. One row per photo the site uses: slug (the name the code asks for), file (the original in --src), and alt text in both locales. The originals live OUTSIDE the repo (~/Desktop/osppy-fotos by default) and .gitignore blocks *.jpg under public/photos. Run: node scripts/optimize-photos.mjs [--src <dir>]. No credits file: the Unsplash and Pexels licenses ask for attribution and do not require it; the author slug and the photo id stay in `file`, which is where traceability belongs. v6 (2026-09-08, HQA-D137): the site is largely photographs, all of them licensed bank photos of real people in real work settings; NO model-generated image enters (foundation §9): the v5 `hero` row (a Gemini image) is kept here only until FASE 4 prunes this manifest to the v6 rows, and it is not rendered. Each v6 photo is approved by the operator one by one on the prototype (gate 3).",
+  "_": "The photo manifest. One row per photo the site renders: slug (the name the code asks for), file (the original in --src), ladoLargo (the long edge in px when it is not the default), alt text in both locales, and origen (bank, author, id, licence and the date and row it was chosen under). The originals live OUTSIDE the repo (~/Desktop/osppy-fotos by default) and .gitignore blocks *.jpg under public/photos. Run: node scripts/optimize-photos.mjs [--src <dir>]. No credits file: the Unsplash and Pexels licenses ask for attribution and do not require it; the author slug and the photo id stay in `file` and in `origen`, which is where traceability belongs. v6 (2026-09-08, HQA-D137): the site is largely photographs, all of them licensed bank photos of real people in real work settings, each approved by the operator one by one on the prototype (gate 3). NO model-generated image is in this manifest and none may enter (foundation §9). FASE 4 pruning (2026-09-08): the manifest lists only what the v6 renders. Fourteen rows left with their .webp, thirteen inherited from the v5 areas (facturacion, rh, nomina, marketing, comercio-exterior, operaciones, logistica, calidad, sistemas, servicio, legal, direccion, implementacion) and `hero`, the Gemini-generated mountaineer of the v5, which is the reason this file no longer says that a generated image may be kept for any purpose. No photograph that stands for an industry carries a visible company logo or foreign-language branding (HQA-D163).",
   "photos": [
     {
       "slug": "contabilidad",
@@ -20,82 +20,10 @@
       "altEn": "A team gathered around a table with laptops"
     },
     {
-      "slug": "facturacion",
-      "file": "douglas-lopez-likFdgumjWM-unsplash.jpg",
-      "altEs": "Una mano señalando una pantalla con gráficas financieras",
-      "altEn": "A hand pointing at a screen of financial charts"
-    },
-    {
-      "slug": "rh",
-      "file": "annie-spratt-QckxruozjRg-unsplash.jpg",
-      "altEs": "Un equipo trabajando junto en una sala amplia",
-      "altEn": "A team working together in an open room"
-    },
-    {
-      "slug": "nomina",
-      "file": "kaitlyn-baker-vZJdYl5JVXY-unsplash.jpg",
-      "altEs": "Unas manos tecleando en una laptop sobre un escritorio oscuro",
-      "altEn": "Hands typing on a laptop at a dark desk"
-    },
-    {
-      "slug": "marketing",
-      "file": "compagnons-YUuSAJkS3U4-unsplash.jpg",
-      "altEs": "Una videollamada con muchos participantes en la pantalla de una laptop",
-      "altEn": "A video call with many participants on a laptop screen"
-    },
-    {
-      "slug": "comercio-exterior",
-      "file": "lukas-blazek-mcSDtbWXUZU-unsplash.jpg",
-      "altEs": "Una laptop mostrando un expediente de indicadores",
-      "altEn": "A laptop showing a file of indicators"
-    },
-    {
-      "slug": "operaciones",
-      "file": "homa-appliances-ERXFD4jLpJc-unsplash.jpg",
-      "altEs": "Una línea de producción en operación dentro de una planta",
-      "altEn": "A production line running inside a plant"
-    },
-    {
-      "slug": "logistica",
-      "file": "chuttersnap-BNBA1h-NgdY-unsplash.jpg",
-      "altEs": "Racks de un almacén llenos de mercancía",
-      "altEn": "Warehouse racking full of goods"
-    },
-    {
-      "slug": "calidad",
-      "file": "thisisengineering-ZPeXrWxOjRQ-unsplash.jpg",
-      "altEs": "Una ingeniera revisando una máquina con una laptop al lado",
-      "altEn": "An engineer checking a machine with a laptop beside her"
-    },
-    {
       "slug": "mantenimiento",
       "file": "thisisengineering-WjOWazUPAss-unsplash.jpg",
       "altEs": "Personal técnico trabajando sobre maquinaria en planta",
       "altEn": "Technical staff working on machinery on the plant floor"
-    },
-    {
-      "slug": "sistemas",
-      "file": "priscilla-du-preez-OEdkPaxYMXU-unsplash.jpg",
-      "altEs": "Una persona trabajando con una laptop y una tableta",
-      "altEn": "Someone working with a laptop and a tablet"
-    },
-    {
-      "slug": "servicio",
-      "file": "arlington-research-kN_kViDchA0-unsplash.jpg",
-      "altEs": "Una oficina abierta con varios escritorios ocupados",
-      "altEn": "An open-plan office with several desks in use"
-    },
-    {
-      "slug": "legal",
-      "file": "agefis-qh-mar1Tzo8-unsplash.jpg",
-      "altEs": "Una laptop y documentos sobre un escritorio de trabajo",
-      "altEn": "A laptop and documents on a working desk"
-    },
-    {
-      "slug": "direccion",
-      "file": "stephen-dawson-qwtCeJ5cLYs-unsplash.jpg",
-      "altEs": "Una pantalla con indicadores de operación",
-      "altEn": "A screen of operating indicators"
     },
     {
       "slug": "proceso-escrito",
@@ -115,19 +43,6 @@
       "altEs": "Cuatro personas conversando frente a una laptop",
       "altEn": "Four people talking around a laptop",
       "ladoLargo": 2400
-    },
-    {
-      "slug": "implementacion",
-      "file": "alex-kotliarskyi-QBpZGqEMsKg-unsplash.jpg",
-      "altEs": "Una oficina grande con equipos trabajando en sus escritorios",
-      "altEn": "A large office with teams working at their desks"
-    },
-    {
-      "slug": "hero",
-      "file": "Gemini_Generated_Image_kig8xtkig8xtkig8.jpeg",
-      "origen": "Imagen generada con Gemini (Google), entregada por el operador el 2026-09-04. Sin autor ni licencia de banco: no traza a nadie. Entra al héroe de la casa por decisión del operador (D-1 del plan v5, salida A), revirtiendo HQA-D31, HQA-D41 y HQA-D90.",
-      "altEs": "Dos excursionistas en una cresta al atardecer; uno le tiende la mano al otro para ayudarlo a subir",
-      "altEn": "Two hikers on a ridge at sunset; one reaches down to help the other up"
     },
     {
       "slug": "quienes",

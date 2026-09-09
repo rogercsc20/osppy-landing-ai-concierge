@@ -37,78 +37,6 @@ export const PHOTOS = {
     altEs: "Un equipo reunido alrededor de una mesa con laptops",
     altEn: "A team gathered around a table with laptops",
   },
-  "facturacion": {
-    src: "/photos/facturacion.webp",
-    width: 1600,
-    height: 1067,
-    blurDataURL:
-      "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAADQAQCdASoQAAsAA4BaJbAAAp/oSuVb4AD+7m6RF9VIZCAA/tGV4IaziGhILa1vEahJGqlYF81BnjIuTxPCo2JJLeJ5h88fEhtwL4nPXheUgF8C/cNUGsKTS+bvX4bmZY133ug/kcGGn4L3KoAAAA==",
-    altEs: "Una mano señalando una pantalla con gráficas financieras",
-    altEn: "A hand pointing at a screen of financial charts",
-  },
-  "rh": {
-    src: "/photos/rh.webp",
-    width: 1600,
-    height: 1067,
-    blurDataURL:
-      "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAACQAgCdASoQAAsAA4BaJZQC7AYrnn8SaoVL/jeqAAD+h+UjlXU0ByGQdRUSkC99B5bMLGkZitO4R3Gs0KfJyfLU603aVgcBnKcyscDdtUtLPz3CS9onFZ1iVpVmgAAA",
-    altEs: "Un equipo trabajando junto en una sala amplia",
-    altEn: "A team working together in an open room",
-  },
-  "nomina": {
-    src: "/photos/nomina.webp",
-    width: 1600,
-    height: 1067,
-    blurDataURL:
-      "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAAAQAgCdASoQAAsAA4BaJZQCw7EO1FGFSgYAAP7u89EDMPJgJo7otBQMjfxtitWXVECzv8pak3Qw6Sx102Lfe1Ldj3101NCXw++Qly1vV2+p5RR4i+NZRjQAAAA=",
-    altEs: "Unas manos tecleando en una laptop sobre un escritorio oscuro",
-    altEn: "Hands typing on a laptop at a dark desk",
-  },
-  "marketing": {
-    src: "/photos/marketing.webp",
-    width: 1600,
-    height: 1151,
-    blurDataURL:
-      "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAwAgCdASoQAAwAA4BaJQAB8pYHFak6aquMgAD+Zt1/efhNynox9hVLUNgrUlP6JutuZurcFz412tUBWJJO2Y8XEOiS3Tc8w2dtx3QUZN2djQrERWkKPTIXVR3dU+S3WUxQAA==",
-    altEs: "Una videollamada con muchos participantes en la pantalla de una laptop",
-    altEn: "A video call with many participants on a laptop screen",
-  },
-  "comercio-exterior": {
-    src: "/photos/comercio-exterior.webp",
-    width: 1600,
-    height: 1059,
-    blurDataURL:
-      "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAQAgCdASoQAAsAA4BaJZQCdAEVKKIUvUuIAP72XlkuVT8Glp4IgBcPT18g+nCTRJ+cGYI2ZBpqr7ENZGijN9CB2J9b9AZwApQJqkhV4UYjibVxgAA=",
-    altEs: "Una laptop mostrando un expediente de indicadores",
-    altEn: "A laptop showing a file of indicators",
-  },
-  "operaciones": {
-    src: "/photos/operaciones.webp",
-    width: 1600,
-    height: 1067,
-    blurDataURL:
-      "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAABQAgCdASoQAAsAA4BaJZgCdAD8tg2Q/wsXSAAA/sxUe38clHg0zYex59y25Cby++3HtpxZoYr5sNqDwQKpKX2St+HivuTyv/B3RChNz9MRNz2oCiIZ+DWshCX8AAAA",
-    altEs: "Una línea de producción en operación dentro de una planta",
-    altEn: "A production line running inside a plant",
-  },
-  "logistica": {
-    src: "/photos/logistica.webp",
-    width: 1600,
-    height: 1065,
-    blurDataURL:
-      "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAQAgCdASoQAAsAA4BaJYwCdAYt9gb2Z2LQAP7s6NBnsfsB8d3SR38et5f5aKIwdELQ1ly1CqZGG33NVswmCVk/p+1sSc+vvySer0ukWaqviPume7hb21PO1OjQAA==",
-    altEs: "Racks de un almacén llenos de mercancía",
-    altEn: "Warehouse racking full of goods",
-  },
-  "calidad": {
-    src: "/photos/calidad.webp",
-    width: 1600,
-    height: 1067,
-    blurDataURL:
-      "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAABwAgCdASoQAAsAA4BaJYwCw7Yt9qbTOMFVxuYAAP7JxNsmaYImwiq4i4/zyi1ZzQcwlrFsWk6lA+26MnPDfIOkeCYvgtOqAvgTQ+FVkYSKh+3t64DPbTKM30Ubo8AA",
-    altEs: "Una ingeniera revisando una máquina con una laptop al lado",
-    altEn: "An engineer checking a machine with a laptop beside her",
-  },
   "mantenimiento": {
     src: "/photos/mantenimiento.webp",
     width: 1067,
@@ -117,42 +45,6 @@ export const PHOTOS = {
       "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAAAwBACdASoQABgAPu1iqk2ppaQiMAgBMB2JYwDA3B5UEm6F39bBqQ3CagAA/pFFIoZBT19Bdliq22lm6+2a/HPhnvwrbdM1N0rvuUfRoKjoCxy+ZUir9D1uyF4KV1c//TDJs/5l8aGBKoSFNPp1LFOsAEbnO7nSTYZRkAAA",
     altEs: "Personal técnico trabajando sobre maquinaria en planta",
     altEn: "Technical staff working on machinery on the plant floor",
-  },
-  "sistemas": {
-    src: "/photos/sistemas.webp",
-    width: 1600,
-    height: 1067,
-    blurDataURL:
-      "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAAAQAgCdASoQAAsAA4BaJZQAD4zOkcPQdmgAAP7h6UEgO0g28KdtscqamrMBzZcQXRHVWpD4dErGUMIOAqetPGFPrjIvTnAcWZ+h4EIjn0u8erx/3PYZSj5nFuWCZdoEAAA=",
-    altEs: "Una persona trabajando con una laptop y una tableta",
-    altEn: "Someone working with a laptop and a tablet",
-  },
-  "servicio": {
-    src: "/photos/servicio.webp",
-    width: 1600,
-    height: 1068,
-    blurDataURL:
-      "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADwAQCdASoQAAsAA4BaJQAB8mYSN5BSjgAA/uu44W1ni2tZu+BAlHA6r2Qm6qr2cQ0IZNAlvgDXnhyaPPRedXSx4wIDhublJNXIDoNhkhUj68yFxI/eZkSaBfoAAA==",
-    altEs: "Una oficina abierta con varios escritorios ocupados",
-    altEn: "An open-plan office with several desks in use",
-  },
-  "legal": {
-    src: "/photos/legal.webp",
-    width: 1067,
-    height: 1600,
-    blurDataURL:
-      "data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAABwBACdASoQABgAPu1iqU2ppaOiMAgBMB2JQBgcUwC1NlH+gSMEG8rBb0KX6AD8NpGq0exJN9zlJtQ8IJlSC3BjiARSF7KORfxF13E5icZT0YsukPKrpyG+V/HYMXB+vncOsKGkkIcdXskSfYuVtAdYX+caU/KnGvtQp4Bz4mt/BRlQA5cL98FtKjgCvaeX2i/WFIAhPvJwQUdRcR+SIAAA",
-    altEs: "Una laptop y documentos sobre un escritorio de trabajo",
-    altEn: "A laptop and documents on a working desk",
-  },
-  "direccion": {
-    src: "/photos/direccion.webp",
-    width: 1600,
-    height: 1152,
-    blurDataURL:
-      "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAQAgCdASoQAAwAA4BaJZQC7ADwHiWp2ssAAP5PDqzypA3LL8TadSzLGFVkRrmPyV8ivMQ03xnfKHSXU/xj99WnQB9YL7pqwbvw5bG0MgFfot/wN9bpMjA5YDJPAAAA",
-    altEs: "Una pantalla con indicadores de operación",
-    altEn: "A screen of operating indicators",
   },
   "proceso-escrito": {
     src: "/photos/proceso-escrito.webp",
@@ -180,24 +72,6 @@ export const PHOTOS = {
       "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAwAgCdASoQAAsAA4BaJagCdAYvhRgp8hveAAD+ypon4e27wdHnd7ojHQdvk4q5dzDZCUrGifxGMUJLxjCNlw6TJDEGbSjlPEvqME1hwSxI/hzT6W6Mvj0ZmJ0uRSI3Lf1glIAA",
     altEs: "Cuatro personas conversando frente a una laptop",
     altEn: "Four people talking around a laptop",
-  },
-  "implementacion": {
-    src: "/photos/implementacion.webp",
-    width: 1600,
-    height: 1067,
-    blurDataURL:
-      "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAQAgCdASoQAAsAA4BaJZwAD43sFYrq7s+AAP70Wsf/cvXDRytOLfaXuv7vm1Csh9PUUzA4LKqaifqWNZWGdjfaYltwUWejpkOr2Qc9a4BBP26ff4BsvAAA",
-    altEs: "Una oficina grande con equipos trabajando en sus escritorios",
-    altEn: "A large office with teams working at their desks",
-  },
-  "hero": {
-    src: "/photos/hero.webp",
-    width: 1376,
-    height: 768,
-    blurDataURL:
-      "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADwAQCdASoQAAkAA4BaJbACdADLve3WsgAA/PImNuUH8rCZYqysysj5RvzA4GWhLeT4KYyoMXSyX1a8tcvIOF7xhM9ve/g0Prrexgpvd7LxnNwYAAA=",
-    altEs: "Dos excursionistas en una cresta al atardecer; uno le tiende la mano al otro para ayudarlo a subir",
-    altEn: "Two hikers on a ridge at sunset; one reaches down to help the other up",
   },
   "quienes": {
     src: "/photos/quienes.webp",
