@@ -55,14 +55,14 @@ export const PHOTOS = {
     altEs: "Una persona anotando un diagrama en una libreta junto a una laptop",
     altEn: "Someone sketching a diagram in a notebook beside a laptop",
   },
-  "capacitacion": {
-    src: "/photos/capacitacion.webp",
+  "estrategia-documentos": {
+    src: "/photos/estrategia-documentos.webp",
     width: 3200,
     height: 2133,
     blurDataURL:
-      "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAQAgCdASoQAAsAA4BaJQBOgMXI7Ws3LZWAAP6JTTa8xWoBfPAH23AqVmP1M+w1MHf7VL8TbwX0dvoTDoyPSOU2o/kxCidBcACr6vOnzIDIMBqF39ud4H07MCPa1znt7ld7Nqrb6P6J23R5IoYAAA==",
-    altEs: "Una sesión en una sala de juntas con alguien presentando",
-    altEn: "A session in a meeting room with someone presenting",
+      "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAADwAQCdASoQAAsAA4BaJQBOgMX/eVw4wCAA/vTxtL/9wcNkjvnh5wvVf22vX1de1YzGF2FiXW5b69sski4/nWYKGww9mkwt7YPM5GJ12jmuj6Y7EMiom3xyEAuq4O3d/5vEuak8Sg3HEnGMrJuUUAAA",
+    altEs: "Tres personas revisando gráficas impresas sobre la mesa de una sala de juntas",
+    altEn: "Three people going over printed charts on a meeting room table",
   },
   "asesoria": {
     src: "/photos/asesoria.webp",
@@ -114,7 +114,7 @@ export const PHOTOS = {
     width: 3200,
     height: 1858,
     blurDataURL:
-      "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAQAgCdASoQAAsAA4BaJZgCdAELjlp5P93AAP7xbwRWpf+tgwFbkbObPsND9akJY5pzQVTkUC/3uSxc+k13T9pakS3OPgBH0bFFTMphjciz5jhyD9buDbeSLso+8AAA",
+      "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADwAQCdASoQAAkAA4BaJZgCdAD7BonVUgAA/uzs64qyTIUYOJxPaXF/gputCNHitWM4Eo71UUjKG6mjHrvuqO6dkh0l7RjxK+QXbebBLcAAAA==",
     altEs: "Las manos de una persona sobre una laptop, de pie frente a los racks iluminados de un centro de datos",
     altEn: "A person's hands on a laptop, standing in front of the lit racks of a data centre",
   },

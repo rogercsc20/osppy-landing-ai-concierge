@@ -197,7 +197,7 @@ Fotos por sección (el operador aprueba una por una, D137):
 Las que salen con D158: `sistemas` (persona con laptop y tableta), `implementacion` (oficina grande) y
 `calidad` (ingeniera en planta) dejan "Cómo ayudamos"; siguen en el manifiesto hasta la poda de la FASE 4.
 
-> **Nota del 2026-09-09 (operador, HQA-D182).** Cuatro filas de la tabla de arriba dejaron de ser ciertas el
+> **Nota del 2026-09-09 (operador, HQA-D182).** Cinco filas de la tabla de arriba dejaron de ser ciertas el
 > mismo día, y la tabla se queda escrita como se aprobó:
 >
 > - **Planeación y entrega** ya no es `compras` sino **`entrega-tablero`**, dos personas frente a una pared de
@@ -214,9 +214,19 @@ Las que salen con D158: `sistemas` (persona con laptop y tableta), `implementaci
 >   elegido es además el único de los cuatro que deja fuera el emblema de una marca de ropa que la camisa
 >   lleva en el pecho.
 >
-> Las cuatro traen `origen` completo en `scripts/photos.manifest.json`, con las descartadas y su razón. La
+> - **Estrategia** ya no es `capacitacion` sino **`estrategia-documentos`**, tres personas revisando gráficas
+>   impresas (Vlada Karpovich en Pexels, 7433823). HQA-D174 había dejado abierto "el logo de Apple" de la
+>   anterior; al medirlo resultaron **tres empresas y dos pantallas de software**, todas legibles ampliando el
+>   archivo entregado: Apple en la laptop del fondo, DELL en la de abajo a la derecha, el nombre LA NUIT PORTE
+>   CONSEIL impreso en las ocho bolsas de la mesa, y dos escritorios de Windows con sus iconos, que además
+>   chocan con el principio 2. Ningún recorte lo arreglaba: las bolsas estaban por toda la mesa.
+>
+> Las cinco traen `origen` completo en `scripts/photos.manifest.json`, con las descartadas y su razón. La
 > fila de **Datos** de la tabla tampoco es cierta desde HQA-D174, que reemplazó `contabilidad` por dos
-> colegas revisando un reporte impreso; queda anotado aquí porque nadie lo anotó entonces.
+> colegas revisando un reporte impreso; queda anotado aquí porque nadie lo anotó entonces. **Sigue abierta
+> (O)** la placa en cirílico "ШР-ЖЗ ОТШМ-7 ТП33" de la fotografía de manufactura, legible y sin recorte
+> posible porque está a la misma altura que la cabeza del operario: el operador decidió el 2026-09-09 dejarla
+> para una sesión propia.
 
 ## 5. Dónde diverge de la guía §8 y de Instagram
 
