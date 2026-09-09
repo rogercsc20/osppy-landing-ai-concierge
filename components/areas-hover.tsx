@@ -11,6 +11,19 @@ type Area = Messages["ayudamos"]["areas"][keyof Messages["ayudamos"]["areas"]];
  * Cómo ayudamos (HQA-D152): eight areas, each a link to its page; on hover or focus its
  * photograph fills the whole right side. On small screens every area shows its photo above.
  */
+// `sizes` on the sticky panel describes the width the DECODED image needs, not
+// the width of the box (2026-09-09, HQA-D182). The box is 656x900 CSS points at
+// 1440, which is 1312x1800 real pixels on a double-density screen, and the crop
+// is `object-cover` on a PORTRAIT box: the height drives everything. A 3:2
+// photograph covering 1800 px of height is 2700 px wide, so `50vw` (which asked
+// for 1440 and got the 1920 entry) made the browser ENLARGE every area
+// photograph by 1.67x, which is the same class of deficit HQA-D168 chased and
+// this corner of the site never measured. 1350 CSS points asks for 2700 and
+// lands on the 3840 entry, which serves the 3200 master. Measured cost: the
+// eight photographs of the panel go from 603 kB to 1777 kB. They are lazy and
+// below the fold, so this is bandwidth, not LCP.
+const PANEL_SIZES = "(min-width: 1024px) 1350px, 100vw";
+
 export function AreasHover({ locale, areas, ver }: { locale: Locale; areas: Area[]; ver: string }) {
   const [active, setActive] = useState(0);
   return (
@@ -54,7 +67,7 @@ export function AreasHover({ locale, areas, ver }: { locale: Locale; areas: Area
                 aria-hidden={active !== i}
                 className={`absolute inset-0 transition-opacity duration-500 ${active === i ? "opacity-100" : "opacity-0"}`}
               >
-                <Image src={p.src} alt={alt} fill sizes="50vw" quality={90} placeholder="blur" blurDataURL={p.blurDataURL} className="object-cover" />
+                <Image src={p.src} alt={alt} fill sizes={PANEL_SIZES} quality={90} placeholder="blur" blurDataURL={p.blurDataURL} className="object-cover" />
               </div>
             );
           })}
