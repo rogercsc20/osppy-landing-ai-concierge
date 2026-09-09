@@ -250,14 +250,14 @@
         "ayudamos": "Putting each project's documents, purchases and progress in order, which today live in emails and spreadsheets, so management sees the whole project without waiting for the report.",
         "tendencias": [
           {
-            "cifra": "46%",
-            "texto": "of the construction businesses surveyed already use artificial intelligence or machine learning, twice as many as in 2023; one in four still runs mainly on paper.",
-            "fuente": "Deloitte for Autodesk, State of Digital Adoption in the Construction Industry (Asia-Pacific), 2026"
+            "cifra": "61%",
+            "texto": "of construction firms in the United States already use artificial intelligence or plan to invest more in it, up from 44% a year earlier.",
+            "fuente": "AGC, 2026 Construction Hiring and Business Outlook, 2026"
           },
           {
-            "cifra": "Only 16%",
-            "texto": "of the construction businesses surveyed have advanced digital capability, and fewer than half give their on-site teams real-time project data.",
-            "fuente": "Deloitte for Autodesk, State of Digital Adoption in the Construction Industry (Asia-Pacific), 2026"
+            "cifra": "45%",
+            "texto": "of those firms apply artificial intelligence to office and administrative work; 23% to estimating and 20% to design and preconstruction.",
+            "fuente": "AGC, 2026 Construction Hiring and Business Outlook, 2026"
           },
           {
             "cifra": "41%",
@@ -346,18 +346,18 @@
         "ayudamos": "Bringing together what is scattered today between field, packing and customer (yields, inputs, shipments, certificates) so the traceability the buyer asks for comes out on its own.",
         "tendencias": [
           {
-            "cifra": "Between 4.7% and 10.2%",
-            "texto": "of production units in southern Mexico have internet access, against 40.6% in Coahuila: the countryside's digital gap starts with the connection.",
-            "fuente": "ECLAC, Digitalization and technological change in agricultural and agro-industrial MSMEs in Latin America, 2021"
+            "cifra": "50.4%",
+            "texto": "of Canada's farms already use at least one technology in their operation; automated guidance steering went from 20.5% to 26.8% of farms between 2015 and 2020.",
+            "fuente": "Statistics Canada, 2021 Census of Agriculture, 2023"
+          },
+          {
+            "cifra": "2,656",
+            "texto": "agricultural technology start-ups operate across 23 countries of Latin America and the Caribbean; 110 of them in Mexico.",
+            "fuente": "IICA and Embrapa, Radar AgTech Latin America and the Caribbean, 2026"
           },
           {
             "cifra": "88.8%",
-            "texto": "of agricultural production units report high input and service costs as their main problem; 61% had losses from weather or pests and 17.6% a shortage of labor.",
-            "fuente": "INEGI, Agricultural Census 2022, 2023"
-          },
-          {
-            "cifra": "77,417 hectares",
-            "texto": "of protected agriculture (greenhouses, shade mesh, macro-tunnels) across 30,179 production units: the technology that controls the environment and improves yields is already growing in Mexico.",
+            "texto": "of Mexico's agricultural production units report high input and service costs as their main problem; 61% had losses from weather or pests and 17.6% a shortage of labor.",
             "fuente": "INEGI, Agricultural Census 2022, 2023"
           }
         ]

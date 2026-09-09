@@ -250,14 +250,14 @@
         "ayudamos": "Poner en orden los documentos, compras y avances de cada obra, que hoy viven en correos y hojas, y que la dirección vea la obra completa sin esperar el reporte.",
         "tendencias": [
           {
-            "cifra": "46%",
-            "texto": "de las constructoras encuestadas ya usa inteligencia artificial o aprendizaje automático, el doble que en 2023; una de cada cuatro sigue operando sobre todo en papel.",
-            "fuente": "Deloitte para Autodesk, State of Digital Adoption in the Construction Industry (Asia-Pacífico), 2026"
+            "cifra": "61%",
+            "texto": "de las constructoras de Estados Unidos ya usa inteligencia artificial o va a invertir más en ella, contra 44% un año antes.",
+            "fuente": "AGC, 2026 Construction Hiring and Business Outlook, 2026"
           },
           {
-            "cifra": "Solo el 16%",
-            "texto": "de las constructoras encuestadas tiene capacidad digital avanzada, y menos de la mitad da a sus equipos en obra datos del proyecto en tiempo real.",
-            "fuente": "Deloitte para Autodesk, State of Digital Adoption in the Construction Industry (Asia-Pacífico), 2026"
+            "cifra": "45%",
+            "texto": "de esas constructoras aplica la inteligencia artificial en oficina y administración; el 23% en estimación de costos y el 20% en diseño y preconstrucción.",
+            "fuente": "AGC, 2026 Construction Hiring and Business Outlook, 2026"
           },
           {
             "cifra": "41%",
@@ -346,18 +346,18 @@
         "ayudamos": "Juntar lo que hoy está repartido entre campo, empaque y cliente (rendimientos, insumos, embarques, certificados) y que la trazabilidad que pide el comprador salga sola.",
         "tendencias": [
           {
-            "cifra": "Entre 4.7% y 10.2%",
-            "texto": "de las unidades de producción del sur de México tienen acceso a internet, contra 40.6% en Coahuila: la brecha digital del campo empieza por la conexión.",
-            "fuente": "CEPAL, Digitalización y cambio tecnológico en las mipymes agrícolas y agroindustriales en América Latina, 2021"
+            "cifra": "50.4%",
+            "texto": "de las granjas de Canadá ya usa al menos una tecnología en su operación; la dirección automática de maquinaria pasó de 20.5% a 26.8% de las granjas entre 2015 y 2020.",
+            "fuente": "Statistics Canada, Censo de Agricultura 2021, 2023"
+          },
+          {
+            "cifra": "2,656",
+            "texto": "empresas emergentes de tecnología agrícola operan en 23 países de América Latina y el Caribe; 110 de ellas en México.",
+            "fuente": "IICA y Embrapa, Radar AgTech América Latina y el Caribe, 2026"
           },
           {
             "cifra": "88.8%",
-            "texto": "de las unidades de producción agropecuaria reporta los altos costos de insumos y servicios como su principal problema; el 61% tuvo pérdidas por clima o plagas y el 17.6% escasez de mano de obra.",
-            "fuente": "INEGI, Censo Agropecuario 2022, 2023"
-          },
-          {
-            "cifra": "77 mil 417 hectáreas",
-            "texto": "de agricultura protegida (invernadero, malla sombra, macrotúnel) en 30 mil 179 unidades de producción: la tecnología que controla el ambiente y mejora el rendimiento ya crece en México.",
+            "texto": "de las unidades de producción agropecuaria de México reporta los altos costos de insumos y servicios como su principal problema; el 61% tuvo pérdidas por clima o plagas y el 17.6% escasez de mano de obra.",
             "fuente": "INEGI, Censo Agropecuario 2022, 2023"
           }
         ]

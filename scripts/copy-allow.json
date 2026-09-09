@@ -128,19 +128,19 @@
     "2024",
     "2025"
   ],
-  "// industrias.items[3].tendencias[0]": "Verified 2026-09-08: Deloitte for Autodesk, State of Digital Adoption in the Construction Industry 2026 (954 businesses, Asia-Pacific; 3 Jul 2026): https://www.deloitte.com/au/en/services/economics/perspectives/state-digital-adoption-construction-industry.html",
+  "// industrias.items[3].tendencias[0]": "Verified 2026-09-08: AGC, The 2026 Construction Hiring and Business Outlook (857 responses on the AI question): '61 percent of respondents say their firms use AI or plan to increase investments in it, up from 44 percent in last year's survey': https://www.agc.org/sites/default/files/users/user21902/2026%20Construction%20Hiring%20and%20Business%20Outlook%20Report_Final2.pdf",
   "industrias.items[3].tendencias[0].cifra": [
-    "46%"
+    "61%"
   ],
   "industrias.items[3].tendencias[0].texto": [
-    "2023"
+    "44%"
   ],
   "industrias.items[3].tendencias[0].fuente": [
     "2026"
   ],
-  "// industrias.items[3].tendencias[1]": "Verified 2026-09-08: Deloitte for Autodesk, the same report: 'Only 16% of businesses achieved advanced digital capability status'; 'Less than half of businesses report on-site teams having real-time project data access': the same URL",
+  "// industrias.items[3].tendencias[1]": "Verified 2026-09-08: AGC, the same report: '45 percent of firms deploy AI for office and administrative functions, 23 percent use it for estimating, and 20 percent apply it to design or preconstruction': the same URL",
   "industrias.items[3].tendencias[1].cifra": [
-    "16%"
+    "45%"
   ],
   "industrias.items[3].tendencias[1].fuente": [
     "2026"
@@ -243,42 +243,45 @@
   "industrias.items[6].tendencias[2].fuente": [
     "2024"
   ],
-  "// industrias.items[7].tendencias[0]": "Verified 2026-09-08: CEPAL, Digitalización y cambio tecnológico en las mipymes agrícolas y agroindustriales en América Latina (2021), cap. II: 'En México, en los estados de Veracruz, Chiapas, Puebla, Estado de México, Oaxaca y Guerrero (zona sur), a Internet acceden entre el 4,7 y 10,2% de las Unidades Productivas, mientras que en el estado de Coahuila ... Internet está en el 40,6%': https://repositorio.cepal.org/bitstream/handle/11362/46965/S2100283_es.pdf",
+  "// industrias.items[7].tendencias[0]": "Verified 2026-09-08: Statistics Canada, 'Canada's farms integrate renewable energy production and technologies ...' (17 May 2023; 2021 Census of Agriculture, data for 2020): '95,713 farms reported at least one type of technology being used on the farm, which accounted for 50.4% of total farms in Canada'; auto-steer '20.5%' (2015) to '26.8%' (2020): https://www150.statcan.gc.ca/n1/pub/96-325-x/2021001/article/00016-eng.htm",
   "industrias.items[7].tendencias[0].cifra": [
-    "10.2%",
-    "4.7%"
+    "50.4%"
   ],
   "industrias.items[7].tendencias[0].texto": [
-    "40.6%"
+    "20.5%",
+    "26.8%",
+    "2015",
+    "2020"
   ],
   "industrias.items[7].tendencias[0].fuente": [
-    "2021"
-  ],
-  "// industrias.items[7].tendencias[1]": "Verified 2026-09-08: INEGI, Censo Agropecuario 2022, resultados definitivos nacionales, 'Porcentaje de unidades de producción agropecuaria que reportan los principales problemas': 88.8% altos costos de insumos y servicios; 61.0% pérdidas por factor climático o biológico; 17.6% escasez de mano de obra: https://www.inegi.org.mx/contenidos/programas/ca/2022/doc/ca2022_rdNAL.pdf",
-  "industrias.items[7].tendencias[1].cifra": [
-    "88.8%"
-  ],
-  "industrias.items[7].tendencias[1].texto": [
-    "17.6%",
-    "61%"
-  ],
-  "industrias.items[7].tendencias[1].fuente": [
-    "2022",
+    "2021",
     "2023"
   ],
-  "// industrias.items[7].tendencias[2]": "Verified 2026-09-08: INEGI, Censo Agropecuario 2022, comunicado 667/23 (21 nov 2023): '30 179 unidades de producción que practican este sistema ... 77 417 hectáreas': https://www.inegi.org.mx/contenidos/saladeprensa/boletines/2023/CA_Def/CA_Def2022.pdf",
+  "// industrias.items[7].tendencias[1]": "Verified 2026-09-08: IICA, Radar AgTech (Embrapa, IICA, Homo Ludens, SP Venture; 23 jun 2026): 'Se identificaron 2.656 empresas agtech en 23 países'; 'México, con 110': https://iica.int/es/prensa/noticias/radar-agtech-elabora-por-primera-vez-un-mapa-de-los-startups-agricolas-en-america-latina-y-el-caribe/",
+  "industrias.items[7].tendencias[1].cifra": [
+    "2,656"
+  ],
+  "industrias.items[7].tendencias[1].texto": [
+    "110",
+    "23"
+  ],
+  "industrias.items[7].tendencias[1].fuente": [
+    "2026"
+  ],
+  "// industrias.items[7].tendencias[2]": "Verified 2026-09-08: INEGI, Censo Agropecuario 2022, resultados definitivos nacionales, 'Porcentaje de unidades de producción agropecuaria que reportan los principales problemas': 88.8% altos costos de insumos y servicios; 61.0% pérdidas por factor climático o biológico; 17.6% escasez de mano de obra: https://www.inegi.org.mx/contenidos/programas/ca/2022/doc/ca2022_rdNAL.pdf",
   "industrias.items[7].tendencias[2].cifra": [
-    "77,417",
-    "417",
-    "77"
+    "88.8%"
   ],
   "industrias.items[7].tendencias[2].texto": [
-    "30,179",
-    "179",
-    "30"
+    "17.6%",
+    "61%"
   ],
   "industrias.items[7].tendencias[2].fuente": [
     "2022",
     "2023"
+  ],
+  "industrias.items[3].tendencias[1].texto": [
+    "20%",
+    "23%"
   ]
 }
