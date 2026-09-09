@@ -1,4 +1,4 @@
-import type { Locale, Messages } from "@/lib/i18n";
+import { RUTA_CONTACTO, type Locale, type Messages } from "@/lib/i18n";
 import { Photo } from "./photo";
 
 /**
@@ -31,7 +31,7 @@ export function Hero({ locale, m }: { locale: Locale; m: Messages }) {
             {m.hero.frase}
           </h1>
           <a
-            href="#hablemos"
+            href={RUTA_CONTACTO[locale]}
             className="mt-10 inline-flex w-fit items-center rounded-full bg-azul px-7 py-4 text-lg font-medium text-negro transition-colors hover:bg-blanco"
           >
             {m.hero.cta}

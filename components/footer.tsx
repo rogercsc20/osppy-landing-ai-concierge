@@ -1,4 +1,4 @@
-import type { Locale, Messages } from "@/lib/i18n";
+import { RUTA_CONTACTO, type Locale, type Messages } from "@/lib/i18n";
 import { otherLocale } from "@/lib/i18n";
 import { Container } from "./container";
 import { Logo } from "./logo";
@@ -21,7 +21,7 @@ export function Footer({ locale, m }: { locale: Locale; m: Messages }) {
           </div>
           <div className="md:col-span-5">
             <p className="max-w-[44ch] text-sm leading-relaxed text-sobre-negro-2">{m.footer.productos.texto}</p>
-            <a href={`mailto:${m.footer.contacto}`} className="mt-2 inline-block text-sm text-azul underline-offset-4 hover:underline">
+            <a href={RUTA_CONTACTO[locale]} className="mt-2 inline-block text-sm text-azul underline-offset-4 hover:underline">
               {m.footer.productos.cta}
             </a>
           </div>

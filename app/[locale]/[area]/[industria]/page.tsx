@@ -6,7 +6,7 @@ import { Header } from "@/components/header";
 import { GRUPO_INDUSTRIAS } from "@/components/industrias";
 import { LogoRing } from "@/components/logo";
 import { Photo } from "@/components/photo";
-import { LOCALES, SITE_URL, getMessages, isLocale, type Locale } from "@/lib/i18n";
+import { LOCALES, RUTA_CONTACTO, SITE_URL, getMessages, isLocale, type Locale } from "@/lib/i18n";
 import type { PhotoSlug } from "@/lib/photos.generated";
 
 // The route is /es/industrias/<giro> and /en/industries/<industry>. The middle segment reuses the
@@ -117,7 +117,7 @@ export default async function IndustriaPage({ params }: { params: Params }) {
               </h2>
               <p className="mx-auto mt-6 max-w-[44ch] text-lg leading-relaxed text-sobre-profundo-2 md:text-xl">{m.industria.ctaTexto}</p>
               <div className="mt-10 flex flex-wrap items-center justify-center gap-6">
-                <a href={`mailto:${m.hablemos.correo}`} className="inline-flex items-center rounded-full bg-azul px-7 py-4 text-lg font-medium text-negro transition-colors hover:bg-blanco">
+                <a href={RUTA_CONTACTO[l]} className="inline-flex items-center rounded-full bg-azul px-7 py-4 text-lg font-medium text-negro transition-colors hover:bg-blanco">
                   {m.hablemos.cta}
                 </a>
                 <a href={`/${l}#industrias`} className="text-lg text-sobre-profundo underline-offset-4 hover:underline">{m.industria.volver}</a>

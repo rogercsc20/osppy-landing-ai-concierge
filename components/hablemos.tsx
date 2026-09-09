@@ -1,4 +1,4 @@
-import type { Locale, Messages } from "@/lib/i18n";
+import { RUTA_CONTACTO, type Locale, type Messages } from "@/lib/i18n";
 import { Container } from "./container";
 import { Photo } from "./photo";
 import { Ribbon } from "./ribbon";
@@ -28,8 +28,8 @@ export function Hablemos({ locale, m }: { locale: Locale; m: Messages }) {
             <p className="mt-8 max-w-[44ch] text-xl leading-relaxed text-texto-2">{m.hablemos.texto}</p>
             <div className="mt-10 flex flex-wrap items-center gap-6">
               <a
-                href={`mailto:${m.hablemos.correo}`}
-                className="inline-flex items-center rounded-full bg-azul px-7 py-4 text-lg font-medium text-blanco transition-colors hover:bg-espuma"
+                href={RUTA_CONTACTO[locale]}
+                className="inline-flex items-center rounded-full bg-azul px-7 py-4 text-lg font-medium text-negro transition-colors hover:bg-espuma"
               >
                 {m.hablemos.cta}
               </a>

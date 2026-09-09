@@ -4,7 +4,7 @@ import { Container } from "@/components/container";
 import { Header } from "@/components/header";
 import { Photo } from "@/components/photo";
 import { LogoRing } from "@/components/logo";
-import { LOCALES, SITE_URL, getMessages, isLocale, type Locale, type Messages } from "@/lib/i18n";
+import { LOCALES, RUTA_CONTACTO, SITE_URL, getMessages, isLocale, type Locale, type Messages } from "@/lib/i18n";
 import type { PhotoSlug } from "@/lib/photos.generated";
 
 type Params = Promise<{ locale: string; area: string }>;
@@ -112,7 +112,7 @@ export default async function AreaPage({ params }: { params: Params }) {
             </h2>
             <p className="mx-auto mt-6 max-w-[44ch] text-lg leading-relaxed text-sobre-profundo-2 md:text-xl">{m.area.ctaTexto}</p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-6">
-              <a href={`mailto:${m.hablemos.correo}`} className="inline-flex items-center rounded-full bg-azul px-7 py-4 text-lg font-medium text-negro transition-colors hover:bg-blanco">
+              <a href={RUTA_CONTACTO[l]} className="inline-flex items-center rounded-full bg-azul px-7 py-4 text-lg font-medium text-negro transition-colors hover:bg-blanco">
                 {m.hablemos.cta}
               </a>
               <a href={`/${l}#ayudamos`} className="text-lg text-sobre-profundo underline-offset-4 hover:underline">{m.area.volver}</a>
