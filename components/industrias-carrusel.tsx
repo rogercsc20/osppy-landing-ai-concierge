@@ -92,7 +92,7 @@ export function IndustriasCarrusel({ locale, items, labels, grupo }: { locale: L
             <li key={it.slug} className="w-[78vw] shrink-0 snap-start sm:w-[22rem] lg:w-[24rem]">
               <article>
                 <div className="relative aspect-[16/10] overflow-hidden rounded-[1.25rem]">
-                  <Image src={p.src} alt={alt} fill sizes="(min-width: 1024px) 24rem, (min-width: 640px) 22rem, 78vw" placeholder="blur" blurDataURL={p.blurDataURL} className="object-cover" draggable={false} />
+                  <Image src={p.src} alt={alt} fill sizes="(min-width: 1024px) 24rem, (min-width: 640px) 22rem, 78vw" quality={90} placeholder="blur" blurDataURL={p.blurDataURL} className="object-cover" draggable={false} />
                 </div>
                 <h3 className="mt-5 font-display text-2xl md:text-[1.75rem]">{it.nombre}</h3>
                 <a

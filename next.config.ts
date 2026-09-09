@@ -3,6 +3,13 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
+    // The qualities the code is allowed to ask the optimizer for. Next 16
+    // requires them declared: an undeclared `quality` is ignored and the
+    // request falls back to 75. 75 is the default for anything small; 90 is
+    // what the photographs shown large ask for, because the source WebP is
+    // already compressed at 82 and a second pass at 75 was what the operator
+    // saw as softness on 2026-09-08 (HQA-D168).
+    qualities: [75, 90],
   },
   // NOT design: three URL contracts with live systems, kept deliberately when
   // the landing was cleared to a blank canvas.

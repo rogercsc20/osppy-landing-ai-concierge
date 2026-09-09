@@ -29,7 +29,7 @@ export function AreasHover({ locale, areas, ver }: { locale: Locale; areas: Area
                 className="group block py-6 transition-colors md:py-7"
               >
                 <div className="relative mb-4 aspect-[16/9] overflow-hidden rounded-[1rem] lg:hidden">
-                  <Image src={p.src} alt={alt} fill sizes="100vw" placeholder="blur" blurDataURL={p.blurDataURL} className="object-cover" />
+                  <Image src={p.src} alt={alt} fill sizes="100vw" quality={90} placeholder="blur" blurDataURL={p.blurDataURL} className="object-cover" />
                 </div>
                 <h3 className="font-display text-2xl text-sobre-profundo transition-colors group-hover:text-azul md:text-[1.9rem]">
                   {a.nombre}
@@ -54,7 +54,7 @@ export function AreasHover({ locale, areas, ver }: { locale: Locale; areas: Area
                 aria-hidden={active !== i}
                 className={`absolute inset-0 transition-opacity duration-500 ${active === i ? "opacity-100" : "opacity-0"}`}
               >
-                <Image src={p.src} alt={alt} fill sizes="50vw" placeholder="blur" blurDataURL={p.blurDataURL} className="object-cover" />
+                <Image src={p.src} alt={alt} fill sizes="50vw" quality={90} placeholder="blur" blurDataURL={p.blurDataURL} className="object-cover" />
               </div>
             );
           })}
