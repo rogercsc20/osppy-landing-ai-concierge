@@ -163,6 +163,207 @@
       "A system to manage audits"
     ]
   },
+  "industrias": {
+    "encabezado": "Industries we work with",
+    "ver": "See the trends",
+    "anterior": "Previous industry",
+    "siguiente": "Next industry",
+    "etiqueta": "Industries",
+    "items": [
+      {
+        "slug": "manufacturing",
+        "nombre": "Manufacturing",
+        "titulo": "How we help manufacturing",
+        "foto": "manufactura-tableta",
+        "ayudamos": "Bringing together the production, quality and maintenance information that is scattered today, and putting artificial intelligence to review, classify and alert inside the plant, with a person who decides.",
+        "tendencias": [
+          {
+            "cifra": "608,818 million dollars",
+            "texto": "was the value of Mexico's manufacturing exports in 2025, 9.8% more than in 2024.",
+            "fuente": "INEGI, Mexico's Merchandise Trade Balance, 2026"
+          },
+          {
+            "cifra": "78%",
+            "texto": "of manufacturers allocate more than 20% of their improvement budget to smart manufacturing.",
+            "fuente": "Deloitte, 2025 Smart Manufacturing and Operations Survey (United States), 2025"
+          },
+          {
+            "cifra": "57%",
+            "texto": "of plants already use cloud computing and data analytics; only 29% use artificial intelligence or machine learning.",
+            "fuente": "Deloitte, 2025 Smart Manufacturing and Operations Survey (United States), 2025"
+          }
+        ]
+      },
+      {
+        "slug": "automotive",
+        "nombre": "Automotive",
+        "titulo": "How we help the automotive industry",
+        "foto": "automotriz-motor",
+        "ayudamos": "Connecting plant, supplier and customer systems so the traceability the customer demands comes out of the data and not the spreadsheet, and your people can read it.",
+        "tendencias": [
+          {
+            "cifra": "3.95 million",
+            "texto": "light vehicles were produced in Mexico in 2025 and 3.39 million were exported; 78.4% went to the United States.",
+            "fuente": "INEGI, Administrative Registry of the Light Vehicle Automotive Industry, 2026"
+          },
+          {
+            "cifra": "185,791 million dollars",
+            "texto": "was the value of automotive exports in 2025, 4.2% less than in 2024.",
+            "fuente": "INEGI, Mexico's Merchandise Trade Balance, 2026"
+          },
+          {
+            "cifra": "Around 20%",
+            "texto": "of automotive suppliers mention artificial intelligence to their investors; 53% expect the industry to deteriorate over the next twelve months.",
+            "fuente": "BCG, The 2026 Global Automotive Supplier Study, 2026"
+          }
+        ]
+      },
+      {
+        "slug": "logistics",
+        "nombre": "Logistics",
+        "titulo": "How we help logistics",
+        "foto": "logistica-escaner",
+        "ayudamos": "Keeping the information that travels with the cargo (orders, units, deliveries, documents) in one place and up to date, and automating the repetitive work between warehouse, transport and customer.",
+        "tendencias": [
+          {
+            "cifra": "66th of 139",
+            "texto": "is Mexico's place in the World Bank's Logistics Performance Index (2.9 out of 5); its best component is tracking and tracing (3.5) and its worst, customs (2.5).",
+            "fuente": "World Bank, Logistics Performance Index, 2023"
+          },
+          {
+            "cifra": "1.44 million",
+            "texto": "vehicles make up Mexico's federal freight trucking fleet; 80.3% of carriers have between one and five trucks and operate 22.3% of the fleet.",
+            "fuente": "SICT, Basic Statistics of Federal Motor Transport 2024, 2025"
+          },
+          {
+            "cifra": "13.4%",
+            "texto": "of freight trucking revenue was contracted over the internet in 2020.",
+            "fuente": "INEGI and CANACAR, Getting to Know the Freight Trucking Industry, 2021"
+          }
+        ]
+      },
+      {
+        "slug": "construction",
+        "nombre": "Construction",
+        "titulo": "How we help construction",
+        "foto": "construccion-planos",
+        "ayudamos": "Putting each project's documents, purchases and progress in order, which today live in emails and spreadsheets, so management sees the whole project without waiting for the report.",
+        "tendencias": [
+          {
+            "cifra": "5.6% less",
+            "texto": "was produced by construction companies in December 2025 than a year earlier; employment fell 3.9%.",
+            "fuente": "INEGI, National Survey of Construction Companies, 2026"
+          },
+          {
+            "cifra": "46%",
+            "texto": "of the construction businesses surveyed already use artificial intelligence or machine learning, twice as many as in 2023; one in four still runs mainly on paper.",
+            "fuente": "Deloitte for Autodesk, State of Digital Adoption in the Construction Industry (Asia-Pacific), 2026"
+          },
+          {
+            "cifra": "41%",
+            "texto": "of construction workers in the United States will have retired by 2031; only 10% of today's workers are under 25.",
+            "fuente": "Deloitte, 2026 Engineering and Construction Industry Outlook, 2025"
+          }
+        ]
+      },
+      {
+        "slug": "foreign-trade",
+        "nombre": "Foreign trade",
+        "titulo": "How we help foreign trade",
+        "foto": "comercio-contenedores",
+        "ayudamos": "One file per operation with everything the authority may ask for, assembled from the systems and not by hand, and artificial intelligence checking that nothing is missing before the audit.",
+        "tendencias": [
+          {
+            "cifra": "664,837 million dollars",
+            "texto": "was the value of Mexico's exports in 2025, 7.6% more than in 2024.",
+            "fuente": "INEGI, Mexico's Merchandise Trade Balance, 2026"
+          },
+          {
+            "cifra": "40,871 million dollars",
+            "texto": "of foreign direct investment came to Mexico in 2025, the highest figure ever in a year; new investments grew 132.9%.",
+            "fuente": "Ministry of Economy, 2026"
+          },
+          {
+            "cifra": "2026",
+            "texto": "is the year the Single Window for Foreign Trade Procedures started operating, with a Single Foreign Trade File shared by the Ministry of Economy, the SAT and the ANAM.",
+            "fuente": "ANAM and ATDT, joint communiqué, 2026"
+          }
+        ]
+      },
+      {
+        "slug": "retail",
+        "nombre": "Retail",
+        "titulo": "How we help retail",
+        "foto": "retail-tableta",
+        "ayudamos": "One truth for inventory, sales and customers across stores and the online channel, and assistants that answer and classify with the business's own information.",
+        "tendencias": [
+          {
+            "cifra": "941 billion pesos",
+            "texto": "was sold online in Mexico in 2025 to 77.2 million shoppers; e-commerce grows 25 times faster than GDP.",
+            "fuente": "AMVO, Online Sales Study 2026, 2026"
+          },
+          {
+            "cifra": "More than 1,700 stores",
+            "texto": "were opened by ANTAD chains in 2025, with an investment close to 3,300 million dollars and more than 790,000 direct formal jobs.",
+            "fuente": "ANTAD, 2026"
+          },
+          {
+            "cifra": "6.3%",
+            "texto": "is the sales growth ANTAD expects for total stores in 2026 (3.9% for same stores), with an investment close to 3,700 million dollars.",
+            "fuente": "ANTAD, 2026"
+          }
+        ]
+      },
+      {
+        "slug": "pharmaceutical",
+        "nombre": "Pharmaceutical",
+        "titulo": "How we help the pharmaceutical industry",
+        "foto": "farmaceutica-planta",
+        "ayudamos": "Making the records the authority reviews (batches, releases, deviations, filings) come out of the systems with traceability, and having artificial intelligence review them before the auditor does.",
+        "tendencias": [
+          {
+            "cifra": "536,530 million pesos",
+            "texto": "was sold by Mexico's pharmaceutical industry in 2022, 6% more than the year before, with 111,953 people employed.",
+            "fuente": "INEGI and CANIFARMA, National Survey of the Pharmaceutical Industry, 2024"
+          },
+          {
+            "cifra": "More than half a million",
+            "texto": "procedures have been resolved by COFEPRIS fully digitally, with traceability and no intermediaries.",
+            "fuente": "COFEPRIS, 2024"
+          },
+          {
+            "cifra": "Only 22%",
+            "texto": "of life sciences executives say they have scaled artificial intelligence, and just 9% report significant returns.",
+            "fuente": "Deloitte, 2026 Life Sciences Executive Outlook, 2025"
+          }
+        ]
+      },
+      {
+        "slug": "agriculture",
+        "nombre": "Agriculture",
+        "titulo": "How we help agriculture",
+        "foto": "agricultura-cosecha",
+        "ayudamos": "Bringing together what is scattered today between field, packing and customer (yields, inputs, shipments, certificates) so the traceability the buyer asks for comes out on its own.",
+        "tendencias": [
+          {
+            "cifra": "54,584 million dollars",
+            "texto": "was exported by Mexico's agri-food sector in 2024, the highest value in 32 years.",
+            "fuente": "SIAP, Agri-food Panorama 2025, 2025"
+          },
+          {
+            "cifra": "3,730 million dollars",
+            "texto": "was the agri-food trade surplus in 2025; agro-industrial products are now 59.3% of what is exported.",
+            "fuente": "SADER, Agri-food Trade Balance Report, 2026"
+          },
+          {
+            "cifra": "10.8% less",
+            "texto": "was exported by agricultural and fishing products in 2025 compared with 2024.",
+            "fuente": "SADER, Agri-food Trade Balance Report, 2026"
+          }
+        ]
+      }
+    ]
+  },
   "datos": {
     "encabezado": "What the data says.",
     "items": [
@@ -231,6 +432,15 @@
     "subareasTitulo": "What it covers",
     "metodoTitulo": "How we work in this area",
     "volver": "Back to the home",
+    "ctaTexto": "Tell us how your company operates and we will tell you where we can help and where we cannot."
+  },
+  "industria": {
+    "eyebrow": "Industry",
+    "tendenciasTitulo": "Where the industry is heading",
+    "ayudamosTitulo": "How we help",
+    "metodoTitulo": "How we work with this industry",
+    "fuenteLabel": "Source",
+    "volver": "See all industries",
     "ctaTexto": "Tell us how your company operates and we will tell you where we can help and where we cannot."
   }
 }

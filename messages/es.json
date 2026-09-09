@@ -163,6 +163,207 @@
       "Un sistema para manejar auditorías"
     ]
   },
+  "industrias": {
+    "encabezado": "Industrias con las que trabajamos",
+    "ver": "Ver tendencias",
+    "anterior": "Industria anterior",
+    "siguiente": "Industria siguiente",
+    "etiqueta": "Industrias",
+    "items": [
+      {
+        "slug": "manufactura",
+        "nombre": "Manufactura",
+        "titulo": "Cómo ayudamos a la manufactura",
+        "foto": "manufactura-tableta",
+        "ayudamos": "Juntar la información de producción, calidad y mantenimiento que hoy está repartida, y poner la inteligencia artificial a revisar, clasificar y avisar dentro de la planta, con una persona que decide.",
+        "tendencias": [
+          {
+            "cifra": "608 mil 818 millones de dólares",
+            "texto": "sumaron las exportaciones manufactureras de México en 2025, 9.8% más que en 2024.",
+            "fuente": "INEGI, Balanza Comercial de Mercancías de México, 2026"
+          },
+          {
+            "cifra": "78%",
+            "texto": "de los fabricantes destina más del 20% de su presupuesto de mejora a manufactura inteligente.",
+            "fuente": "Deloitte, 2025 Smart Manufacturing and Operations Survey (Estados Unidos), 2025"
+          },
+          {
+            "cifra": "57%",
+            "texto": "de las plantas ya usa cómputo en la nube y analítica de datos; solo el 29% usa inteligencia artificial o aprendizaje automático.",
+            "fuente": "Deloitte, 2025 Smart Manufacturing and Operations Survey (Estados Unidos), 2025"
+          }
+        ]
+      },
+      {
+        "slug": "automotriz",
+        "nombre": "Automotriz",
+        "titulo": "Cómo ayudamos a la industria automotriz",
+        "foto": "automotriz-motor",
+        "ayudamos": "Conectar los sistemas de planta, proveedores y cliente para que la trazabilidad que el cliente exige salga de los datos y no de la hoja de cálculo, y que tu gente sepa leerlos.",
+        "tendencias": [
+          {
+            "cifra": "3.95 millones",
+            "texto": "de vehículos ligeros produjo México en 2025 y exportó 3.39 millones; el 78.4% fue a Estados Unidos.",
+            "fuente": "INEGI, Registro Administrativo de la Industria Automotriz de Vehículos Ligeros, 2026"
+          },
+          {
+            "cifra": "185 mil 791 millones de dólares",
+            "texto": "sumaron las exportaciones automotrices en 2025, 4.2% menos que en 2024.",
+            "fuente": "INEGI, Balanza Comercial de Mercancías de México, 2026"
+          },
+          {
+            "cifra": "Alrededor del 20%",
+            "texto": "de los proveedores automotrices menciona la inteligencia artificial ante sus inversionistas; el 53% espera que la industria empeore en los próximos doce meses.",
+            "fuente": "BCG, The 2026 Global Automotive Supplier Study, 2026"
+          }
+        ]
+      },
+      {
+        "slug": "logistica",
+        "nombre": "Logística",
+        "titulo": "Cómo ayudamos a la logística",
+        "foto": "logistica-escaner",
+        "ayudamos": "Que la información que viaja con la carga (pedidos, unidades, entregas, documentos) esté en un solo lugar y al día, y automatizar lo repetitivo entre almacén, transporte y cliente.",
+        "tendencias": [
+          {
+            "cifra": "Lugar 66 de 139",
+            "texto": "ocupa México en el Índice de Desempeño Logístico del Banco Mundial (2.9 de 5); su mejor componente es el rastreo de envíos (3.5) y el peor, aduanas (2.5).",
+            "fuente": "Banco Mundial, Logistics Performance Index, 2023"
+          },
+          {
+            "cifra": "1.44 millones",
+            "texto": "de vehículos suma el autotransporte federal de carga; el 80.3% de las empresas tiene entre uno y cinco camiones y opera el 22.3% de la flota.",
+            "fuente": "SICT, Estadística Básica del Autotransporte Federal 2024, 2025"
+          },
+          {
+            "cifra": "13.4%",
+            "texto": "de los ingresos del autotransporte de carga se contrató por internet en 2020.",
+            "fuente": "INEGI y CANACAR, Conociendo a la Industria del Autotransporte de Carga, 2021"
+          }
+        ]
+      },
+      {
+        "slug": "construccion",
+        "nombre": "Construcción",
+        "titulo": "Cómo ayudamos a la construcción",
+        "foto": "construccion-planos",
+        "ayudamos": "Poner en orden los documentos, compras y avances de cada obra, que hoy viven en correos y hojas, y que la dirección vea la obra completa sin esperar el reporte.",
+        "tendencias": [
+          {
+            "cifra": "5.6% menos",
+            "texto": "produjeron las empresas constructoras en diciembre de 2025 que un año antes; el personal ocupado bajó 3.9%.",
+            "fuente": "INEGI, Encuesta Nacional de Empresas Constructoras, 2026"
+          },
+          {
+            "cifra": "46%",
+            "texto": "de las constructoras encuestadas ya usa inteligencia artificial o aprendizaje automático, el doble que en 2023; una de cada cuatro sigue operando sobre todo en papel.",
+            "fuente": "Deloitte para Autodesk, State of Digital Adoption in the Construction Industry (Asia-Pacífico), 2026"
+          },
+          {
+            "cifra": "41%",
+            "texto": "de los trabajadores de la construcción en Estados Unidos se habrá jubilado para 2031; solo el 10% de los actuales tiene menos de 25 años.",
+            "fuente": "Deloitte, 2026 Engineering and Construction Industry Outlook, 2025"
+          }
+        ]
+      },
+      {
+        "slug": "comercio-exterior",
+        "nombre": "Comercio exterior",
+        "titulo": "Cómo ayudamos al comercio exterior",
+        "foto": "comercio-contenedores",
+        "ayudamos": "Un expediente por operación con todo lo que la autoridad puede pedir, armado desde los sistemas y no a mano, y la inteligencia artificial revisando que nada falte antes de la auditoría.",
+        "tendencias": [
+          {
+            "cifra": "664 mil 837 millones de dólares",
+            "texto": "exportó México en 2025, 7.6% más que en 2024.",
+            "fuente": "INEGI, Balanza Comercial de Mercancías de México, 2026"
+          },
+          {
+            "cifra": "40 mil 871 millones de dólares",
+            "texto": "de inversión extranjera directa recibió México en 2025, la cifra más alta en un año; las nuevas inversiones crecieron 132.9%.",
+            "fuente": "Secretaría de Economía, 2026"
+          },
+          {
+            "cifra": "2026",
+            "texto": "es el año en que entró en operación la Ventanilla Única de Trámites de Comercio Exterior, con un Expediente Único compartido por la Secretaría de Economía, el SAT y la ANAM.",
+            "fuente": "ANAM y ATDT, comunicado conjunto, 2026"
+          }
+        ]
+      },
+      {
+        "slug": "retail",
+        "nombre": "Retail",
+        "titulo": "Cómo ayudamos al retail",
+        "foto": "retail-tableta",
+        "ayudamos": "Una sola verdad de inventario, ventas y clientes entre sucursales y canal en línea, y asistentes que respondan y clasifiquen con la información del negocio.",
+        "tendencias": [
+          {
+            "cifra": "941 mil millones de pesos",
+            "texto": "vendió el comercio electrónico en México en 2025 a 77.2 millones de compradores; crece 25 veces más rápido que el PIB.",
+            "fuente": "AMVO, Estudio de Venta Online 2026, 2026"
+          },
+          {
+            "cifra": "Más de 1,700 tiendas",
+            "texto": "abrieron las cadenas de la ANTAD en 2025, con una inversión cercana a 3 mil 300 millones de dólares y más de 790 mil empleos formales directos.",
+            "fuente": "ANTAD, 2026"
+          },
+          {
+            "cifra": "6.3%",
+            "texto": "crecerán las ventas a tiendas totales en 2026 según la ANTAD (3.9% a tiendas iguales), con una inversión cercana a 3 mil 700 millones de dólares.",
+            "fuente": "ANTAD, 2026"
+          }
+        ]
+      },
+      {
+        "slug": "farmaceutica",
+        "nombre": "Farmacéutica",
+        "titulo": "Cómo ayudamos a la industria farmacéutica",
+        "foto": "farmaceutica-planta",
+        "ayudamos": "Que los registros que la autoridad revisa (lotes, liberaciones, desviaciones, trámites) salgan de los sistemas con trazabilidad, y que la inteligencia artificial los revise antes que el auditor.",
+        "tendencias": [
+          {
+            "cifra": "536 mil 530 millones de pesos",
+            "texto": "vendió la industria farmacéutica mexicana en 2022, 6% más que el año anterior, con 111 mil 953 personas empleadas.",
+            "fuente": "INEGI y CANIFARMA, Encuesta Nacional de la Industria Farmacéutica, 2024"
+          },
+          {
+            "cifra": "Más de medio millón",
+            "texto": "de trámites ha resuelto COFEPRIS de forma totalmente digital, con trazabilidad y sin intermediarios.",
+            "fuente": "COFEPRIS, 2024"
+          },
+          {
+            "cifra": "Solo el 22%",
+            "texto": "de los directivos de ciencias de la vida dice haber escalado la inteligencia artificial, y apenas el 9% reporta retornos significativos.",
+            "fuente": "Deloitte, 2026 Life Sciences Executive Outlook, 2025"
+          }
+        ]
+      },
+      {
+        "slug": "agricultura",
+        "nombre": "Agricultura",
+        "titulo": "Cómo ayudamos a la agricultura",
+        "foto": "agricultura-cosecha",
+        "ayudamos": "Juntar lo que hoy está repartido entre campo, empaque y cliente (rendimientos, insumos, embarques, certificados) y que la trazabilidad que pide el comprador salga sola.",
+        "tendencias": [
+          {
+            "cifra": "54 mil 584 millones de dólares",
+            "texto": "exportó el campo mexicano en 2024, el valor más alto en 32 años.",
+            "fuente": "SIAP, Panorama Agroalimentario 2025, 2025"
+          },
+          {
+            "cifra": "3 mil 730 millones de dólares",
+            "texto": "de superávit dejó la balanza agroalimentaria en 2025; los productos agroindustriales ya son el 59.3% de lo que se exporta.",
+            "fuente": "SADER, Reporte de la balanza agroalimentaria, 2026"
+          },
+          {
+            "cifra": "10.8% menos",
+            "texto": "exportaron los productos agropecuarios y pesqueros en 2025 frente a 2024.",
+            "fuente": "SADER, Reporte de la balanza agroalimentaria, 2026"
+          }
+        ]
+      }
+    ]
+  },
   "datos": {
     "encabezado": "Lo que dicen los datos.",
     "items": [
@@ -231,6 +432,15 @@
     "subareasTitulo": "Lo que cubre",
     "metodoTitulo": "Cómo trabajamos en esta área",
     "volver": "Volver a la casa",
+    "ctaTexto": "Cuéntanos cómo opera tu empresa y te decimos dónde podemos ayudar y dónde no."
+  },
+  "industria": {
+    "eyebrow": "Industria",
+    "tendenciasTitulo": "Hacia dónde se mueve la industria",
+    "ayudamosTitulo": "Cómo ayudamos",
+    "metodoTitulo": "Cómo trabajamos con esta industria",
+    "fuenteLabel": "Fuente",
+    "volver": "Ver todas las industrias",
     "ctaTexto": "Cuéntanos cómo opera tu empresa y te decimos dónde podemos ayudar y dónde no."
   }
 }

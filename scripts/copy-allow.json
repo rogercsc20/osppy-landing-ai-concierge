@@ -1,15 +1,315 @@
 {
   "_": "Per-key figure allow list for scripts/check-copy.mjs. A value that is an array lists the substrings whose digits are attested for that key; any other value is a comment. Every figure the site prints is here with its source, even the two the global whitelist already waves through (100, 50): traceability is the point (site prompt §4.7).",
   "// real.cifras": "FDV §11.11: the operator's two firm figures, published alone and without a note (HQA-D145, 2026-09-08).",
-  "real.cifras[0].numero": ["100"],
-  "real.cifras[1].numero": ["50"],
+  "real.cifras[0].numero": [
+    "100"
+  ],
+  "real.cifras[1].numero": [
+    "50"
+  ],
   "// datos.items[0]": "Deloitte, State of AI in the Enterprise 2026 (3,235 leaders, 24 countries, Aug–Sep 2025): 'two-thirds (66%) of organizations reporting gains'. Verified 2026-09-08 at https://www.deloitte.com/global/en/issues/generative-ai/state-of-ai-in-enterprise.html (HQA-D146).",
-  "datos.items[0].fuente": ["2026"],
+  "datos.items[0].fuente": [
+    "2026"
+  ],
   "// datos.items[1]": "BCG, Are You Generating Value from AI? The Widening Gap (Sept 2025): '5% of firms worldwide are in this camp'; 'five times the revenue increases'. Verified 2026-09-08 at https://www.bcg.com/publications/2025/are-you-generating-value-from-ai-the-widening-gap (HQA-D146).",
-  "datos.items[1].cifra": ["5%"],
-  "datos.items[1].fuente": ["2025"],
+  "datos.items[1].cifra": [
+    "5%"
+  ],
+  "datos.items[1].fuente": [
+    "2025"
+  ],
   "// datos.items[2]": "Accenture, IPADE Business School y Empresas Globales, Estudio de Adopción de IA en México 2026 (2026-07-16): 'El 66% de las organizaciones consultadas permanece en pruebas aisladas o pilotos estructurados'; 'apenas 13.8% asegura haber incorporado esta tecnología al núcleo de su modelo de negocio'. Verified 2026-09-08 at https://www.ipade.mx/newsmedia/mexico-ocupa-el-lugar-45-mundial-en-preparacion-para-la-inteligencia-artificial/ (HQA-D146).",
-  "datos.items[2].cifra": ["66%"],
-  "datos.items[2].texto": ["13.8%"],
-  "datos.items[2].fuente": ["2026"]
+  "datos.items[2].cifra": [
+    "66%"
+  ],
+  "datos.items[2].texto": [
+    "13.8%"
+  ],
+  "datos.items[2].fuente": [
+    "2026"
+  ],
+  "// industrias": "Industry trends (prompt de industrias, phase B and C; HQA-D145, D146, D162): every figure read on the report page or PDF on 2026-09-08; tokens listed for both languages.",
+  "// industrias.items[0].tendencias[0]": "Verified 2026-09-08: INEGI BCMM, enero-diciembre 2025 (27 ene 2026), cuadro 1: https://www.inegi.org.mx/contenidos/saladeprensa/boletines/2026/comext_o/balcom_o2026_01.pdf",
+  "industrias.items[0].tendencias[0].cifra": [
+    "608,818",
+    "608",
+    "818"
+  ],
+  "industrias.items[0].tendencias[0].texto": [
+    "2024",
+    "2025",
+    "9.8%"
+  ],
+  "industrias.items[0].tendencias[0].fuente": [
+    "2026"
+  ],
+  "// industrias.items[0].tendencias[1]": "Verified 2026-09-08: Deloitte, 2025 Smart Manufacturing and Operations Survey (600 US executives, Aug-Sep 2024; 1 May 2025): https://www.deloitte.com/us/en/insights/industry/manufacturing/2025-smart-manufacturing-survey.html",
+  "industrias.items[0].tendencias[1].cifra": [
+    "78%"
+  ],
+  "industrias.items[0].tendencias[1].texto": [
+    "20%"
+  ],
+  "industrias.items[0].tendencias[1].fuente": [
+    "2025"
+  ],
+  "// industrias.items[0].tendencias[2]": "Verified 2026-09-08: Deloitte, the same survey ('57% ... cloud computing', '57% ... data analytics', '29% are using AI/machine learning'): the same URL",
+  "industrias.items[0].tendencias[2].cifra": [
+    "57%"
+  ],
+  "industrias.items[0].tendencias[2].texto": [
+    "29%"
+  ],
+  "industrias.items[0].tendencias[2].fuente": [
+    "2025"
+  ],
+  "// industrias.items[1].tendencias[0]": "Verified 2026-09-08: INEGI RAIAVL, enero-diciembre 2025 (9 ene 2026): https://www.inegi.org.mx/contenidos/saladeprensa/boletines/2026/rm_raiavl/rm_raiavl2026_01.pdf",
+  "industrias.items[1].tendencias[0].cifra": [
+    "3.95"
+  ],
+  "industrias.items[1].tendencias[0].texto": [
+    "78.4%",
+    "2025",
+    "3.39"
+  ],
+  "industrias.items[1].tendencias[0].fuente": [
+    "2026"
+  ],
+  "// industrias.items[1].tendencias[1]": "Verified 2026-09-08: INEGI BCMM, cuadro 1, 'Automotriz ... 185 791.4 ... -4.2': https://www.inegi.org.mx/contenidos/saladeprensa/boletines/2026/comext_o/balcom_o2026_01.pdf",
+  "industrias.items[1].tendencias[1].cifra": [
+    "185,791",
+    "185",
+    "791"
+  ],
+  "industrias.items[1].tendencias[1].texto": [
+    "2024",
+    "2025",
+    "4.2%"
+  ],
+  "industrias.items[1].tendencias[1].fuente": [
+    "2026"
+  ],
+  "// industrias.items[1].tendencias[2]": "Verified 2026-09-08: BCG, The 2026 Global Automotive Supplier Study (5 Mar 2026): https://www.bcg.com/publications/2026/the-2026-global-automotive-supplier-study",
+  "industrias.items[1].tendencias[2].cifra": [
+    "20%"
+  ],
+  "industrias.items[1].tendencias[2].texto": [
+    "53%"
+  ],
+  "industrias.items[1].tendencias[2].fuente": [
+    "2026"
+  ],
+  "// industrias.items[2].tendencias[0]": "Verified 2026-09-08: World Bank, Connecting to Compete 2023 (LPI), country table: https://documents1.worldbank.org/curated/en/099042123145531599/pdf/P17146804a6a570ac0a4f80895e320dda1e.pdf",
+  "industrias.items[2].tendencias[0].cifra": [
+    "139",
+    "66"
+  ],
+  "industrias.items[2].tendencias[0].texto": [
+    "2.5",
+    "2.9",
+    "3.5",
+    "5"
+  ],
+  "industrias.items[2].tendencias[0].fuente": [
+    "2023"
+  ],
+  "// industrias.items[2].tendencias[1]": "Verified 2026-09-08: SICT, Estadística Básica del Autotransporte Federal 2024 (PDF, tablas de flota y permisionarios): https://micrs.sct.gob.mx/images/DireccionesGrales/DGAF/EST_BASICA/EST_BASICA_2024/Estad%C3%ADstica%20B%C3%A1sica%20del%20Autotransporte%20Federal%202024.pdf",
+  "industrias.items[2].tendencias[1].cifra": [
+    "1.44"
+  ],
+  "industrias.items[2].tendencias[1].texto": [
+    "22.3%",
+    "80.3%"
+  ],
+  "industrias.items[2].tendencias[1].fuente": [
+    "2024",
+    "2025"
+  ],
+  "// industrias.items[2].tendencias[2]": "Verified 2026-09-08: INEGI y CANACAR, Conociendo a la Industria del Autotransporte de Carga (16 dic 2021): https://canacar.com.mx/publican-inegi-canacar-documento-conociendo-a-la-industria-del-autotransporte-carga/",
+  "industrias.items[2].tendencias[2].cifra": [
+    "13.4%"
+  ],
+  "industrias.items[2].tendencias[2].texto": [
+    "2020"
+  ],
+  "industrias.items[2].tendencias[2].fuente": [
+    "2021"
+  ],
+  "// industrias.items[3].tendencias[0]": "Verified 2026-09-08: INEGI ENEC, diciembre 2025 (24 feb 2026): https://inegi.org.mx/contenidos/saladeprensa/boletines/2026/enec/enec2025_02.pdf",
+  "industrias.items[3].tendencias[0].cifra": [
+    "5.6%"
+  ],
+  "industrias.items[3].tendencias[0].texto": [
+    "2025",
+    "3.9%"
+  ],
+  "industrias.items[3].tendencias[0].fuente": [
+    "2026"
+  ],
+  "// industrias.items[3].tendencias[1]": "Verified 2026-09-08: Deloitte for Autodesk, State of Digital Adoption in the Construction Industry 2026 (954 businesses, Asia-Pacific; 3 Jul 2026): https://www.deloitte.com/au/en/services/economics/perspectives/state-digital-adoption-construction-industry.html",
+  "industrias.items[3].tendencias[1].cifra": [
+    "46%"
+  ],
+  "industrias.items[3].tendencias[1].texto": [
+    "2023"
+  ],
+  "industrias.items[3].tendencias[1].fuente": [
+    "2026"
+  ],
+  "// industrias.items[3].tendencias[2]": "Verified 2026-09-08: Deloitte, 2026 Engineering and Construction Industry Outlook (13 Nov 2025): https://www.deloitte.com/us/en/insights/industry/engineering-and-construction/engineering-and-construction-industry-outlook.html",
+  "industrias.items[3].tendencias[2].cifra": [
+    "41%"
+  ],
+  "industrias.items[3].tendencias[2].texto": [
+    "2031",
+    "10%",
+    "25"
+  ],
+  "industrias.items[3].tendencias[2].fuente": [
+    "2025",
+    "2026"
+  ],
+  "// industrias.items[4].tendencias[0]": "Verified 2026-09-08: INEGI BCMM, 'Para 2025, el valor de las exportaciones totales fue de 664 837 mdd ... crecieron 7.6 por ciento': https://www.inegi.org.mx/contenidos/saladeprensa/boletines/2026/comext_o/balcom_o2026_01.pdf",
+  "industrias.items[4].tendencias[0].cifra": [
+    "664,837",
+    "664",
+    "837"
+  ],
+  "industrias.items[4].tendencias[0].texto": [
+    "2024",
+    "2025",
+    "7.6%"
+  ],
+  "industrias.items[4].tendencias[0].fuente": [
+    "2026"
+  ],
+  "// industrias.items[4].tendencias[1]": "Verified 2026-09-08: Secretaría de Economía, comunicado 25 feb 2026: https://www.gob.mx/se/prensa/mexico-alcanza-cifra-historica-de-inversion-extranjera-directa-en-2025-40-871-millones-de-dolares-crecio-un-10-8-anual",
+  "industrias.items[4].tendencias[1].cifra": [
+    "40,871",
+    "871",
+    "40"
+  ],
+  "industrias.items[4].tendencias[1].texto": [
+    "132.9%",
+    "2025"
+  ],
+  "industrias.items[4].tendencias[1].fuente": [
+    "2026"
+  ],
+  "// industrias.items[4].tendencias[2]": "Verified 2026-09-08: ANAM y ATDT, comunicado conjunto 4 may 2026: https://www.anam.gob.mx/comunicado-conjunto-atdt-anam/",
+  "industrias.items[4].tendencias[2].cifra": [
+    "2026"
+  ],
+  "industrias.items[4].tendencias[2].fuente": [
+    "2026"
+  ],
+  "// industrias.items[5].tendencias[0]": "Verified 2026-09-08: AMVO, Estudio de Venta Online 2026 (página del estudio): https://amvo.org.mx/descarga-evo-2026",
+  "industrias.items[5].tendencias[0].cifra": [
+    "941"
+  ],
+  "industrias.items[5].tendencias[0].texto": [
+    "2025",
+    "77.2",
+    "25"
+  ],
+  "industrias.items[5].tendencias[0].fuente": [
+    "2026"
+  ],
+  "// industrias.items[5].tendencias[1]": "Verified 2026-09-08: ANTAD, comunicado 5 feb 2026: https://antad.net/antad-reporta-apertura-de-1700-tiendas-y-3300-mdd-en-inversion-durante-2025/",
+  "industrias.items[5].tendencias[1].cifra": [
+    "1,700"
+  ],
+  "industrias.items[5].tendencias[1].texto": [
+    "790,000",
+    "3,300",
+    "2025",
+    "300",
+    "790",
+    "3"
+  ],
+  "industrias.items[5].tendencias[1].fuente": [
+    "2026"
+  ],
+  "// industrias.items[5].tendencias[2]": "Verified 2026-09-08: ANTAD, the same communiqué (2026 forecast): the same URL",
+  "industrias.items[5].tendencias[2].cifra": [
+    "6.3%"
+  ],
+  "industrias.items[5].tendencias[2].texto": [
+    "3,700",
+    "2026",
+    "3.9%",
+    "700",
+    "3"
+  ],
+  "industrias.items[5].tendencias[2].fuente": [
+    "2026"
+  ],
+  "// industrias.items[6].tendencias[0]": "Verified 2026-09-08: INEGI y CANIFARMA, ENIFARM 2023 (datos 2022): https://inegi.org.mx/contenidos/saladeprensa/boletines/2024/ENIFARM/ENIFARM2023.pdf",
+  "industrias.items[6].tendencias[0].cifra": [
+    "536,530",
+    "530",
+    "536"
+  ],
+  "industrias.items[6].tendencias[0].texto": [
+    "111,953",
+    "2022",
+    "111",
+    "953",
+    "6%"
+  ],
+  "industrias.items[6].tendencias[0].fuente": [
+    "2024"
+  ],
+  "// industrias.items[6].tendencias[1]": "Verified 2026-09-08: COFEPRIS, 5 sep 2024: https://www.gob.mx/cofepris/articulos/mas-de-medio-millon-de-tramites-finalizados-de-manera-100-digital-en-cofepris",
+  "industrias.items[6].tendencias[1].fuente": [
+    "2024"
+  ],
+  "// industrias.items[6].tendencias[2]": "Verified 2026-09-08: Deloitte, 2026 Life Sciences Executive Outlook (280 C-suite; 9 Dec 2025): https://www.deloitte.com/us/en/insights/industry/health-care/life-sciences-and-health-care-industry-outlooks/2026-life-sciences-executive-outlook.html",
+  "industrias.items[6].tendencias[2].cifra": [
+    "22%"
+  ],
+  "industrias.items[6].tendencias[2].texto": [
+    "9%"
+  ],
+  "industrias.items[6].tendencias[2].fuente": [
+    "2025",
+    "2026"
+  ],
+  "// industrias.items[7].tendencias[0]": "Verified 2026-09-08: SIAP, Panorama Agroalimentario 2025: https://nube.agricultura.gob.mx/panorama_dgsiap/2025.pdf",
+  "industrias.items[7].tendencias[0].cifra": [
+    "54,584",
+    "584",
+    "54"
+  ],
+  "industrias.items[7].tendencias[0].texto": [
+    "2024",
+    "32"
+  ],
+  "industrias.items[7].tendencias[0].fuente": [
+    "2025"
+  ],
+  "// industrias.items[7].tendencias[1]": "Verified 2026-09-08: SADER, Reporte de la balanza agroalimentaria, diciembre 2025 (9 feb 2026): https://nube.agricultura.gob.mx/BalanzaComercial/diciembre2025.php",
+  "industrias.items[7].tendencias[1].cifra": [
+    "3,730",
+    "730",
+    "3"
+  ],
+  "industrias.items[7].tendencias[1].texto": [
+    "59.3%",
+    "2025"
+  ],
+  "industrias.items[7].tendencias[1].fuente": [
+    "2026"
+  ],
+  "// industrias.items[7].tendencias[2]": "Verified 2026-09-08: SADER, the same report ('las exportaciones se ubicaron 10.8% por debajo del nivel observado en el año 2024'): the same URL",
+  "industrias.items[7].tendencias[2].cifra": [
+    "10.8%"
+  ],
+  "industrias.items[7].tendencias[2].texto": [
+    "2024",
+    "2025"
+  ],
+  "industrias.items[7].tendencias[2].fuente": [
+    "2026"
+  ]
 }
