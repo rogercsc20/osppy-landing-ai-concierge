@@ -58,29 +58,6 @@
   "ayudamos": {
     "encabezado": "Áreas en las que nos especializamos.",
     "areas": {
-      "estrategia": {
-        "nombre": "Estrategia",
-        "texto": "Decidir qué tecnología necesita tu negocio, en qué orden y para qué, antes de comprar nada.",
-        "slug": "estrategia",
-        "foto": "capacitacion",
-        "subareas": [
-          "Estrategia de negocio",
-          "Estrategia de cliente",
-          "Estrategia de datos y tecnología"
-        ]
-      },
-      "datos": {
-        "nombre": "Datos",
-        "texto": "Juntar la información que hoy está repartida, ordenarla y que tu gente sepa leerla.",
-        "slug": "datos",
-        "foto": "contabilidad",
-        "subareas": [
-          "Ingeniería y arquitectura de datos",
-          "Gobierno de datos",
-          "Alfabetización de datos",
-          "Analítica"
-        ]
-      },
       "ia": {
         "nombre": "Inteligencia artificial",
         "texto": "Poner la inteligencia artificial a hacer trabajo dentro de tu operación (responder, clasificar, redactar, revisar), con una persona que decide.",
@@ -103,6 +80,18 @@
           "Infraestructura de nube"
         ]
       },
+      "datos": {
+        "nombre": "Datos",
+        "texto": "Juntar la información que hoy está repartida, ordenarla y que tu gente sepa leerla.",
+        "slug": "datos",
+        "foto": "contabilidad",
+        "subareas": [
+          "Ingeniería y arquitectura de datos",
+          "Gobierno de datos",
+          "Alfabetización de datos",
+          "Analítica"
+        ]
+      },
       "sistemas": {
         "nombre": "Sistemas",
         "texto": "Implementar y conectar las aplicaciones con las que trabajan tu equipo y tus clientes.",
@@ -112,17 +101,6 @@
           "Aplicaciones de cliente",
           "Aplicaciones de negocio",
           "Integración"
-        ]
-      },
-      "experiencia": {
-        "nombre": "Experiencia",
-        "texto": "Diseñar cómo tus clientes y tu gente viven cada proceso, del primer contacto al servicio.",
-        "slug": "experiencia",
-        "foto": "ventas",
-        "subareas": [
-          "Experiencia de cliente y de empleado",
-          "Estrategia y diseño de producto",
-          "Marketing"
         ]
       },
       "producto": {
@@ -136,6 +114,17 @@
           "Ingeniería de datos y de aprendizaje automático"
         ]
       },
+      "estrategia": {
+        "nombre": "Estrategia",
+        "texto": "Decidir qué tecnología necesita tu negocio, en qué orden y para qué, antes de comprar nada.",
+        "slug": "estrategia",
+        "foto": "capacitacion",
+        "subareas": [
+          "Estrategia de negocio",
+          "Estrategia de cliente",
+          "Estrategia de datos y tecnología"
+        ]
+      },
       "entrega": {
         "nombre": "Planeación y entrega",
         "texto": "Llevar el proyecto de principio a fin: alcance, prioridades, fechas y entregas.",
@@ -145,6 +134,17 @@
           "Gestión de producto",
           "Gestión de proyectos y programas",
           "Gestión de portafolio"
+        ]
+      },
+      "experiencia": {
+        "nombre": "Experiencia",
+        "texto": "Diseñar cómo tus clientes y tu gente viven cada proceso, del primer contacto al servicio.",
+        "slug": "experiencia",
+        "foto": "ventas",
+        "subareas": [
+          "Experiencia de cliente y de empleado",
+          "Estrategia y diseño de producto",
+          "Marketing"
         ]
       }
     },

@@ -58,29 +58,6 @@
   "ayudamos": {
     "encabezado": "Our areas of expertise.",
     "areas": {
-      "estrategia": {
-        "nombre": "Strategy",
-        "texto": "Deciding what technology your business needs, in what order and for what, before buying anything.",
-        "slug": "strategy",
-        "foto": "capacitacion",
-        "subareas": [
-          "Business strategy",
-          "Customer strategy",
-          "Data and technology strategy"
-        ]
-      },
-      "datos": {
-        "nombre": "Data",
-        "texto": "Bringing together the information that is scattered today, organizing it and making sure your people can read it.",
-        "slug": "data",
-        "foto": "contabilidad",
-        "subareas": [
-          "Data engineering and architecture",
-          "Data governance",
-          "Data literacy",
-          "Analytics"
-        ]
-      },
       "ia": {
         "nombre": "Artificial intelligence",
         "texto": "Putting artificial intelligence to work inside your operation (answering, classifying, drafting, reviewing), with a person who decides.",
@@ -103,6 +80,18 @@
           "Cloud infrastructure"
         ]
       },
+      "datos": {
+        "nombre": "Data",
+        "texto": "Bringing together the information that is scattered today, organizing it and making sure your people can read it.",
+        "slug": "data",
+        "foto": "contabilidad",
+        "subareas": [
+          "Data engineering and architecture",
+          "Data governance",
+          "Data literacy",
+          "Analytics"
+        ]
+      },
       "sistemas": {
         "nombre": "Systems",
         "texto": "Implementing and connecting the applications your team and your customers work with.",
@@ -112,17 +101,6 @@
           "Customer applications",
           "Business applications",
           "Integration"
-        ]
-      },
-      "experiencia": {
-        "nombre": "Experience",
-        "texto": "Designing how your customers and your people live each process, from first contact to service.",
-        "slug": "experience",
-        "foto": "ventas",
-        "subareas": [
-          "Customer and employee experience",
-          "Product strategy and design",
-          "Marketing"
         ]
       },
       "producto": {
@@ -136,6 +114,17 @@
           "Data and machine learning engineering"
         ]
       },
+      "estrategia": {
+        "nombre": "Strategy",
+        "texto": "Deciding what technology your business needs, in what order and for what, before buying anything.",
+        "slug": "strategy",
+        "foto": "capacitacion",
+        "subareas": [
+          "Business strategy",
+          "Customer strategy",
+          "Data and technology strategy"
+        ]
+      },
       "entrega": {
         "nombre": "Planning and delivery",
         "texto": "Taking the project from start to finish: scope, priorities, dates and deliveries.",
@@ -145,6 +134,17 @@
           "Product management",
           "Project and program management",
           "Portfolio management"
+        ]
+      },
+      "experiencia": {
+        "nombre": "Experience",
+        "texto": "Designing how your customers and your people live each process, from first contact to service.",
+        "slug": "experience",
+        "foto": "ventas",
+        "subareas": [
+          "Customer and employee experience",
+          "Product strategy and design",
+          "Marketing"
         ]
       }
     },

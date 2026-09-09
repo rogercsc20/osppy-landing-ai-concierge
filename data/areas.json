@@ -1,10 +1,10 @@
 [
-  { "slug": "estrategia", "estado": "ofrecido", "fuente": "fundamento §4; HQA-D112 (capacidad, no prueba)" },
-  { "slug": "datos", "estado": "ofrecido", "fuente": "fundamento §4; HQA-D112" },
   { "slug": "ia", "estado": "ofrecido", "fuente": "fundamento §4; HQA-D112" },
   { "slug": "nube", "estado": "ofrecido", "fuente": "fundamento §4; HQA-D112" },
+  { "slug": "datos", "estado": "ofrecido", "fuente": "fundamento §4; HQA-D112" },
   { "slug": "sistemas", "estado": "ofrecido", "fuente": "fundamento §4; HQA-D112" },
-  { "slug": "experiencia", "estado": "ofrecido", "fuente": "fundamento §4; HQA-D112" },
   { "slug": "producto", "estado": "ofrecido", "fuente": "fundamento §4; HQA-D112" },
-  { "slug": "entrega", "estado": "ofrecido", "fuente": "fundamento §4; HQA-D112" }
+  { "slug": "estrategia", "estado": "ofrecido", "fuente": "fundamento §4; HQA-D112 (capacidad, no prueba)" },
+  { "slug": "entrega", "estado": "ofrecido", "fuente": "fundamento §4; HQA-D112" },
+  { "slug": "experiencia", "estado": "ofrecido", "fuente": "fundamento §4; HQA-D112" }
 ]

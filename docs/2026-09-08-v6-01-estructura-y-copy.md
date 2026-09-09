@@ -123,6 +123,14 @@ ayudamos · Hablemos · el cambio de idioma. Anclas dentro de la misma página.
 > y anotada, no un descuido, y tiene su nota del mismo día en
 > `../osppy-hq/business/marca/banco-prohibido.md` y en el §2 del sistema visual.
 
+> **Nota del 2026-09-08 (operador, HQA-D182).** El orden de las ocho áreas ya no es el de la lista de abajo.
+> Es **Inteligencia artificial · Nube · Datos · Sistemas · Producto digital · Estrategia · Planeación y
+> entrega · Experiencia**, dictado por el operador mirando el sitio vivo. La lista de abajo se queda escrita
+> en el orden en que se aprobó, con su texto, que no cambió ni una palabra. El orden vive en el orden de las
+> llaves de `ayudamos.areas` en `messages/es.json` y `messages/en.json` (la sección las lee con
+> `Object.values`) y en `data/areas.json`, que lleva las mismas ocho en el mismo orden. Ningún slug y ninguna
+> URL se movieron; `app/sitemap.ts` sale del mismo objeto, así que el sitemap las lista en el orden nuevo.
+
 - **Dice:** encabezado **Cómo ayudamos.** y las ocho áreas (historia §5), sin insignia:
   - **Estrategia.** Decidir qué tecnología necesita tu negocio, en qué orden y para qué, antes de comprar nada.
   - **Datos.** Juntar la información que hoy está repartida, ordenarla y que tu gente sepa leerla.
