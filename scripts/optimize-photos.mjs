@@ -84,8 +84,9 @@ for (const row of rows) {
     process.exit(1);
   }
 
-  // v6 (2026-09-08): a row may ask for a longer edge (`ladoLargo`) when it is rendered
-  // full-bleed, like the welcome; 1600 stays the default for framed photos.
+  // A row may still ask for its own long edge (`ladoLargo`). No row does since
+  // HQA-D168 raised the default to 3200: a row asking for less would now cap
+  // the photograph from below. The field stays for the exception to come.
   const longEdge = row.ladoLargo ?? LONG_EDGE;
   const pipeline = sharp(from).rotate().resize({
     width: longEdge,
