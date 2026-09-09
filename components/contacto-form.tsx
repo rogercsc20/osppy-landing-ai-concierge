@@ -17,6 +17,12 @@ import type { Messages } from "@/lib/i18n";
  * it has content (a region injected at the same time as its text is not announced), and
  * focus goes to the first field in error or to the result.
  *
+ * The resting underline is the brand blue, as in the reference the operator sent: the token
+ * `azul-texto` is the deep teal on light and the bright teal on dark, which is the one that is
+ * visible in each mode (the bright teal on a light field is 1.80:1, a line nobody sees). Focus
+ * therefore has to read as something other than colour on the line, so these fields take the
+ * ink as their focus ring instead of the site's teal one.
+ *
  * Validation runs here and the browser's own is off (noValidate): the messages are the
  * operator's approved Spanish, in his voice, and they must be the ones a visitor reads.
  */
@@ -124,7 +130,7 @@ export function ContactoForm({ m, avisoHref }: { m: Messages; avisoHref: string 
             name="pais"
             defaultValue={c.pais.opciones[0]}
             autoComplete="country-name"
-            className="w-full appearance-none rounded-t-lg border-b-2 border-linea bg-espuma px-4 py-3 pr-11 text-texto transition-colors focus:border-azul"
+            className="w-full appearance-none rounded-t-lg border-b-2 border-azul-texto bg-espuma px-4 py-3 pr-11 text-texto transition-colors focus-visible:outline-texto"
           >
             {c.pais.opciones.map((o) => (
               <option key={o} value={o}>
@@ -161,7 +167,7 @@ export function ContactoForm({ m, avisoHref }: { m: Messages; avisoHref: string 
           name="mensaje"
           rows={5}
           placeholder={c.campos.mensaje.marcador}
-          className="mt-2 w-full rounded-t-lg border-b-2 border-linea bg-espuma px-4 py-3 text-texto placeholder:text-texto-2 transition-colors focus:border-azul"
+          className="mt-2 w-full rounded-t-lg border-b-2 border-azul-texto bg-espuma px-4 py-3 text-texto placeholder:text-texto-2 transition-colors focus-visible:outline-texto"
         />
       </div>
 
@@ -257,8 +263,8 @@ function CampoTexto({
         autoComplete={AUTOCOMPLETE[clave]}
         aria-invalid={error ? true : undefined}
         aria-describedby={error ? errId : undefined}
-        className={`mt-2 w-full rounded-t-lg border-b-2 bg-espuma px-4 py-3 text-texto transition-colors placeholder:text-texto-2 focus:border-azul ${
-          error ? "border-error" : "border-linea"
+        className={`mt-2 w-full rounded-t-lg border-b-2 bg-espuma px-4 py-3 text-texto transition-colors placeholder:text-texto-2 focus-visible:outline-texto ${
+          error ? "border-error" : "border-azul-texto"
         }`}
       />
       {error && (
