@@ -94,7 +94,7 @@ for (const theme of THEMES) {
           // count was written for the v2's `whileInView` animations, where a
           // hidden element only ever appeared through motion, so reduced motion
           // left it hidden forever. The v6 has no scroll reveals; it does have
-          // eight hints ("Ver cómo ayudamos") that rest at opacity 0 and appear
+          // eight hints ("Ver esta área", "Ver cómo ayudamos" until HQA-D182) that rest at opacity 0 and appear
           // when the area is hovered OR focused, which is the same with motion
           // on and off. An element that declares BOTH reveals is an affordance
           // and does not count. One that declares only the hover reveal still
