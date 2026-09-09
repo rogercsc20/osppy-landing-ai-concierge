@@ -178,9 +178,9 @@
         "ayudamos": "Bringing together the production, quality and maintenance information that is scattered today, and putting artificial intelligence to review, classify and alert inside the plant, with a person who decides.",
         "tendencias": [
           {
-            "cifra": "608,818 million dollars",
-            "texto": "was the value of Mexico's manufacturing exports in 2025, 9.8% more than in 2024.",
-            "fuente": "INEGI, Mexico's Merchandise Trade Balance, 2026"
+            "cifra": "22%",
+            "texto": "of manufacturers plan to use physical AI (AI operating machines and equipment on the plant floor) within two years; 9% use it today.",
+            "fuente": "Deloitte, 2026 Manufacturing Industry Outlook, 2025"
           },
           {
             "cifra": "78%",
@@ -202,14 +202,14 @@
         "ayudamos": "Connecting plant, supplier and customer systems so the traceability the customer demands comes out of the data and not the spreadsheet, and your people can read it.",
         "tendencias": [
           {
-            "cifra": "3.95 million",
-            "texto": "light vehicles were produced in Mexico in 2025 and 3.39 million were exported; 78.4% went to the United States.",
-            "fuente": "INEGI, Administrative Registry of the Light Vehicle Automotive Industry, 2026"
+            "cifra": "81%",
+            "texto": "of OEM fleets are expected to be software-defined by 2030; nearly 90% of technical leaders feel ready and only 45% of business executives do.",
+            "fuente": "Deloitte, Software defined vehicles: Global manufacturer readiness study, 2024"
           },
           {
-            "cifra": "185,791 million dollars",
-            "texto": "was the value of automotive exports in 2025, 4.2% less than in 2024.",
-            "fuente": "INEGI, Mexico's Merchandise Trade Balance, 2026"
+            "cifra": "From 320 billion to 1.2 trillion dollars",
+            "texto": "is how the automotive software and electronics market will grow by 2035; 60% of it is available to suppliers.",
+            "fuente": "BCG, As Auto Software Revs Up, Suppliers Must Switch Gears, 2024"
           },
           {
             "cifra": "Around 20%",
@@ -226,19 +226,19 @@
         "ayudamos": "Keeping the information that travels with the cargo (orders, units, deliveries, documents) in one place and up to date, and automating the repetitive work between warehouse, transport and customer.",
         "tendencias": [
           {
+            "cifra": "One in ten",
+            "texto": "logistics providers has embedded artificial intelligence into its core operations and only 13% report measurable value; more than 40% of shippers now weigh a provider's AI capabilities when choosing one.",
+            "fuente": "BCG, AI Is Already Moving the Logistics Industry Forward, 2026"
+          },
+          {
             "cifra": "66th of 139",
             "texto": "is Mexico's place in the World Bank's Logistics Performance Index (2.9 out of 5); its best component is tracking and tracing (3.5) and its worst, customs (2.5).",
             "fuente": "World Bank, Logistics Performance Index, 2023"
           },
           {
-            "cifra": "1.44 million",
-            "texto": "vehicles make up Mexico's federal freight trucking fleet; 80.3% of carriers have between one and five trucks and operate 22.3% of the fleet.",
+            "cifra": "80.3%",
+            "texto": "of federal freight carriers have between one and five trucks and operate 22.3% of a 1.44 million-vehicle fleet: a fragmented industry still to digitalize.",
             "fuente": "SICT, Basic Statistics of Federal Motor Transport 2024, 2025"
-          },
-          {
-            "cifra": "13.4%",
-            "texto": "of freight trucking revenue was contracted over the internet in 2020.",
-            "fuente": "INEGI and CANACAR, Getting to Know the Freight Trucking Industry, 2021"
           }
         ]
       },
@@ -250,13 +250,13 @@
         "ayudamos": "Putting each project's documents, purchases and progress in order, which today live in emails and spreadsheets, so management sees the whole project without waiting for the report.",
         "tendencias": [
           {
-            "cifra": "5.6% less",
-            "texto": "was produced by construction companies in December 2025 than a year earlier; employment fell 3.9%.",
-            "fuente": "INEGI, National Survey of Construction Companies, 2026"
-          },
-          {
             "cifra": "46%",
             "texto": "of the construction businesses surveyed already use artificial intelligence or machine learning, twice as many as in 2023; one in four still runs mainly on paper.",
+            "fuente": "Deloitte for Autodesk, State of Digital Adoption in the Construction Industry (Asia-Pacific), 2026"
+          },
+          {
+            "cifra": "Only 16%",
+            "texto": "of the construction businesses surveyed have advanced digital capability, and fewer than half give their on-site teams real-time project data.",
             "fuente": "Deloitte for Autodesk, State of Digital Adoption in the Construction Industry (Asia-Pacific), 2026"
           },
           {
@@ -274,14 +274,14 @@
         "ayudamos": "One file per operation with everything the authority may ask for, assembled from the systems and not by hand, and artificial intelligence checking that nothing is missing before the audit.",
         "tendencias": [
           {
-            "cifra": "664,837 million dollars",
-            "texto": "was the value of Mexico's exports in 2025, 7.6% more than in 2024.",
-            "fuente": "INEGI, Mexico's Merchandise Trade Balance, 2026"
+            "cifra": "One electronic file per operation",
+            "texto": "is what the November 2025 reform of the Customs Law demands, with invoices, payments, transport and contracts, together with automated, permanent inventory control available to the authority.",
+            "fuente": "Diario Oficial de la Federación, Customs Law reform, article 59, 2025"
           },
           {
-            "cifra": "40,871 million dollars",
-            "texto": "of foreign direct investment came to Mexico in 2025, the highest figure ever in a year; new investments grew 132.9%.",
-            "fuente": "Ministry of Economy, 2026"
+            "cifra": "Digital annexes to the pedimento",
+            "texto": "value, transport, non-tariff regulations, origin and guarantee are transmitted as electronic or digital documents, under article 36-A of the Customs Law.",
+            "fuente": "ANAM, Customs Law article 36-A, 2026"
           },
           {
             "cifra": "2026",
@@ -298,19 +298,19 @@
         "ayudamos": "One truth for inventory, sales and customers across stores and the online channel, and assistants that answer and classify with the business's own information.",
         "tendencias": [
           {
+            "cifra": "68%",
+            "texto": "of retail executives expect to run agentic artificial intelligence within 12 to 24 months; 44% say their legacy systems are slowing innovation.",
+            "fuente": "Deloitte, 2026 Retail Industry Global Outlook, 2026"
+          },
+          {
+            "cifra": "75%",
+            "texto": "of retail and consumer products executives call artificial intelligence a top strategic priority, but only 16.5% can quantify a return and enterprise-wide deployment stays under 10%.",
+            "fuente": "Deloitte, State of AI Adoption in Retail and CPG: 2026 Executive Survey, 2026"
+          },
+          {
             "cifra": "941 billion pesos",
             "texto": "was sold online in Mexico in 2025 to 77.2 million shoppers; e-commerce grows 25 times faster than GDP.",
             "fuente": "AMVO, Online Sales Study 2026, 2026"
-          },
-          {
-            "cifra": "More than 1,700 stores",
-            "texto": "were opened by ANTAD chains in 2025, with an investment close to 3,300 million dollars and more than 790,000 direct formal jobs.",
-            "fuente": "ANTAD, 2026"
-          },
-          {
-            "cifra": "6.3%",
-            "texto": "is the sales growth ANTAD expects for total stores in 2026 (3.9% for same stores), with an investment close to 3,700 million dollars.",
-            "fuente": "ANTAD, 2026"
           }
         ]
       },
@@ -322,19 +322,19 @@
         "ayudamos": "Making the records the authority reviews (batches, releases, deviations, filings) come out of the systems with traceability, and having artificial intelligence review them before the auditor does.",
         "tendencias": [
           {
-            "cifra": "536,530 million pesos",
-            "texto": "was sold by Mexico's pharmaceutical industry in 2022, 6% more than the year before, with 111,953 people employed.",
-            "fuente": "INEGI and CANIFARMA, National Survey of the Pharmaceutical Industry, 2024"
+            "cifra": "Only 22%",
+            "texto": "of life sciences executives say they have scaled artificial intelligence, and just 9% report significant returns.",
+            "fuente": "Deloitte, 2026 Life Sciences Executive Outlook, 2025"
+          },
+          {
+            "cifra": "14%",
+            "texto": "of life sciences executives have artificial intelligence fully integrated into daily work and another 40% are working toward it; nearly half expect accelerated digitalization to mark 2026.",
+            "fuente": "Deloitte, 2026 Life Sciences Executive Outlook, 2025"
           },
           {
             "cifra": "More than half a million",
             "texto": "procedures have been resolved by COFEPRIS fully digitally, with traceability and no intermediaries.",
             "fuente": "COFEPRIS, 2024"
-          },
-          {
-            "cifra": "Only 22%",
-            "texto": "of life sciences executives say they have scaled artificial intelligence, and just 9% report significant returns.",
-            "fuente": "Deloitte, 2026 Life Sciences Executive Outlook, 2025"
           }
         ]
       },
@@ -346,19 +346,19 @@
         "ayudamos": "Bringing together what is scattered today between field, packing and customer (yields, inputs, shipments, certificates) so the traceability the buyer asks for comes out on its own.",
         "tendencias": [
           {
-            "cifra": "54,584 million dollars",
-            "texto": "was exported by Mexico's agri-food sector in 2024, the highest value in 32 years.",
-            "fuente": "SIAP, Agri-food Panorama 2025, 2025"
+            "cifra": "Between 4.7% and 10.2%",
+            "texto": "of production units in southern Mexico have internet access, against 40.6% in Coahuila: the countryside's digital gap starts with the connection.",
+            "fuente": "ECLAC, Digitalization and technological change in agricultural and agro-industrial MSMEs in Latin America, 2021"
           },
           {
-            "cifra": "3,730 million dollars",
-            "texto": "was the agri-food trade surplus in 2025; agro-industrial products are now 59.3% of what is exported.",
-            "fuente": "SADER, Agri-food Trade Balance Report, 2026"
+            "cifra": "88.8%",
+            "texto": "of agricultural production units report high input and service costs as their main problem; 61% had losses from weather or pests and 17.6% a shortage of labor.",
+            "fuente": "INEGI, Agricultural Census 2022, 2023"
           },
           {
-            "cifra": "10.8% less",
-            "texto": "was exported by agricultural and fishing products in 2025 compared with 2024.",
-            "fuente": "SADER, Agri-food Trade Balance Report, 2026"
+            "cifra": "77,417 hectares",
+            "texto": "of protected agriculture (greenhouses, shade mesh, macro-tunnels) across 30,179 production units: the technology that controls the environment and improves yields is already growing in Mexico.",
+            "fuente": "INEGI, Agricultural Census 2022, 2023"
           }
         ]
       }
