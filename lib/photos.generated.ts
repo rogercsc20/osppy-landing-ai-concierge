@@ -12,17 +12,17 @@ export type SitePhoto = {
 export const PHOTOS = {
   "contabilidad": {
     src: "/photos/contabilidad.webp",
-    width: 1600,
-    height: 1140,
+    width: 3200,
+    height: 2133,
     blurDataURL:
-      "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAQAgCdASoQAAsAA4BaJZQCdAEJdKTQkNOAAPaZJmz6RBW78Lvxge3AZ9Qz5+UrvxPrtD/1gBG5/kSk01m8N8Glhj6evBs0a+kFz6ymnd2HHYEW+FoAAA==",
-    altEs: "Una laptop abierta con un panel de cifras y gráficas",
-    altEn: "An open laptop showing a dashboard of figures and charts",
+      "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAQAgCdASoQAAsAA4BaJZQAD42QhPesSHfgAP7n4qY8Odxz74AkORWXEPW5FNObDGTf9qQb2hZpbLFLV4r9nQ21nf1zCcbuUKl7Ck6BS3inDRdm2dkMeFSKMCNPgxUXdY5OCXaO5I6tBMsR3AmwAA==",
+    altEs: "Dos colegas revisan juntos un reporte de gráficas impreso sobre la mesa",
+    altEn: "Two colleagues going over a printed chart report together at the table",
   },
   "compras": {
     src: "/photos/compras.webp",
-    width: 1600,
-    height: 1067,
+    width: 3200,
+    height: 2133,
     blurDataURL:
       "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAABQAgCdASoQAAsAA4BaJYgCxJUABxAO4qOa+MAA/I4FVtePhPX5iuxsrMQ3IBHhc6vG1uGhToZawNSQIPmgvvLMqYvDkCqy1XOss3Jb7dvjHm7F1hMIAA==",
     altEs: "Una persona revisando documentos frente a un tablero de trabajo",
@@ -30,8 +30,8 @@ export const PHOTOS = {
   },
   "ventas": {
     src: "/photos/ventas.webp",
-    width: 1600,
-    height: 1050,
+    width: 3200,
+    height: 2100,
     blurDataURL:
       "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAABQAgCdASoQAAoAA4BaJZQCdAYv/zitdRYFbfgA/DbpCvbBy8eqbqe8l8cFDOWkZnmGs696P6gUx0btSgux/pNvDTlFau4ABZ/N8MGz28hYxMS4oNFlk49C3mQwKMbTCBHZ06QtIAA=",
     altEs: "Un equipo reunido alrededor de una mesa con laptops",
@@ -39,8 +39,8 @@ export const PHOTOS = {
   },
   "mantenimiento": {
     src: "/photos/mantenimiento.webp",
-    width: 1067,
-    height: 1600,
+    width: 2134,
+    height: 3200,
     blurDataURL:
       "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAAAwBACdASoQABgAPu1iqk2ppaQiMAgBMB2JYwDA3B5UEm6F39bBqQ3CagAA/pFFIoZBT19Bdliq22lm6+2a/HPhnvwrbdM1N0rvuUfRoKjoCxy+ZUir9D1uyF4KV1c//TDJs/5l8aGBKoSFNPp1LFOsAEbnO7nSTYZRkAAA",
     altEs: "Personal técnico trabajando sobre maquinaria en planta",
@@ -48,8 +48,8 @@ export const PHOTOS = {
   },
   "proceso-escrito": {
     src: "/photos/proceso-escrito.webp",
-    width: 1600,
-    height: 1067,
+    width: 3200,
+    height: 2134,
     blurDataURL:
       "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAAAwAgCdASoQAAsAA4BaJZQC7AYuvsGxBkk0AAD+9AxNUodRYd3VT9dfrnzdhXgoeQdeHWd/383iaui1vamOILHn1mhZap6wkfZb/l9KEAhOHxQ5lHd3OLrmON4ClXkdngA=",
     altEs: "Una persona anotando un diagrama en una libreta junto a una laptop",
@@ -57,8 +57,8 @@ export const PHOTOS = {
   },
   "capacitacion": {
     src: "/photos/capacitacion.webp",
-    width: 1600,
-    height: 1067,
+    width: 3200,
+    height: 2133,
     blurDataURL:
       "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAQAgCdASoQAAsAA4BaJQBOgMXI7Ws3LZWAAP6JTTa8xWoBfPAH23AqVmP1M+w1MHf7VL8TbwX0dvoTDoyPSOU2o/kxCidBcACr6vOnzIDIMBqF39ud4H07MCPa1znt7ld7Nqrb6P6J23R5IoYAAA==",
     altEs: "Una sesión en una sala de juntas con alguien presentando",
@@ -66,8 +66,8 @@ export const PHOTOS = {
   },
   "asesoria": {
     src: "/photos/asesoria.webp",
-    width: 2400,
-    height: 1600,
+    width: 3200,
+    height: 2133,
     blurDataURL:
       "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAwAgCdASoQAAsAA4BaJagCdAYvhRgp8hveAAD+ypon4e27wdHnd7ojHQdvk4q5dzDZCUrGifxGMUJLxjCNlw6TJDEGbSjlPEvqME1hwSxI/hzT6W6Mvj0ZmJ0uRSI3Lf1glIAA",
     altEs: "Cuatro personas conversando frente a una laptop",
@@ -75,8 +75,8 @@ export const PHOTOS = {
   },
   "quienes": {
     src: "/photos/quienes.webp",
-    width: 2400,
-    height: 1350,
+    width: 3200,
+    height: 1800,
     blurDataURL:
       "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAwAgCdASoQAAkAA4BaJaACdAYtVOYlC1rp4AD+T0zmxwCZDCi7F7xz073EcDPWiuMCpyUZQRz8oELmMAfPRjGVbY7YYUQtGQSaowUPCH4bCcQHEAAAAA==",
     altEs: "Dos colegas conversan sobre un documento en una oficina, con un pizarrón al fondo",
@@ -84,8 +84,8 @@ export const PHOTOS = {
   },
   "hablemos": {
     src: "/photos/hablemos.webp",
-    width: 1600,
-    height: 900,
+    width: 2400,
+    height: 1350,
     blurDataURL:
       "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADQAQCdASoQAAkAA4BaJQBOgBuRGw9SAAD+QJNSwTqX/hk+u2Mx5NMf8VKnEkAKXAtLdeZ/0g1wHvhtkWaS/T9vd21IxZs1LnpF0YnnlXqjRY1paA0AAA==",
     altEs: "Dos mujeres conversan en un escritorio de oficina, con una laptop entre ellas",
@@ -93,8 +93,8 @@ export const PHOTOS = {
   },
   "recibimiento": {
     src: "/photos/recibimiento.webp",
-    width: 2400,
-    height: 1738,
+    width: 3200,
+    height: 2317,
     blurDataURL:
       "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADwAQCdASoQAAwAA4BaJYwCdAC9iDcFUAAA/I6jYOvS5pC2QzT41lNtdKdVZcpK50MeZFj/pPeHeeathJZPSOybQ3oEM0jOIawVO8NyERmN5aFqDDB+RmgAAAA=",
     altEs: "Una mujer sonríe de pie en una oficina; detrás, su equipo trabaja en sus computadoras",
@@ -102,8 +102,8 @@ export const PHOTOS = {
   },
   "ia-asistente": {
     src: "/photos/ia-asistente.webp",
-    width: 2400,
-    height: 1600,
+    width: 3200,
+    height: 2133,
     blurDataURL:
       "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAQAgCdASoQAAsAA4BaJYwC7ADpJbrMFIhAAPvNKl03LSmeMe2SNrSThVt2RdnXhJnddlSPiK1BXv0la6IDYSCL6mM8ro8EeOq4wsd8IgRtHEQNMWQJsAAA",
     altEs: "Una persona escribe en su laptop con un asistente de inteligencia artificial abierto en la pantalla",
@@ -111,8 +111,8 @@ export const PHOTOS = {
   },
   "nube-racks": {
     src: "/photos/nube-racks.webp",
-    width: 2400,
-    height: 1602,
+    width: 3200,
+    height: 2136,
     blurDataURL:
       "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAQAgCdASoQAAsAA4BaJZgCdAELjlp5P93AAP7xbwRWpf+tgwFbkbObPsND9akJY5pzQVTkUC/3uSxc+k13T9pakS3OPgBH0bFFTMphjciz5jhyD9buDbeSLso+8AAA",
     altEs: "Una ingeniera revisa una laptop junto a los racks de un centro de datos",
@@ -120,8 +120,8 @@ export const PHOTOS = {
   },
   "producto-pared": {
     src: "/photos/producto-pared.webp",
-    width: 2400,
-    height: 1602,
+    width: 3200,
+    height: 2136,
     blurDataURL:
       "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAQCdASoQAAsAA4BaJZwAD43vtxSBgAD+8f4TEcpbnoKEeuSWhQSC/CUBNvLMD7MEr1fauduR3y1Rtm47ZbtFkNShTtzbmT9MOAAA",
     altEs: "Una diseñadora explica los bocetos de las pantallas de una aplicación pegados en la pared",
@@ -129,8 +129,8 @@ export const PHOTOS = {
   },
   "automotriz-motor": {
     src: "/photos/automotriz-motor.webp",
-    width: 2400,
-    height: 1600,
+    width: 3200,
+    height: 2133,
     blurDataURL:
       "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAAAQAgCdASoQAAsAA4BaJZQCdAEVwrc8PagAAP7vaLabuf5BmEyJbIyGe4uIcBvmZqByDH1IwqrM+LuYhqQrzhx2ZtZNZBeGa6aFtgAA",
     altEs: "Una ingeniera con casco trabaja sobre una pieza de motor en un taller industrial",
@@ -138,8 +138,8 @@ export const PHOTOS = {
   },
   "logistica-escaner": {
     src: "/photos/logistica-escaner.webp",
-    width: 2400,
-    height: 1600,
+    width: 3200,
+    height: 2133,
     blurDataURL:
       "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAADwAQCdASoQAAsAA4BaJYgCdADo7ASVTQAA/b8d1iVnjKxOMwZLojpsNHqqfT1FP9AqbxQLthTZB01ICLjLl/+iUu7ILBmcQGVp3/iCFDqsMkI5+lZtpnIv7nGAMZL7qXf4wm+NnNA+rlkAZw+zgAAA",
     altEs: "Un trabajador de almacén escanea un tambo con un lector y una tableta",
@@ -147,8 +147,8 @@ export const PHOTOS = {
   },
   "construccion-planos": {
     src: "/photos/construccion-planos.webp",
-    width: 2400,
-    height: 1600,
+    width: 3200,
+    height: 2133,
     blurDataURL:
       "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAwAgCdASoQAAsAA4BaJYgCdH8AGJpzNX140AD+34lueO45dq+Ah+9yTJcUCii1mn8z3Iq2hvzWJypARrB9indR69h1Fgigpg4ZvoTEbC1FBk3eTHlnLRBbfUmDBdaCSxsr8QAA",
     altEs: "Dos ingenieros revisan planos en una obra",
@@ -156,8 +156,8 @@ export const PHOTOS = {
   },
   "comercio-contenedores": {
     src: "/photos/comercio-contenedores.webp",
-    width: 2400,
-    height: 1596,
+    width: 3008,
+    height: 2000,
     blurDataURL:
       "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAwAgCdASoQAAsAA4BaJbACdAYwTlVm4FPqYAD+I2sRotY2t4bl/sf1y+P0uAL2shz11wE80el8TIdcg5nP0+wshP4eg7rUMSK207jloNalpUZgO7YshU0GR1mPYszRKmZlYbIhTF9Nh6ffyAAAAA==",
     altEs: "Un trabajador portuario asegura contenedores en un buque",
@@ -165,8 +165,8 @@ export const PHOTOS = {
   },
   "retail-tableta": {
     src: "/photos/retail-tableta.webp",
-    width: 2400,
-    height: 1350,
+    width: 3200,
+    height: 1800,
     blurDataURL:
       "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADwAQCdASoQAAkAA4BaJQBOgCP0a174j8AAzizJWsOsrAnvPqv9005l9DA0oBPM9Nea+rtq/NbKRVKX3U1FA9vJQRoCLCx4oRTaIDI+m6Xn0nIJAAA=",
     altEs: "Una empleada revisa una tableta entre los percheros de una tienda de ropa",
@@ -174,8 +174,8 @@ export const PHOTOS = {
   },
   "farmaceutica-planta": {
     src: "/photos/farmaceutica-planta.webp",
-    width: 2400,
-    height: 1600,
+    width: 3200,
+    height: 2133,
     blurDataURL:
       "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAQCdASoQAAsAA4BaJQBOgBh5JEj0AAD+7AX7tw8Aji6BMLo5/Ov46VB4CvRsegHnQChyYPh4Utmw+QqP3x4Po7Jwg2e+QD654wAA",
     altEs: "Personal con traje estéril dentro de una planta farmacéutica",
@@ -183,8 +183,8 @@ export const PHOTOS = {
   },
   "agricultura-cosecha": {
     src: "/photos/agricultura-cosecha.webp",
-    width: 2400,
-    height: 1349,
+    width: 3200,
+    height: 1799,
     blurDataURL:
       "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAQCdASoQAAkAA4BaJYgCdAEU7znQoAD+W/zuFgCykCWjYwb9yszH/sxpY0DfeVgFNWg2XRp5/sZGSN3XB+B2sCzmvPNSuEH1gAAA",
     altEs: "Cuadrillas cosechan en un campo abierto, con los camiones de carga al fondo",
@@ -192,8 +192,8 @@ export const PHOTOS = {
   },
   "manufactura-maquina": {
     src: "/photos/manufactura-maquina.webp",
-    width: 2400,
-    height: 1600,
+    width: 3200,
+    height: 2133,
     blurDataURL:
       "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAAAQAgCdASoQAAsAA4BaJZQAAxYYBNXdF3CAAP7lo8j47gVZelBrPpxDxLFVBmizl+WF6VF0rg8luOosEg648Gd7462XT48LgPyLvAgA",
     altEs: "Un operario revisa una pieza grande montada en un torno, dentro de una planta",

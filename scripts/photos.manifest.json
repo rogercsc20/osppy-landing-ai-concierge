@@ -1,11 +1,12 @@
 {
-  "_": "The photo manifest. One row per photo the site renders: slug (the name the code asks for), file (the original in --src), ladoLargo (the long edge in px when it is not the default), alt text in both locales, and origen (bank, author, id, licence and the date and row it was chosen under). The originals live OUTSIDE the repo (~/Desktop/osppy-fotos by default) and .gitignore blocks *.jpg under public/photos. Run: node scripts/optimize-photos.mjs [--src <dir>]. No credits file: the Unsplash and Pexels licenses ask for attribution and do not require it; the author slug and the photo id stay in `file` and in `origen`, which is where traceability belongs. v6 (2026-09-08, HQA-D137): the site is largely photographs, all of them licensed bank photos of real people in real work settings, each approved by the operator one by one on the prototype (gate 3). NO model-generated image is in this manifest and none may enter (foundation §9). FASE 4 pruning (2026-09-08): the manifest lists only what the v6 renders. Fourteen rows left with their .webp, thirteen inherited from the v5 areas (facturacion, rh, nomina, marketing, comercio-exterior, operaciones, logistica, calidad, sistemas, servicio, legal, direccion, implementacion) and `hero`, the Gemini-generated mountaineer of the v5, which is the reason this file no longer says that a generated image may be kept for any purpose. No photograph that stands for an industry carries a visible company logo or foreign-language branding (HQA-D163).",
+  "_": "The photo manifest. One row per photo the site renders: slug (the name the code asks for), file (the original in --src), ladoLargo (the long edge in px when it is not the default), alt text in both locales, and origen (bank, author, id, licence and the date and row it was chosen under). The originals live OUTSIDE the repo (~/Desktop/osppy-fotos by default) and .gitignore blocks *.jpg under public/photos. Run: node scripts/optimize-photos.mjs [--src <dir>]. No credits file: the Unsplash and Pexels licenses ask for attribution and do not require it; the author slug and the photo id stay in `file` and in `origen`, which is where traceability belongs. v6 (2026-09-08, HQA-D137): the site is largely photographs, all of them licensed bank photos of real people in real work settings, each approved by the operator one by one on the prototype (gate 3). NO model-generated image is in this manifest and none may enter (foundation §9). FASE 4 pruning (2026-09-08): the manifest lists only what the v6 renders. Fourteen rows left with their .webp, thirteen inherited from the v5 areas (facturacion, rh, nomina, marketing, comercio-exterior, operaciones, logistica, calidad, sistemas, servicio, legal, direccion, implementacion) and `hero`, the Gemini-generated mountaineer of the v5, which is the reason this file no longer says that a generated image may be kept for any purpose. No photograph that stands for an industry carries a visible company logo or foreign-language branding (HQA-D163). Calidad (2026-09-08, HQA-D168): el tope de la tubería pasó a 3200 px de lado largo y la calidad WebP a 82, porque el sitio muestra la mayoría de las fotos a sangre y 1600 dejaba media resolución en una pantalla de densidad doble; las catorce filas que traían ladoLargo 2400 lo perdieron, porque ahora las frenaría, y el campo sigue siendo el mecanismo para una excepción. Dos originales no llegan a 3200 y withoutEnlargement los deja en su tamaño nativo: hablemos (2400, que se muestra a 568 puntos y le sobra) y comercio-contenedores (3008, suficiente para 1440 a densidad doble). El tercero que se quedaba corto era contabilidad, y por eso se reemplazó.",
   "photos": [
     {
       "slug": "contabilidad",
-      "file": "carlos-muza-hpjSkU2UYSU-unsplash.jpg",
-      "altEs": "Una laptop abierta con un panel de cifras y gráficas",
-      "altEn": "An open laptop showing a dashboard of figures and charts"
+      "file": "yan-krukau-7693745-pexels.jpg",
+      "altEs": "Dos colegas revisan juntos un reporte de gráficas impreso sobre la mesa",
+      "altEn": "Two colleagues going over a printed chart report together at the table",
+      "origen": "Pexels, Yan Krukau, 7693745. Licencia Pexels, libre. Elegida por el operador el 2026-09-08 (HQA-D168) para el área Datos, entre tres candidatas, en reemplazo de la laptop con un panel de cifras (Carlos Muza, Unsplash, hpjSkU2UYSU): esa no tenía personas y era una pantalla de software como imagen, que el §2 del sistema visual prohíbe, y su original se quedaba en 2426 px. Descartadas: la pizarra con gráficas (Karola G, 7876388) porque traía la marca StockCharts.com a la vista, y las dos laptops con dashboards (Mikael Blomkvist, 6476261) por ser otra vez pantalla de software."
     },
     {
       "slug": "compras",
@@ -41,15 +42,13 @@
       "slug": "asesoria",
       "file": "jud-mackrill-Of_m3hMsoAA-unsplash.jpg",
       "altEs": "Cuatro personas conversando frente a una laptop",
-      "altEn": "Four people talking around a laptop",
-      "ladoLargo": 2400
+      "altEn": "Four people talking around a laptop"
     },
     {
       "slug": "quienes",
       "file": "vitaly-gariev-0iTp1WNlMGc-unsplash.jpg",
       "altEs": "Dos colegas conversan sobre un documento en una oficina, con un pizarrón al fondo",
-      "altEn": "Two colleagues talk over a document in an office, with a chalkboard behind them",
-      "ladoLargo": 2400
+      "altEn": "Two colleagues talk over a document in an office, with a chalkboard behind them"
     },
     {
       "slug": "hablemos",
@@ -60,7 +59,6 @@
     {
       "slug": "recibimiento",
       "file": "manuel-guillen-vega-15104303-pexels.jpg",
-      "ladoLargo": 2400,
       "altEs": "Una mujer sonríe de pie en una oficina; detrás, su equipo trabaja en sus computadoras",
       "altEn": "A woman smiles standing in an office; behind her, her team works at their computers",
       "origen": "Pexels, Manuel Guillén Vega, 15104303 (Managua). Licencia Pexels, libre. Elegida el 2026-09-08 tras HQA-D148 (persona latinoamericana, pantalla completa); sustituye a mailchimp-M7HM8VgYxW4, que el operador no aprobó."
@@ -68,7 +66,6 @@
     {
       "slug": "ia-asistente",
       "file": "matheus-bertelli-16094042-pexels.jpg",
-      "ladoLargo": 2400,
       "altEs": "Una persona escribe en su laptop con un asistente de inteligencia artificial abierto en la pantalla",
       "altEn": "Someone types on a laptop with an artificial intelligence assistant open on the screen",
       "origen": "Pexels, Matheus Bertelli, 16094042. Licencia Pexels, libre. Elegida por el operador el 2026-09-08 (HQA-D158, D159) para Inteligencia artificial: una persona real con una herramienta de IA en pantalla, sin robots ni brillos; sustituye a sistemas (priscilla-du-preez-OEdkPaxYMXU)."
@@ -76,7 +73,6 @@
     {
       "slug": "nube-racks",
       "file": "christina-morillo-1181341-pexels.jpg",
-      "ladoLargo": 2400,
       "altEs": "Una ingeniera revisa una laptop junto a los racks de un centro de datos",
       "altEn": "An engineer checks a laptop beside the racks of a data center",
       "origen": "Pexels, Christina Morillo, 1181341. Licencia Pexels, libre. Elegida por el operador el 2026-09-08 (HQA-D158, D159) para Nube: una persona operando infraestructura real; sustituye a implementacion (alex-kotliarskyi-QBpZGqEMsKg)."
@@ -84,7 +80,6 @@
     {
       "slug": "producto-pared",
       "file": "christina-morillo-1181487-pexels.jpg",
-      "ladoLargo": 2400,
       "altEs": "Una diseñadora explica los bocetos de las pantallas de una aplicación pegados en la pared",
       "altEn": "A designer walks through sketches of an app's screens pinned to the wall",
       "origen": "Pexels, Christina Morillo, 1181487. Licencia Pexels, libre. Elegida por el operador el 2026-09-08 (HQA-D158, D159) para Producto digital: un equipo diseñando el producto en la pared; sustituye a calidad (thisisengineering-ZPeXrWxOjRQ)."
@@ -92,7 +87,6 @@
     {
       "slug": "automotriz-motor",
       "file": "chevanon-1108101-pexels.jpg",
-      "ladoLargo": 2400,
       "altEs": "Una ingeniera con casco trabaja sobre una pieza de motor en un taller industrial",
       "altEn": "An engineer in a hard hat works on an engine part in an industrial workshop",
       "origen": "Pexels, Chevanon Photography, 1108101. Licencia Pexels, libre. Elegida por el operador el 2026-09-08 (HQA-D162) para la industria automotriz, entre dos candidatas."
@@ -100,7 +94,6 @@
     {
       "slug": "logistica-escaner",
       "file": "tiger-lily-4484154-pexels.jpg",
-      "ladoLargo": 2400,
       "altEs": "Un trabajador de almacén escanea un tambo con un lector y una tableta",
       "altEn": "A warehouse worker scans a drum with a reader and a tablet",
       "origen": "Pexels, Tiger Lily, 4484154. Licencia Pexels, libre. Elegida por el operador el 2026-09-08 (HQA-D162) para la industria logística, entre dos candidatas."
@@ -108,7 +101,6 @@
     {
       "slug": "construccion-planos",
       "file": "mikael-blomkvist-8961146-pexels.jpg",
-      "ladoLargo": 2400,
       "altEs": "Dos ingenieros revisan planos en una obra",
       "altEn": "Two engineers go over drawings on a building site",
       "origen": "Pexels, Mikael Blomkvist, 8961146. Licencia Pexels, libre. Elegida por el operador el 2026-09-08 (HQA-D162) para la industria construcción, entre dos candidatas."
@@ -116,7 +108,6 @@
     {
       "slug": "comercio-contenedores",
       "file": "simon-r-minshall-28438355-pexels.jpg",
-      "ladoLargo": 2400,
       "altEs": "Un trabajador portuario asegura contenedores en un buque",
       "altEn": "A port worker secures containers on a ship",
       "origen": "Pexels, Simon R Minshall, 28438355. Licencia Pexels, libre. Elegida por el operador el 2026-09-08 (HQA-D162) para la industria comercio exterior, entre dos candidatas."
@@ -124,7 +115,6 @@
     {
       "slug": "retail-tableta",
       "file": "silverkblack-36730435-pexels.jpg",
-      "ladoLargo": 2400,
       "altEs": "Una empleada revisa una tableta entre los percheros de una tienda de ropa",
       "altEn": "A store employee checks a tablet between the racks of a clothing shop",
       "origen": "Pexels, Vitaly Gariev, 36730435. Licencia Pexels, libre. Elegida por el operador el 2026-09-08 (HQA-D162) para la industria retail, entre dos candidatas."
@@ -132,7 +122,6 @@
     {
       "slug": "farmaceutica-planta",
       "file": "elementsinteractive-38688812-pexels.jpg",
-      "ladoLargo": 2400,
       "altEs": "Personal con traje estéril dentro de una planta farmacéutica",
       "altEn": "Staff in sterile suits inside a pharmaceutical plant",
       "origen": "Pexels, Elements Interactive, 38688812. Licencia Pexels, libre. Elegida por el operador el 2026-09-08 (HQA-D162) para la industria farmacéutica, entre dos candidatas."
@@ -140,7 +129,6 @@
     {
       "slug": "agricultura-cosecha",
       "file": "nc-farm-bureau-9798992-pexels.jpg",
-      "ladoLargo": 2400,
       "altEs": "Cuadrillas cosechan en un campo abierto, con los camiones de carga al fondo",
       "altEn": "Crews harvest an open field, with the trucks in the background",
       "origen": "Pexels, Mark Stebnicki, 9798992. Licencia Pexels, libre. Elegida por la sesión el 2026-09-08 tras HQA-D162 (el operador pidió una foto que se lea como agricultura en lugar del campo de agave)."
@@ -148,7 +136,6 @@
     {
       "slug": "manufactura-maquina",
       "file": "kateryna-babaieva-2995864-pexels.jpg",
-      "ladoLargo": 2400,
       "altEs": "Un operario revisa una pieza grande montada en un torno, dentro de una planta",
       "altEn": "A worker checks a large part mounted on a lathe inside a plant",
       "origen": "Pexels, Kateryna Babaieva, 2995864. Licencia Pexels, libre. Elegida el 2026-09-08 (HQA-D163) para la industria manufactura, tras descartar la de los tres operarios con tableta (Sergey Sergeev, 32845690: cascos con el logo de una acerera rusa) y la del operario frente a la máquina grande (Rolled Alloys Specialty Metal Supplier, 8973132: el nombre de la empresa en la grúa). Regla: sin logos ni marcas de empresa a la vista en una foto que representa una industria."

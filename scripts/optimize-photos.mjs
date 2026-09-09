@@ -4,18 +4,34 @@
 // from --src (default ~/Desktop/osppy-fotos, outside the repo — the 26 files
 // weigh 91 MB and none of them belongs in git) and writes:
 //
-//   public/photos/<slug>.webp      long edge 1600, quality 78
+//   public/photos/<slug>.webp      long edge 3200, quality 82
 //   lib/photos.generated.ts        slug -> { src, width, height, blurDataURL, altEs, altEn }
 //
 // One size per photo on purpose: next/image derives the rest, and AVIF on
 // Vercel. 1600 was sized as twice the widest box a photo was rendered in
 // (the areas frame is ~600 CSS px), so a 2400 master would be bytes nobody
-// downloads and megabytes everybody clones. The v6 (2026-09-08) renders
-// several photos full-bleed or nearly so, where 1600 is NOT twice the box:
-// those rows carry their own `ladoLargo` (2400) in the manifest instead of
-// raising the ceiling for all. FASE 4 pruning: `hero`, the v5 mountaineer
-// generated with a model, left the manifest and public/photos; no
-// model-generated image enters this pipeline (foundation §9, HQA-D137).
+// downloads and megabytes everybody clones. That reasoning died on
+// 2026-09-08, when the v6 began showing most photographs full-bleed
+// (HQA-D151, D152, D155): a full-bleed photo at 1440 CSS px on a
+// double-density screen needs 2880 REAL pixels, so 1600 handed the screen
+// half the resolution it asked for, and five area photos were still at that
+// ceiling. What the operator saw as softness was that, plus a second
+// compression: this file wrote WebP at 78 and Vercel re-encoded it to AVIF
+// at the quality the page asks for, which was the default 75.
+//
+// Since HQA-D168 (2026-09-08) the ceiling is 3200 and the quality 82, and
+// the pages that show a photo large ask the optimizer for 90 (the
+// `qualities` list in next.config.ts, and `quality={90}` in `Photo`,
+// `areas-hover` and `industrias-carrusel`). Measured on the welcome photo:
+// 141 kB at 2400/78, 242 kB at 2400/88, 276 kB at 3200/82, 417 kB at
+// 3200/88. The per-row `ladoLargo` stays as the mechanism for an exception,
+// but no row carries it any more: the fourteen that held 2400 would now be
+// capped BELOW the ceiling instead of above it. Three originals do not
+// reach 3200 and `withoutEnlargement` leaves them at their native size.
+//
+// FASE 4 pruning: `hero`, the v5 mountaineer generated with a model, left
+// the manifest and public/photos; no model-generated image enters this
+// pipeline (foundation §9, HQA-D137).
 //
 // The blur placeholder is a 16 px WebP inlined as a data URI — the same
 // trick next/image's static import does, done by hand because these images
@@ -42,8 +58,8 @@ const arg = (name, fallback) => {
 const SRC = resolve(arg("src", join(homedir(), "Desktop", "osppy-fotos")));
 const ONLY = arg("only", null)?.split(",");
 const OUT = join(root, "public", "photos");
-const LONG_EDGE = 1600;
-const QUALITY = 78;
+const LONG_EDGE = 3200;
+const QUALITY = 82;
 
 const manifest = JSON.parse(readFileSync(join(here, "photos.manifest.json"), "utf8"));
 const rows = manifest.photos.filter((r) => !ONLY || ONLY.includes(r.slug));
