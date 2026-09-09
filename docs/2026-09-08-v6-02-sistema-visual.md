@@ -128,6 +128,21 @@ medido intacto (D150, D151, D157). El color de tema del navegador del teléfono 
 - **Fondos:** la línea gruesa (`Ribbon`) solo, tenue, detrás de los cuatro pasos (variante b, 0.22) y de
   "Hablemos" (variante a, 0.2); las formas suaves (`Shapes`) detrás de los bloques de la historia y de "Lo que
   ya opera". Nada de esto baja el contraste de un texto.
+- **El numeral fantasma detrás de las cuatro etapas (nota del 2026-09-09, HQA-D183):** cada etapa del método
+  lleva su cifra en grande, en la display al 4.5 % del color de texto, detrás del bloque y saliéndose de él. Es
+  el recurso de la página de Diana Hoteles, borrada del árbol con el lienzo en blanco y viva en el commit
+  `34b0767` (`components/hoteles/Problema.tsx`). Vuelve con dos cambios. **Quieto:** la v5 lo movía con el
+  scroll usando `motion/react`, que este sitio no trae. **Medido contra la columna y no contra la ventana:** la
+  caja pasó de una fila a todo lo ancho a una pista de una rejilla de cuatro (270 px arriba de 1280 px, 206 px
+  en 1024, 324 px en 768, casi toda la pantalla en el teléfono), así que el `22vw` de la v5 se comía a las
+  vecinas; el `<li>` es `@container` y la cifra mide `clamp(9rem, 85cqw, 18rem)`, es decir 0.85 del ancho de su
+  propia columna, lo que la deja 1.09 veces más ancha que la pista y le hace cruzar la línea de arriba 40 px en
+  los tres anchos. **La cifra no es texto:** viaja en `data-num` y la pinta `after:content-[attr(data-num)]`,
+  con `aria-hidden` y `select-none`, de modo que no entra al árbol accesible, no se selecciona y no aparece si
+  alguien extrae el texto de la página; lo cuida una prueba. **La opacidad es una sola para los dos temas, y
+  está medida:** 0.045 da 1.097:1 en claro (tinta sobre lino) y 1.096:1 en oscuro (blanco sobre negro), así que
+  un valor por tema no tenía nada que corregir. El numerito chico en azul se queda: el fantasma se suma, no
+  sustituye. La cinta no se tocó.
 - **Regla de construcción:** `min-h` y `overflow-hidden` nunca en un `<section>`; van en un `div` adentro.
   Desde HQA-D149 tres secciones pintan su propia banda, y eso ahora está permitido: `check-sections.mjs` se
   reescribió a esta regla en la FASE 4 (§6). No es teoría: un `overflow-hidden` heredado apagó el panel
