@@ -42,6 +42,12 @@
 // carries none (HQA-D78). Author and photo id stay in the manifest's `file`,
 // which is where traceability belongs.
 //
+// A row may also carry `recorte` ({ izquierda, arriba, ancho, alto } in
+// fractions of the original, 0..1), applied before the resize. Added
+// 2026-09-08 for HQA-D182, when the operator asked that the Nube photograph
+// come closer on the hands and the laptop with the racks weighing more: CSS
+// can move the frame but cannot zoom, and the original is not to be edited.
+//
 //   node scripts/optimize-photos.mjs [--src <dir>] [--only <slug,slug>]
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
@@ -74,6 +80,37 @@ if (!existsSync(SRC)) {
 
 mkdirSync(OUT, { recursive: true });
 
+// `recorte` (2026-09-08, HQA-D182): a row may crop its original BEFORE the
+// resize. `object-position` in the CSS moves the frame inside the box; it does
+// not zoom, and the operator asked for a photograph to come closer, so the crop
+// has to happen here. The box is written in FRACTIONS of the original
+// ({ izquierda, arriba, ancho, alto }, each 0..1) and not in pixels, so the row
+// keeps meaning if the original is ever replaced by a bigger scan of the same
+// photograph, and so the crop can be read without opening the file. The
+// original itself is never touched: it stays in ~/Desktop/osppy-fotos exactly
+// as the bank served it, which is what makes the crop reproducible and
+// reversible. Rounded to whole pixels and clamped to the image, so a row that
+// asks for a fraction of a pixel or overruns the edge crops to the edge
+// instead of throwing.
+async function cajaDeRecorte(from, row) {
+  const { izquierda = 0, arriba = 0, ancho = 1, alto = 1 } = row.recorte;
+  for (const [k, v] of Object.entries({ izquierda, arriba, ancho, alto })) {
+    if (typeof v !== "number" || v < 0 || v > 1) {
+      console.error(`✗ ${row.slug}: recorte.${k} debe ser una fracción entre 0 y 1, llegó ${v}`);
+      process.exit(1);
+    }
+  }
+  const { width: W, height: H } = await sharp(from).rotate().metadata();
+  const left = Math.min(Math.round(izquierda * W), W - 1);
+  const top = Math.min(Math.round(arriba * H), H - 1);
+  return {
+    left,
+    top,
+    width: Math.max(1, Math.min(Math.round(ancho * W), W - left)),
+    height: Math.max(1, Math.min(Math.round(alto * H), H - top)),
+  };
+}
+
 const generated = [];
 let total = 0;
 
@@ -88,7 +125,9 @@ for (const row of rows) {
   // HQA-D168 raised the default to 3200: a row asking for less would now cap
   // the photograph from below. The field stays for the exception to come.
   const longEdge = row.ladoLargo ?? LONG_EDGE;
-  const pipeline = sharp(from).rotate().resize({
+  const base = sharp(from).rotate();
+  const recortado = row.recorte ? base.extract(await cajaDeRecorte(from, row)) : base;
+  const pipeline = recortado.resize({
     width: longEdge,
     height: longEdge,
     fit: "inside",
