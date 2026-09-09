@@ -81,3 +81,16 @@ test("una tarjeta de industria abre su página con el ratón, y arrastrar el car
   await expect(page).toHaveURL(/\/es\/industrias\/manufactura$/);
   await expect(page.locator("h1")).toContainText("Cómo ayudamos a la manufactura");
 });
+
+test("el numeral gigante del método es atmósfera, no contenido", async ({ page }) => {
+  await page.goto("/es");
+  const fantasmas = page.locator("#metodo span[data-num]");
+  await expect(fantasmas).toHaveCount(4);
+  // no es texto del documento: la cifra viaja en data-num y la pinta ::after
+  for (const el of await fantasmas.all()) {
+    await expect(el).toHaveText("");
+    await expect(el).toHaveAttribute("aria-hidden", "true");
+  }
+  // y no entra al árbol accesible del método
+  expect(await page.locator("#metodo").ariaSnapshot()).not.toMatch(/0[1-4]/);
+});
